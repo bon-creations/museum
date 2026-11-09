@@ -244,6 +244,12 @@ h2{font-size:20px;margin-bottom:12px}
 <svg class="corner c3" aria-hidden="true"><use href="#corner"/></svg>
 <svg class="corner c4" aria-hidden="true"><use href="#corner"/></svg>
 <main>
+<section aria-labelledby="wp2">
+<h2 id="wp2"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">宣伝ポスター</span></h2>
+<div class="gl-lead zintro"><p>博物館の宣伝ポスター(A4)なのだ！ QRコードから、スマホでそのまま博物館に来られるぞ。印刷して、飾ったり、配ったりしてくれると嬉しいのである！</p><p class="small">印刷は、A4・原寸大(300dpi)でどうぞ。</p></div>
+<div class="grid" style="display:grid;gap:18px"><article class="sheet" style="--c:#55602A;border-color:#55602A"><h3 style="margin:0;color:#55602A">BON MUSEUM 宣伝ポスター<span class="chip" style="margin-left:6px">A4</span></h3><div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap"><img src="poster_bc_a4_s.jpg" alt="BON MUSEUM 宣伝ポスター(A4)" width="210" height="297" loading="lazy" style="width:210px;height:auto;border-radius:10px"></div><div class="tags" style="gap:8px"><a class="go dl" style="font-size:15px;padding:9px 14px" href="poster_bc_a4.jpg" download>ポスター(A4)</a></div></article></div>
+</section>
+
 <div class="band" aria-hidden="true"></div>
 <header>
 <a class="back" href="index.html">← 博物館に戻る</a>
@@ -286,7 +292,20 @@ function run(){b.textContent=t.textContent="更新中…";b.disabled=t.disabled=
 try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go()}}
 b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
+<script>(function(){var ua=navigator.userAgent||"",sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;var mob=/iPhone|iPad|iPod|Android/i.test(ua)||(navigator.maxTouchPoints>1&&/Mac/.test(ua));if(!sa&&!mob)return;
+var ov=null;function close(){if(ov){ov.remove();ov=null}}
+function open(src,name){close();ov=document.createElement("div");ov.className="bmov";ov.style.cssText="position:fixed;inset:0;z-index:10000;background:#2E241C;display:flex;flex-direction:column;overflow:auto";
+var bar=document.createElement("div");bar.style.cssText="position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:max(10px,env(safe-area-inset-top)) 14px 10px;background:#2E241C";
+var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText="white-space:nowrap;flex:none;min-height:46px;padding:0 20px;border-radius:999px;border:2px solid #FFF8EA;background:#FFF8EA;color:#2E241C;font:700 17px/1 sans-serif;cursor:pointer";
+var tx=document.createElement("span");tx.textContent="画像を長押しして「写真に保存」してね";tx.style.cssText="color:#FFF8EA;font:14px/1.4 sans-serif";bar.appendChild(bk);bar.appendChild(tx);
+var im=document.createElement("img");im.src=src;im.alt=name||"";im.style.cssText="display:block;max-width:100%;height:auto;margin:6px auto max(24px,env(safe-area-inset-bottom));background:#FFF8EA;-webkit-touch-callout:default;-webkit-user-select:auto;user-select:auto";
+var bk2=bk.cloneNode(true);bk2.style.margin="0 auto max(24px,env(safe-area-inset-bottom))";bk2.style.display="block";
+ov.appendChild(bar);ov.appendChild(im);ov.appendChild(bk2);document.body.appendChild(ov);
+try{history.pushState({bmov:1},"")}catch(e){}
+bk.onclick=bk2.onclick=function(){try{if(history.state&&history.state.bmov){history.back();return}}catch(e){}close()}}
+window.addEventListener("popstate",close);
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.dl");if(!a)return;try{window.bmStamp&&bmStamp.add("wall")}catch(x){}e.preventDefault();e.stopImmediatePropagation();open(a.getAttribute("href"),a.textContent)},true)})();</script>
 <script src="bgm.js"></script>
-<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas")&&!t.closest(".bmov"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>
