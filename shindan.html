@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="ボンちゃんの小さな博物館">
 <meta property="og:title" content="ボン診断｜ボンちゃんの小さな博物館">
 <meta property="og:description" content="8つの質問に答えると、あなたに似ているボンがわかるよ。にじボンのコメントつき。">
-<meta property="og:url" content="https://bonkurarin.github.io/bon-museum/shindan.html">
-<meta property="og:image" content="https://bonkurarin.github.io/bon-museum/ogp_shindan.png">
+<meta property="og:url" content="https://bon-creations.github.io/museum/shindan.html">
+<meta property="og:image" content="https://bon-creations.github.io/museum/ogp_shindan.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ボン診断｜ボンちゃんの小さな博物館">
 <meta name="twitter:description" content="8つの質問に答えると、あなたに似ているボンがわかるよ。にじボンのコメントつき。">
-<meta name="twitter:image" content="https://bonkurarin.github.io/bon-museum/ogp_shindan.png">
+<meta name="twitter:image" content="https://bon-creations.github.io/museum/ogp_shindan.png">
 <meta property="og:site_name" content="ボンちゃんの小さな博物館">
 <title>ボン診断</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&display=swap">
@@ -265,7 +265,7 @@ h2{font-size:20px;margin-bottom:12px}
 <div id="shR" class="sheet" style="display:none;gap:10px" aria-live="polite"></div>
 </section>
 <div class="band" aria-hidden="true"></div>
-<footer><div><div><b>かんがえた ひと</b>　ボンちゃん</div><div class="fine">© ボンちゃん</div></div></footer>
+<footer><div><div><b>かんがえた ひと</b>　BON CREATIONS</div><div class="fine">© BON CREATIONS</div></div></footer>
 <p style="margin:24px 0 8px"><a class="back" href="index.html">← 博物館に戻る</a></p>
 </main>
 <script src="stamp.js"></script>
@@ -285,7 +285,7 @@ try{window.bmStamp&&bmStamp.add("shindan")}catch(e){}
 var mx=sc[list[0]]||1;var bars="";list.forEach(function(k){bars+='<div style="font-size:14px;display:grid;grid-template-columns:6.5em 1fr;gap:8px;align-items:center"><span>'+esc(BON[k].n)+'</span><div class="shbar" style="--c:'+BON[k].c+'"><i style="width:'+Math.round(sc[k]/mx*100)+'%"></i></div></div>'});
 elQ.style.display="none";elR.style.display="flex";elR.className="sheet shr";elR.style.setProperty("--c",B.c);elR.style.borderColor=B.c;
 elR.innerHTML='<p class="shp">あなたは……</p><h3 style="color:'+B.c+'">'+esc(B.n)+' <span class="chip" style="background:'+B.c+';font-size:13px">'+esc(B.col)+'</span></h3><p><b>'+esc(B.t)+'</b></p><img src="'+IMG[top]+'" alt="'+esc(B.n)+'">'+'<p>'+esc(B.d)+'</p><p class="say2"><b>にじボン</b>「'+esc(B.j)+'」</p><p class="small">すきなもの: '+esc(B.food)+'</p><p class="small">つぎに近いのは「'+esc(B2.n)+'」だよ。</p>'+bars+'<div class="shrow"><button type="button" class="go" id="shImg">結果の画像をほぞん</button><a class="go" id="shX" target="_blank" rel="noopener">Xでシェア</a><button type="button" class="go" id="shCp">リンクをコピー</button><button type="button" class="go" id="shAg">もういちど</button></div><p class="small" id="shMsg"></p>';
-var url="https://bonkurarin.github.io/bon-museum/shindan.html";var tx="ボン診断の結果は「"+B.n+"」でした！ ("+B.t+") #ボンちゃんの小さな博物館";
+var url="https://bon-creations.github.io/museum/shindan.html";var tx="ボン診断の結果は「"+B.n+"」でした！ ("+B.t+") #ボンちゃんの小さな博物館";
 document.getElementById("shX").href="https://twitter.com/intent/tweet?text="+encodeURIComponent(tx)+"&url="+encodeURIComponent(url);
 document.getElementById("shCp").onclick=function(){var m=document.getElementById("shMsg");try{navigator.clipboard.writeText(tx+" "+url).then(function(){m.textContent="コピーしました"},function(){m.textContent="コピーできませんでした"})}catch(e){m.textContent="コピーできませんでした"}};
 document.getElementById("shAg").onclick=function(){qi=0;OR.forEach(function(k){sc[k]=0});elR.style.display="none";elQ.style.display="";showQ();window.scrollTo(0,0)};
@@ -298,7 +298,7 @@ c.textAlign="center";c.fillStyle="#2E241C";c.font="bold 40px sans-serif";c.fillT
 c.fillStyle=B.c;c.font="bold 96px sans-serif";c.fillText(B.n,W/2,310);c.fillStyle="#2E241C";c.font="bold 36px sans-serif";c.fillText(B.t,W/2,372);
 var im=new Image();im.onload=function(){var h=560,w=im.width*h/im.height;if(w>700){w=700;h=im.height*w/im.width}c.drawImage(im,(W-w)/2,410,w,h);
 c.textAlign="left";c.fillStyle="#2E241C";c.font="34px sans-serif";var y=wrap(c,B.d,110,1030,W-220,50);
-c.textAlign="center";c.fillStyle="#7A2434";c.font="bold 30px sans-serif";c.fillText("ボンちゃんの小さな博物館",W/2,H-100);c.fillStyle="#5B4C3E";c.font="26px sans-serif";c.fillText("bonkurarin.github.io/bon-museum",W/2,H-60);
+c.textAlign="center";c.fillStyle="#7A2434";c.font="bold 30px sans-serif";c.fillText("ボンちゃんの小さな博物館",W/2,H-100);c.fillStyle="#5B4C3E";c.font="26px sans-serif";c.fillText("bon-creations.github.io/museum",W/2,H-60);
 cv.toBlob(function(b){var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="bon-shindan-"+k+".png";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)})};im.src=IMG[k]}
 showQ();
 })();
