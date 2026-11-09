@@ -231,6 +231,7 @@ h2{font-size:20px;margin-bottom:12px}
 .shr h3{font-size:24px;margin:0} .shr img{display:block;margin:0 auto;max-width:70%;height:auto;max-height:260px;object-fit:contain}
 .shrow{display:flex;gap:8px;flex-wrap:wrap} .shr .go{font-size:17px;padding:11px 18px;cursor:pointer}
 .shbar{height:10px;border-radius:5px;background:var(--ochre-soft);overflow:hidden;margin:4px 0}.shbar i{display:block;height:100%;background:var(--c,#7A2434)}
+/* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
 </style>
 </head>
 <body>
@@ -313,5 +314,6 @@ try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go(
 b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
 <script src="bgm.js"></script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>

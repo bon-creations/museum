@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261109-2">
+<meta name="site-version" content="20261109-7">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -238,6 +238,7 @@ h2{font-size:20px;margin-bottom:12px}
 .back:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
 .newb{display:inline-block;margin-left:8px;padding:0 9px;font-size:12px;line-height:20px;font-weight:700;letter-spacing:.08em;color:#fff;border-radius:999px;vertical-align:middle;background:linear-gradient(90deg,#d8405c,#e8862a,#c9a41a,#3f9a4a,#2d78c8,#7a52c8);text-shadow:0 1px 0 rgba(0,0,0,.25)}
 .oshi{margin:8px 0;padding:8px 12px;border-radius:10px;font-weight:700;font-size:15px;line-height:1.6;color:#fff;background:linear-gradient(100deg,#d8405c,#e8862a 25%,#c9a41a 45%,#3f9a4a 65%,#2d78c8 85%,#7a52c8);text-shadow:0 1px 0 rgba(0,0,0,.3)}
+/* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <defs>
@@ -430,5 +431,6 @@ b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
 <script src="stamp.js"></script>
 <script src="bgm.js"></script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>

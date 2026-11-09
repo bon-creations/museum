@@ -1,5 +1,6 @@
 /* BON MEMORIA: サイト共通BGM。初期はオフ。再生状態と位置はlocalStorageで引き継ぐ */
 (function(){
+if(!window.bmStamp){var ss=document.createElement("script");ss.src="stamp.js";document.head.appendChild(ss)}
 if(window.bmBgm)return;
 var K="bm-bgm",a=new Audio();a.src="bgm.mp3";a.loop=true;a.preload="none";a.volume=(typeof ld().v==="number")?ld().v:.6;
 function ld(){try{return JSON.parse(localStorage.getItem(K))||{}}catch(e){return{}}}

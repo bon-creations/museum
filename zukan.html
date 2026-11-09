@@ -224,7 +224,8 @@ h2{font-size:20px;margin-bottom:12px}
 .nbon{float:right;height:120px;width:auto;margin:0 0 6px 10px;shape-outside:margin-box}
 .nbon-cap{display:block;clear:none}
 @media(max-width:380px){.nbon{height:100px}}
-.zk .zposes{flex-wrap:nowrap}.zk .zposes img{max-width:23%;height:120px;width:auto;object-fit:contain}.zk.zk .zposes img{max-width:23%;height:auto;width:auto}@media (max-width:520px){.zk.zk .zposes img{height:auto;max-width:23%}}.zk .zslot>img.zimg{height:260px;width:auto;max-width:none}@media (max-width:520px){.zk.zk .zslot>img.zimg{height:240px;max-width:75%}}.zk .zslot.zpair{gap:6px}.zk .zslot.zpair>img.zimg{height:240px;width:auto;max-width:none}@media (max-width:520px){.zk.zk .zslot.zpair{justify-content:center;flex-wrap:nowrap}.zk.zk .zslot.zpair>img.zimg{height:auto;width:auto;max-width:48%;max-height:240px}}</style>
+.zk .zposes{flex-wrap:nowrap}.zk .zposes img{max-width:23%;height:120px;width:auto;object-fit:contain}.zk.zk .zposes img{max-width:23%;height:auto;width:auto}@media (max-width:520px){.zk.zk .zposes img{height:auto;max-width:23%}}.zk .zslot>img.zimg{height:260px;width:auto;max-width:none}@media (max-width:520px){.zk.zk .zslot>img.zimg{height:240px;max-width:75%}}.zk .zslot.zpair{gap:6px}.zk .zslot.zpair>img.zimg{height:240px;width:auto;max-width:none}@media (max-width:520px){.zk.zk .zslot.zpair{justify-content:center;flex-wrap:nowrap}.zk.zk .zslot.zpair>img.zimg{height:auto;width:auto;max-width:48%;max-height:240px}}/* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -338,5 +339,6 @@ b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
 <script src="stamp.js"></script>
 <script src="bgm.js"></script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>

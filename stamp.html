@@ -231,6 +231,7 @@ h2{font-size:20px;margin-bottom:12px}
 .stc.on{border:2.5px solid var(--c);color:var(--ink);background:var(--card)}
 .stc.on .st{border:3px solid var(--c);background:var(--c);color:#fff;transform:rotate(-8deg)}
 .stc small{display:block;font-size:11px;color:var(--mute)}
+/* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
 </style>
 </head>
 <body>
@@ -290,5 +291,6 @@ try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go(
 b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
 <script src="bgm.js"></script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>
