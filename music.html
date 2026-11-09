@@ -204,6 +204,7 @@ h2{font-size:20px;margin-bottom:12px}
 .parade button:nth-child(8) img{animation-delay:1.75s}
 .back{display:inline-flex;align-items:center;gap:6px;color:var(--khaki);text-decoration:none;font-size:16px;margin-bottom:10px;padding:6px 0;min-height:44px}
 .back:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
+/* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <defs>
@@ -345,5 +346,6 @@ b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
 <script src="stamp.js"></script>
 <script src="bgm.js"></script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>
