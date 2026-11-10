@@ -276,7 +276,7 @@ h2{font-size:20px;margin-bottom:12px}
 var S=window.bmStamp;if(!S)return;var COL=["#C8402F","#E0A21F","#2F3B7C","#3F7B4C","#7A4DB0","#D4527F","#A8336A"];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function R(n,t){if(n>=t)return "我輩が館長の座を譲りたいほどである！ 全部そろえた者は、お主が初めてかもしれぬぞ！ ……おめでとう！";if(n>=14)return "もはや立派な常連である！ ほぼ全部そろっておるぞ。あと少し、探してみるがよい！";if(n>=8)return "なかなかの見学者ぶりである！ 館内を、よく歩いておるな。";if(n>=3)return "うむ、順調である！ 気になる所から見てまわるがよい。";return "まずは、あちこち覗いてみるがよい。スタンプは自然に押されていくぞ！"}
-function draw(){var L=S.list,o=S.all(),n=S.count();document.getElementById("stCount").innerHTML="<b>"+n+"</b> / "+L.length+" こ";document.getElementById("stRank").innerHTML="<b>にじボン</b>「"+R(n,L.length)+"」";
+function draw(){var L=S.list,o=S.all(),n=S.count();document.getElementById("stCount").innerHTML="<b>"+n+"</b> / "+L.length+" こ";function TT(n,t){return n>=t?"ボン博物館の名誉館員":n>=14?"常連さん":n>=8?"なかよし見学者":n>=4?"見習い見学者":n>=1?"はじめての来館者":"これから来る人"}document.getElementById("stRank").innerHTML="<div style=\"margin-bottom:6px\">称号:<b>"+TT(n,L.length)+"</b></div><b>にじボン</b>「"+R(n,L.length)+"」";
 var h="";L.forEach(function(x,i){var on=!!o[x[0]];var d=on?new Date(o[x[0]]):null;h+='<div class="stc'+(on?' on':'')+'" style="--c:'+COL[i%7]+'" title="'+esc(x[2])+'"><div class="st">'+(on?"★":"？")+'</div><div>'+esc(x[1])+'</div>'+(on?'<small>'+(d.getMonth()+1)+"/"+d.getDate()+'</small>':'<small>'+esc(x[2])+'</small>')+'</div>'});document.getElementById("stGrid").innerHTML=h}
 var armed=false;document.getElementById("stReset").onclick=function(){var m=document.getElementById("stMsg");if(!armed){armed=true;m.textContent="もう一度押すと、全部消えるよ";setTimeout(function(){armed=false;m.textContent=""},4000);return}S.reset();armed=false;m.textContent="消しました";draw()};
 draw();
@@ -294,5 +294,7 @@ b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
 <script src="bgm.js"></script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
+<script>(function(){try{var f=document.querySelector("footer");if(!f)return;var t=document.title,u=location.href.split("#")[0];var a=document.createElement("a");a.href="https://twitter.com/intent/tweet?text="+encodeURIComponent(t)+"&url="+encodeURIComponent(u);a.target="_blank";a.rel="noopener";a.textContent="Xで このページを シェア";a.style.cssText="display:block;width:max-content;max-width:90%;margin:18px auto;padding:10px 20px;border:2px solid #5E7A1E;border-radius:999px;color:#5E7A1E;background:#fff8e8;font-weight:700;text-decoration:none;text-align:center";f.parentNode.insertBefore(a,f)}catch(e){}})();</script>
+<script src="a11y.js"></script>
 </body>
 </html>
