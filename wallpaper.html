@@ -228,6 +228,7 @@ h2{font-size:20px;margin-bottom:12px}
 </style>
 </head>
 <body>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <defs>
 <symbol id="leaf" viewBox="0 0 24 24"><path d="M4 20 C4 9 11 3 21 3 C21 13 15 20 4 20 Z" fill="currentColor" fill-opacity=".18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 19 C9 14 13 10 18 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -287,7 +288,8 @@ h2{font-size:20px;margin-bottom:12px}
 var b=document.createElement("button");b.type="button";b.textContent="↻ 更新";b.setAttribute("aria-label","ページを最新に更新");
 b.style.cssText="position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:9999;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);opacity:.92;cursor:pointer";
 var t=b.cloneNode(true);t.style.cssText="position:static;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);cursor:pointer";
-var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 12px;position:relative;z-index:9999";w.appendChild(t);
+var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 12px;position:relative;z-index:9999";if(!/(^|\/)(index\.html)?$/.test(location.pathname)){var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk)}
+w.appendChild(t);
 function run(){b.textContent=t.textContent="更新中…";b.disabled=t.disabled=true;var go=function(){location.reload()};
 try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go()}}
 b.addEventListener("click",run);t.addEventListener("click",run);
@@ -295,12 +297,14 @@ document.body.insertBefore(w,document.body.firstChild);document.body.appendChild
 <script>(function(){var ua=navigator.userAgent||"",sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;var mob=/iPhone|iPad|iPod|Android/i.test(ua)||(navigator.maxTouchPoints>1&&/Mac/.test(ua));if(!sa&&!mob)return;
 var ov=null;function close(){if(ov){ov.remove();ov=null}}
 function open(src,name){close();ov=document.createElement("div");ov.className="bmov";ov.style.cssText="position:fixed;inset:0;z-index:10000;background:#2E241C;display:flex;flex-direction:column;overflow:auto";
-var bar=document.createElement("div");bar.style.cssText="position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:max(10px,env(safe-area-inset-top)) 14px 10px;background:#2E241C";
+var bar=document.createElement("div");bar.style.cssText="position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 14px 10px;background:#2E241C";
 var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText="white-space:nowrap;flex:none;min-height:46px;padding:0 20px;border-radius:999px;border:2px solid #FFF8EA;background:#FFF8EA;color:#2E241C;font:700 17px/1 sans-serif;cursor:pointer";
-var tx=document.createElement("span");tx.textContent="画像を長押しして「写真に保存」してね";tx.style.cssText="color:#FFF8EA;font:14px/1.4 sans-serif";bar.appendChild(bk);bar.appendChild(tx);
+var tx=document.createElement("span");tx.textContent="画像を長押しして「写真に保存」してね";tx.style.cssText="color:#FFF8EA;font:13px/1.4 sans-serif;flex:1 1 100%";var up=bk.cloneNode(false);up.type="button";up.textContent="↻ 更新";up.style.background="transparent";up.style.color="#FFF8EA";
+function refresh(){up.textContent="更新中…";up.disabled=true;var go=function(){location.replace("wallpaper.html")};try{fetch("wallpaper.html",{cache:"reload"}).then(go,go)}catch(e){go()}}
+up.onclick=refresh;bar.appendChild(bk);bar.appendChild(up);bar.appendChild(tx);
 var im=document.createElement("img");im.src=src;im.alt=name||"";im.style.cssText="display:block;max-width:100%;height:auto;margin:6px auto max(24px,env(safe-area-inset-bottom));background:#FFF8EA;-webkit-touch-callout:default;-webkit-user-select:auto;user-select:auto";
-var bk2=bk.cloneNode(true);bk2.style.margin="0 auto max(24px,env(safe-area-inset-bottom))";bk2.style.display="block";
-ov.appendChild(bar);ov.appendChild(im);ov.appendChild(bk2);document.body.appendChild(ov);
+var up2=up.cloneNode(true);up2.onclick=refresh;up2.style.cssText=up.style.cssText+";margin:0 auto 6px;display:block";var bk2=bk.cloneNode(true);bk2.style.margin="0 auto max(24px,env(safe-area-inset-bottom))";bk2.style.display="block";
+ov.appendChild(bar);ov.appendChild(im);ov.appendChild(bk2);ov.appendChild(up2);document.body.appendChild(ov);
 try{history.pushState({bmov:1},"")}catch(e){}
 bk.onclick=bk2.onclick=function(){try{if(history.state&&history.state.bmov){history.back();return}}catch(e){}close()}}
 window.addEventListener("popstate",close);
