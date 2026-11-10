@@ -36,9 +36,7 @@ var yl=false;
 document.addEventListener("play",function(e){if(e.target!==a&&!a.paused){yl=true;st.on=false;sv();a.pause();ui()}},true);
 /* 曲や動画が最後まで終わったら、BGMに戻る(自分で止めたときは戻らない) */
 document.addEventListener("ended",function(e){if(e.target!==a&&yl){yl=false;go()}},true);
-/* 前のページで流していたら続きから */
-if(st.on){a.preload="auto";var t=+st.t||0;
-a.addEventListener("loadedmetadata",function(){try{if(t&&t<a.duration)a.currentTime=t}catch(e){}},{once:true});
-var p=a.play();if(p&&p.catch)p.catch(function(){var h=function(){document.removeEventListener("pointerdown",h,true);if(ld().on)go()};document.addEventListener("pointerdown",h,true)})}
+/* ページを開いたときは鳴らさない(流すのは「BON MEMORIAを流す」を押したときだけ) */
+if(st.on){st.on=false;sv()}
 window.bmBgm={play:go,stop:stop,on:function(){return !a.paused}};
 })();

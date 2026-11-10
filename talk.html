@@ -150,6 +150,7 @@ footer p{margin:0}
 
 /* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
 </style>
+<script src="theme.js"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="corner" viewBox="0 0 150 150"><path d="M150 4 C110 6 70 20 48 52 C28 80 30 118 8 146" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><g fill="currentColor" fill-opacity=".22" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M112 10 q-2 18 -22 22 q0 -18 22 -22z"/><path d="M70 30 q-14 8 -16 26 q16 -4 16 -26z"/><path d="M50 62 q14 -2 22 14 q-16 4 -22 -14z"/><path d="M38 96 q-12 6 -12 22 q14 -4 12 -22z"/></g><circle cx="132" cy="8" r="5" fill="#7A2434" fill-opacity=".85" stroke="currentColor" stroke-width="1.4"/><circle cx="20" cy="134" r="4" fill="#B07A3C" stroke="currentColor" stroke-width="1.4"/></symbol></defs></svg>
@@ -1697,16 +1698,22 @@ footer p{margin:0}
   if (saved && NAMERE.test(saved)) { userName = saved; startApp(); select("oko"); runPlay(); } else { nameIn.focus(); }
 })();
 </script>
-<script>(function(){var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true||location.search.indexOf("btn=1")>=0;if(!sa)return;
+<script>(function(){var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true||location.search.indexOf("btn=1")>=0;
+if(!sa)return;
 var b=document.createElement("button");b.type="button";b.textContent="↻ 更新";b.setAttribute("aria-label","ページを最新に更新");
 b.style.cssText="position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:9999;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);opacity:.92;cursor:pointer";
 var t=b.cloneNode(true);t.style.cssText="position:static;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);cursor:pointer";
-var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 12px;position:relative;z-index:9999";var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk);
+var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px;position:sticky;top:0;background:var(--bg,#F1E4CC);z-index:9999";var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk);
+var sb=document.createElement("button");sb.type="button";sb.textContent="⚙ せってい";sb.style.cssText=t.style.cssText;sb.setAttribute("aria-expanded","false");var pn=null;
+sb.addEventListener("click",function(){if(!pn){pn=document.createElement("div");pn.id="bmsetpanel";pn.style.cssText="position:fixed;top:calc(max(8px,env(safe-area-inset-top)) + 58px);left:12px;right:12px;max-width:420px;margin:0 auto;max-height:70vh;overflow:auto;z-index:9998;background:var(--bg,#F1E4CC);border:2px solid #2E241C;border-radius:14px;padding:6px 0;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none";document.body.appendChild(pn)}
+["bmthemeui","bma11yui"].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==pn)pn.appendChild(e)});
+var o=pn.style.display==="none";pn.style.display=o?"block":"none";sb.setAttribute("aria-expanded",o?"true":"false")});
+w.style.justifyContent="space-between";w.appendChild(sb);
 w.appendChild(t);
 function run(){b.textContent=t.textContent="更新中…";b.disabled=t.disabled=true;var go=function(){location.reload()};
 try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go()}}
 b.addEventListener("click",run);t.addEventListener("click",run);
-document.body.insertBefore(w,document.body.firstChild);document.body.appendChild(b)})();</script>
+document.body.insertBefore(w,document.body.firstChild);})();</script>
 <script src="stamp.js"></script>
 <script src="bgm.js"></script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
