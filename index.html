@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261110-41">
+<meta name="site-version" content="20261110-42">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -674,10 +674,10 @@ p.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)re
 [].forEach.call(p.children,function(x){x.classList.remove('on')});b.classList.add('on');
 clearTimeout(t);t=setTimeout(function(){b.classList.remove('on')},1600)});})();
 </script>
-<script>(function(){var c=document.querySelectorAll(".nijiv");if(!c.length)return;for(var i=0;i<c.length;i++)c[i].style.display="none";var r=Math.floor(Math.random()*c.length);c[r].style.display="";})();</script><script>(function(){var t=new Date();t=new Date(t.getFullYear(),t.getMonth(),t.getDate()).getTime();var last=0;try{last=+localStorage.getItem("bm-lastvisit")||0;localStorage.setItem("bm-lastvisit",String(t))}catch(e){}
+<script>(function(){var c=document.querySelectorAll(".nijiv");if(!c.length)return;for(var i=0;i<c.length;i++)c[i].style.display="none";var r=Math.floor(Math.random()*c.length);c[r].style.display="";})();</script><script>(function(){var t=new Date();t=new Date(t.getFullYear(),t.getMonth(),t.getDate()).getTime();var last=0;try{var lv=+localStorage.getItem("bm-lastvisit")||0,pv=+localStorage.getItem("bm-prevvisit")||0;if(lv&&lv<t){pv=lv;localStorage.setItem("bm-prevvisit",String(pv))}localStorage.setItem("bm-lastvisit",String(t));last=pv}catch(e){}
 [].forEach.call(document.querySelectorAll("[data-new]"),function(e){var p=e.getAttribute("data-new").split("-");
 var u=new Date(+p[0],+p[1]-1,+p[2]).getTime();var df=Math.round((t-u)/864e5);
-var ok=df>=0&&(last?(u>last&&df<=14):df<=7);if(ok){var b=document.createElement("span");b.className="newb";b.textContent="NEW";b.setAttribute("aria-label","新着");e.appendChild(b)}})})();</script>
+var ok=df>=0&&(last?(u>=last&&df<=14):df<=7);if(ok){var b=document.createElement("span");b.className="newb";b.textContent="NEW";b.setAttribute("aria-label","新着");e.appendChild(b)}})})();</script>
 <script>(function(){var m=document.querySelector('meta[name="site-version"]');if(!m||!window.fetch)return;var v=m.content;
 fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():v}).then(function(n){n=n.trim();
 if(n&&n!==v){try{if(sessionStorage.getItem("bm-rl")===n)return;sessionStorage.setItem("bm-rl",n)}catch(e){}
