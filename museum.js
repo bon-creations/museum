@@ -72,6 +72,7 @@ st.textContent=".bm-plaque{margin:10px 0 14px;padding:10px 14px 9px;border:2px s
 +".bm-ex .gr{display:grid;gap:8px;grid-template-columns:1fr}@media(min-width:620px){.bm-ex .gr{grid-template-columns:1fr 1fr}}"
 +".bm-ex a.cd{display:block;padding:8px 10px;border:2px solid #8A5A24;border-radius:4px;background:linear-gradient(180deg,#FFF8EA,#F3E5C4);color:#2E241C;text-decoration:none;box-shadow:2px 2px 0 rgba(138,90,36,.25);line-height:1.6}"
 +".bm-ex .cd .n{display:block;font-size:11px;letter-spacing:.1em;color:#7A2434;font-weight:700}.bm-ex .cd .t{display:block;font-size:16px;font-weight:700}.bm-ex .cd .d{display:block;font-size:13px;color:#5B4C3E}"
++".bm-toc{margin:0 0 14px;padding:10px 12px;border:2px solid #B07A3C;border-radius:8px;background:#FFF8EA;font-size:14px;line-height:1.8}.bm-toc b{display:block;font-size:12px;letter-spacing:.2em;color:#7A2434}.bm-toc ol{list-style:none;margin:2px 0 0;padding:0}.bm-toc a{display:block;padding:3px 0;min-height:24px;color:#2E241C;font-weight:700}"
 +".bm-route{margin:18px 0 8px;padding:10px 12px;border-top:3px double #B07A3C;border-bottom:3px double #B07A3C;display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:space-between;font-size:15px;line-height:1.6}"
 +".bm-route b{display:block;font-size:12px;letter-spacing:.1em;color:#5B4C3E}"
 +".bm-route a{color:#2E241C;font-weight:700}"
@@ -171,6 +172,13 @@ var d=document.createElement("div");d.setAttribute("role","status");d.textConten
 document.body.appendChild(d);setTimeout(function(){d.remove()},6000)}
 setTimeout(allDone,1500);
 
+
+/* 目次(長いページだけ) */
+if(/^(world|sukimono_ethnic|wallpaper)$/.test(f)){
+var hs=[].slice.call(document.querySelectorAll("main h2[id]")).filter(function(h){var s=h.querySelector(".t");return s&&s.textContent.indexOf("あんない")<0});
+if(hs.length>=3){var tc=document.createElement("nav");tc.className="bm-toc";tc.setAttribute("aria-label","このページの目次");
+tc.innerHTML='<b>もくじ</b><ol>'+hs.map(function(h,i){return '<li><a href="#'+h.id+'">'+(i+1)+'. '+esc(h.querySelector(".t").textContent.trim())+'</a></li>'}).join('')+'</ol>';
+var pqe=document.querySelector(".bm-plaque")||hd;if(pqe)pqe.parentNode.insertBefore(tc,pqe.nextSibling)}}
 /* 額縁: 大きめの絵に額縁をつける */
 function frame(){var im=document.querySelectorAll("main img");for(var i=0;i<im.length;i++){var m=im[i];if(m.closest("header,nav,button,a.cd,.bm-ticket,.bm-ann,.bm-fp")||m.classList.contains("bm-fr"))continue;if(m.complete&&m.naturalWidth>=240&&m.clientWidth>=160)m.classList.add("bm-fr")}}
 window.addEventListener("load",function(){frame();setTimeout(frame,800)});
