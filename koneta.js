@@ -15,7 +15,7 @@ var cnt={},last=0;document.addEventListener("click",function(e){var im=e.target.
 if(f==="calendar"){try{var cn=new Date();localStorage.setItem("bm-cal",cn.getFullYear()+"-"+(cn.getMonth()+1))}catch(e){}}
 if(f!=="index")return;
 /* きょうのボンの一言に、ときどき小ネタのヒントをまぜる */
-var HB={"おこボン":["小説は、最後まで読みなさいよ。いいこと、あるから。","毎日来なさいよ。10日目に、いいことがあるわ。"],"にこボン":["ページのいちばん下をタップすると、まめ知識が聞けるよ！","NEWってついてるところを押すと、だれかがしゃべるよ〜！"],"ひょえボン":["ロゴを、ななかい、おすと……ひみつが、でるよ。","トップを、ひらいてると……ボン、はしるよ。"],"もぐボン":["毎月1日と15日は、お赤飯の日だよ〜。画面をなぞってみて〜。","夜にトップを開くと、ねむさんに会えるかもだよ〜。"],"ねむボン":["……夜に、トップに来ると、ぼくに会えるかも……。","……ずかんの、ボンを、何回も、つつくと……。……ひみつ。"],"てれボン":["ず、ずかんのボンを、7回、つつくと……ひみつが……。","しょ、小説を、最後まで読むと……ノートに、書きます……。"],"にじボン":["我輩のロゴを、10回つづけて押してみるがよい。いいものが見られるぞ！","トップのロゴを、7回押すと……ふっふっふ、ひみつなのだ！"]};
+var HB={"おこボン":["小説は、最後まで読みなさいよ。いいこと、あるから。","毎日来なさいよ。10日目に、いいことがあるわ。"],"にこボン":["ページのいちばん下をタップすると、まめ知識が聞けるよ！","NEWってついてるところを押すと、だれかがしゃべるよ〜！"],"ひょえボン":["ロゴを、ななかい、おすと……ひみつが、でるよ。","トップを、ひらいてると……ボン、はしるよ。"],"もぐボン":["毎月1日と15日は、お赤飯の日だよ〜。もぐボンが、ごはんを炊くんだ〜。","夜にトップを開くと、ねむさんに会えるかもだよ〜。"],"ねむボン":["……夜に、トップに来ると、ぼくに会えるかも……。","……ずかんの、ボンを、何回も、つつくと……。……ひみつ。"],"てれボン":["ず、ずかんのボンを、7回、つつくと……ひみつが……。","しょ、小説を、最後まで読むと……ノートに、書きます……。"],"にじボン":["我輩のロゴを、10回つづけて押してみるがよい。いいものが見られるぞ！","トップのロゴを、7回押すと……ふっふっふ、ひみつなのだ！"]};
 var tsy=document.getElementById("tdSay"),tnm=document.getElementById("tdName"),busy=false;
 function tip(){if(!tsy||!tnm||busy)return;var a=HB[tnm.textContent.trim()];if(!a||Math.random()>=.25)return;busy=true;tsy.textContent=a[Math.floor(Math.random()*a.length)];setTimeout(function(){busy=false},0)}
 if(tsy&&window.MutationObserver){new MutationObserver(function(){if(!busy)tip()}).observe(tsy,{childList:true,characterData:true,subtree:true});setTimeout(tip,50)}
@@ -29,13 +29,9 @@ else if(mo>=3&&mo<=5)L.push("にこボン：「春だよ〜！ ぽかぽかで�
 else if(mo>=6&&mo<=8)L.push("もぐボン：「夏だね〜。冷たいおそうめんに、ごまをかけて食べよ〜」");
 else if(mo>=9&&mo<=11)L.push("ひょえボン：「あき、だね。ごはんが、おいしいきせつだよ」");
 else L.push("ねむボン：「……さむいね。……おふとん、あったかい」");
-if(d===1||d===15)L.push("もぐボン：「きょうは、お赤飯の日だよ〜。炊けたよ〜。ごまをかけて、ボーン！(画面をなぞってみてね)」");
+if(d===1||d===15)L.push("もぐボン：「きょうは、お赤飯の日だよ〜。炊けたよ〜。ごまをかけて、ボーン！」");
 var lead=document.querySelector("header .lead");
 if(lead){var at=lead;L.forEach(function(t){var p=document.createElement("p");p.style.cssText="margin:8px 0 0;font-weight:700";p.textContent=t;at.parentNode.insertBefore(p,at.nextSibling);at=p})}
-/* ごまを振りかける(お赤飯の日) */
-if(d===1||d===15){var lt=0;function seed(x,y){var n=Date.now();if(n-lt<45)return;lt=n;var e=document.createElement("span");e.setAttribute("aria-hidden","true");e.style.cssText="position:fixed;left:"+x+"px;top:"+y+"px;width:7px;height:4px;border-radius:50%;background:#FFFBEF;border:1px solid #8A7351;pointer-events:none;z-index:9996;transform:rotate("+Math.floor(Math.random()*180)+"deg);transition:transform 1.1s ease-in,opacity 1.1s ease-in;opacity:1";document.body.appendChild(e);
-requestAnimationFrame(function(){requestAnimationFrame(function(){e.style.transform="translate("+(Math.random()*30-15)+"px,"+(60+Math.random()*60)+"px) rotate(300deg)";e.style.opacity="0"})});setTimeout(function(){e.remove()},1300)}
-document.addEventListener("pointermove",function(e){seed(e.clientX,e.clientY)});document.addEventListener("touchmove",function(e){var t=e.touches[0];if(t)seed(t.clientX,t.clientY)},{passive:true})}
 /* ロゴ連打で虹 */
 var lg=document.querySelector(".bc-logo");
 if(lg){var lc=0,lt2=0;lg.addEventListener("click",function(){var n=Date.now();lc=(n-lt2<1500)?lc+1:1;lt2=n;if(lc>=10){lc=0;setTimeout(rainbow,700)}})}
