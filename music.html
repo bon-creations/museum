@@ -363,6 +363,11 @@ b.addEventListener("click",run);t.addEventListener("click",run);
 document.body.insertBefore(w,document.body.firstChild);})();</script>
 <script src="koneta.js"></script><script src="stamp.js"></script><script src="museum.js"></script>
 <script src="bgm.js"></script>
+<script>(function(){
+function others(me){return [].slice.call(document.querySelectorAll("audio,video")).filter(function(m){return m!==me&&!m.paused})}
+document.addEventListener("play",function(e){var me=e.target;if(!me||!me.pause)return;others(me).forEach(function(m){m.pause()});if(window.bmBgm&&window.bmBgm.on&&window.bmBgm.on())window.bmBgm.stop()},true);
+setInterval(function(){var b=window.bmBgm;if(b&&b.on&&b.on()){others(null).forEach(function(m){m.pause()})}},400);
+})();</script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 </body>
 </html>

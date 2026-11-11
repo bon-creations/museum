@@ -46,13 +46,17 @@ if(VM[vc])setTimeout(function(){toast(VM[vc],5200)},delay+4500)}}catch(e){}
 var NM=["にこボン：「新しいのが入ったよ〜！ 見て見て！」","もぐボン：「できたてだよ〜。ほかほかだよ〜」","にじボン：「うむ、新着である！ ぜひ見るがよい」","ねむボン：「……あたらしい。……いいね」","てれボン：「あ、あの……見てくれると、うれしいです……」","おこボン：「べつに、見てほしいわけじゃ……いや、見なさいよ」"];
 document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest(".newb"))toast(NM[Math.floor(Math.random()*NM.length)],3200)},true);
 /* ひょえボンが横切る(立ち絵・20秒に1回) */
-if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){var st=document.createElement("style");st.textContent="@keyframes bmRun{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}@keyframes bmHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}";document.head.appendChild(st);
-setInterval(function(){if(document.hidden)return;var w=document.createElement("div");w.setAttribute("aria-hidden","true");w.style.cssText="position:fixed;left:0;bottom:max(6px,env(safe-area-inset-bottom));z-index:9995;pointer-events:none;animation:bmRun 5.5s linear forwards";
-var im=document.createElement("img");im.src="hyoe_run.webp";im.alt="";im.width=61;im.height=90;im.style.cssText="display:block;height:90px;width:auto;animation:bmHop .45s ease-in-out infinite";
-var b=document.createElement("div");b.textContent="ひょえ〜！";b.style.cssText="position:absolute;left:46px;top:-10px;white-space:nowrap;padding:3px 9px;border:2px solid #2E241C;border-radius:12px;background:#FFF8EA;color:#2E241C;font:700 12px/1.2 sans-serif";w.appendChild(im);w.appendChild(b);document.body.appendChild(w);setTimeout(function(){w.remove()},5800)},20000)}
+if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){var st=document.createElement("style");st.textContent="@keyframes bmRun{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}@keyframes bmHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}@keyframes bmRoll{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes bmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}";document.head.appendChild(st);
+var RUNS={hyoe:[["run_koro.webp","bmRoll .7s linear infinite"],["run_hyoe.webp","bmHop .5s ease-in-out infinite"],["run_matte.webp","bmBob .3s ease-in-out infinite"]],oko:[["run_oko_katta.webp","bmHop .5s ease-in-out infinite"],["run_oko_chotto.webp","bmBob .3s ease-in-out infinite"],["run_oko_mou.webp","bmBob .25s ease-in-out infinite"]]};
+var op="";try{op=localStorage.getItem("bm-oshi")||""}catch(e){}
+var who=op?(RUNS[op]?[op]:[]):["hyoe","oko"];
+if(who.length)setInterval(function(){if(document.hidden)return;var L=RUNS[who[Math.floor(Math.random()*who.length)]];var r=L[Math.floor(Math.random()*L.length)];var w=document.createElement("div");w.setAttribute("aria-hidden","true");w.style.cssText="position:fixed;left:0;bottom:max(6px,env(safe-area-inset-bottom));z-index:9995;pointer-events:none;animation:bmRun 5.5s linear forwards";
+var im=document.createElement("img");im.src=r[0];im.alt="";im.style.cssText="display:block;height:110px;width:auto;animation:"+r[1];
+w.appendChild(im);document.body.appendChild(w);setTimeout(function(){w.remove()},5800)},20000)}
 /* すきなボンを えらぶ */
 var OB=[["oko","おこボン"],["niko","にこボン"],["hyoe","ひょえボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"],["","おまかせ"]],ob=document.getElementById("oshiB"),oc="";
 try{oc=localStorage.getItem("bm-oshi")||""}catch(e){}
 if(ob){OB.forEach(function(x){var b=document.createElement("button"),on=oc===x[0];b.type="button";b.textContent=x[1]+(on&&x[0]?" ✓":"");b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;font-size:16px;padding:9px 14px;min-height:44px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");
 b.addEventListener("click",function(){try{if(x[0])localStorage.setItem("bm-oshi",x[0]);else localStorage.removeItem("bm-oshi")}catch(e){}location.reload()});ob.appendChild(b)})}
+if(ob){var hp=document.createElement("p");hp.style.cssText="margin:10px 0 0;font-size:14px;line-height:1.7";hp.textContent="※ えらんだボンは、ときどき 画面を 走り抜けるよ。いまは ひょえボンと おこボンだけ。ほかの子も……どこかで こっそり 走る れんしゅうを しているらしい。";ob.parentNode.appendChild(hp)}
 })();
