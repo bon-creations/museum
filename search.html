@@ -255,7 +255,7 @@ h2{font-size:20px;margin-bottom:12px}
 </header>
 <section aria-labelledby="sh"><h2 id="sh"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#leaf"/></svg><span class="t">さがす</span></h2>
 <form id="sf" role="search" style="display:flex;gap:8px"><input id="sq" type="search" placeholder="例: おにぎり / 診断 / 壁紙" autocomplete="off" aria-label="さがすことば" style="flex:1;min-width:0;font:inherit;font-size:17px;min-height:48px;padding:0 14px;border:2.5px solid var(--khaki);border-radius:10px;background:var(--card);color:var(--ink)"><button type="submit" class="go" style="margin:0;min-height:48px;padding:0 20px;font-size:18px">さがす</button></form>
-<p class="small" id="sn" style="margin:8px 0 0">ことばを入れると、博物館のページから探すよ。スペースで区切ると、ぜんぶ含むものだけ出るよ。</p>
+<p class="small" id="sn" style="margin:8px 0 0">ことばを入れると、博物館のページから探すよ。スペースで区切ると、ぜんぶ含むものであるけ出るよ。</p>
 <div id="sr" style="display:flex;flex-direction:column;gap:12px;margin-top:14px" aria-live="polite"></div></section>
 <script src="search_index.js"></script>
 <script>
@@ -263,7 +263,7 @@ h2{font-size:20px;margin-bottom:12px}
 function kata(t){return t.replace(/[\u30a1-\u30f6]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-96)})}
 function nm(t){return kata(String(t).normalize("NFKC").toLowerCase())}
 function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
-function run(){var raw=q.value.trim();r.innerHTML="";if(!raw){n.textContent="ことばを入れると、博物館のページから探すよ。スペースで区切ると、ぜんぶ含むものだけ出るよ。";return}
+function run(){var raw=q.value.trim();r.innerHTML="";if(!raw){n.textContent="ことばを入れると、博物館のページから探すよ。スペースで区切ると、ぜんぶ含むものであるけ出るよ。";return}
 var ts=nm(raw).split(/\s+/).filter(Boolean),out=[];
 I.forEach(function(e){var h=nm(e.h),x=nm(e.x),sc=0,ok=true;ts.forEach(function(t){var a=h.indexOf(t)>=0,b=x.indexOf(t)>=0;if(!a&&!b)ok=false;sc+=(a?5:0)+(b?1:0)});if(ok)out.push([sc,e])});
 out.sort(function(a,b){return b[0]-a[0]});
