@@ -1,4 +1,4 @@
-/* 小ネタ: 夜のねむボン / ひょえボンのしゃっくり / お赤飯の日 / フッター豆知識 / ずかん7回タップ */
+/* 小ネタ: 夜のねむボン / お赤飯の日 / フッター豆知識 / ずかん7回タップ */
 (function(){
 var f=(location.pathname.split("/").pop()||"index.html").replace(/\.html$/,"");
 var el=null,tm=0;
@@ -50,18 +50,9 @@ if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches))
 setInterval(function(){if(document.hidden)return;var w=document.createElement("div");w.setAttribute("aria-hidden","true");w.style.cssText="position:fixed;left:0;bottom:max(6px,env(safe-area-inset-bottom));z-index:9995;pointer-events:none;animation:bmRun 5.5s linear forwards";
 var im=document.createElement("img");im.src="hyoe_run.webp";im.alt="";im.width=61;im.height=90;im.style.cssText="display:block;height:90px;width:auto;animation:bmHop .45s ease-in-out infinite";
 var b=document.createElement("div");b.textContent="ひょえ〜！";b.style.cssText="position:absolute;left:46px;top:-10px;white-space:nowrap;padding:3px 9px;border:2px solid #2E241C;border-radius:12px;background:#FFF8EA;color:#2E241C;font:700 12px/1.2 sans-serif";w.appendChild(im);w.appendChild(b);document.body.appendChild(w);setTimeout(function(){w.remove()},5800)},20000)}
-/* ひょえボンのしゃっくり */
-if(!ss("bm-hik")){setTimeout(function(){if(ss("bm-hik"))return;ss("bm-hik","1");var b=document.createElement("button");b.type="button";b.textContent="ひょえボン：「ひょっく」";b.setAttribute("aria-label","ひょえボンがしゃっくりしている。タップで水をあげる");b.style.cssText="position:fixed;right:12px;bottom:max(90px,env(safe-area-inset-bottom));z-index:9997;padding:10px 14px;border:2px solid #2E241C;border-radius:16px;background:#FFF8EA;color:#2E241C;font:700 14px/1.4 sans-serif;box-shadow:0 3px 0 rgba(46,36,28,.35);cursor:pointer;min-height:44px";document.body.appendChild(b);
-var c=0,iv=setInterval(function(){c++;b.textContent="ひょえボン：「"+(c%2?"ひょえ？":"ひょっく")+"」"},1800);
-b.addEventListener("click",function(){clearInterval(iv);b.textContent="ごくごく……ぷはっ！ 止まったよ";setTimeout(function(){b.remove()},2200)});
-setTimeout(function(){clearInterval(iv);b.remove()},20000)},40000)}
 /* すきなボンを えらぶ */
 var OB=[["oko","おこボン"],["niko","にこボン"],["hyoe","ひょえボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"],["","おまかせ"]],ob=document.getElementById("oshiB"),oc="";
 try{oc=localStorage.getItem("bm-oshi")||""}catch(e){}
 if(ob){OB.forEach(function(x){var b=document.createElement("button"),on=oc===x[0];b.type="button";b.textContent=x[1]+(on&&x[0]?" ✓":"");b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;font-size:16px;padding:9px 14px;min-height:44px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");
 b.addEventListener("click",function(){try{if(x[0])localStorage.setItem("bm-oshi",x[0]);else localStorage.removeItem("bm-oshi")}catch(e){}location.reload()});ob.appendChild(b)})}
-/* カレンダーのお知らせ */
-try{var cm=now.getFullYear()+"-"+mo,sn=localStorage.getItem("bm-cal");
-if(sn!==cm&&window.fetch){fetch("cal_"+(mo<10?"0":"")+mo+".jpg",{method:"HEAD",cache:"no-store"}).then(function(r){if(!r.ok)return;var a=document.querySelector('a.go[href="calendar.html"]');var sc=a&&a.closest("section"),hd=sc&&sc.querySelector("h2 .t");if(hd&&!hd.querySelector(".newb")){var bd=document.createElement("span");bd.className="newb";bd.textContent="NEW";hd.appendChild(bd)}
-setTimeout(function(){toast("にこボン：「"+mo+"月の ボンカレンダーが とどいてるよ〜！ 見てね♪」",5200)},delay+9000)}).catch(function(){})}}catch(e){}
 })();
