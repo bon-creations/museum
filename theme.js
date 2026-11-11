@@ -1,4 +1,5 @@
 /* いろ(ダークモード) と オフライン対応。設定はこの端末だけに保存 */
+window.bmSet=window.bmSet||{items:[],add:function(f,o){this.items.push({f:f,o:o||9});this.items.sort(function(a,b){return a.o-b.o});if(this.draw)this.draw()}};
 (function(){
 var K="bm-theme",root=document.documentElement,mode="auto";
 try{mode=localStorage.getItem(K)||"auto"}catch(e){}
@@ -15,13 +16,11 @@ function dark(){return mode==="dark"||(mode==="auto"&&mq&&mq.matches)}
 function ap(){if(dark())root.setAttribute("data-bm-theme","dark");else root.removeAttribute("data-bm-theme");
 var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",dark()?"#1E1A13":"#55602A")}
 ap();if(mq&&mq.addEventListener)mq.addEventListener("change",ap);
-function ui(){var f=document.querySelector("footer");if(!f||document.getElementById("bmthemeui"))return;
-var d=document.createElement("div");d.id="bmthemeui";d.style.cssText="margin:14px auto;max-width:90%;padding:10px 14px;border:2px dashed #5E7A1E;border-radius:14px;background:#fff8e8;color:#2E241C;font-size:14px;line-height:1.8;text-align:center";
-function draw(){d.textContent="";var l=document.createElement("div");l.textContent="いろ(あかるさ)";d.appendChild(l);
-[["auto","じどう"],["light","ライト"],["dark","ダーク"]].forEach(function(p){var on=mode===p[0];var b=document.createElement("button");b.type="button";b.textContent=p[1];b.setAttribute("aria-pressed",on?"true":"false");
-b.style.cssText="font:inherit;font-size:14px;min-height:40px;padding:0 14px;margin:2px;border-radius:999px;border:2px solid #5E7A1E;background:"+(on?"#5E7A1E":"#fff")+";color:"+(on?"#fff":"#5E7A1E")+";font-weight:700;cursor:pointer";
+function ui(){bmSet.add(function(d){
+function draw(){d.textContent="";var l=document.createElement("div");l.textContent="いろ(あかるさ)";l.className="lb";d.appendChild(l);
+[["auto","じどう"],["light","ライト"],["dark","ダーク"]].forEach(function(p){var on=mode===p[0];var b=document.createElement("button");b.type="button";b.className="sb";b.textContent=p[1];b.setAttribute("aria-pressed",on?"true":"false");
 b.onclick=function(){mode=p[0];try{localStorage.setItem(K,mode)}catch(e){}ap();draw()};d.appendChild(b)})}
-draw();f.parentNode.insertBefore(d,f)}
+draw()},3)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(ui,0)});else setTimeout(ui,0);
 /* オフライン: 見たページを端末に覚えておく */
 try{if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}
@@ -41,7 +40,19 @@ function url(){var u=location.href.replace(/([?&])btn=1(&|$)/,function(m,a,c){re
 function done(ok){msg.textContent=ok?"コピーしたよ！":"コピーできなかったよ";b.textContent=ok?"✔ コピーしたよ":"🔗 リンクをコピー";setTimeout(function(){msg.textContent="";b.textContent="🔗 リンクをコピー"},2200)}
 function fallback(t){try{var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);var ok=document.execCommand("copy");document.body.removeChild(ta);done(ok)}catch(e){done(false)}}
 b.addEventListener("click",function(){var t=url();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done(true)},function(){fallback(t)})}else fallback(t)});
-row.appendChild(msg);row.appendChild(b);
+var gb=document.createElement("button");gb.type="button";gb.id="bmgear";gb.textContent="⚙";gb.setAttribute("aria-label","せってい(BGM・見やすさ・いろ)");gb.setAttribute("aria-expanded","false");
+gb.style.cssText="min-width:44px;min-height:44px;padding:0;border-radius:50%;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 22px/1 sans-serif;cursor:pointer;box-shadow:0 2px 0 rgba(46,36,28,.25)";
+var pn=document.createElement("div");pn.id="bmsetpanel";pn.hidden=true;pn.setAttribute("role","dialog");pn.setAttribute("aria-label","せってい");
+var ps=document.createElement("style");ps.textContent="#bmsetpanel{position:fixed;top:56px;right:max(12px,env(safe-area-inset-right));width:min(92vw,340px);max-height:calc(100vh - 72px);overflow:auto;z-index:10000;padding:10px 14px 12px;border:2px solid var(--ink,#2E241C);border-radius:14px;background:var(--card,#FFF8EA);color:var(--ink,#2E241C);box-shadow:0 6px 18px rgba(0,0,0,.3);font:14px/1.8 sans-serif}#bmsetpanel[hidden]{display:none}#bmsetpanel .hd2{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px}#bmsetpanel .x{min-width:44px;min-height:44px;border:0;background:none;color:inherit;font-size:20px;cursor:pointer}#bmsetpanel .sec{padding:8px 0;border-top:1.5px dashed var(--khaki,#5E7A1E)}#bmsetpanel .lb{font-weight:700;margin-bottom:2px}#bmsetpanel button.sb{font:inherit;font-size:14px;min-height:40px;padding:0 14px;margin:2px;border-radius:999px;border:2px solid var(--khaki,#5E7A1E);background:var(--card,#fff);color:var(--khaki,#5E7A1E);font-weight:700;cursor:pointer}#bmsetpanel button.sb[aria-pressed=true]{background:var(--khaki,#5E7A1E);color:var(--card,#fff)}#bmsetpanel .vol{display:flex;align-items:center;gap:8px;margin:4px 2px}#bmsetpanel .vol input{flex:1;min-width:0;accent-color:#e8a23a}";document.head.appendChild(ps);
+var ph=document.createElement("div");ph.className="hd2";ph.innerHTML="<span>⚙ せってい</span>";var px=document.createElement("button");px.type="button";px.className="x";px.textContent="✕";px.setAttribute("aria-label","とじる");ph.appendChild(px);pn.appendChild(ph);
+var pb=document.createElement("div");pn.appendChild(pb);
+bmSet.draw=function(){pb.textContent="";bmSet.items.forEach(function(it){var s=document.createElement("div");s.className="sec";pb.appendChild(s);try{it.f(s)}catch(e){}})};bmSet.draw();
+function tg(on){pn.hidden=!on;gb.setAttribute("aria-expanded",on?"true":"false")}
+gb.addEventListener("click",function(e){e.stopPropagation();tg(pn.hidden)});px.addEventListener("click",function(){tg(false);gb.focus()});
+document.addEventListener("pointerdown",function(e){if(!pn.hidden&&!pn.contains(e.target)&&e.target!==gb)tg(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pn.hidden){tg(false);gb.focus()}});
+document.body.appendChild(pn);
+row.appendChild(msg);row.appendChild(b);row.appendChild(gb);
 document.body.insertBefore(row,document.body.firstChild);
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
