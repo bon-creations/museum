@@ -16,7 +16,7 @@ else if(mo===7||mo===8)S={g:"✦",c:["#e0506a","#e0a21f","#2f64c8","#4ea86a"],n:
 else if(mo>=9&&mo<=11)S={g:"❦",c:["#c0651e","#b8421f","#d9a21b"],n:18,s:[14,24]};
 if(mo===10&&da===31)S={g:"✦",c:["#e8801a","#7a4db0"],n:22,s:[14,24]};
 S=null; /* 降ってくる季節エフェクトは やめた */
-var night=hr>=21||hr<5;
+var night=false; /* 夜のきらきらも やめた */
 if(S||night){var fx=document.createElement("div");fx.className="bmfx";fx.setAttribute("aria-hidden","true");
 if(S)for(var i=0;i<S.n;i++){var e=document.createElement("i");e.textContent=S.g;var sz=S.s[0]+Math.random()*(S.s[1]-S.s[0]);e.style.cssText="left:"+(Math.random()*100)+"%;font-size:"+sz+"px;color:"+S.c[i%S.c.length]+";opacity:.8;--dx:"+((Math.random()*80-40))+"px;--rot:"+(Math.random()*360)+"deg;animation-duration:"+(9+Math.random()*10)+"s;animation-delay:-"+(Math.random()*18)+"s";fx.appendChild(e)}
 if(night)for(var j=0;j<14;j++){var t=document.createElement("i");t.className="tw";t.textContent="✦";t.style.cssText="left:"+(Math.random()*100)+"%;top:"+(Math.random()*70)+"%;font-size:"+(10+Math.random()*14)+"px;color:#e0a21f;animation-duration:"+(2+Math.random()*3)+"s;animation-delay:-"+(Math.random()*4)+"s;animation-name:bmtw";fx.appendChild(t)}
