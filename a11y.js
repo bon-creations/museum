@@ -11,3 +11,20 @@ function draw(){d.textContent="";var l=document.createElement("div");l.textConte
 draw();f.parentNode.insertBefore(d,f)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",ui);else ui();
 })();
+
+/* ページ上へボタン・ギャラリーのスワイプ */
+(function(){
+function ready(f){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f()}
+ready(function(){
+/* ページ上へ */
+var t=document.createElement("button");t.type="button";t.textContent="↑";t.setAttribute("aria-label","ページの いちばん上へ");
+t.style.cssText="position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(68px,calc(56px + env(safe-area-inset-bottom)));z-index:9998;width:44px;height:44px;border-radius:50%;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 20px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);opacity:.92;cursor:pointer;display:none";
+t.onclick=function(){var r=false;try{r=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}window.scrollTo({top:0,behavior:r?"auto":"smooth"})};
+document.body.appendChild(t);
+function sc(){t.style.display=(window.pageYOffset||document.documentElement.scrollTop)>700?"block":"none"}
+window.addEventListener("scroll",sc,{passive:true});sc();
+/* ギャラリーのスワイプ */
+var lb=document.getElementById("lb");
+if(lb&&document.getElementById("lb-next")){var x0=null;lb.addEventListener("touchstart",function(e){x0=e.touches.length===1?e.touches[0].clientX:null},{passive:true});lb.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>50)document.getElementById(dx<0?"lb-next":"lb-prev").click()},{passive:true})}
+});
+})();
