@@ -12,6 +12,7 @@ if(ft){ft.style.cursor="pointer";ft.addEventListener("click",function(e){if(e.ta
 /* ずかん: 7回タップ */
 if(f==="zukan"){var SEC={oko:"……ちょっと、くすぐったいんだけど。やめなさいよ。",niko:"えへへ、くすぐったーい！もっとやって〜！",hyoe:"ひょ、ひょえっ！？……ひょっく。",mogu:"おなかがなっちゃった〜。ごまおにぎり、たべる〜？",nemu:"……すう……(ねている)",tere:"……み、見ないで、ください……！",rain:"うむ！ 我輩を連打するとは、よい度胸なのだ！ わっはっは！"};
 var cnt={},last=0;document.addEventListener("click",function(e){var im=e.target.closest&&e.target.closest(".zimg");if(!im)return;var a=im.closest("article.zk");if(!a||!SEC[a.id])return;var n=Date.now();cnt[a.id]=(n-last<1500&&cnt.id===a.id)?(cnt[a.id]||0)+1:1;cnt.id=a.id;last=n;if(cnt[a.id]>=7){cnt[a.id]=0;toast(SEC[a.id],4200)}})}
+if(f==="calendar"){try{var cn=new Date();localStorage.setItem("bm-cal",cn.getFullYear()+"-"+(cn.getMonth()+1))}catch(e){}}
 if(f!=="index")return;
 /* きょうのボンの一言に、ときどき小ネタのヒントをまぜる */
 var HB={"おこボン":["小説は、最後まで読みなさいよ。いいこと、あるから。","毎日来なさいよ。10日目に、いいことがあるわ。"],"にこボン":["ページのいちばん下をタップすると、まめ知識が聞けるよ！","NEWってついてるところを押すと、だれかがしゃべるよ〜！"],"ひょえボン":["ロゴを、ななかい、おすと……ひみつが、でるよ。","トップを、ひらいてると……ボン、はしるよ。"],"もぐボン":["毎月1日と15日は、お赤飯の日だよ〜。画面をなぞってみて〜。","夜にトップを開くと、ねむさんに会えるかもだよ〜。"],"ねむボン":["……夜に、トップに来ると、ぼくに会えるかも……。","……ずかんの、ボンを、何回も、つつくと……。……ひみつ。"],"てれボン":["ず、ずかんのボンを、7回、つつくと……ひみつが……。","しょ、小説を、最後まで読むと……ノートに、書きます……。"],"にじボン":["我輩のロゴを、10回つづけて押してみるがよい。いいものが見られるぞ！","トップのロゴを、7回押すと……ふっふっふ、ひみつなのだ！"]};
@@ -58,4 +59,13 @@ if(!ss("bm-hik")){setTimeout(function(){if(ss("bm-hik"))return;ss("bm-hik","1");
 var c=0,iv=setInterval(function(){c++;b.textContent="ひょえボン：「"+(c%2?"ひょえ？":"ひょっく")+"」"},1800);
 b.addEventListener("click",function(){clearInterval(iv);b.textContent="ごくごく……ぷはっ！ 止まったよ";setTimeout(function(){b.remove()},2200)});
 setTimeout(function(){clearInterval(iv);b.remove()},20000)},40000)}
+/* すきなボンを えらぶ */
+var OB=[["oko","おこボン"],["niko","にこボン"],["hyoe","ひょえボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"],["","おまかせ"]],ob=document.getElementById("oshiB"),oc="";
+try{oc=localStorage.getItem("bm-oshi")||""}catch(e){}
+if(ob){OB.forEach(function(x){var b=document.createElement("button"),on=oc===x[0];b.type="button";b.textContent=x[1]+(on&&x[0]?" ✓":"");b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;font-size:16px;padding:9px 14px;min-height:44px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");
+b.addEventListener("click",function(){try{if(x[0])localStorage.setItem("bm-oshi",x[0]);else localStorage.removeItem("bm-oshi")}catch(e){}location.reload()});ob.appendChild(b)})}
+/* カレンダーのお知らせ */
+try{var cm=now.getFullYear()+"-"+mo,sn=localStorage.getItem("bm-cal");
+if(sn!==cm&&window.fetch){fetch("cal_"+(mo<10?"0":"")+mo+".jpg",{method:"HEAD",cache:"no-store"}).then(function(r){if(!r.ok)return;var a=document.querySelector('a.go[href="calendar.html"]');var sc=a&&a.closest("section"),hd=sc&&sc.querySelector("h2 .t");if(hd&&!hd.querySelector(".newb")){var bd=document.createElement("span");bd.className="newb";bd.textContent="NEW";hd.appendChild(bd)}
+setTimeout(function(){toast("にこボン：「"+mo+"月の ボンカレンダーが とどいてるよ〜！ 見てね♪」",5200)},delay+9000)}).catch(function(){})}}catch(e){}
 })();
