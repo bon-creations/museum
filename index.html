@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261112-179">
+<meta name="site-version" content="20261112-180">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -787,7 +787,7 @@ function get(){try{var o=JSON.parse(localStorage.getItem(KEY));if(o&&o.d===ds(ne
 var ex=get();if(ex)btn.textContent="今日のおみくじを見る";
 btn.addEventListener("click",function(){var o=get();if(!o){o=draw();try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}show(o);try{window.bmStamp&&bmStamp.add("omikuji")}catch(e){}});
 })();</script>
-<script src="koneta.js"></script><script src="stamp.js"></script>
+<script src="koneta.js"></script><script src="stamp.js"></script><script src="museum.js"></script>
 <script src="bgm.js"></script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 <script>(function(){var L=[["niko","にこボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"]],B=document.getElementById("voteB"),M=document.getElementById("voteM");if(!B)return;var cur="";try{cur=localStorage.getItem("bm-vote")||""}catch(e){}
