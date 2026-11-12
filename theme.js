@@ -32,7 +32,7 @@ try{if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hos
 function init(){
 if(document.getElementById("bmcopylink"))return;
 var row=document.createElement("div");row.id="bmcopylink";
-row.style.cssText="display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:6px max(12px,env(safe-area-inset-right)) 0 12px;font-family:inherit";
+row.style.cssText="display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:max(6px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 6px 12px;font-family:inherit;position:sticky;top:0;z-index:9990;background:linear-gradient(180deg,var(--bg,#F1E4CC) 78%,rgba(241,228,204,0))";
 var b=document.createElement("button");b.type="button";b.innerHTML=bmIco("link")+" リンクをコピー";
 b.setAttribute("aria-label","このページのリンクをコピー");
 b.style.cssText="min-height:44px;padding:0 14px;border-radius:999px;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 14px/1 sans-serif;cursor:pointer;box-shadow:0 2px 0 rgba(46,36,28,.25)";
@@ -50,7 +50,7 @@ var pb=document.createElement("div");pn.appendChild(pb);
 bmSet.draw=function(){pb.textContent="";bmSet.items.forEach(function(it){var s=document.createElement("div");s.className="sec";pb.appendChild(s);try{it.f(s)}catch(e){}})};bmSet.draw();
 function tg(on){pn.hidden=!on;gb.setAttribute("aria-expanded",on?"true":"false")}
 gb.addEventListener("click",function(e){e.stopPropagation();tg(pn.hidden)});px.addEventListener("click",function(){tg(false);gb.focus()});
-document.addEventListener("pointerdown",function(e){if(!pn.hidden&&!pn.contains(e.target)&&e.target!==gb)tg(false)});
+document.addEventListener("pointerdown",function(e){if(!pn.hidden&&!pn.contains(e.target)&&e.target!==gb&&!(e.target.closest&&e.target.closest("[data-bmsb]")))tg(false)});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pn.hidden){tg(false);gb.focus()}});
 document.body.appendChild(pn);
 row.appendChild(msg);row.appendChild(b);row.appendChild(gb);

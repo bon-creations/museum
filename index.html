@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261112-203">
+<meta name="site-version" content="20261112-207">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -536,7 +536,7 @@ $("tdDate").textContent=(d.getMonth()+1)+"月"+d.getDate()+"日";}
 
 <svg class="divider" viewBox="0 0 600 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#vine2"/></svg>
 
-<section aria-labelledby="s3"><h2 id="s3"><span class="t">感想・リクエスト</span></h2><div class="sheet plain"><p>感想やリクエストは、「つくった ひと」のページから送れるよ。</p><a class="go" href="creators.html#c5">感想・リクエストを送る</a></div></section>
+<section aria-labelledby="s3"><h2 id="s3"><span class="t">感想・リクエスト</span></h2><div class="sheet plain"><p>感想やリクエストは、「つくった ひと」のページから送れるよ。</p><a class="go" href="creators.html#c6">感想・リクエストを送る</a></div></section>
 
 <section aria-labelledby="s4"><h2 id="s4"><span class="t">活動・掲載情報</span></h2><div class="sheet plain"><p>制作体制・YouTube・掲載情報は、「つくった ひと」にあるよ。</p><a class="go" href="creators.html#c4">つくった ひとを見る</a></div></section>
 
@@ -627,7 +627,7 @@ b.style.cssText="position:fixed;right:max(12px,env(safe-area-inset-right));botto
 var t=b.cloneNode(true);t.style.cssText="position:static;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);cursor:pointer";
 var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px;position:sticky;top:0;background:var(--bg,#F1E4CC);z-index:9999";if(!/(^|\/)(index\.html)?$/.test(location.pathname)){var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk)}
 var sb=document.createElement("button");sb.type="button";sb.textContent="⚙ せってい";sb.style.cssText=t.style.cssText;sb.setAttribute("aria-expanded","false");var pn=null;
-sb.addEventListener("click",function(){if(!pn){pn=document.createElement("div");pn.id="bmsetpanel";pn.style.cssText="position:fixed;top:calc(max(8px,env(safe-area-inset-top)) + 58px);left:12px;right:12px;max-width:420px;margin:0 auto;max-height:70vh;overflow:auto;z-index:9998;background:var(--bg,#F1E4CC);border:2px solid #2E241C;border-radius:14px;padding:6px 0;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none";document.body.appendChild(pn)}
+sb.setAttribute("data-bmsb","1");sb.addEventListener("click",function(){var g=document.getElementById("bmgear");if(g){g.click();return}if(!pn){pn=document.createElement("div");pn.id="bmsetpanel";pn.style.cssText="position:fixed;top:calc(max(8px,env(safe-area-inset-top)) + 58px);left:12px;right:12px;max-width:420px;margin:0 auto;max-height:70vh;overflow:auto;z-index:9998;background:var(--bg,#F1E4CC);border:2px solid #2E241C;border-radius:14px;padding:6px 0;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none";document.body.appendChild(pn)}
 ["bmthemeui","bma11yui"].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==pn)pn.appendChild(e)});
 var o=pn.style.display==="none";pn.style.display=o?"block":"none";sb.setAttribute("aria-expanded",o?"true":"false")});
 w.style.justifyContent="space-between";w.appendChild(sb);
@@ -670,7 +670,7 @@ function draw(){B.textContent="";L.forEach(function(x){var b=document.createElem
 <script>(function(){try{var ua=navigator.userAgent,mob=/iPhone|iPad|Android/.test(ua);var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;if(!mob||sa||localStorage.getItem("bm-a2hs"))return;var ios=/iPhone|iPad/.test(ua);var d=document.createElement("div");d.setAttribute("role","note");d.style.cssText="position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:9000;background:#fff8e8;border:2.5px solid #5E7A1E;border-radius:16px;padding:12px 14px;box-shadow:0 3px 0 rgba(46,36,28,.3);font-size:14px;line-height:1.6;color:#2E241C";d.innerHTML="<b>にじボン</b>「ホーム画面に追加すると、アプリみたいに使えるぞ！ "+(ios?"下の共有ボタン→「ホーム画面に追加」":"メニュー→「ホーム画面に追加」")+"」";var x=document.createElement("button");x.type="button";x.textContent="とじる";x.style.cssText="display:block;margin:8px 0 0 auto;font:inherit;font-size:14px;min-height:40px;padding:0 16px;border-radius:999px;border:2px solid #2E241C;background:#fff;cursor:pointer";x.onclick=function(){try{localStorage.setItem("bm-a2hs","1")}catch(e){}d.remove()};d.appendChild(x);setTimeout(function(){document.body.appendChild(d)},2500)}catch(e){}})();</script>
 <script src="sukimono.js"></script>
 <script src="a11y.js"></script>
-<script>(function(){var a=document.getElementById("hmX");if(a)a.href="https://twitter.com/intent/tweet?text="+encodeURIComponent("@irodori_Bon ボンちゃんの小さな博物館へ:\n")+"&url="+encodeURIComponent("https://bon-creations.github.io/museum/")})();</script>
+<script>(function(){var a=document.getElementById("hmX");if(a)a.href="https://twitter.com/intent/tweet?text="+encodeURIComponent("@BON_CREATIONS ボンちゃんの小さな博物館へ:\n")+"&url="+encodeURIComponent("https://bon-creations.github.io/museum/")})();</script>
 <script src="life.js"></script>
 <script>(function(){try{var d=document.getElementById("playfold");if(!d)return;if(localStorage.getItem("bm-playfold")==="0")d.removeAttribute("open");d.addEventListener("toggle",function(){try{localStorage.setItem("bm-playfold",d.open?"1":"0")}catch(e){}})}catch(e){}})();</script>
 </body>
