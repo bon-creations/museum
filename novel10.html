@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#55602A">
+<meta name="apple-mobile-web-app-title" content="ボンちゃんの博物館">
+<meta name="description" content="ちびボン期のひょえボンに、はじめて ともだちが できるおはなし。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ボンちゃんの小さな博物館">
+<meta property="og:title" content="ひょえボンの ともだち が できた">
+<meta property="og:description" content="ちびボン期のひょえボンに、はじめて ともだちが できるおはなし。">
+<meta property="og:url" content="https://bon-creations.github.io/museum/novel10.html">
+<meta property="og:image" content="https://bon-creations.github.io/museum/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ひょえボンの ともだち が できた">
+<meta name="twitter:description" content="ちびボン期のひょえボンに、はじめて ともだちが できるおはなし。">
+<meta name="twitter:image" content="https://bon-creations.github.io/museum/ogp.png">
+<meta property="og:site_name" content="ボンちゃんの小さな博物館">
+<title>ひょえボンの ともだち が できた｜ボンちゃんの小さな博物館</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&display=swap">
+<style>
+/* layout: handmade game field-guide in a woven-textile look with ivy. Sand paper page, indigo double-framed cards held by striped woven tape, diamond-chain trim and woven bands, vines at the edges; chili red on buttons */
+:root{--teal:#7C8838;--magenta:#96344A;--leaf:#66752F;--bg:#F1E4CC;--khaki:#55602A;--vermilion:#7A2434;--ochre:#B07A3C;--ink:#2E241C;--card:#FFF8EA;--mute:#5B4C3E;--ochre-soft:#EAD9B2;--font:"Yomogi","Zen Kurenaido","Hiragino Maru Gothic ProN",sans-serif;--hand:"Zen Kurenaido","Yomogi","Hiragino Maru Gothic ProN",sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.75;position:relative;overflow-x:hidden;padding-block:34px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.corner{position:absolute;width:150px;height:150px;pointer-events:none;color:var(--leaf);opacity:.75;z-index:0}
+.c1{top:0;right:0}.c2{bottom:0;left:0;transform:rotate(180deg)}
+main{position:relative;z-index:1;max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:38px}
+svg.i{display:inline-block;flex:none}
+.top{display:flex;gap:16px;align-items:center}
+.guide-unused{flex:none;width:92px;height:92px;border-radius:50%;border:3px solid var(--khaki);background:url(title.jpg) -59px -227px/202px auto no-repeat var(--card);box-shadow:0 0 0 3px var(--bg),0 0 0 4.5px var(--ochre)}
+.kicker{font-size:15px;letter-spacing:.14em;color:var(--khaki);margin:0;line-height:1.5}
+h1{font-family:var(--hand);font-size:clamp(32px,8.6vw,50px);line-height:1.25;margin:2px 0 0;color:var(--ink);text-wrap:balance;font-weight:700}
+.vine{display:block;width:min(100%,19rem);height:26px;color:var(--khaki);margin-top:2px}
+.lead{margin:6px 0 0;max-width:30rem}
+.hello{display:inline-block;margin-top:8px;position:relative;background:var(--card);border:2px solid var(--khaki);border-radius:10px;padding:2px 12px;font-size:15px;line-height:1.7}
+h2{font-family:var(--hand);font-size:23px;line-height:1.4;margin:0 0 14px;display:flex;align-items:center;gap:8px;color:var(--khaki);font-weight:700}
+h2 .t{flex:none}
+h2::after{content:"";flex:1;min-width:20px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M12 1 L19 6 L12 11 L5 6Z' fill='%23B07A3C' stroke='%2355602A' stroke-width='1.4' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='6' r='1.6' fill='%237A2434'/%3E%3C/svg%3E") repeat-x left center}
+.grid{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:30px 24px}
+.sheet{position:relative;background:var(--card);border:2.5px solid var(--khaki);border-radius:8px;padding:20px 16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0;line-height:1.65;box-shadow:3px 3px 0 rgba(85,96,42,.25),inset 0 0 0 4px var(--card),inset 0 0 0 5.5px var(--ochre)}
+.sheet::before{content:"";position:absolute;top:-13px;left:50%;width:78px;height:24px;margin-left:-39px;transform:rotate(-2.5deg);background:repeating-linear-gradient(90deg,#7A2434 0 7px,#B07A3C 7px 11px,#55602A 11px 18px,#B07A3C 18px 22px);clip-path:polygon(0 0,100% 0,96% 25%,100% 50%,96% 75%,100% 100%,0 100%,4% 75%,0 50%,4% 25%)}
+.sheet:nth-child(even)::before{background:repeating-linear-gradient(90deg,#7C8838 0 7px,#B07A3C 7px 11px,#96344A 11px 18px,#B07A3C 18px 22px);transform:rotate(2deg)}
+.shot{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 86%;border:2px solid var(--khaki);border-radius:5px;background:var(--bg)}
+.sheet h3{font-family:var(--hand);font-size:24px;line-height:1.35;margin:8px 0 0;color:var(--ink);font-weight:700}
+.sheet p{margin:0;color:var(--ink);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.tag{position:relative;background:var(--ochre-soft);color:var(--ink);padding:0 11px;font-size:14px;line-height:26px;border-radius:3px;outline:1.5px dashed var(--khaki);outline-offset:-3px}
+.tag.on{background:var(--khaki);color:var(--card);outline-color:var(--card)}
+.go{margin-top:10px;align-self:flex-start;font:inherit;font-size:20px;line-height:1;color:var(--card);background:var(--vermilion);border:2.5px solid var(--ink);border-radius:8px;padding:13px 26px;text-decoration:none;min-height:50px;display:inline-flex;align-items:center;box-shadow:2px 2px 0 var(--ink)}
+.go:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
+.go:focus-visible{outline:3px solid var(--khaki);outline-offset:3px}
+.soon{align-self:flex-start;margin-top:10px;color:var(--ink);font-size:15px;border:1.8px dashed var(--khaki);border-radius:4px;padding:3px 14px;line-height:1.6;background:rgba(176,122,60,.14)}
+.blank{border-style:dashed;background:rgba(255,248,234,.55);justify-content:center;min-height:15rem;align-items:center;text-align:center;box-shadow:none}
+.blank::before{display:none}
+.blank .q{width:54px;height:54px;color:var(--khaki)}
+.blank h3,.blank p{text-align:center}
+.note{margin:6px 0 0!important;font-size:15px!important;line-height:1.6;padding:6px 10px;border-left:4px solid var(--ochre);background:rgba(176,122,60,.16);border-radius:0 4px 4px 0}
+.sheet.plain{gap:12px}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:12px}
+.link{display:flex;align-items:center;gap:12px;min-height:60px;padding:8px 14px;color:var(--ink);text-decoration:none;background:var(--bg);border:2.5px solid var(--khaki);border-radius:8px;box-shadow:2px 2px 0 rgba(85,96,42,.3)}
+.link:active{transform:translate(1px,1px)}
+.link:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
+.link .ic{width:34px;height:34px;color:var(--khaki)}
+.link .ext{width:20px;height:20px;margin-left:auto;color:var(--ochre)}
+.lt{display:flex;flex-direction:column;line-height:1.35;min-width:0}
+.lt b{font-weight:400;font-size:20px;font-family:var(--hand)}
+.lt small{font-size:13px;color:var(--mute)}
+.small{font-size:14px!important;margin:0;color:var(--mute)!important}
+.stack{display:flex;flex-direction:column;gap:30px}
+.card{position:relative;background:var(--card);border:2px solid var(--khaki);border-left-width:8px;border-radius:6px;padding:16px 18px 14px;line-height:1.85}
+.card.maker h3,.sheet.char h3{font-family:var(--hand);font-size:23px;line-height:1.35;margin:0 0 6px;color:var(--ink);font-weight:700}
+.card.maker p,.sheet.char p{margin:0 0 8px;font-size:16px;color:var(--ink)}
+.card .portrait{float:right;width:96px;height:96px;object-fit:cover;border:2px solid var(--khaki);border-radius:5px;margin:0 0 6px 12px}
+.sheet.char{display:block;background:var(--ochre-soft);transform:rotate(-.5deg);padding:22px 16px 16px;overflow:hidden}
+.sheet.char::before{background:repeating-linear-gradient(90deg,#96344A 0 7px,#B07A3C 7px 11px,#7C8838 11px 18px,#B07A3C 18px 22px)}
+.sticker.ch{float:right;width:132px;margin:-6px 0 6px 12px;shape-outside:margin-box}
+.secret{display:inline-block;clear:both;margin-top:6px;padding:2px 12px;border:2px dashed var(--khaki);border-radius:4px;background:var(--card);font-size:15px;line-height:1.7}
+.secret b{font-weight:400;margin-left:6px;letter-spacing:.3em;color:var(--vermilion)}
+.house{width:54px;height:54px;color:var(--khaki)}
+.sticker{display:block;height:auto;flex:none}
+.sticker.head{width:96px;filter:drop-shadow(0 2px 0 rgba(46,36,28,.15))}
+.sticker.foot{width:68px}
+.sticker.side{float:right;width:110px;margin:-34px 0 2px 10px}
+.sticker.pl{width:84px}
+.pt{min-width:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.pt .link{align-self:stretch;margin-top:6px}
+.sheet.place{display:grid;grid-template-columns:auto 1fr;column-gap:16px;row-gap:4px;align-items:center;background:var(--ochre-soft)}
+.pt{display:contents}
+.house{grid-row:1/3;grid-column:1}
+.pt h3{grid-column:2;align-self:end}
+.pt p{grid-column:2;align-self:start}
+.pt .link{grid-column:1/-1;margin-top:8px}
+.sheet.place::before{background:repeating-linear-gradient(90deg,#7C8838 0 7px,#B07A3C 7px 11px,#7A2434 11px 18px,#B07A3C 18px 22px)}
+.sheet.place h3{margin:0}
+.fine{font-size:14px;color:var(--mute);line-height:1.6}
+.intro2{margin:-4px 0 18px}
+.divider{display:block;width:100%;height:30px;color:var(--leaf);opacity:.85}
+footer{display:flex;align-items:center;gap:14px;border-top:2px dashed var(--ochre);padding-top:16px!important;color:var(--ink);font-size:15px;line-height:1.8;padding-top:2px}
+footer .guide{width:56px;height:56px;background-size:123px auto;background-position:-36px -138px;box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--ochre);border-width:2.5px}
+footer b{font-weight:400;color:var(--khaki)}
+.band{height:16px;margin:0;border-radius:2px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='16' viewBox='0 0 48 16'%3E%3Crect width='48' height='16' fill='%2355602A'/%3E%3Cpath d='M12 1 L21 8 L12 15 L3 8Z' fill='%23B07A3C'/%3E%3Cpath d='M12 5 L16 8 L12 11 L8 8Z' fill='%237A2434'/%3E%3Cpath d='M36 1 L45 8 L36 15 L27 8Z' fill='%23B07A3C'/%3E%3Cpath d='M36 5 L40 8 L36 11 L32 8Z' fill='%237C8838'/%3E%3Ccircle cx='24' cy='8' r='2' fill='%23FFF8EA'/%3E%3Ccircle cx='0' cy='8' r='2' fill='%23FFF8EA'/%3E%3Ccircle cx='48' cy='8' r='2' fill='%23FFF8EA'/%3E%3Cpath d='M0 .75H48M0 15.25H48' stroke='%23FFF8EA' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x left center}
+.band.thin{height:10px;width:min(100%,19rem);background-size:30px 10px;margin-top:2px}
+body::before,body::after{content:"";position:absolute;top:0;bottom:0;width:44px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='260' viewBox='0 0 44 260'%3E%3Cpath d='M22 0 C2 43 2 87 22 130 S42 217 22 260' fill='none' stroke='%234F5A26' stroke-width='2.4' stroke-linecap='round'/%3E%3Cg transform='translate(9 52) rotate(-170) scale(1.1)'%3E%3Cpath d='M0 0 C8 -2 14 -8 14 -16 C6 -14 0 -8 0 0Z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M0 0 L11 -12' stroke='%234F5A26' stroke-width='.9' fill='none'/%3E%3C/g%3E%3Cg transform='translate(8 84) rotate(-120) scale(0.9)'%3E%3Cpath d='M0 0 C8 -2 14 -8 14 -16 C6 -14 0 -8 0 0Z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M0 0 L11 -12' stroke='%234F5A26' stroke-width='.9' fill='none'/%3E%3C/g%3E%3Cg transform='translate(21 128) rotate(20) scale(1.1)'%3E%3Cpath d='M0 0 C8 -2 14 -8 14 -16 C6 -14 0 -8 0 0Z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M0 0 L11 -12' stroke='%234F5A26' stroke-width='.9' fill='none'/%3E%3C/g%3E%3Cg transform='translate(34 176) rotate(-10) scale(1)'%3E%3Cpath d='M0 0 C8 -2 14 -8 14 -16 C6 -14 0 -8 0 0Z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M0 0 L11 -12' stroke='%234F5A26' stroke-width='.9' fill='none'/%3E%3C/g%3E%3Cg transform='translate(36 208) rotate(40) scale(0.9)'%3E%3Cpath d='M0 0 C8 -2 14 -8 14 -16 C6 -14 0 -8 0 0Z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M0 0 L11 -12' stroke='%234F5A26' stroke-width='.9' fill='none'/%3E%3C/g%3E%3Cg transform='translate(22 252) rotate(-165) scale(0.9)'%3E%3Cpath d='M0 0 C8 -2 14 -8 14 -16 C6 -14 0 -8 0 0Z' fill='%23A3B060' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M0 0 L11 -12' stroke='%234F5A26' stroke-width='.9' fill='none'/%3E%3C/g%3E%3Ccircle cx='6' cy='68' r='3' fill='%237A2434' stroke='%234F5A26' stroke-width='1.2'/%3E%3Ccircle cx='38' cy='192' r='3' fill='%237A2434' stroke='%234F5A26' stroke-width='1.2'/%3E%3C/svg%3E") repeat-y center top;opacity:.8;pointer-events:none;z-index:0}
+body::before{left:0}
+body::after{right:0;transform:scaleX(-1)}
+.sheet::after,.card::after,.gl-lead::after{content:"";position:absolute;right:-8px;top:-17px;width:54px;height:46px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='46' viewBox='0 0 54 46'%3E%3Cpath d='M4 40 C16 36 22 22 30 20 S44 14 50 4' fill='none' stroke='%234F5A26' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M14 33 q-1 -11 10 -13 q1 11 -10 13z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M28 22 q4 -10 15 -8 q-3 10 -15 8z' fill='%238A9A45' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M40 13 q-3 -9 6 -12 q3 8 -6 12z' fill='%23A3B060' stroke='%234F5A26' stroke-width='1.3' stroke-linejoin='round'/%3E%3Ccircle cx='7' cy='38' r='3' fill='%237A2434' stroke='%234F5A26' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat center/contain;pointer-events:none;transform:rotate(6deg)}
+.sheet.char::after{display:none}
+.c3{top:0;left:0;transform:scaleX(-1)}
+.c4{bottom:0;right:0;transform:rotate(180deg) scaleX(-1)}
+h2 .i{width:28px;height:28px;color:var(--leaf)}
+h2 .i.fl{color:var(--magenta)}
+.gl-lead{position:relative}
+@media (max-width:560px){
+body{font-size:16px;padding-block:26px 44px}
+.corner{width:80px;height:80px}
+.sheet.place{display:grid;padding:18px 14px 14px;column-gap:12px}
+.sticker.head{width:80px}
+.sticker.ch{width:104px}
+.card{padding:14px 14px 10px}
+.sheet.char{padding:20px 14px 14px}
+.house{width:44px;height:44px}
+.sticker.side{width:92px;margin-top:-30px}
+.sticker.pl{width:70px}
+.sticker.foot{width:58px}
+.link{min-height:56px}
+main{gap:30px}
+.guide{width:74px;height:74px;background-size:163px auto;background-position:-47px -183px}
+.top{gap:12px}
+h1{font-size:clamp(28px,8.6vw,36px)}
+h2{font-size:20px;margin-bottom:12px}
+.grid{gap:26px}
+.sheet{display:block;padding:16px 14px 16px;line-height:1.6}
+.sheet::before{width:62px;height:19px;margin-left:-31px;top:-11px}
+.shot{float:left;width:104px;height:104px;aspect-ratio:auto;margin:0 12px 6px 0}
+.sheet h3{margin:0 0 3px;font-size:21px}
+.sheet p{font-size:15px}
+.tags{margin-top:8px}
+.go{padding:11px 24px;min-height:46px;font-size:18px;display:flex;justify-content:center;clear:both;width:100%;align-self:stretch}
+.soon{margin-top:10px;display:block;text-align:center;clear:both}
+.sheet.blank{display:block;min-height:0;text-align:left;padding:12px 14px}
+.sheet.blank .q{float:left;width:44px;height:44px;margin:0 12px 0 0}
+.sheet.blank h3,.sheet.blank p{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--khaki);text-decoration:none;font-size:16px;margin-bottom:10px;padding:6px 0;min-height:44px}
+.back:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
+.gl-lead{background:var(--card);border:2px solid var(--khaki);border-left-width:8px;border-radius:6px;padding:14px 16px;line-height:1.85;margin:0}
+.gl-lead p{margin:0 0 8px}.gl-lead p:last-child{margin:0}
+.filters{display:flex;flex-wrap:wrap;gap:10px}
+.fbtn{font:inherit;font-size:17px;line-height:1;color:var(--ink);background:var(--ochre-soft);border:2.5px solid var(--khaki);border-radius:8px;padding:11px 18px;min-height:46px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--khaki);color:var(--card)}
+.fbtn:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
+.wall{columns:2;column-gap:14px}
+@media (min-width:640px){.wall{columns:3}}
+.ph{position:relative;display:block;width:100%;margin:0 0 14px;padding:6px;background:var(--card);border:2.5px solid var(--khaki);border-radius:8px;box-shadow:3px 3px 0 rgba(85,96,42,.22);break-inside:avoid;cursor:pointer;font:inherit}
+.ph:nth-child(3n+1){transform:rotate(-.6deg)}.ph:nth-child(3n+2){transform:rotate(.5deg)}
+.ph img{display:block;width:100%;height:auto;border-radius:4px}
+.ph:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
+.ph[hidden]{display:none}
+.pcap{display:block;margin:6px 2px 2px;text-align:left;font-size:15px;line-height:1.4;color:var(--ink)}
+.free{position:absolute;left:10px;bottom:10px;background:rgba(255,248,234,.92);color:var(--khaki);border:1.5px solid var(--khaki);border-radius:999px;padding:2px 9px;font-size:12px;line-height:1.5}
+.lb{position:fixed;inset:0;z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(40,36,30,.92);padding:14px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:78vh;max-height:78dvh;border-radius:6px;border:3px solid var(--card)}
+.lb .bar{display:flex;gap:12px;margin-top:14px;align-items:center}
+.lb button{font:inherit;font-size:18px;line-height:1;color:var(--card);background:var(--khaki);border:2px solid var(--card);border-radius:8px;padding:12px 18px;min-height:48px;min-width:48px;cursor:pointer}
+.lb .cnt{color:var(--card);font-size:15px;min-width:4.5em;text-align:center}
+.lb .cap{color:var(--card);font-size:14px;margin-top:8px;text-align:center;max-width:30rem}
+.lb button:focus-visible{outline:3px solid var(--vermilion);outline-offset:3px}
+@media (max-width:560px){body::before,body::after{width:22px;background-size:22px 130px;opacity:.65}.sheet::after,.card::after,.gl-lead::after{width:44px;height:38px;right:-6px;top:-15px}h2 .i{width:24px;height:24px}}
+
+.zk{display:flex;flex-direction:row;gap:14px;align-items:flex-end;padding:20px 18px 16px;margin-bottom:26px;border-top:8px solid var(--c)}
+.zimg{flex:0 0 auto;height:290px;width:auto;max-width:46%;object-fit:contain;filter:drop-shadow(0 3px 0 rgba(46,36,28,.15))}
+.zk .zbody{align-self:stretch}
+.zk.pos-r .zimg{order:2;align-self:flex-start}
+.zk.pos-l .zimg{order:0;align-self:flex-start}
+.zk.pos-bl .zimg{order:0;align-self:flex-end}
+.zk.pos-r .zslot{order:2;align-self:flex-start}
+.zk.pos-l .zslot{order:0;align-self:flex-start}
+.zk.pos-bl .zslot{order:0;align-self:flex-end}
+.zpair{display:flex;gap:4px;align-items:flex-end;flex:0 0 auto}
+.zpair img{height:260px;width:auto;max-width:none}
+.zbody{flex:1;min-width:0}
+.zk h3{font-size:22px;margin:0 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chip{font-size:12px;background:var(--c);color:#fff;border-radius:999px;padding:1px 10px}
+.zdesc{margin:0 0 8px;font-size:15px}
+.zk dl{margin:0;font-size:14px}.zk dl>div{display:grid;grid-template-columns:5.6em 1fr;gap:6px;padding:3px 0;border-top:1px dashed rgba(85,96,42,.3)}
+.zk dt{color:var(--mute);font-weight:700}.zk dd{margin:0}
+.say2{margin:10px 0 0;padding:8px 10px;background:var(--ochre-soft);border-radius:10px;font-size:14px}
+.say2 b{color:var(--magenta);margin-right:4px}
+.zk.rb{border-top-color:var(--magenta)}
+.zk.rb .chip{background:linear-gradient(90deg,#7A2434,#B07A3C,#66752F,#55602A,#7A4DB0)}
+.zintro{padding:16px 18px}.zintro p{margin:0 0 8px}
+@media (max-width:520px){.zk{flex-direction:column;align-items:center}.zimg{height:230px;max-width:70%}.zbody{width:100%}.zk.zk .zimg,.zk.zk .zslot{order:0;align-self:center}}
+
+.zk.pos-r .zposes{justify-content:flex-end}
+.zk.pos-l .zposes,.zk.pos-bl .zposes{justify-content:flex-start}
+@media (max-width:520px){.zk.zk .zposes{justify-content:space-between;gap:4px}.zk.zk .zposes img,.zk.zk .zposes .zmain{height:150px;max-width:31%}}
+.zposes{display:flex;gap:6px;justify-content:space-between;align-items:flex-end;margin-top:10px;padding-top:10px;border-top:2px dotted rgba(122,36,52,.28)}
+.zposes img{height:120px;width:auto;max-width:31%;object-fit:contain;transition:transform .15s}
+.zposes .zmain{height:120px;filter:drop-shadow(0 3px 0 rgba(46,36,28,.15))}
+.zposes img:hover{transform:translateY(-4px) rotate(-3deg)}
+@media(prefers-reduced-motion:reduce){.zposes img{transition:none}}
+
+.parade{display:flex;justify-content:center;align-items:flex-end;gap:2px;margin:34px auto 4px;max-width:560px}
+.parade button{border:0;background:none;padding:0;cursor:pointer;flex:1 1 0;min-width:0;display:flex;justify-content:center;position:relative;-webkit-tap-highlight-color:transparent}
+.parade img{height:80px;width:auto;max-width:100%;object-fit:contain;transform-origin:50% 100%;animation:pbob 2.8s ease-in-out infinite}
+.parade button:nth-child(2) img{animation-delay:.25s}.parade button:nth-child(3) img{animation-delay:.5s}.parade button:nth-child(4) img{animation-delay:.75s}.parade button:nth-child(5) img{animation-delay:1s}.parade button:nth-child(6) img{animation-delay:1.25s}.parade button:nth-child(7) img{animation-delay:1.5s}
+@keyframes pbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.parade .pbub{position:absolute;bottom:92%;left:50%;transform:translateX(-50%);background:#FFF8EA;color:#2E241C;border:2px solid #7A2434;border-radius:12px;padding:1px 9px;font-size:13px;line-height:1.5;white-space:nowrap;display:none;z-index:2;box-shadow:2px 2px 0 rgba(122,36,52,.25)}
+.parade button.on .pbub{display:block}
+.parade button:focus-visible{outline:3px solid #B07A3C;outline-offset:2px;border-radius:8px}
+@media(prefers-reduced-motion:reduce){.parade img{animation:none}}
+.parade button:nth-child(8) img{animation-delay:1.75s}
+
+.nbon{float:right;height:120px;width:auto;margin:0 0 6px 10px;shape-outside:margin-box}
+.nbon-cap{display:block;clear:none}
+@media(max-width:380px){.nbon{height:100px}}
+.zk .zposes{flex-wrap:nowrap}.zk .zposes img{max-width:23%;height:120px;width:auto;object-fit:contain}.zk.zk .zposes img{max-width:23%;height:auto;width:auto}@media (max-width:520px){.zk.zk .zposes img{height:auto;max-width:23%}}.zk .zslot>img.zimg{height:260px;width:auto;max-width:none}@media (max-width:520px){.zk.zk .zslot>img.zimg{height:240px;max-width:75%}}.zk .zslot.zpair{gap:6px}.zk .zslot.zpair>img.zimg{height:240px;width:auto;max-width:none}@media (max-width:520px){.zk.zk .zslot.zpair{justify-content:center;flex-wrap:nowrap}.zk.zk .zslot.zpair>img.zimg{height:auto;width:auto;max-width:48%;max-height:240px}}/* 長押し保存の防止 */img,svg,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none}
+</style>
+<script src="theme.js"></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<symbol id="leaf" viewBox="0 0 24 24"><path d="M4 20 C4 9 11 3 21 3 C21 13 15 20 4 20 Z" fill="currentColor" fill-opacity=".18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 19 C9 14 13 10 18 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M12 3 L14 10 L21 12 L14 14 L12 21 L10 14 L3 12 L10 10 Z" fill="currentColor" fill-opacity=".2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+<symbol id="flower" viewBox="0 0 24 24"><g fill="currentColor" fill-opacity=".2" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5.5" r="3.5"/><circle cx="18.5" cy="10.5" r="3.5"/><circle cx="16" cy="18" r="3.5"/><circle cx="8" cy="18" r="3.5"/><circle cx="5.5" cy="10.5" r="3.5"/></g><circle cx="12" cy="12" r="2.6" fill="#B07A3C" stroke="currentColor" stroke-width="1.4"/></symbol>
+<symbol id="vine" viewBox="0 0 300 26"><path d="M3 15 C28 2 52 28 82 15 S135 2 165 15 S222 28 252 14 S284 8 297 13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M38 20 q4 -11 15 -10 q-1 10 -15 10z M104 8 q5 -8 14 -5 q-3 8 -14 5z M176 20 q5 -10 16 -8 q-3 10 -16 8z M232 8 q6 -8 15 -4 q-4 8 -15 4z" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="290" cy="12" r="3" fill="#7A2434"/></symbol>
+<symbol id="vine2" viewBox="0 0 600 30"><path d="M4 16 C60 2 110 30 170 16 S280 2 340 16 S450 30 510 15 S570 8 596 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><g fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M70 22 q5 -12 18 -10 q-2 12 -18 10z"/><path d="M200 8 q6 -9 16 -6 q-3 9 -16 6z"/><path d="M300 8 q-6 -9 -16 -6 q3 9 16 6z"/><path d="M400 22 q5 -12 18 -10 q-2 12 -18 10z"/><path d="M540 22 q5 -10 16 -8 q-3 10 -16 8z"/></g><circle cx="292" cy="15" r="4" fill="#7A2434" stroke="currentColor" stroke-width="1.4"/></symbol>
+<symbol id="corner" viewBox="0 0 150 150"><path d="M150 4 C110 6 70 20 48 52 C28 80 30 118 8 146" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><g fill="currentColor" fill-opacity=".22" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M112 10 q-2 18 -22 22 q0 -18 22 -22z"/><path d="M70 30 q-14 8 -16 26 q16 -4 16 -26z"/><path d="M50 62 q14 -2 22 14 q-16 4 -22 -14z"/><path d="M38 96 q-12 6 -12 22 q14 -4 12 -22z"/></g><circle cx="132" cy="8" r="5" fill="#7A2434" fill-opacity=".85" stroke="currentColor" stroke-width="1.4"/><circle cx="20" cy="134" r="4" fill="#B07A3C" stroke="currentColor" stroke-width="1.4"/></symbol>
+<symbol id="q" viewBox="0 0 48 48"><path d="M14 16 C14 5 34 5 34 16 C34 24 24 24 24 32" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><circle cx="24" cy="41" r="3" fill="currentColor"/></symbol>
+</defs>
+</svg>
+<svg class="corner c1" aria-hidden="true"><use href="#corner"/></svg>
+<svg class="corner c2" aria-hidden="true"><use href="#corner"/></svg>
+<svg class="corner c3" aria-hidden="true"><use href="#corner"/></svg>
+<svg class="corner c4" aria-hidden="true"><use href="#corner"/></svg>
+<main>
+<div class="band" aria-hidden="true"></div>
+<header>
+<a class="back" href="novels.html">← 小説の一覧</a>
+<a class="back" href="index.html">← 博物館に戻る</a>
+<p class="kicker">BON STORY</p>
+<h1>ひょえボンの ともだち が できた</h1>
+<div class="band thin" aria-hidden="true"></div>
+</header>
+<div class="gl-lead"><p>ちびボン期の ひょえボンが、はじめて ひとりで おにぎりを にぎった日のおはなし。いまのひょえボンが、思い出しながら話してくれるよ。(ぜんぶで9章)　まえの おはなしは、<a href="novel4.html">「ひょえボンの はじめての ひとりでできた」</a>。</p></div>
+<nav aria-label="もくじ" class="sheet plain"><h3 style="margin:0 0 6px">もくじ</h3><ol style="margin:0;padding-left:1.4em;line-height:1.9"><li><a href="#n1">かわら の むこう</a></li><li><a href="#n2">○△○ って なあに</a></li><li><a href="#n3">かくれんぼ</a></li><li><a href="#n4">おにぎり はんぶんこ</a></li><li><a href="#n5">すれちがい</a></li><li><a href="#n6">ごめんね の てがみ</a></li><li><a href="#n7">ころんボン の おうち</a></li><li><a href="#n8">みんな と ころんボン</a></li><li><a href="#n9">ともだち</a></li></ol></nav>
+<section aria-labelledby="n1"><h2 id="n1"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第1章　かわら の むこう</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">ある、はれた、朝。にこさんが、かごを、かかえて、言った。</p><p style="margin:0 0 1em;line-height:2">「ひょえちゃん、おつかい、いっしょに、いこ！　町の、おばあちゃんに、おにぎりを、とどけるんだ！」</p><p style="margin:0 0 1em;line-height:2">「まち」</p><p style="margin:0 0 1em;line-height:2">ボンは、目を、まるくした。町は、かわらの、むこう。まだ、ちょっとしか、行ったことが、ない。</p><p style="margin:0 0 1em;line-height:2">ボンは、青い、ジャケットの、ぼたんを、ひとりで、ぱちん、ぱちん、と、とめた。くつの、ひもは、ちょうちょに、むすんだ。</p><p style="margin:0 0 1em;line-height:2">「おおー、ひょえちゃん、ひとりで、できてる！」</p><p style="margin:0 0 1em;line-height:2">「ぼん。……ふふん」</p><p style="margin:0 0 1em;line-height:2">ふたりは、手を、つないで、かわらの、はしを、わたった。水が、きらきら、光って、小さな、さかなが、すいっと、はねた。</p><p style="margin:0 0 1em;line-height:2">町は、にぎやかだった。パンやさんの、いいにおい。ふえの、おと。ならんだ、はたと、ちいさな、屋根。</p><p style="margin:0 0 1em;line-height:2">ボンは、きょろきょろ、した。見るもの、ぜんぶが、はじめてで、胸が、どきどき、した。</p><p style="margin:0 0 1em;line-height:2">そのとき、橋の、たもとに、ボンと、おなじくらいの、ちいさな、子が、すわっているのが、見えた。</p><p style="margin:0 0 1em;line-height:2">茶色の、おかっぱ。まるい、ほっぺ。手には、ちいさな、石を、にぎっている。</p><p style="margin:0 0 1em;line-height:2">その子は、顔を、あげた。ボンと、目が、あった。</p><p style="margin:0 0 1em;line-height:2">「…………」</p><p style="margin:0 0 1em;line-height:2">「…………ぼん」</p><p style="margin:0 0 1em;line-height:2">にこさんが、先に、小さく、笑った。</p><p style="margin:0 0 1em;line-height:2">「ひょえちゃん、おなじくらいの、子、いたねー。……行こっか」</p><p style="margin:0 0 1em;line-height:2">ボンは、うなずいて、歩きだした。でも、ふりかえると、その子は、まだ、こっちを、見ていた。</p><p style="margin:1.2em 0 1em;line-height:2">いまの、ボンは、知ってる。あの子が、ボンの、さいしょの、ともだちに、なる子だったって。</p></article></section>
+<section aria-labelledby="n2"><h2 id="n2"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第2章　○△○ って なあに</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">おばあちゃんの、おうちに、おにぎりを、とどけて、かえり道。にこさんが、ちょっとだけ、お店に、よる、と言うので、ボンは、橋の、たもとで、待っていた。</p><p style="margin:0 0 1em;line-height:2">ぽつん。</p><p style="margin:0 0 1em;line-height:2">「ねえ」</p><p style="margin:0 0 1em;line-height:2">うしろから、声が、した。ふりむくと、あの、子が、立っていた。</p><p style="margin:0 0 1em;line-height:2">「あなたも、ボンでしょ？　ちいさい、からだで、わかるもん。でも、なんで、顔が、そうなの？」</p><p style="margin:0 0 1em;line-height:2">「ぼん？」</p><p style="margin:0 0 1em;line-height:2">「ここ。目と、はな、くち。まる、さんかく、まる。わたしの、まわりの、ボンは、みんな、ちがう顔だよ」</p><p style="margin:0 0 1em;line-height:2">その子は、じぶんの、顔を、ゆびで、ちょんちょん、して、それから、ボンの、顔を、ゆびさした。</p><p style="margin:0 0 1em;line-height:2">ボンは、ぱちぱち、した。ボンの、顔は、ボンの、顔。ずっと、そう。○△○。</p><p style="margin:0 0 1em;line-height:2">「ぼんの、かお。……へん？」</p><p style="margin:0 0 1em;line-height:2">ボンの、胸が、きゅっと、した。ほっぺが、ぷくっと、ふくらみかけた。</p><p style="margin:0 0 1em;line-height:2">でも、その子は、あわてて、首を、ふった。</p><p style="margin:0 0 1em;line-height:2">「ちがう、ちがう！　へん、じゃなくて、すごい！　ぜんぶ、かんたんな、かたちで、できてる！　かわいい！」</p><p style="margin:0 0 1em;line-height:2">「かわいい？」</p><p style="margin:0 0 1em;line-height:2">「うん！　わたし、ころんボン。ころん、って、よんでね。あなたは？」</p><p style="margin:0 0 1em;line-height:2">「…………ひょえ」</p><p style="margin:0 0 1em;line-height:2">「ひょえ！　へんな、なまえ！　すてき！」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、にこにこ、した。ボンの、ふくらみかけた、ほっぺが、ふにゃっと、もどった。</p><p style="margin:0 0 1em;line-height:2">『ころん』</p><p style="margin:0 0 1em;line-height:2">ボンは、こころの、なかで、おぼえた。町で、はじめて、名前を、おしえてくれた、ボン。</p><p style="margin:1.2em 0 1em;line-height:2">○△○は、ボンの、顔。いまの、ボンは、あの日の、ころんの、『かわいい』を、ときどき、思い出して、ほっぺを、さわる。</p></article></section>
+<section aria-labelledby="n3"><h2 id="n3"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第3章　かくれんぼ</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">つぎの、おつかいの、日。ボンは、すこしだけ、そわそわ、して、橋に、ついた。</p><p style="margin:0 0 1em;line-height:2">ころんボンは、いた。石を、にぎって、待っていた。</p><p style="margin:0 0 1em;line-height:2">「ひょえ！　きた！」</p><p style="margin:0 0 1em;line-height:2">「ころんボン、ぼん」</p><p style="margin:0 0 1em;line-height:2">「あのね、かくれんぼ、しよう！　ひょえ、したこと、ある？」</p><p style="margin:0 0 1em;line-height:2">「ない」</p><p style="margin:0 0 1em;line-height:2">「じゃあ、おしえるね。わたしが、かぞえる。ひょえは、かくれる。みつかったら、まけ」</p><p style="margin:0 0 1em;line-height:2">にこさんが、ベンチから、手を、ふった。</p><p style="margin:0 0 1em;line-height:2">「いってらっしゃーい！　ここで、みてるよー！」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、橋の、はしらに、おでこを、くっつけて、目を、とじた。</p><p style="margin:0 0 1em;line-height:2">「いーち、にーい、さーん」</p><p style="margin:0 0 1em;line-height:2">ボンは、ぱたぱた、走った。どこに、かくれよう。たるの、うしろ。木の、えだの、下。</p><p style="margin:0 0 1em;line-height:2">『ここ』</p><p style="margin:0 0 1em;line-height:2">パンやさんの、よこの、あおい、かめの、うしろ。ボンは、ちいさく、まるくなった。</p><p style="margin:0 0 1em;line-height:2">「もーいーかーい」</p><p style="margin:0 0 1em;line-height:2">「…………」</p><p style="margin:0 0 1em;line-height:2">ボンは、こたえて、いいのか、わからなかった。それで、小さな、声で、言った。</p><p style="margin:0 0 1em;line-height:2">「もういいよ」</p><p style="margin:0 0 1em;line-height:2">ころんボンの、足音が、ぱたぱた、近づく。かめの、まわりを、ぐるっと、一周。</p><p style="margin:0 0 1em;line-height:2">「うーん、どこかなー」</p><p style="margin:0 0 1em;line-height:2">ボンは、息を、とめた。心ぞうが、どきどき、して、おなかの、あたりが、くすぐったい。</p><p style="margin:0 0 1em;line-height:2">「あっ！　いた！　ひょえの、あおい、ジャケット、みえてた！」</p><p style="margin:0 0 1em;line-height:2">「ひょえ！」</p><p style="margin:0 0 1em;line-height:2">ボンは、かめの、うしろから、ころりと、ころがりでた。でも、なぜか、わらいが、こみあげた。</p><p style="margin:0 0 1em;line-height:2">「ふふ。ふふふ」</p><p style="margin:0 0 1em;line-height:2">「あはは！　ひょえ、わらった！」</p><p style="margin:0 0 1em;line-height:2">ふたりは、ならんで、しゃがんで、くすくす、わらった。</p><p style="margin:0 0 1em;line-height:2">『おもしろい』</p><p style="margin:0 0 1em;line-height:2">ボンは、おもった。みつかるのは、まけなのに、ちっとも、くやしくなかった。</p><p style="margin:1.2em 0 1em;line-height:2">かくれんぼ。いまの、ボンは、あおい、かめを、見るたびに、すこしだけ、どきどき、する。</p></article></section>
+<section aria-labelledby="n4"><h2 id="n4"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第4章　おにぎり はんぶんこ</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">その、つぎの、日。ボンは、もぐさんに、おねがいして、おにぎりを、ふたつ、にぎった。</p><p style="margin:0 0 1em;line-height:2">ひとつは、自分の。もうひとつは、ころんボンの。</p><p style="margin:0 0 1em;line-height:2">「ひょえ〜、だれかに、あげるの〜？」</p><p style="margin:0 0 1em;line-height:2">「ともだち」</p><p style="margin:0 0 1em;line-height:2">「ともだち！？　わあ〜」</p><p style="margin:0 0 1em;line-height:2">もぐさんは、ぱっと、顔を、かがやかせて、ふわっと、ボンを、だきしめた。</p><p style="margin:0 0 1em;line-height:2">「そっか〜、ともだち、できたんだね〜。じゃあ、とびっきり、ふわっと、にぎろうね〜」</p><p style="margin:0 0 1em;line-height:2">ボンは、手を、水で、ぬらして、塩を、ちょん。ごはんを、のせて、ふわっ、ふわっ、と、にぎった。</p><p style="margin:0 0 1em;line-height:2">『ふわっ。ふわっ』</p><p style="margin:0 0 1em;line-height:2">できた、ふたつの、おにぎりを、ふろしきに、つつんだ。</p><p style="margin:0 0 1em;line-height:2">橋の、たもとで、ころんボンは、待っていた。</p><p style="margin:0 0 1em;line-height:2">「ひょえ、きょうは、なに、するの？」</p><p style="margin:0 0 1em;line-height:2">「これ」</p><p style="margin:0 0 1em;line-height:2">ボンは、ふろしきを、ひらいた。</p><p style="margin:0 0 1em;line-height:2">「おにぎり。ころんボンの」</p><p style="margin:0 0 1em;line-height:2">「え、わたしに？　ひょえが、つくったの？」</p><p style="margin:0 0 1em;line-height:2">「ボンが、にぎった」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、ふたつの、おにぎりを、じっと、見た。それから、そっと、ひとつを、うけとった。</p><p style="margin:0 0 1em;line-height:2">「あったかい」</p><p style="margin:0 0 1em;line-height:2">ぱく。</p><p style="margin:0 0 1em;line-height:2">もぐ、もぐ。</p><p style="margin:0 0 1em;line-height:2">「……おいしい。おいしい、ひょえ！　ふわふわ！」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、ぱあっと、わらった。ボンの、むねの、おくも、ぱあっと、あたたかくなった。</p><p style="margin:0 0 1em;line-height:2">「ねえ、わたしも、あげる」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、ポケットから、ちいさな、石を、ひとつ、とりだした。つるつるの、しろい、石。</p><p style="margin:0 0 1em;line-height:2">「これ、川で、ひろった、とっておき。ひょえに、あげる」</p><p style="margin:0 0 1em;line-height:2">「いし」</p><p style="margin:0 0 1em;line-height:2">「うん。ともだちの、しるし」</p><p style="margin:0 0 1em;line-height:2">ボンは、両手で、石を、うけとった。ひんやり、すべすべ。</p><p style="margin:0 0 1em;line-height:2">『ともだちの、しるし』</p><p style="margin:0 0 1em;line-height:2">ボンは、石を、ぎゅっと、にぎった。その夜、ボンは、石を、枕もとに、そっと、おいた。</p><p style="margin:1.2em 0 1em;line-height:2">おにぎりと、石。いまの、ボンは、ふたつを、ならべて、思い出す。はんぶんこは、ふたりぶんの、あたたかさ。</p></article></section>
+<section aria-labelledby="n5"><h2 id="n5"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第5章　すれちがい</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">それから、ボンと、ころんボンは、おつかいの、たびに、あそんだ。</p><p style="margin:0 0 1em;line-height:2">でも、ある日。橋に、いったら、ころんボンの、まわりに、町の、子たちが、いた。三人。ボンより、すこし、大きい。</p><p style="margin:0 0 1em;line-height:2">「あっ、ひょえ」</p><p style="margin:0 0 1em;line-height:2">ころんボンが、手を、ふった。でも、子たちが、ボンを、じろじろ、見た。</p><p style="margin:0 0 1em;line-height:2">「だれ？　その子」</p><p style="margin:0 0 1em;line-height:2">「ひょえ！　わたしの、ともだち」</p><p style="margin:0 0 1em;line-height:2">「へんな、顔」</p><p style="margin:0 0 1em;line-height:2">ひとりが、言った。ボンの、足が、ぴたっと、とまった。</p><p style="margin:0 0 1em;line-height:2">「○△○だ。おもしろい」</p><p style="margin:0 0 1em;line-height:2">「あはは」</p><p style="margin:0 0 1em;line-height:2">ボンの、ほっぺが、ぎゅっと、あつくなった。ころんボンは、なにか、言いかけて、でも、口を、とじた。</p><p style="margin:0 0 1em;line-height:2">『ころんボンも、わらってる』</p><p style="margin:0 0 1em;line-height:2">ボンには、そう、見えた。ほんとうは、ころんボンは、こまった、顔を、していたのに。</p><p style="margin:0 0 1em;line-height:2">「ひょえ、あの」</p><p style="margin:0 0 1em;line-height:2">「ひょえ、かえる」</p><p style="margin:0 0 1em;line-height:2">ボンは、くるっと、背を、むけて、走りだした。ころんボンが、呼ぶ、声が、した。</p><p style="margin:0 0 1em;line-height:2">「まって、ひょえ！」</p><p style="margin:0 0 1em;line-height:2">でも、ボンは、とまらなかった。かわらを、わたって、おうちまで、ひたすら、走った。</p><p style="margin:0 0 1em;line-height:2">縁側で、ボンは、ひざを、かかえて、すわった。</p><p style="margin:0 0 1em;line-height:2">「ひょえ、どうしたの」</p><p style="margin:0 0 1em;line-height:2">ねむさんが、まくらを、かかえて、ふらっと、あらわれて、となりに、すわった。</p><p style="margin:0 0 1em;line-height:2">「…………かお、わらわれた」</p><p style="margin:0 0 1em;line-height:2">「……そっか。……それは、いやだったね」</p><p style="margin:0 0 1em;line-height:2">ねむさんは、それ以上、なにも、聞かなかった。ただ、あったかい、毛布を、ボンの、肩に、かけてくれた。</p><p style="margin:0 0 1em;line-height:2">ボンは、枕もとの、石を、ぎゅっと、にぎった。つるつるの、石が、すこしだけ、にじんで、見えた。</p><p style="margin:1.2em 0 1em;line-height:2">すれちがい。いまの、ボンは、知ってる。あのとき、ころんボンも、おなじくらい、さびしかったって。</p></article></section>
+<section aria-labelledby="n6"><h2 id="n6"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第6章　ごめんね の てがみ</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">それから、三日、ボンは、橋に、行かなかった。にこさんが、さそっても、「ボン、おるすばん」と、言った。</p><p style="margin:0 0 1em;line-height:2">四日目の、夜。ボンは、居間の、すみで、紙を、ひろげた。てれさんが、そっと、えんぴつを、おいてくれた。</p><p style="margin:0 0 1em;line-height:2">「……ひょえちゃん。ノート、つかう？」</p><p style="margin:0 0 1em;line-height:2">「てがみ、かく」</p><p style="margin:0 0 1em;line-height:2">「うん、てれは、ここで、見てるね」</p><p style="margin:0 0 1em;line-height:2">ボンは、えんぴつを、にぎった。ゆっくり、ゆっくり。</p><p style="margin:0 0 1em;line-height:2">『ころんボン』</p><p style="margin:0 0 1em;line-height:2">『ごめんね』</p><p style="margin:0 0 1em;line-height:2">『ボン、にげた』</p><p style="margin:0 0 1em;line-height:2">『でも、ころんボンは、ともだち』</p><p style="margin:0 0 1em;line-height:2">『また、あそぼう』</p><p style="margin:0 0 1em;line-height:2">『ひょえ』</p><p style="margin:0 0 1em;line-height:2">ぐにゃぐにゃの、字。ななめの、字。でも、ぜんぶ、ボンの、字だった。</p><p style="margin:0 0 1em;line-height:2">「……いい、てがみ」</p><p style="margin:0 0 1em;line-height:2">てれさんは、ふふ、と、笑った。</p><p style="margin:0 0 1em;line-height:2">つぎの日、ボンは、てがみと、あたらしく、にぎった、おにぎりを、ふろしきに、つつんで、にこさんに、言った。</p><p style="margin:0 0 1em;line-height:2">「ボン、いく」</p><p style="margin:0 0 1em;line-height:2">「うん！　いこう！」</p><p style="margin:0 0 1em;line-height:2">橋の、たもとに、ころんボンは、いた。ひとりで、石を、にぎって、しゃがんでいた。</p><p style="margin:0 0 1em;line-height:2">「ころんボン」</p><p style="margin:0 0 1em;line-height:2">ころんボンが、ぱっと、顔を、あげた。目が、まっかだった。</p><p style="margin:0 0 1em;line-height:2">「ひょえ！」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、立ちあがって、ボンに、とびついた。</p><p style="margin:0 0 1em;line-height:2">「ごめんね、ごめんね、ひょえ！　あのとき、なにも、いえなくて、ごめんね！」</p><p style="margin:0 0 1em;line-height:2">「ボンも、ごめんね。にげて、ごめんね」</p><p style="margin:0 0 1em;line-height:2">ふたりは、ぎゅっと、だきあった。ボンは、てがみを、さしだした。</p><p style="margin:0 0 1em;line-height:2">ころんボンは、ひらいて、ゆっくり、よんだ。</p><p style="margin:0 0 1em;line-height:2">「……ひょえ、じ、じょうずだね」</p><p style="margin:0 0 1em;line-height:2">「ぐにゃぐにゃ」</p><p style="margin:0 0 1em;line-height:2">「ううん、すてき。わたし、たからものに、する」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、てがみを、胸に、ぎゅっと、あてた。それから、ふたりで、おにぎりを、はんぶんこ、した。</p><p style="margin:1.2em 0 1em;line-height:2">ごめんね。いまの、ボンは、ごめんねの、あとに、ふたりで、たべる、おにぎりが、いちばん、おいしいって、思う。</p></article></section>
+<section aria-labelledby="n7"><h2 id="n7"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第7章　ころんボン の おうち</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">仲なおりの、つぎの日。ころんボンが、言った。</p><p style="margin:0 0 1em;line-height:2">「ひょえ、うちに、あそびに、こない？　おかあさんが、あいたいって」</p><p style="margin:0 0 1em;line-height:2">「おうち」</p><p style="margin:0 0 1em;line-height:2">ボンは、ちょっと、どきどき、した。にこさんに、そうだんすると、にこさんは、ぱあっと、顔を、かがやかせた。</p><p style="margin:0 0 1em;line-height:2">「いってらっしゃい！　わたしも、ついていく！　おみやげ、もたせるね！」</p><p style="margin:0 0 1em;line-height:2">ころんボンの、おうちは、パンやさんの、うらの、ちいさな、家だった。まどには、赤い、花が、かざってある。</p><p style="margin:0 0 1em;line-height:2">「いらっしゃい、ひょえちゃん。ころんボンから、よく、きいてるわよ」</p><p style="margin:0 0 1em;line-height:2">ころんボンの、おかあさんは、やさしい、声の、人だった。エプロンには、こなが、すこし、ついている。</p><p style="margin:0 0 1em;line-height:2">「おじゃまします」</p><p style="margin:0 0 1em;line-height:2">ボンは、ぺこり、と、おじぎをした。おかあさんは、目を、ほそめて、わらった。</p><p style="margin:0 0 1em;line-height:2">「ていねいな、子ね。ころんボンが、すきに、なるわけだわ」</p><p style="margin:0 0 1em;line-height:2">ころんボンの、へやは、ちいさかった。たなには、石が、いっぱい、ならんでいた。まるい、石、ざらざらの、石、しましまの、石。</p><p style="margin:0 0 1em;line-height:2">「ぜんぶ、わたしが、ひろったの！　これは、はじめて、ひろった、石」</p><p style="margin:0 0 1em;line-height:2">「いっぱい」</p><p style="margin:0 0 1em;line-height:2">「ひょえに、あげた、白い、石が、いちばん、すき。でも、ひょえが、もってるから、いいの」</p><p style="margin:0 0 1em;line-height:2">ボンは、ポケットの、石を、ぎゅっと、にぎった。</p><p style="margin:0 0 1em;line-height:2">「ボンも、いちばん、すき」</p><p style="margin:0 0 1em;line-height:2">ふたりは、石を、ならべて、ならべて、ならべかえて、あそんだ。まるい、石で、かおを、つくった。ころんボンが、○と、○と、△を、おいた。</p><p style="margin:0 0 1em;line-height:2">「ほら、ひょえの、かお！」</p><p style="margin:0 0 1em;line-height:2">「○△○」</p><p style="margin:0 0 1em;line-height:2">「かわいいでしょ」</p><p style="margin:0 0 1em;line-height:2">「ふふ、かわいい」</p><p style="margin:0 0 1em;line-height:2">ボンは、じぶんの、顔を、石で、見て、ふしぎな、気もちに、なった。まえは、ちょっと、きらいに、なりかけた、顔。でも、ころんボンが、かわいいって、言ってくれたから、いまは、すこし、すき。</p><p style="margin:0 0 1em;line-height:2">かえり道、にこさんが、そっと、言った。</p><p style="margin:0 0 1em;line-height:2">「ひょえちゃん、たのしそうだったね」</p><p style="margin:0 0 1em;line-height:2">「うん。ボン、たのしかった」</p><p style="margin:0 0 1em;line-height:2">ボンは、にこさんの、手を、ぎゅっと、にぎった。</p><p style="margin:1.2em 0 1em;line-height:2">ころんボンの、へやの、石。いまの、ボンは、石を、見るたびに、あの、ちいさな、へやの、あったかさを、思い出す。</p></article></section>
+<section aria-labelledby="n8"><h2 id="n8"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第8章　みんな と ころんボン</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">それから、しばらくして。ころんボンが、ボンの、おうちに、あそびに、きた。</p><p style="margin:0 0 1em;line-height:2">「おじゃまします！」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、玄関で、ぺこり、と、おじぎを、した。そのうしろには、おかあさんも、いた。</p><p style="margin:0 0 1em;line-height:2">「ころんボンが、おせわに、なります。これ、パンです」</p><p style="margin:0 0 1em;line-height:2">「わあ〜、ありがとう〜！」</p><p style="margin:0 0 1em;line-height:2">もぐさんが、ふわっと、受けとった。</p><p style="margin:0 0 1em;line-height:2">ボンの、おうちの、みんなは、ころんボンを、見て、それぞれ、反応した。</p><p style="margin:0 0 1em;line-height:2">「ころんボン、でしょ？　ひょえちゃんから、聞いてるよー！　わたし、にこ！」</p><p style="margin:0 0 1em;line-height:2">「……べつに、あいさつ、なんて、いいけど。おこよ」</p><p style="margin:0 0 1em;line-height:2">「我輩は、にじである。そなたが、ひょえボンの、ともだちか。うむ、よい顔である」</p><p style="margin:0 0 1em;line-height:2">「……ねむ。……ふわあ、ゆっくり、していってね」</p><p style="margin:0 0 1em;line-height:2">「てれ、だよ。……ひょえちゃんを、よろしくね」</p><p style="margin:0 0 1em;line-height:2">ころんボンは、いちども、目を、そらさず、ひとりずつ、ぺこぺこ、おじぎ、した。</p><p style="margin:0 0 1em;line-height:2">「ころんボン、です！　ひょえの、ともだち、です！」</p><p style="margin:0 0 1em;line-height:2">その、声が、すこし、ふるえていた。ボンは、そっと、ころんボンの、手を、にぎった。</p><p style="margin:0 0 1em;line-height:2">「だいじょうぶ。みんな、やさしい」</p><p style="margin:0 0 1em;line-height:2">「うん」</p><p style="margin:0 0 1em;line-height:2">ふたりは、庭に、出て、あそんだ。にこさんが、鬼ごっこを、おしえてくれた。おこさんは、ぶつぶつ、言いながら、いちばん、本気で、走った。</p><p style="margin:0 0 1em;line-height:2">「ころんボン、足、はやいじゃない！」</p><p style="margin:0 0 1em;line-height:2">「えへへ！」</p><p style="margin:0 0 1em;line-height:2">夕ぐれ。みんなで、縁側に、ならんで、すわった。てれさんが、ノートを、ひらいて、言った。</p><p style="margin:0 0 1em;line-height:2">「……ひょえちゃんの、ともだち、って、書いても、いいかな」</p><p style="margin:0 0 1em;line-height:2">「うん。ころんボン」</p><p style="margin:0 0 1em;line-height:2">「……ころんボンちゃん、って、書くね」</p><p style="margin:0 0 1em;line-height:2">てれさんは、ノートの、あたらしい、ページに、さらさら、書いた。</p><p style="margin:0 0 1em;line-height:2">『ひょえちゃんの、はじめての、ともだち、ころんボンちゃん』</p><p style="margin:0 0 1em;line-height:2">ボンは、じーんと、した。ふたりの、ノートに、あたらしい、名前が、ふえた。</p><p style="margin:1.2em 0 1em;line-height:2">みんなと、ころんボン。いまの、ボンは、ひとりの、ともだちが、ふえると、おうちも、ひとつ、ふえる、気がしている。</p></article></section>
+<section aria-labelledby="n9"><h2 id="n9"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第9章　ともだち</span></h2><article class="sheet plain" style="margin-top:14px"><p style="margin:0 0 1em;line-height:2">秋が、ふかく、なってきた、ある日。ボンと、ころんボンは、かわらで、石を、さがしていた。</p><p style="margin:0 0 1em;line-height:2">「ひょえ、これ、どう？」</p><p style="margin:0 0 1em;line-height:2">「しましま。かわいい」</p><p style="margin:0 0 1em;line-height:2">「じゃあ、これは、ひょえに、あげる」</p><p style="margin:0 0 1em;line-height:2">「ボンも、あげる」</p><p style="margin:0 0 1em;line-height:2">ボンは、しろい、まるい、石を、ひとつ、ひろった。それから、ポケットから、ちいさな、紙を、とりだした。</p><p style="margin:0 0 1em;line-height:2">『ころんボン　ボンの　ともだち』</p><p style="margin:0 0 1em;line-height:2">そう、かいた、紙を、石に、そえて、ころんボンに、わたした。</p><p style="margin:0 0 1em;line-height:2">「……ひょえ」</p><p style="margin:0 0 1em;line-height:2">ころんボンの、目から、ぽろっと、なみだが、おちた。</p><p style="margin:0 0 1em;line-height:2">「ぼん、ごめん、ないた？」</p><p style="margin:0 0 1em;line-height:2">「ううん、うれしいの。わたし、ずっと、ともだち、ほしかったの」</p><p style="margin:0 0 1em;line-height:2">「ころんボンも？」</p><p style="margin:0 0 1em;line-height:2">「うん。町の、子は、みんな、大きくて、わたしは、ちいさいから、いつも、ひとりだった」</p><p style="margin:0 0 1em;line-height:2">ボンは、ころんボンの、手を、ぎゅっと、にぎった。</p><p style="margin:0 0 1em;line-height:2">「ボンも、ずっと、ちいさかった。でも、いまは、ころんボンが、いる」</p><p style="margin:0 0 1em;line-height:2">「ひょえが、いる」</p><p style="margin:0 0 1em;line-height:2">ふたりは、おでこを、こつん、と、くっつけて、わらった。</p><p style="margin:0 0 1em;line-height:2">空は、あかく、そまっていた。かわらの、水が、きらきら、光る。ふたりの、ポケットの、石が、かちゃ、と、小さく、なった。</p><p style="margin:0 0 1em;line-height:2">その夜、ボンは、てれさんの、ノートの、すみっこに、小さく、書いた。</p><p style="margin:0 0 1em;line-height:2">『きょう、ころんボンと、石を、ひろった。ともだち。ボン』</p><p style="margin:0 0 1em;line-height:2">ノートを、ぱたん、と、とじて、ふとんに、もぐりこんだ。枕もとには、しろい、石。</p><p style="margin:0 0 1em;line-height:2">おやすみ、ボン。</p><p style="margin:0 0 1em;line-height:2">あしたも、きっと、ころんボンが、橋で、待っている。</p><p style="margin:1.2em 0 1em;line-height:2">ともだちが、できた。いまの、ボンは、あの日の、石の、つめたさと、あたたかさを、いっしょに、思い出す。これからも、ずっと、ともだち。</p><p style="margin:0 0 1em;line-height:2">おしまい。</p></article></section>
+<p style="margin:8px 0 0">ボンたちの 世界の きまりは、こちら。</p><a class="go" href="world.html">せかいかんを見る</a>
+<p style="margin:12px 0 0"><a class="back" href="novel4.html">← まえの おはなし</a></p>
+<div class="band" aria-hidden="true"></div>
+<footer><div><div><b>かんがえた ひと</b>　BON CREATIONS</div><div class="fine">© BON CREATIONS</div></div></footer>
+<p style="margin:24px 0 8px"><a class="back" href="index.html">← 博物館に戻る</a></p>
+</main>
+<script src="reader.js"></script><script src="koneta.js"></script><script src="stamp.js"></script><script src="museum.js"></script>
+<script>(function(){var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true||location.search.indexOf("btn=1")>=0;
+if(!sa)return;
+var b=document.createElement("button");b.type="button";b.textContent="↻ 更新";b.setAttribute("aria-label","ページを最新に更新");
+b.style.cssText="position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:9999;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);opacity:.92;cursor:pointer";
+var t=b.cloneNode(true);t.style.cssText="position:static;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);cursor:pointer";
+var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px;position:sticky;top:0;background:var(--bg,#F1E4CC);z-index:9999";if(!/(^|\/)(index\.html)?$/.test(location.pathname)){var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk)}
+var sb=document.createElement("button");sb.type="button";sb.textContent="⚙ せってい";sb.style.cssText=t.style.cssText;sb.setAttribute("aria-expanded","false");var pn=null;
+sb.setAttribute("data-bmsb","1");sb.addEventListener("click",function(){var g=document.getElementById("bmgear");if(g){g.click();return}if(!pn){pn=document.createElement("div");pn.id="bmsetpanel";pn.style.cssText="position:fixed;top:calc(max(8px,env(safe-area-inset-top)) + 58px);left:12px;right:12px;max-width:420px;margin:0 auto;max-height:70vh;overflow:auto;z-index:9998;background:var(--bg,#F1E4CC);border:2px solid #2E241C;border-radius:14px;padding:6px 0;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none";document.body.appendChild(pn)}
+["bmthemeui","bma11yui"].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==pn)pn.appendChild(e)});
+var o=pn.style.display==="none";pn.style.display=o?"block":"none";sb.setAttribute("aria-expanded",o?"true":"false")});
+w.style.justifyContent="space-between";w.appendChild(sb);
+w.appendChild(t);
+function run(){b.textContent=t.textContent="更新中…";b.disabled=t.disabled=true;var go=function(){location.reload()};
+try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go()}}
+b.addEventListener("click",run);t.addEventListener("click",run);
+document.body.insertBefore(w,document.body.firstChild);})();</script>
+<script src="bgm.js"></script>
+<script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
+<script>(function(){try{var f=document.querySelector("footer");if(!f)return;var t=document.title,u=location.href.split("#")[0];var a=document.createElement("a");a.href="https://twitter.com/intent/tweet?text="+encodeURIComponent(t)+"&url="+encodeURIComponent(u);a.target="_blank";a.rel="noopener";a.textContent="Xで このページを シェア";a.style.cssText="display:block;width:max-content;max-width:90%;margin:18px auto;padding:10px 20px;border:2px solid #5E7A1E;border-radius:999px;color:#5E7A1E;background:#fff8e8;font-weight:700;text-decoration:none;text-align:center";f.parentNode.insertBefore(a,f)}catch(e){}})();</script>
+<script src="a11y.js"></script>
+</body>
+</html>
