@@ -3,22 +3,22 @@
 if(window.__bmMuseum)return;window.__bmMuseum=1;
 var f=(location.pathname.split("/").pop()||"index.html").replace(/\.html$/,"")||"index";
 var ROOMS=[
-{id:"hall",s:"r-hall",n:"入口ホール",ico:"🏛",d:"博物館の入口。はじめての人は、ここから。",p:["index"]},
-{id:"r1",s:"r-1",n:"第1展示室　ボンたちの部屋",ico:"🌈",d:"ボンたちに会える部屋。",p:["zukan","bon","talk","shindan"]},
-{id:"r2",s:"r-2",n:"第2展示室　ものがたりの部屋",ico:"📖",d:"ボンたちのおはなしと、ボン界のきまり。",p:["novels","novel","novel6","novel5","novel1b","novel2","novel4","novel7","world"]},
-{id:"r3",s:"r-3",n:"第3展示室　あそびの部屋",ico:"🎮",d:"ゲームやミニゲームで あそべる部屋。",p:["games","mini"]},
-{id:"r4",s:"r-4",n:"第4展示室　絵と音の部屋",ico:"🎨",d:"イラスト・音楽・壁紙・カレンダー。",p:["gallery","music","wallpaper","calendar"]},
-{id:"r5",s:"r-5",n:"資料室　さくしゃボンのすきなもの",ico:"📚",d:"戦国・エスニック・雑学など、さくしゃボンの「すき」の資料。",p:["sukimono","sukimono_ethnic","sukimono_kenko","sukimono_sengoku","sukimono_zatsu"]}
+{id:"hall",s:"r-hall",n:"入口ホール",ico:"hall",d:"博物館の入口。展示ではなく、案内のみの場所だよ。はじめての人は、ここから。",p:["index"]},
+{id:"r1",s:"r-1",n:"第1展示室　ボンたちの部屋",ico:"rainbow",d:"ボンたちに会える部屋。",p:["zukan","bon","talk","shindan"]},
+{id:"r2",s:"r-2",n:"第2展示室　ものがたりの部屋",ico:"book",d:"ボンたちのおはなしと、ボン界のきまり。",p:["novels","novel","novel6","novel5","novel1b","novel2","novel4","novel7","world"]},
+{id:"r3",s:"r-3",n:"第3展示室　あそびの部屋",ico:"game",d:"ゲームやミニゲームで あそべる部屋。",p:["games","mini"]},
+{id:"r4",s:"r-4",n:"第4展示室　絵と音の部屋",ico:"palette",d:"イラスト・音楽・壁紙・カレンダー。",p:["gallery","music","wallpaper","calendar"]},
+{id:"r5",s:"r-5",n:"資料室　さくしゃボンのすきなもの",ico:"shelf",d:"戦国・エスニック・雑学など、さくしゃボンの「すき」の資料。",p:["creators","sukimono","sukimono_ethnic","sukimono_kenko","sukimono_sengoku","sukimono_zatsu"]}
 ];
 /* 順路(主要な展示) */
 var ROUTE=[
-["index","博物館のトップ(入口ホール)","展示案内","ここが入口。お知らせと、いろいろな展示への案内があるよ。"],
+["creators","つくった ひと(BON CREATIONS・さくしゃボン)","展示案内","この博物館を つくっている BON CREATIONS と、さくしゃボンの紹介。"],
 ["zukan","ボンたちの ずかん","図鑑","7人のボンを、ひとりずつ紹介している展示。"],
 ["talk","ボンたちと おしゃべり","体験展示","ボンたちと、ことばでお話しできる体験コーナー。"],
 ["shindan","ボン診断","体験展示","あなたに近いボンを占う、ちいさな体験コーナー。"],
 ["novels","ボンの しょうせつ","文学","ひょえボンの「はじめて」と、番外編の物語を所蔵。"],
 ["world","ボン界の せかいかん","資料","ボンたちの暮らす世界の、きまりと設定の資料。"],
-["games","ボンちゃんの ゲーム","遊戯","ブラウザで あそべるゲームの展示。"],
+["games","ボンちゃんの ゲーム","遊戯","ゲームと、診断・スタンプ帳・おみくじなどの あそびの展示。"],
 ["mini","ボンたたき","遊戯","手軽に あそべる、ちいさなゲーム。"],
 ["gallery","ボンちゃんギャラリー","絵画・写真","イラストや写真を、ならべたギャラリー。"],
 ["music","ボンちゃんミュージック","音楽","ボンたちの曲を、聴ける展示。"],
@@ -29,6 +29,7 @@ var ROUTE=[
 var EXTRA={bon:["ボンの ページ","図鑑(個別)","ボンひとりを、くわしく紹介する展示。"],stamp:["スタンプ帳","受付","来館のしるしを集めた、スタンプ帳。"],search:["館内さくいん","案内所","博物館の中を探せる、さくいん。"],
 novel:["はじめての おうち","文学(第1話)","星の夜に生まれたボンが、名前をもらうまで。"],novel6:["はじめての ころころ","文学(第2話)","名前をもらう前の、赤ちゃんのころ。"],novel5:["はじめての おふろ","文学(第3話)","赤ちゃんのボンが、はじめて おふろに入る。"],novel1b:["はじめての おはよう","文学(第4話)","ことばを覚えて、「にこちゃん」と呼ぶまで。"],novel2:["はじめての お赤飯","文学(第5話)","ちびボン期の、お祝いのおはなし。"],novel4:["はじめての ひとりでできた","文学(第6話)","ちびボンが、ひとりでごはんを作る。"],novel7:["ちいさな日々","文学(番外編)","赤ちゃんのころの、ボンたちとの日常。"],
 sukimono_ethnic:["エスニック","資料","世界のくらしと食の資料。"],sukimono_kenko:["マッサージ・鍼灸・民間療法","資料","からだとつきあう知恵の資料。"],sukimono_sengoku:["戦国時代","資料","戦国時代の食とくらしの資料。"],sukimono_zatsu:["ふだんの雑学","資料","身のまわりの雑学の資料。"]};
+function I(n){return window.bmIco?bmIco(n):""}
 function roomOf(p){for(var i=0;i<ROOMS.length;i++)if(ROOMS[i].p.indexOf(p)>=0)return ROOMS[i];return null}
 function routeIdx(p){for(var i=0;i<ROUTE.length;i++)if(ROUTE[i][0]===p)return i;return -1}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -40,7 +41,7 @@ function visited(r){return !!(S&&S.has&&S.has(r.s))}
 function nVisited(){var n=0;ROOMS.forEach(function(r){if(visited(r))n++});return n}
 /* スタイル */
 var st=document.createElement("style");
-st.textContent=".bm-plaque{margin:10px 0 14px;padding:10px 14px 9px;border:2px solid #B07A3C;outline:1px solid #B07A3C;outline-offset:3px;border-radius:4px;background:linear-gradient(180deg,#F5E8C8,#E8D4A4);color:#2E241C;line-height:1.7;box-shadow:inset 0 0 0 2px rgba(255,248,234,.7)}"
+st.textContent=".bm-plaque .pl-ag{margin:8px 0 2px}.bm-plaque .agb{min-height:44px;padding:0 14px;border:2px solid #7A2434;border-radius:999px;background:#FFF8EA;color:#7A2434;font:700 14px/1 sans-serif;cursor:pointer}.bm-plaque .agt{display:block;margin-top:6px;font-size:14px;line-height:1.7}.bm-plaque{margin:10px 0 14px;padding:10px 14px 9px;border:2px solid #B07A3C;outline:1px solid #B07A3C;outline-offset:3px;border-radius:4px;background:linear-gradient(180deg,#F5E8C8,#E8D4A4);color:#2E241C;line-height:1.7;box-shadow:inset 0 0 0 2px rgba(255,248,234,.7)}"
 +".bm-plaque .pl-top{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:12px;letter-spacing:.08em;color:#5B4C3E}"
 +".bm-plaque .pl-no{font-weight:700;color:#7A2434;font-size:13px}"
 +".bm-plaque .pl-t{margin:2px 0 0;font-size:16px;font-weight:700}"
@@ -83,6 +84,9 @@ st.textContent=".bm-plaque{margin:10px 0 14px;padding:10px 14px 9px;border:2px s
 +".bm-ticket .tk-n{margin:2px 0;font-size:18px;font-weight:700}"
 +".bm-ticket p{margin:2px 0;font-size:14px}"
 +".bm-ticket .tk-s{font-size:13px;color:#5B4C3E}"
++".bm-ann-in{flex-wrap:wrap!important}.bm-ann.bm-ann-in .al{flex:1 0 100%!important}.bm-ann.bm-ann-in .at{flex:1 1 10em!important;min-width:0}"
++".bm-ann-in{margin:10px 0 0!important;padding:8px 0 0!important;border:0!important;border-top:2px dashed #55602A!important;border-radius:0!important;background:none!important}"
++".bm-al{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.08em;color:#55602A}.bm-al small{font-weight:400}.bm-next{margin-top:6px;font:inherit;font-size:13px;min-height:36px;padding:0 12px;border:2px solid #55602A;border-radius:999px;background:#fff;color:#2E241C;cursor:pointer}"
 +".bm-ann{margin:10px 0;padding:8px 12px;border:2px solid #55602A;border-radius:8px;background:#FFF8EA;font-size:14px;line-height:1.7;display:flex;gap:8px;align-items:flex-start}"
 +".bm-ann .al{flex:none;font-weight:700;color:#55602A;font-size:12px;letter-spacing:.08em;padding-top:2px}"
 +".bm-ann .at{flex:1;min-height:3.4em}"
@@ -95,10 +99,10 @@ ROOMS.forEach(function(r){var top=r.p[0],href=(r.id==="hall")?"index.html":(top+
 var st=here?'<span class="st here">いま ここ</span>':(visited(r)?'<span class="st">✓ 見学済</span>':'<span class="st no">未見学</span>');
 var ex=[];ROUTE.forEach(function(x,i){if(r.p.indexOf(x[0])>=0)ex.push('<li'+(x[0]===f?' class="cur"':'')+'><b>No.'+("00"+(i+1)).slice(-3)+'</b><a href="'+x[0]+'.html">'+esc(x[1])+'</a><br><span>'+esc(x[3])+'</span></li>')});
 h+='<section class="rm'+(here?' now':'')+((r.id==="hall"||r.id==="r5")?' wide':'')+'"><h4>'+r.ico+' <a href="'+href+'" style="color:inherit">'+esc(r.n)+'</a>'+st+'</h4><p>'+esc(r.d)+'</p><ul>'+ex.join('')+'</ul></section>'});
-h+='<section class="rm wide"><h4>🎫 受付・案内所</h4><ul><li><a href="stamp.html">スタンプ帳</a><br><span>見学した展示室のしるしが集まるよ。</span></li><li><a href="search.html">館内さくいん</a><br><span>ことばで、見たい展示を探せるよ。</span></li></ul></section>';
+h+='<section class="rm wide"><h4>'+I('ticket')+' 受付・案内所</h4><ul><li><a href="stamp.html">スタンプ帳</a><br><span>見学した展示室のしるしが集まるよ。</span></li><li><a href="search.html">館内さくいん</a><br><span>ことばで、見たい展示を探せるよ。</span></li></ul></section>';
 h+='</div><p class="fp-z">点線は順路。上から順に歩くと、ぜんぶ見られるよ。</p></div>';return h}
 /* 展示ラベル */
-var DO={index:["お知らせを見る","展示一覧から行きたい部屋を選ぶ"],
+var DO={creators:["BON CREATIONSが どんな名前かを知る","さくしゃボンと、「ボンちゃん」の名前の由来を読む"],index:["お知らせを見る","展示一覧から行きたい部屋を選ぶ"],
 zukan:["7人のボンの性格や好きなものを知る","気になるボンを選んで、くわしいページへ行く"],
 bon:["このボンの設定・好きなもの・口ぐせを読む","ほかのボンと見くらべる"],
 talk:["ボンを選んで、ことばを送ると返事がもらえる","名前を入れると、そのボン流の呼び方で話しかけてくれる"],
@@ -123,17 +127,33 @@ if(ri>=0)return "No."+("00"+(ri+1)).slice(-3);
 var par={bon:"zukan",novel:"novels",novel6:"novels",novel5:"novels",novel1b:"novels",novel2:"novels",novel4:"novels",novel7:"novels",sukimono_ethnic:"sukimono",sukimono_kenko:"sukimono",sukimono_sengoku:"sukimono",sukimono_zatsu:"sukimono"}[f];
 if(par){var pi=routeIdx(par);if(pi>=0){var order={novel:1,novel6:2,novel5:3,novel1b:4,novel2:5,novel4:6,novel7:7,sukimono_sengoku:1,sukimono_ethnic:2,sukimono_zatsu:3,sukimono_kenko:4,bon:1}[f];return "No."+("00"+(pi+1)).slice(-3)+"-"+order}}
 return ""}
+var AG={creators:"この博物館をつくった者たちの案内である。まずは、ここから見るがよい。",
+zukan:"七人のボンが、ひとりずつ並んでいる。気になる者から見てゆくがよい。我輩も、もちろん載っておるぞ。",
+talk:"ボンたちと言葉を交わせる体験の展示である。遠慮はいらぬ、話しかけてみたまえ。",
+shindan:"あなたに近いボンを占う展示である。結果は、ぜひ誰かに話してみるがよい。",
+novels:"ボンたちの物語を、順に所蔵しておる。最初から読むのも、気になる話から読むのも、自由である。",
+world:"ボンたちの暮らす世界の決まりを集めた資料である。じっくり読むがよい。",
+games:"遊びの展示室である。手を動かして、存分に楽しみたまえ。",
+mini:"手軽に遊べる小さなゲームである。短い時間でも、気軽にどうぞ。",
+gallery:"絵と写真を並べた展示である。気に入った一枚を見つけたら、じっくり眺めるがよい。",
+music:"ボンたちの曲を聴ける展示である。ゆっくり耳を傾けたまえ。",
+wallpaper:"壁紙とアイコンの展示である。お気に入りは、持ち帰って使うがよい。",
+calendar:"月ごとの絵つき暦である。今月の一枚を、ぜひ見てゆきたまえ。",
+sukimono:"さくしゃボンの好きなものを集めた資料室である。気の向くまま、ゆるりと見るがよい。",
+index:"ようこそ、ボンの博物館へ。我輩はにじボン、館内アナウンス担当である。ゆっくり見てゆくがよい。"};
 function plaque(){
 if(!info&&f!=="stamp"&&f!=="search")return null;
 if(!info)info=[f,EXTRA[f][0],EXTRA[f][1],EXTRA[f][2]];
 var a=document.createElement("aside");a.className="bm-plaque";a.setAttribute("aria-label","展示ラベル");
 var no=exNo(),rn=room?room.n:"受付・案内所";
-a.innerHTML='<div class="pl-top">'+(no?'<span class="pl-no">展示 '+no+'</span>':'')+'<span>'+esc(rn)+'</span><span>分類：'+esc(info[2])+'</span></div><p class="pl-t">'+esc(info[1])+'</p><p class="pl-d">'+esc(info[3])+'</p>'+(DO[f]?'<p class="pl-h">ここで できること</p><ul class="pl-do"><li>'+DO[f].map(esc).join('</li><li>')+'</li></ul>':'')+'<details><summary>🗺 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
+a.innerHTML='<div class="pl-top">'+(no?'<span class="pl-no">展示 '+no+'</span>':'')+'<span>'+esc(rn)+'</span><span>分類：'+esc(info[2])+'</span></div><p class="pl-t">'+esc(info[1])+'</p><p class="pl-d">'+esc(info[3])+'</p>'+(DO[f]?'<p class="pl-h">ここで できること</p><ul class="pl-do"><li>'+DO[f].map(esc).join('</li><li>')+'</li></ul>':'')+(AG[f]?'<p class="pl-ag"><button type="button" class="agb">'+I("phones")+' にじボンの 音声ガイド</button><span class="agt" role="status"></span></p>':'')+'<details><summary>'+I("map")+' 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
+if(AG[f]){var ab=a.querySelector(".agb"),at=a.querySelector(".agt"),sy=window.speechSynthesis;
+ab.addEventListener("click",function(){at.textContent="にじボン：「"+AG[f]+"」";if(sy&&window.SpeechSynthesisUtterance){try{if(sy.speaking){sy.cancel();return}var u=new SpeechSynthesisUtterance(AG[f]);u.lang="ja-JP";u.rate=.95;u.pitch=.8;sy.speak(u)}catch(e){}}})}
 return a}
 var hd=document.querySelector("main > header");
 if(hd&&f!=="index"){var pq=plaque();if(pq)hd.parentNode.insertBefore(pq,hd.nextSibling)}
 /* 順路 */
-if(ri>=0&&f!=="index"||ri===0){
+if(ri>=0){
 var ft=document.querySelector("main > footer")||document.querySelector("footer");
 if(ft){var nv=document.createElement("nav");nv.className="bm-route";nv.setAttribute("aria-label","順路");
 var pv=ri>0?ROUTE[ri-1]:null,nx=ri<ROUTE.length-1?ROUTE[ri+1]:null;
@@ -146,25 +166,21 @@ var now=new Date(),today=now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now
 var first=ls("bm-first");if(!first){first=today;ls("bm-first",first)}
 var vc=+ls("bm-vc")||1;
 var tk=document.createElement("section");tk.className="bm-ticket";tk.setAttribute("aria-label","入館券");
-tk.innerHTML='<div class="tk-h"><span>ADMISSION TICKET</span><span>入館券</span></div><p class="tk-n">BON MUSEUM　ボンちゃんの小さな博物館</p><p>入館日：'+today+'　／　はじめての入館日：'+first+'</p><p>入館：'+vc+'日目　／　見学した展示室：<span id="bmTkN">'+nVisited()+'</span> / '+ROOMS.length+'</p><p class="tk-s">この入館券は、この端末のブラウザの中だけにある、記念のチケットだよ。展示室を見てまわると、スタンプが押されます。</p><details open style="margin-top:6px"><summary style="cursor:pointer;min-height:32px;display:inline-flex;align-items:center;color:#7A2434;font-weight:700">🗺 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
-hd.parentNode.insertBefore(tk,hd.nextSibling);
+tk.innerHTML='<div class="tk-h"><span>ADMISSION TICKET</span><span>入館券</span></div><p class="tk-n">BON MUSEUM　ボンちゃんの小さな博物館</p><p>入館日：'+today+'　／　はじめての入館日：'+first+'</p><p>入館：'+vc+'日目　／　見学した展示室：<span id="bmTkN">'+nVisited()+'</span> / '+ROOMS.length+'</p><p class="tk-s">この入館券は、この端末のブラウザの中だけにある、記念のチケットだよ。展示室を見てまわると、スタンプが押されます。</p><details open style="margin-top:6px"><summary style="cursor:pointer;min-height:32px;display:inline-flex;align-items:center;color:#7A2434;font-weight:700">'+I("map")+' 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
+var tdn=document.getElementById("today");if(tdn)tdn.parentNode.insertBefore(tk,tdn.nextSibling);else hd.parentNode.insertBefore(tk,hd.nextSibling);
 var M=[];var h=now.getHours();
-if(h>=5&&h<11)M.push("おはよう。館内アナウンスを務める、アルバイトの我輩、にじボンである。朝の光のなか、ゆるりと見学していくがよい。");
-else if(h>=22||h<5)M.push("夜の帳が下りた。静かな時間である。ねむボンの傍らを通るときは、足音を忍ばせたまえ。……我輩の勤めは、まだ終わらぬ。");
-else M.push("ご来館、感謝する。館内アナウンスは、アルバイトの我輩、にじボンが務めよう。順路に従うも、心の向くままに歩くも、見学者の自由である。");
+M.push("館内アナウンスは、アルバイトの我輩、にじボンが務めよう。順路に従うも、心の向くままに歩くも、見学者の自由である。");
 M=M.concat(["展示室は、入口ホール、ボンたちの部屋、ものがたりの部屋、あそびの部屋、絵と音の部屋、そして資料室。迷ったときは、館内マップを開きたまえ。","受付の「スタンプ帳」には、見学の足跡が記されている。押したのは我輩ではない。ひとりでに押されるのだ。","館内ではお静かに。ボンたちは驚くと「ボン!?」と鳴く。その声は、実に心臓に悪い。","食事の時刻には、「ボーン！」という声が聞こえることがある。案ずるな、それは幸福の音である。","展示室の札には、展示番号と簡潔な解説が記されている。言葉は短くとも、そこには作者の想いがあるのだ。","おこボンの前では、順番を守りたまえ。待たされることを、彼女は何より嫌う。","もぐボンの近くには、おにぎりの香りが漂う。つまみ食いは、ほどほどにしておくのが賢明だ。","落とし物は、受付の我輩まで届けたまえ。柿が落ちていた場合も、遠慮は要らぬ。","順路の果てには、スタンプ帳が待っている。すべての展示室を巡った者には、我輩から一言、贈ろうではないか。"]);
-var an=document.createElement("div");an.className="bm-ann";
-an.innerHTML='<span class="al">📢 館内アナウンス<br><small>担当：にじボン</small></span><span class="at" id="bmAt"></span><button type="button" id="bmAn" aria-label="次のアナウンス">つぎ</button>';
-tk.parentNode.insertBefore(an,tk.nextSibling);
+var g=document.getElementById("tdGreet");
+if(g){var gb=g.parentNode;var lab=document.createElement("p");lab.className="bm-al";lab.innerHTML=I("mega")+" 館内アナウンス　<small>担当：にじボン</small>";gb.insertBefore(lab,g);
+var bt=document.createElement("button");bt.type="button";bt.id="bmAn";bt.className="bm-next";bt.textContent="つぎのアナウンス";bt.setAttribute("aria-label","次のアナウンス");gb.appendChild(bt);
+var ai=0,tm=0,first=(g.textContent||"").trim();if(first)M.unshift(first);
+function show(){g.textContent=M[ai%M.length];ai++}
+function auto(){clearInterval(tm);if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;tm=setInterval(function(){if(!document.hidden)show()},12000)}
+ai=1;auto();bt.addEventListener("click",function(){show();auto()})}
 var el=document.createElement("section");el.className="bm-ex";el.setAttribute("aria-label","展示一覧");
-var eh='<p class="eh">展 示 一 覧</p><div class="gr">';ROUTE.forEach(function(x,i){if(i===0)return;eh+='<a class="cd" href="'+x[0]+'.html"><span class="n">No.'+("00"+(i+1)).slice(-3)+'　'+esc(x[2])+'</span><span class="t">'+esc(x[1])+'</span><span class="d">'+esc(x[3])+'</span></a>'});
-el.innerHTML=eh+'</div>';an.parentNode.insertBefore(el,an.nextSibling);
-
-var at=document.getElementById("bmAt"),ai=0,tm=0;
-function show(){at.textContent=M[ai%M.length];ai++}
-show();
-function auto(){clearInterval(tm);if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;tm=setInterval(function(){if(!document.hidden)show()},9000)}
-auto();document.getElementById("bmAn").addEventListener("click",function(){show();auto()});
+var eh='<p class="eh">展 示 一 覧</p><div class="gr">';ROUTE.forEach(function(x,i){eh+='<a class="cd" href="'+x[0]+'.html"><span class="n">No.'+("00"+(i+1)).slice(-3)+'　'+esc(x[2])+'</span><span class="t">'+esc(x[1])+'</span><span class="d">'+esc(x[3])+'</span></a>'});
+el.innerHTML=eh+'</div>';tk.parentNode.insertBefore(el,tk.nextSibling);
 }
 /* 全展示室を見た: 一度だけ館長のひとこと */
 function allDone(){if(!S||nVisited()<ROOMS.length||ls("bm-allrooms"))return;ls("bm-allrooms","1");

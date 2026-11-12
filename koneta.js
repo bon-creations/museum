@@ -13,6 +13,23 @@ if(ft){ft.style.cursor="pointer";ft.addEventListener("click",function(e){if(e.ta
 if(f==="zukan"){var SEC={oko:"……ちょっと、くすぐったいんだけど。やめなさいよ。",niko:"えへへ、くすぐったーい！もっとやって〜！",hyoe:"ひょ、ひょえっ！？……ひょっく。",mogu:"おなかがなっちゃった〜。ごまおにぎり、たべる〜？",nemu:"……すう……(ねている)",tere:"……み、見ないで、ください……！",rain:"うむ！ 我輩を連打するとは、よい度胸である！ わっはっは！"};
 var cnt={},last=0;document.addEventListener("click",function(e){var im=e.target.closest&&e.target.closest(".zimg");if(!im)return;var a=im.closest("article.zk");if(!a||!SEC[a.id])return;var n=Date.now();cnt[a.id]=(n-last<1500&&cnt.id===a.id)?(cnt[a.id]||0)+1:1;cnt.id=a.id;last=n;if(cnt[a.id]>=7){cnt[a.id]=0;toast(SEC[a.id],4200)}})}
 if(f==="calendar"){try{var cn=new Date();localStorage.setItem("bm-cal",cn.getFullYear()+"-"+(cn.getMonth()+1))}catch(e){}}
+/* ひょえボンが横切る(立ち絵・20秒に1回) */
+if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){var st=document.createElement("style");st.textContent="@keyframes bmRun{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}@keyframes bmHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}@keyframes bmRoll{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes bmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}";document.head.appendChild(st);
+var RUNS={hyoe:[["run_koro.webp","bmRoll .7s linear infinite"],["run_hyoe.webp","bmHop .5s ease-in-out infinite"],["run_matte.webp","bmBob .3s ease-in-out infinite"]],niko:[["run_niko_fight.webp","bmBob .3s ease-in-out infinite"],["run_niko_e.webp","bmHop .5s ease-in-out infinite"],["run_niko_asobo.webp","bmHop .45s ease-in-out infinite"]],oko:[["run_oko_katta.webp","bmHop .5s ease-in-out infinite"],["run_oko_chotto.webp","bmBob .3s ease-in-out infinite"],["run_oko_mou.webp","bmBob .25s ease-in-out infinite"]]};
+var op="";try{op=localStorage.getItem("bm-oshi")||""}catch(e){}
+var who=op?(RUNS[op]?[op]:[]):["hyoe","oko","niko"];
+var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function go(any){if(document.hidden)return;var pool=any&&!who.length?["hyoe","oko","niko"]:who;if(!pool.length)return;var L=RUNS[pool[Math.floor(Math.random()*pool.length)]];var r=L[Math.floor(Math.random()*L.length)];var w=document.createElement("div");w.setAttribute("aria-hidden","true");w.style.cssText="position:fixed;left:0;bottom:max(6px,env(safe-area-inset-bottom));z-index:9995;pointer-events:none;animation:bmRun 5.5s linear forwards";
+var im=document.createElement("img");im.src=r[0];im.alt="";im.style.cssText="display:block;height:110px;width:auto;animation:"+r[1];
+w.appendChild(im);document.body.appendChild(w);setTimeout(function(){w.remove()},5800)}
+window.bmRun=function(){go(true)};
+if(who.length&&f==="index")setInterval(go,20000);
+/* 走る！ボタン */
+var tries=0;(function addBtn(){var row=document.getElementById("bmcopylink");if(!row){if(tries++<30)setTimeout(addBtn,100);return}
+{var rb=document.createElement("button");rb.type="button";rb.innerHTML=(window.bmIco?bmIco("run"):"")+" 走る！";rb.setAttribute("aria-label","ボンを走らせる");
+rb.style.cssText="min-height:44px;padding:0 14px;border-radius:999px;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 14px/1 sans-serif;cursor:pointer;box-shadow:0 2px 0 rgba(46,36,28,.25)";
+rb.addEventListener("click",function(){window.bmRun()});var g=document.getElementById("bmgear");row.insertBefore(rb,g||null)}})();
+}
 if(f!=="index")return;
 /* きょうのボンの一言に、ときどき小ネタのヒントをまぜる */
 var HB={"おこボン":["小説は、最後まで読みなさいよ。いいこと、あるから。","毎日来なさいよ。10日目に、いいことがあるわ。"],"にこボン":["ページのいちばん下をタップすると、まめ知識が聞けるよ！","NEWってついてるところを押すと、だれかがしゃべるよ〜！"],"ひょえボン":["ロゴを、ななかい、おすと……ひみつが、でるよ。","トップを、ひらいてると……ボン、はしるよ。"],"もぐボン":["毎月1日と15日は、お赤飯の日だよ〜。もぐボンが、ごはんを炊くんだ〜。","夜にトップを開くと、ねむさんに会えるかもだよ〜。"],"ねむボン":["……夜に、トップに来ると、ぼくに会えるかも……。","……ずかんの、ボンを、何回も、つつくと……。……ひみつ。"],"てれボン":["ず、ずかんのボンを、7回、つつくと……ひみつが……。","しょ、小説を、最後まで読むと……ノートに、書きます……。"],"にじボン":["我輩のロゴを、10回つづけて押してみるがよい。いいものが見られるぞ！","トップのロゴを、7回押すと……ふっふっふ、ひみつである！"]};
@@ -45,18 +62,10 @@ if(VM[vc])setTimeout(function(){toast(VM[vc],5200)},delay+4500)}}catch(e){}
 /* NEWバッジにひとこと */
 var NM=["にこボン：「新しいのが入ったよ〜！ 見て見て！」","もぐボン：「できたてだよ〜。ほかほかだよ〜」","にじボン：「うむ、新着である！ ぜひ見るがよい」","ねむボン：「……あたらしい。……いいね」","てれボン：「あ、あの……見てくれると、うれしいです……」","おこボン：「べつに、見てほしいわけじゃ……いや、見なさいよ」"];
 document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest(".newb"))toast(NM[Math.floor(Math.random()*NM.length)],3200)},true);
-/* ひょえボンが横切る(立ち絵・20秒に1回) */
-if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){var st=document.createElement("style");st.textContent="@keyframes bmRun{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}@keyframes bmHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}@keyframes bmRoll{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes bmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}";document.head.appendChild(st);
-var RUNS={hyoe:[["run_koro.webp","bmRoll .7s linear infinite"],["run_hyoe.webp","bmHop .5s ease-in-out infinite"],["run_matte.webp","bmBob .3s ease-in-out infinite"]],oko:[["run_oko_katta.webp","bmHop .5s ease-in-out infinite"],["run_oko_chotto.webp","bmBob .3s ease-in-out infinite"],["run_oko_mou.webp","bmBob .25s ease-in-out infinite"]]};
-var op="";try{op=localStorage.getItem("bm-oshi")||""}catch(e){}
-var who=op?(RUNS[op]?[op]:[]):["hyoe","oko"];
-if(who.length)setInterval(function(){if(document.hidden)return;var L=RUNS[who[Math.floor(Math.random()*who.length)]];var r=L[Math.floor(Math.random()*L.length)];var w=document.createElement("div");w.setAttribute("aria-hidden","true");w.style.cssText="position:fixed;left:0;bottom:max(6px,env(safe-area-inset-bottom));z-index:9995;pointer-events:none;animation:bmRun 5.5s linear forwards";
-var im=document.createElement("img");im.src=r[0];im.alt="";im.style.cssText="display:block;height:110px;width:auto;animation:"+r[1];
-w.appendChild(im);document.body.appendChild(w);setTimeout(function(){w.remove()},5800)},20000)}
 /* すきなボンを えらぶ */
 var OB=[["oko","おこボン"],["niko","にこボン"],["hyoe","ひょえボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"],["","おまかせ"]],ob=document.getElementById("oshiB"),oc="";
 try{oc=localStorage.getItem("bm-oshi")||""}catch(e){}
 if(ob){OB.forEach(function(x){var b=document.createElement("button"),on=oc===x[0];b.type="button";b.textContent=x[1]+(on&&x[0]?" ✓":"");b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;font-size:16px;padding:9px 14px;min-height:44px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");
 b.addEventListener("click",function(){try{if(x[0])localStorage.setItem("bm-oshi",x[0]);else localStorage.removeItem("bm-oshi")}catch(e){}location.reload()});ob.appendChild(b)})}
-if(ob){var hp=document.createElement("p");hp.style.cssText="margin:10px 0 0;font-size:14px;line-height:1.7";hp.textContent="※ えらんだボンは、ときどき 画面を 走り抜けるよ。いまは ひょえボンと おこボンだけ。ほかの子も……どこかで こっそり 走る れんしゅうを しているらしい。";ob.parentNode.appendChild(hp)}
+if(ob){var hp=document.createElement("p");hp.style.cssText="margin:10px 0 0;font-size:14px;line-height:1.7";hp.textContent="※ えらんだボンは、ときどき 画面を 走り抜けるよ。いまは ひょえボンと おこボンと にこボンだけ。ほかの子も……どこかで こっそり 走る れんしゅうを しているらしい。";ob.parentNode.appendChild(hp)}
 })();
