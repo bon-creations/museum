@@ -264,7 +264,7 @@ h2{font-size:20px;margin-bottom:12px}
 <section aria-labelledby="pn0">
 <h2 id="pn0"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">ぷに</span></h2>
 <div class="gl-lead zintro"><p>ましゅこっとの「ぷに」を、そだててみよう。ごはん・あそぶ・ねんねで、ぷにが すこしずつ おおきくなるよ。</p><p class="small">ぷには、おなかが すいても さみしくても、いなくなったりしないよ。気がむいたときに あいにきてね。記録は、この端末のブラウザの中だけに保存されます。</p></div>
-<div class="sheet plain"><h3 style="margin:0 0 4px">ぷにって？</h3><p style="margin:0">ぷには、ボンたちの そばに いる「ましゅこっと」だよ。まるくて、ふわふわ、まっしろで、顔は「○△○」。ひょえボンが、ねんどで、びっくりした自分の顔を元にして、つくったんだ。ボンじゃなくて、ましゅこっとなんだよ。ことばは しゃべらないけど、「ぷに！」「ぷにゅ〜」って、うれしいときも さみしいときも、声で おしえてくれるよ。</p></div>
+<div class="sheet plain"><h3 style="margin:0 0 4px">ぷにって？</h3><p style="margin:0">ぷには、ボンたちの そばに いる「ましゅこっと」だよ。まるくて、ふわふわ、まっしろで、顔は「○△○」。ひょえボンが、ねんどで、びっくりした自分の顔を元にして、つくったんだ。ボンじゃなくて、ましゅこっとなんだよ。<br><a href="novel10.html#n2">小説「ひょえボンと みのボン」で、ぷにの うまれた お話を よむ</a>ことばは しゃべらないけど、「ぷに！」「ぷにゅ〜」って、うれしいときも さみしいときも、声で おしえてくれるよ。</p></div>
 <div class="sheet pnw" style="gap:12px">
 <svg id="pnSvg" viewBox="0 0 220 220" role="img" aria-label="ぷに"><g id="pnBody"><g id="pnG" transform="translate(110 130)"><ellipse cx="0" cy="62" rx="52" ry="8" fill="#000" opacity=".12"/><path d="M-58 20C-62-30-30-62 0-62S62-30 58 20C56 50 30 60 0 60S-56 50-58 20Z" fill="#FFF3F0" stroke="#2E241C" stroke-width="4"/><g id="pnAcc"></g><g id="pnFace"></g></g></g></svg>
 <p id="pnStage" style="font-size:20px;margin:0"></p><p id="pnSay" class="say2" style="margin:0;min-height:1.8em" aria-live="polite"></p>
@@ -289,8 +289,8 @@ var $=function(i){return document.getElementById(i)},sleepT=0;
 function stage(){var s=0;ST.forEach(function(x,i){if(d.g>=x[1])s=i});return s}
 function face(m){var e,mo='<path d="M-9 28L9 28L0 14Z" fill="#E07A8A" stroke="#2E241C" stroke-width="3" stroke-linejoin="round"/>';
 if(m==="sleep")e='<path d="M-30 0q8 7 16 0M14 0q8 7 16 0" fill="none" stroke="#2E241C" stroke-width="4" stroke-linecap="round"/>';
-else if(m==="sad")e='<circle cx="-22" cy="2" r="6" fill="#2E241C"/><circle cx="22" cy="2" r="6" fill="#2E241C"/><path d="M36 -14q4 8 0 12q-4-4 0-12z" fill="#8EC5E8"/>';
-else e='<circle cx="-22" cy="0" r="9" fill="none" stroke="#2E241C" stroke-width="4"/><circle cx="22" cy="0" r="9" fill="none" stroke="#2E241C" stroke-width="4"/><circle cx="-22" cy="0" r="3" fill="#2E241C"/><circle cx="22" cy="0" r="3" fill="#2E241C"/>';
+else if(m==="sad")e='<circle cx="-22" cy="2" r="8" fill="none" stroke="#2E241C" stroke-width="4"/><circle cx="22" cy="2" r="8" fill="none" stroke="#2E241C" stroke-width="4"/><path d="M36 -14q4 8 0 12q-4-4 0-12z" fill="#8EC5E8"/>';
+else e='<circle cx="-22" cy="0" r="9" fill="none" stroke="#2E241C" stroke-width="4"/><circle cx="22" cy="0" r="9" fill="none" stroke="#2E241C" stroke-width="4"/>';
 $("pnFace").innerHTML=e+mo+'<circle cx="-40" cy="14" r="7" fill="#F5A3B0" opacity=".5"/><circle cx="40" cy="14" r="7" fill="#F5A3B0" opacity=".5"/>'}
 function draw(){var s=stage(),a="";if(s>=2)a+='<path d="M-6-60l-18-14 6 20zM6-60l18-14-6 20z" fill="#E07A8A" stroke="#2E241C" stroke-width="3" stroke-linejoin="round"/><circle cx="0" cy="-60" r="5" fill="#E07A8A" stroke="#2E241C" stroke-width="3"/>';
 if(s>=3)a+='<g transform="translate(40 -44)"><circle r="4" fill="#E0A21F"/><g fill="#fff" stroke="#2E241C" stroke-width="2"><circle cx="0" cy="-8" r="5"/><circle cx="8" cy="-2" r="5"/><circle cx="5" cy="7" r="5"/><circle cx="-5" cy="7" r="5"/><circle cx="-8" cy="-2" r="5"/></g><circle r="4" fill="#E0A21F"/></g>';
