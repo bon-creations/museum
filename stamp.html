@@ -263,7 +263,7 @@ h2{font-size:20px;margin-bottom:12px}
 
 <section aria-labelledby="st0">
 <h2 id="st0"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">スタンプ帳</span></h2>
-<div class="gl-lead zintro"><p>来館のしるしに、スタンプを集めるがよい。ページを見たり、ゲームであそんだり、曲を聴いたりすると、勝手に押されていくぞ。</p><p class="small">記録は、この端末のブラウザの中だけに保存されます。ほかの端末とは共有されません。</p></div>
+<div class="gl-lead zintro"><p>来館のしるしに、スタンプを集めてくれ。ページを見たり、ゲームであそんだり、曲を聴いたりすると、勝手に押されていくぞ。</p><p class="small">記録は、この端末のブラウザの中だけに保存されます。ほかの端末とは共有されません。</p></div>
 <div class="sheet" id="stBox" style="gap:12px"><p id="stCount" style="font-size:20px;margin:0"></p><p id="stRank" class="say2" style="margin:0"></p><div id="stGrid" class="stgrid"></div>
 <div class="shrow" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button type="button" class="go" id="stReset" style="font-size:15px;padding:9px 16px;cursor:pointer">きろくを消す</button><span class="small" id="stMsg"></span></div></div>
 </section>
@@ -276,7 +276,7 @@ h2{font-size:20px;margin-bottom:12px}
 (function(){
 var S=window.bmStamp;if(!S)return;var COL=["#C8402F","#E0A21F","#2F3B7C","#3F7B4C","#7A4DB0","#D4527F","#A8336A"];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function R(n,t){if(n>=t)return "我輩が館長の座を譲りたいほどである！ 全部そろえた者は、お主が初めてかもしれぬぞ！ ……おめでとう！";if(n>=14)return "もはや立派な常連である！ ほぼ全部そろっておるぞ。あと少し、探してみるがよい！";if(n>=8)return "なかなかの見学者ぶりである！ 館内を、よく歩いておるな。";if(n>=3)return "うむ、順調である！ 気になる所から見てまわるがよい。";return "まずは、あちこち覗いてみるがよい。スタンプは自然に押されていくぞ！"}
+function R(n,t){if(n>=t)return "我輩が館長の座を譲りたいほどだ！ 全部そろえた者は、お主が初めてかもしれないぞ！ ……おめでとう！";if(n>=14)return "もはや立派な常連だな！ ほぼ全部そろっているぞ。あと少し、探してみてくれ！";if(n>=8)return "なかなかの見学者ぶりである！ 館内を、よく歩いているな。";if(n>=3)return "うむ、順調だぞ！ 気になる所から見てまわってくれ。";return "まずは、あちこち覗いてみるといいぞ。スタンプは自然に押されていく！"}
 function draw(){var L=S.list,o=S.all(),n=S.count();document.getElementById("stCount").innerHTML="<b>"+n+"</b> / "+L.length+" こ";function TT(n,t){return n>=t?"ボン博物館の名誉館員":n>=14?"常連さん":n>=8?"なかよし見学者":n>=4?"見習い見学者":n>=1?"はじめての来館者":"これから来る人"}document.getElementById("stRank").innerHTML="<div style=\"margin-bottom:6px\">称号:<b>"+TT(n,L.length)+"</b></div><b>にじボン</b>「"+R(n,L.length)+"」";
 var h="";L.forEach(function(x,i){var on=!!o[x[0]];var d=on?new Date(o[x[0]]):null;h+='<div class="stc'+(on?' on':'')+'" style="--c:'+COL[i%7]+'" title="'+esc(x[2])+'"><div class="st">'+(on?"★":"？")+'</div><div>'+esc(x[1])+'</div>'+(on?'<small>'+(d.getMonth()+1)+"/"+d.getDate()+'</small>':'<small>'+esc(x[2])+'</small>')+'</div>'});document.getElementById("stGrid").innerHTML=h}
 var armed=false;document.getElementById("stReset").onclick=function(){var m=document.getElementById("stMsg");if(!armed){armed=true;m.textContent="もう一度押すと、全部消えるよ";setTimeout(function(){armed=false;m.textContent=""},4000);return}S.reset();armed=false;m.textContent="消しました";draw()};

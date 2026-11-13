@@ -262,7 +262,7 @@ h2{font-size:20px;margin-bottom:12px}
 
 <section aria-labelledby="mn0">
 <h2 id="mn0"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">ボンたたき</span></h2>
-<div class="gl-lead zintro"><p>穴から顔を出すボンを、タッチせよ！ 制限時間は30秒。</p><p>ただし……我輩(にじボン)に触れてはならぬぞ。減点である！</p></div>
+<div class="gl-lead zintro"><p>穴から顔を出すボンを、タッチせよ！ 制限時間は30秒。</p><p>ただし……我輩(にじボン)に触れてはならんぞ。減点だ！</p></div>
 <div class="sheet" style="gap:10px;align-items:stretch">
 <div style="display:flex;justify-content:space-between;font-size:18px"><span>スコア <b id="mnS">0</b></span><span>のこり <b id="mnT">30</b>びょう</span><span>ベスト <b id="mnB">0</b></span></div>
 <div id="mnG" class="mng" role="group" aria-label="ボンたたきの盤面"></div>
@@ -287,7 +287,7 @@ function hide(i){clearTimeout(cur[i]);delete cur[i];H[i].classList.remove("up");
 G.addEventListener("click",function(e){var h=e.target.closest(".mnh");if(!h||!run)return;var i=H.indexOf(h);if(!h.classList.contains("up")||h.classList.contains("hit"))return;h.classList.add("hit");if(h.dataset.k==="niji"){sc=Math.max(0,sc-2);say("にじボン「こ、これ！ 我輩を叩くとは何事か！」(−2)")}else{sc++}$("mnS").textContent=sc;setTimeout(function(){hide(i)},120)});
 var spawn,timer;
 function end(){run=false;clearInterval(spawn);clearInterval(timer);for(var i in cur)hide(i);var nb=sc>best;if(nb){best=sc;try{localStorage.setItem(KEY,best)}catch(e){}$("mnB").textContent=best}
-var m=sc>=30?"見事である！ 我輩も驚いたぞ！":sc>=20?"なかなかの腕前であるな！":sc>=10?"うむ、悪くない。もう一度やってみるがよい！":"まだまだ、これからである。何度でも挑むがよい！";say("おしまい！ スコアは "+sc+" 点。"+(nb&&sc>0?"ベスト更新！ ":"")+"にじボン「"+m+"」");$("mnGo").textContent="もういちど";$("mnGo").disabled=false;try{window.bmStamp&&bmStamp.add("mini")}catch(e){}}
+var m=sc>=30?"見事だな！ 我輩も驚いたぞ！":sc>=20?"なかなかの腕前であるな！":sc>=10?"うむ、悪くない。もう一度やってみてくれ！":"まだまだ、これからだぞ。何度でも挑んでくれ！";say("おしまい！ スコアは "+sc+" 点。"+(nb&&sc>0?"ベスト更新！ ":"")+"にじボン「"+m+"」");$("mnGo").textContent="もういちど";$("mnGo").disabled=false;try{window.bmStamp&&bmStamp.add("mini")}catch(e){}}
 $("mnGo").onclick=function(){if(run)return;sc=0;tm=30;run=true;$("mnS").textContent=0;$("mnT").textContent=30;this.disabled=true;say("スタート！");
 timer=setInterval(function(){tm--;$("mnT").textContent=tm;if(tm<=0)end()},1000);
 spawn=setInterval(function(){var n=tm>20?1:tm>8?2:2;for(var j=0;j<n;j++){var i=Math.floor(Math.random()*9);show(i)}},tm>20?650:520)};
