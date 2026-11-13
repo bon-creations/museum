@@ -274,32 +274,35 @@ h2{font-size:20px;margin-bottom:12px}
 <script>
 (function(){
 function J(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
-var vc=parseInt(localStorage.getItem("bm-vc"),10)||0,sp=J("bm-stamps",{}),sc=Array.isArray(sp)?sp.length:Object.keys(sp).length,nd=J("bm-nade",{}),pn=J("bm-puni",null),fv=J("bm-fav",[]);
+var vc=parseInt(localStorage.getItem("bm-vc"),10)||0,sp=J("bm-stamps",{}),sc=Array.isArray(sp)?sp.length:Object.keys(sp).length,nd=J("bm-nade",{}),pn=J("bm-puni",null),fv=J("bm-fav",[]);var qz=J("bm-quiz",{});
 var nn=0,mx=0,ok2=0,nb=0;["oko","niko","hyoe","mogu","nemu","tere","niji"].forEach(function(k){var n=nd[k]||0;nn+=n;if(n>mx)mx=n;if(n>=10)ok2++});
 var mk=0;try{for(var i=0;i<localStorage.length;i++){if(String(localStorage.key(i)).indexOf("bm-mark:")===0)mk++}}catch(e){}
 var pg=pn?pn.g||0:0;
 var L=[
-["はじめての らいかん","博物館に はじめて 来たよ",vc>=1],
-["3にち らいかん","3日 来てくれたよ",vc>=3],
-["7にち らいかん","7日 来てくれたよ",vc>=7],
-["30にち らいかん","30日 来てくれたよ",vc>=30],
-["スタンプ 10こ","スタンプを 10こ あつめた",sc>=10],
-["スタンプ 25こ","スタンプを 25こ あつめた",sc>=25],
-["はじめての なでなで","ボンを はじめて なでた",nn>=1],
-["なでなで 50かい","ボンを ぜんぶで 50かい なでた",nn>=50],
-["なかよし","ひとりの ボンと「なかよし」になった(25かい)",mx>=25],
-["ずっと いっしょ","ひとりの ボンと「ずっと いっしょ」になった(100かい)",mx>=100],
-["7人と なかよし","7人ぜんいんを 10かいずつ なでた",ok2>=7],
-["ぷにに あった","ぷにを そだてはじめた",!!pn],
-["おおきぷに","ぷにを「おおきぷに」まで そだてた",pg>=50],
-["ふわぷに","ぷにを「ふわぷに」まで そだてた",pg>=120],
-["おきにいり","♡を 1つ つけた",fv.length>=1],
-["しおり","小説に しおりを はさんだ",mk>=1]
+["はじめての らいかん","博物館に はじめて 来たよ",vc>=1,"stamp.html","スタンプ帳"],
+["3にち らいかん","3日 来てくれたよ",vc>=3,"stamp.html","スタンプ帳"],
+["7にち らいかん","7日 来てくれたよ",vc>=7,"stamp.html","スタンプ帳"],
+["30にち らいかん","30日 来てくれたよ",vc>=30,"stamp.html","スタンプ帳"],
+["スタンプ 10こ","スタンプを 10こ あつめた",sc>=10,"stamp.html","スタンプ帳"],
+["スタンプ 25こ","スタンプを 25こ あつめた",sc>=25,"stamp.html","スタンプ帳"],
+["はじめての なでなで","ボンを はじめて なでた",nn>=1,"nadenade.html","なでなで"],
+["なでなで 50かい","ボンを ぜんぶで 50かい なでた",nn>=50,"nadenade.html","なでなで"],
+["なかよし","ひとりの ボンと「なかよし」になった(25かい)",mx>=25,"nadenade.html","なでなで"],
+["ずっと いっしょ","ひとりの ボンと「ずっと いっしょ」になった(100かい)",mx>=100,"nadenade.html","なでなで"],
+["7人と なかよし","7人ぜんいんを 10かいずつ なでた",ok2>=7,"nadenade.html","なでなで"],
+["ぷにに あった","ぷにを そだてはじめた",!!pn,"punicare.html","ぷにを そだてる"],
+["おおきぷに","ぷにを「おおきぷに」まで そだてた",pg>=50,"punicare.html","ぷにを そだてる"],
+["ふわぷに","ぷにを「ふわぷに」まで そだてた",pg>=120,"punicare.html","ぷにを そだてる"],
+["はじめての クイズ","ボンクイズに ちょうせんした",(qz.plays||0)>=1,"quiz.html","ボンクイズ"],
+["クイズ はかせ","ボンクイズで 7もん いじょう せいかい",(qz.best||0)>=7,"quiz.html","ボンクイズ"],
+["クイズ まんてん","ボンクイズで 10もん ぜんぶ せいかい",(qz.best||0)>=10,"quiz.html","ボンクイズ"],
+["おきにいり","♡を 1つ つけた",fv.length>=1,"fav.html","お気に入り"],
+["しおり","小説に しおりを はさんだ",mk>=1,"novels.html","小説"]
 ];
 var g=document.getElementById("bgGrid"),n=0;
 L.forEach(function(x){var c=document.createElement("div");c.className="bgc"+(x[2]?"":" lock");if(x[2])n++;
 c.innerHTML='<div class="m"><svg width="34" height="34" aria-hidden="true"><use href="#star"/></svg></div><b></b><small></small><div class="st"></div>';
-c.querySelector("b").textContent=x[2]?x[0]:"？？？";c.querySelector("small").textContent=x[1];c.querySelector(".st").textContent=x[2]?"もらった！":"まだ";g.appendChild(c)});
+c.querySelector("b").textContent=x[2]?x[0]:"？？？";c.querySelector("small").textContent=x[1];c.querySelector(".st").textContent=x[2]?"もらった！":"まだ";if(x[3]){var l=document.createElement("a");l.href=x[3];l.textContent="→ "+x[4];l.style.cssText="display:block;font-size:13px;margin-top:6px";c.appendChild(l)}g.appendChild(c)});
 document.getElementById("bgCount").textContent="バッジ　"+n+" / "+L.length;
 })();
 </script>
