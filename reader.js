@@ -26,7 +26,7 @@ var bg="";try{bg=localStorage.getItem(BK)||""}catch(e){}
 var st=document.createElement("style");document.head.appendChild(st);function ap(){st.textContent=CSS[bg]||""}ap();
 function btn(t,on,fn){var b=document.createElement("button");b.type="button";b.textContent=t;b.setAttribute("aria-pressed",on?"true":"false");b.onclick=fn;b.style.cssText="font:inherit;font-size:15px;min-height:40px;padding:4px 14px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");return b}
 function row(lbl){var d=document.createElement("div");d.style.cssText="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px";var s=document.createElement("span");s.style.fontSize="14px";s.textContent=lbl;d.appendChild(s);bar.appendChild(d);return d}
-var rb=row("はいけい");function drawB(){[].slice.call(rb.querySelectorAll("button")).forEach(function(b){b.remove()});BG.forEach(function(x){rb.appendChild(btn(x[0],bg===x[1],function(){bg=x[1];try{localStorage.setItem(BK,bg)}catch(e){}ap();drawB()}))})}drawB();
+var rb=row("はいけい");function drawB(){[].slice.call(rb.querySelectorAll("button")).forEach(function(b){b.remove()});BG.forEach(function(x){rb.appendChild(btn(x[0],bg===x[1],function(){bg=x[1];try{localStorage.setItem(BK,bg)}catch(e){}if(window.bmBg)bmBg(bg);ap();drawB()}))})}drawB();
 var heads=[].slice.call(document.querySelectorAll("main h2[id]")).filter(function(h){return h.querySelector(".t")&&/^n\d+$/.test(h.id)});
 if(heads.length<2)return;
 var rm=row("しおり");var cur=null,saved=null;try{saved=JSON.parse(localStorage.getItem(MK))}catch(e){}
@@ -38,4 +38,13 @@ drawM();
 var tm=null;function track(){var y=window.innerHeight*0.3,c=null;heads.forEach(function(h){if(h.getBoundingClientRect().top<y)c=h});if(!c||c===cur)return;cur=c;clearTimeout(tm);tm=setTimeout(function(){saved={id:c.id,t:title(c)};try{localStorage.setItem(MK,JSON.stringify(saved))}catch(e){}},1500)}
 window.addEventListener("scroll",track,{passive:true});
 });
+})();
+
+/* よむ時間の目安 */
+(function(){
+function ready(f){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f()}
+ready(function(){var L=document.getElementById("rdL");if(!L)return;var bar=L.parentNode;
+var n=0;[].forEach.call(document.querySelectorAll("main article.sheet.plain"),function(a){n+=a.textContent.replace(/\s+/g,"").length});
+if(n<300)return;var m=Math.max(1,Math.round(n/500));if(m>=10)m=Math.round(m/5)*5;
+var d=document.createElement("div");d.style.cssText="margin-top:6px;font-size:14px";d.textContent="よむ時間の目安：約"+m+"分（"+n.toLocaleString()+"字）";bar.appendChild(d)})
 })();
