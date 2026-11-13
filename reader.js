@@ -14,3 +14,28 @@ function sty(){var on=o[key]===i;b.style.cssText="font:inherit;font-size:15px;mi
 sty();b.addEventListener("click",function(){o[key]=i;try{localStorage.setItem(K,JSON.stringify(o))}catch(e){}apply();[].forEach.call(box.querySelectorAll("button"),function(c,j){c.setAttribute("aria-pressed",j===i?"true":"false");var on=j===i;c.style.background=on?"#5E7A1E":"transparent";c.style.color=on?"#fff":"#5E7A1E"})});box.appendChild(b)})}
 mk(document.getElementById("rdF"),FS,"fs");mk(document.getElementById("rdL"),LH,"lh");
 })();
+
+/* しおり(読みかけの章を自動で覚える)・はいけい色 (この端末だけに保存) */
+(function(){
+function ready(f){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f()}
+ready(function(){
+var L=document.getElementById("rdL");if(!L)return;var bar=L.parentNode;
+var BK="bm-bg",MK="bm-mark:"+location.pathname.replace(/^.*\//,"");
+var BG=[["ふつう",""],["しろ","w"],["よる","d"]],CSS={w:":root{--bg:#fff;--card:#fff}body{background-image:none!important}",d:":root{--bg:#1E1A16;--card:#2A241E;--ink:#F3E8D2;--mute:#D5C6AC;--khaki:#B7C46A;--leaf:#A9BE63;--ochre-soft:#4A3D2A;--teal:#B7C46A;--magenta:#E7A0B0;--vermilion:#B4485C}body{background-image:none!important;color:#F3E8D2}"};
+var bg="";try{bg=localStorage.getItem(BK)||""}catch(e){}
+var st=document.createElement("style");document.head.appendChild(st);function ap(){st.textContent=CSS[bg]||""}ap();
+function btn(t,on,fn){var b=document.createElement("button");b.type="button";b.textContent=t;b.setAttribute("aria-pressed",on?"true":"false");b.onclick=fn;b.style.cssText="font:inherit;font-size:15px;min-height:40px;padding:4px 14px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");return b}
+function row(lbl){var d=document.createElement("div");d.style.cssText="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px";var s=document.createElement("span");s.style.fontSize="14px";s.textContent=lbl;d.appendChild(s);bar.appendChild(d);return d}
+var rb=row("はいけい");function drawB(){[].slice.call(rb.querySelectorAll("button")).forEach(function(b){b.remove()});BG.forEach(function(x){rb.appendChild(btn(x[0],bg===x[1],function(){bg=x[1];try{localStorage.setItem(BK,bg)}catch(e){}ap();drawB()}))})}drawB();
+var heads=[].slice.call(document.querySelectorAll("main h2[id]")).filter(function(h){return h.querySelector(".t")&&/^n\d+$/.test(h.id)});
+if(heads.length<2)return;
+var rm=row("しおり");var cur=null,saved=null;try{saved=JSON.parse(localStorage.getItem(MK))}catch(e){}
+function title(h){return h.querySelector(".t").textContent.trim()}
+function drawM(){[].slice.call(rm.querySelectorAll("button")).forEach(function(b){b.remove()});
+if(saved&&document.getElementById(saved.id)){rm.appendChild(btn("つづきから よむ："+saved.t,false,function(){var h=document.getElementById(saved.id);if(h)h.scrollIntoView({block:"start"})}));rm.appendChild(btn("しおりを けす",false,function(){saved=null;try{localStorage.removeItem(MK)}catch(e){}drawM()}))}
+else{var s=document.createElement("button");s.type="button";s.disabled=true;s.textContent="よみすすめると、ここで つづきから よめるよ";s.style.cssText="font:inherit;font-size:14px;background:none;border:0;color:inherit;opacity:.75;padding:0";rm.appendChild(s)}}
+drawM();
+var tm=null;function track(){var y=window.innerHeight*0.3,c=null;heads.forEach(function(h){if(h.getBoundingClientRect().top<y)c=h});if(!c||c===cur)return;cur=c;clearTimeout(tm);tm=setTimeout(function(){saved={id:c.id,t:title(c)};try{localStorage.setItem(MK,JSON.stringify(saved))}catch(e){}},1500)}
+window.addEventListener("scroll",track,{passive:true});
+});
+})();

@@ -255,6 +255,7 @@ h2{font-size:20px;margin-bottom:12px}
 </header>
 <section aria-labelledby="sh"><h2 id="sh"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#leaf"/></svg><span class="t">さがす</span></h2>
 <form id="sf" role="search" style="display:flex;gap:8px"><input id="sq" type="search" placeholder="例: おにぎり / 診断 / 壁紙" autocomplete="off" aria-label="さがすことば" style="flex:1;min-width:0;font:inherit;font-size:17px;min-height:48px;padding:0 14px;border:2.5px solid var(--khaki);border-radius:10px;background:var(--card);color:var(--ink)"><button type="submit" class="go" style="margin:0;min-height:48px;padding:0 20px;font-size:18px">さがす</button></form>
+<div id="sf2" role="group" aria-label="種類でしぼる" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"></div>
 <p class="small" id="sn" style="margin:8px 0 0">ことばを入れると、博物館のページから探すよ。スペースで区切ると、ぜんぶ含むものであるけ出るよ。</p>
 <div id="sr" style="display:flex;flex-direction:column;gap:12px;margin-top:14px" aria-live="polite"></div></section>
 <script src="search_index.js"></script>
@@ -262,10 +263,13 @@ h2{font-size:20px;margin-bottom:12px}
 (function(){var I=window.BM_INDEX||[],q=document.getElementById("sq"),r=document.getElementById("sr"),n=document.getElementById("sn");
 function kata(t){return t.replace(/[\u30a1-\u30f6]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-96)})}
 function nm(t){return kata(String(t).normalize("NFKC").toLowerCase())}
+var CATS=[["すべて",null],["小説",/^novel/],["ゲーム",/^(games|mini|shindan)/],["ボンの紹介",/^(zukan|world|chara|hajimete|talk|creators)/],["もらう",/^(wallpaper|haifu|calendar|stamp|gallery|music)/],["すきなもの",/^sukimono/]],cat=0;
+function inCat(e){var c=CATS[cat][1];return !c||c.test(e.p)}
+(function(){var box=document.getElementById("sf2");CATS.forEach(function(c,i){var b=document.createElement("button");b.type="button";b.textContent=c[0];function st(){var on=cat===i;b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;font-size:15px;min-height:40px;padding:4px 14px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E")}st();b.addEventListener("click",function(){cat=i;[].forEach.call(box.children,function(x,j){x.setAttribute("aria-pressed",j===i?"true":"false");x.style.background=j===i?"#5E7A1E":"transparent";x.style.color=j===i?"#fff":"#5E7A1E"});run()});box.appendChild(b)})})();
 function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
 function run(){var raw=q.value.trim();r.innerHTML="";if(!raw){n.textContent="ことばを入れると、博物館のページから探すよ。スペースで区切ると、ぜんぶ含むものであるけ出るよ。";return}
 var ts=nm(raw).split(/\s+/).filter(Boolean),out=[];
-I.forEach(function(e){var h=nm(e.h),x=nm(e.x),sc=0,ok=true;ts.forEach(function(t){var a=h.indexOf(t)>=0,b=x.indexOf(t)>=0;if(!a&&!b)ok=false;sc+=(a?5:0)+(b?1:0)});if(ok)out.push([sc,e])});
+I.forEach(function(e){if(!inCat(e))return;var h=nm(e.h),x=nm(e.x),sc=0,ok=true;ts.forEach(function(t){var a=h.indexOf(t)>=0,b=x.indexOf(t)>=0;if(!a&&!b)ok=false;sc+=(a?5:0)+(b?1:0)});if(ok)out.push([sc,e])});
 out.sort(function(a,b){return b[0]-a[0]});
 n.textContent=out.length?out.length+"件 見つかったよ":"見つからなかったよ。ひらがなやカタカナを変えて、もういちど探してみてね。";
 out.slice(0,30).forEach(function(o){var e=o[1],t0=nm(ts[0]),nx=nm(e.x),k=nx.indexOf(t0),sn="";var src=e.x;if(k<0)sn=src.slice(0,80);else{var s0=Math.max(0,k-25);sn=(s0>0?"…":"")+src.slice(s0,s0+90)}

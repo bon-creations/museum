@@ -29,3 +29,9 @@ var lb=document.getElementById("lb");
 if(lb&&document.getElementById("lb-next")){var x0=null;lb.addEventListener("touchstart",function(e){x0=e.touches.length===1?e.touches[0].clientX:null},{passive:true});lb.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>50)document.getElementById(dx<0?"lb-next":"lb-prev").click()},{passive:true})}
 });
 })();
+
+/* Xシェアに #BONCREATION を付ける */
+(function(){
+function f(){[].forEach.call(document.querySelectorAll('a[href^="https://twitter.com/intent/tweet"]'),function(a){if(a.href.indexOf("hashtags=")<0)a.href+="&hashtags=BONCREATION"})}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f();
+})();
