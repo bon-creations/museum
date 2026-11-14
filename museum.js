@@ -205,3 +205,32 @@ var pqe=document.querySelector(".bm-plaque")||hd;if(pqe)pqe.parentNode.insertBef
 function frame(){var im=document.querySelectorAll("main img");for(var i=0;i<im.length;i++){var m=im[i];if(m.closest("header,nav,button,a.cd,.bm-ticket,.bm-ann,.bm-fp")||m.classList.contains("bm-fr"))continue;if(m.complete&&m.naturalWidth>=240&&m.clientWidth>=160)m.classList.add("bm-fr")}}
 window.addEventListener("load",function(){frame();setTimeout(frame,800)});
 })();
+
+/* ユーザー目線の調整: 長い章題のはみ出し防止・館内図のリンクを押しやすく */
+(function(){try{var st=document.createElement("style");st.id="bmfix1";st.textContent="h2 .t{flex:0 1 auto!important;min-width:0;overflow-wrap:anywhere}h2{min-width:0}.fp-g .rm a{display:inline-block;padding:7px 0;min-height:32px}";document.head.appendChild(st)}catch(e){}})();
+
+/* ユーザー目線の調整2: 一覧を上へ・シェア欄を下へ・つづきから読む */
+(function(){try{
+var b=document.body,sel=b.getAttribute("data-list-first");
+if(sel){var first=document.querySelector(sel),hd=document.querySelector("main > header");
+ if(first&&hd){var par=first.parentNode,mv=[],n=hd.nextElementSibling;
+  while(n&&n!==first){mv.push(n);n=n.nextElementSibling}
+  if(first.parentNode!==hd.parentNode){mv=[]}
+  if(mv.length){var pos=b.getAttribute("data-list-pos"),ref;
+   if(pos==="after"){ref=first.nextSibling;mv.forEach(function(e){par.insertBefore(e,ref)})}
+   else{var ft=par.querySelector(":scope > footer");ref=ft?(ft.previousElementSibling&&ft.previousElementSibling.classList.contains("band")?ft.previousElementSibling:ft):null;mv.forEach(function(e){par.insertBefore(e,ref)})}}}}
+var sb=document.querySelector(".sharebar");
+if(sb&&/(^|\/)(index\.html)?$|games\.html$/.test(location.pathname)){var f2=document.querySelector("main > footer");if(f2){f2.parentNode.insertBefore(sb,f2)}}
+var K="bmRead",p=location.pathname.split("/").pop();
+if(/^novel\d*b?\.html$/.test(p)){var secs=[].slice.call(document.querySelectorAll('section[aria-labelledby^="n"]'));
+ if(secs.length>1){var tm=null,sv=function(){var cur=null,h=innerHeight*.4;secs.forEach(function(s){if(s.getBoundingClientRect().top<h)cur=s});
+  if(!cur)return;var id=cur.getAttribute("aria-labelledby"),t=cur.querySelector("h2 .t");
+  try{localStorage.setItem(K,JSON.stringify({p:p,id:id,ct:t?t.textContent.trim():"",t:document.title.split("｜")[0]}))}catch(e){}};
+  addEventListener("scroll",function(){clearTimeout(tm);tm=setTimeout(sv,400)},{passive:true})}}
+if(p==="novels.html"){var r=null;try{r=JSON.parse(localStorage.getItem(K)||"null")}catch(e){}
+ var lst=document.querySelector("section[aria-labelledby=\"k1\"]");
+ if(r&&r.p&&r.id&&lst){var a=document.createElement("a");a.href=r.p+"#"+r.id;a.className="bm-resume";
+  a.setAttribute("style","display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);background:var(--card);border:3px solid var(--khaki);border-radius:10px;padding:12px 16px;min-height:56px;margin:0 0 14px;line-height:1.5");
+  a.innerHTML='<span style="flex:none;font-size:13px;background:var(--khaki);color:#fff;border-radius:6px;padding:1px 8px">つづきから</span><span><b>'+r.t.replace(/</g,"&lt;")+'</b><br><small>'+r.ct.replace(/</g,"&lt;")+' から よむ</small></span><span style="margin-left:auto;font-weight:700;font-size:20px">→</span>';
+  lst.parentNode.insertBefore(a,lst)}}
+}catch(e){}})();
