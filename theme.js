@@ -7,7 +7,7 @@ try{mode=localStorage.getItem(K)||"auto"}catch(e){}
 var mq=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;
 var st=document.createElement("style");st.id="bmtheme";
 st.textContent='html[data-bm-theme="dark"]{--bg:#1E1A13;--card:#2A251B;--ink:#F3E8D2;--mute:#CBBBA0;--ochre-soft:#3A3322;--khaki:#B3C070;--leaf:#9BAD52;--teal:#B3C070;--ochre:#D9A862;--vermilion:#CF5F77;--magenta:#E07C95;color-scheme:dark}'+
-'html[data-bm-theme="dark"] body{background-image:none}'+
+'html[data-bm-theme="dark"] body{background-image:none}'+'html[data-bm-oyasumi]{--bg:#14110C;--card:#1F1B14;--mute:#B5A68C}'+'html[data-bm-oyasumi] img{filter:brightness(.82)}'+
 'html[data-bm-theme="dark"] #bma11yui,html[data-bm-theme="dark"] #bmthemeui{background:#2A251B!important;color:#F3E8D2!important;border-color:#B3C070!important}'+
 'html[data-bm-theme="dark"] #bma11yui button,html[data-bm-theme="dark"] #bmthemeui button{background:#1E1A13!important;color:#B3C070!important;border-color:#B3C070!important}'+
 'html[data-bm-theme="dark"] #bma11yui button[aria-pressed="true"],html[data-bm-theme="dark"] #bmthemeui button[aria-pressed="true"]{background:#B3C070!important;color:#1E1A13!important}'+
@@ -15,8 +15,12 @@ st.textContent='html[data-bm-theme="dark"]{--bg:#1E1A13;--card:#2A251B;--ink:#F3
 'html[data-bm-theme="dark"] .tdbubble,html[data-bm-theme="dark"] .bm-ann,html[data-bm-theme="dark"] .bm-ticket,html[data-bm-theme="dark"] .bm-toc{background:#2A251B!important;color:#F3E8D2!important}'+
 'html[data-bm-theme="dark"] #bmcopylink{background:linear-gradient(180deg,#1E1A13 78%,rgba(30,26,19,0))!important}';
 (document.head||root).appendChild(st);
-function dark(){return mode==="dark"||(mode==="auto"&&mq&&mq.matches)}
-function ap(){if(dark())root.setAttribute("data-bm-theme","dark");else root.removeAttribute("data-bm-theme");
+var OK="bm-oyasumi",oya="off";try{oya=localStorage.getItem(OK)||"off"}catch(e){}
+function night(){var h=new Date().getHours();return h>=21||h<5}
+function oyaOn(){return oya==="on"||(oya==="night"&&night())}
+function dark(){return oyaOn()||mode==="dark"||(mode==="auto"&&mq&&mq.matches)}
+function ap(){if(oyaOn())root.setAttribute("data-bm-oyasumi","1");else root.removeAttribute("data-bm-oyasumi");
+if(dark())root.setAttribute("data-bm-theme","dark");else root.removeAttribute("data-bm-theme");
 var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",dark()?"#1E1A13":"#55602A")}
 ap();if(mq&&mq.addEventListener)mq.addEventListener("change",ap);
 function ui(){bmSet.add(function(d){
@@ -24,6 +28,17 @@ function draw(){d.textContent="";var l=document.createElement("div");l.textConte
 [["auto","じどう"],["light","ライト"],["dark","ダーク"]].forEach(function(p){var on=mode===p[0];var b=document.createElement("button");b.type="button";b.className="sb";b.textContent=p[1];b.setAttribute("aria-pressed",on?"true":"false");
 b.onclick=function(){mode=p[0];try{localStorage.setItem(K,mode)}catch(e){}ap();draw()};d.appendChild(b)})}
 draw()},3)}
+function toast(t){var o=document.getElementById("bmoya");if(o)o.remove();o=document.createElement("div");o.id="bmoya";o.setAttribute("role","status");o.textContent=t;
+o.style.cssText="position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);max-width:88vw;z-index:10001;padding:10px 18px;border-radius:999px;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 15px/1.6 sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.35);text-align:center";
+document.body.appendChild(o);setTimeout(function(){if(o.parentNode)o.remove()},4200)}
+function ui2(){bmSet.add(function(d){
+function draw(){d.textContent="";var l=document.createElement("div");l.textContent="おやすみモード";l.className="lb";d.appendChild(l);
+var n=document.createElement("div");n.style.cssText="font-size:13px;opacity:.85";n.textContent="画面を くらく して、夜でも まぶしくないよ。";d.appendChild(n);
+[["off","オフ"],["on","オン"],["night","よるだけ"]].forEach(function(p){var b=document.createElement("button");b.type="button";b.className="sb";b.textContent=p[1];b.setAttribute("aria-pressed",oya===p[0]?"true":"false");
+b.onclick=function(){oya=p[0];try{localStorage.setItem(OK,oya)}catch(e){}ap();draw();if(oyaOn())toast("おやすみなさい。ゆっくり やすんでね。")};d.appendChild(b)});
+var h=document.createElement("div");h.style.cssText="font-size:12px;opacity:.8";h.textContent="「よるだけ」は、夜9時〜朝5時に じどうで オンになるよ。";d.appendChild(h)}
+draw()},4)}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(ui2,0)});else setTimeout(ui2,0);
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(ui,0)});else setTimeout(ui,0);
 /* オフライン: 見たページを端末に覚えておく */
 try{if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}

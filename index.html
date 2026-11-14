@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261114-331">
+<meta name="site-version" content="20261114-335">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -359,9 +359,21 @@ header>*{position:relative}
 <button type="button" class="go" id="tdMore">他のひとことを聞く</button>
 <button type="button" class="go" id="tdBgm" style="display:none">♪ BON MEMORIAを流す</button>
 </div>
+<div class="sheet plain" id="bday"><h3 style="margin:0 0 4px">ボンの 1日　<span id="bdayT" style="font-size:15px;color:var(--mute)"></span></h3><p style="margin:0 0 8px">朝・昼・夕・夜で、ボンたちの ようすが かわるよ。</p><div id="bdayL" style="display:flex;flex-direction:column;gap:8px"></div></div>
+<script>(function(){
+var S={"朝":[["oko","おこボン","ほうきを もって、おそうじの 時間。"],["niko","にこボン","スキップで おさんぽに でかけたよ。"],["hyoe","ひょえボン","ぷにを ポケットに いれて、あさの ぴょんを おさえてる。"]],
+"昼":[["mogu","もぐボン","もぐもぐ、ごはんの 時間。"],["nemu","ねむボン","ひなたで うとうと、おひるね中。"],["niji","にじボン","本を ひらいて、読書の 時間。"]],
+"夕":[["niko","にこボン","おやつを はんぶんこ している。"],["tere","てれボン","お花を ながめて、ほっと ひといき。"],["mogu","もぐボン","あしたの ごはんを 考えてる。"]],
+"夜":[["nemu","ねむボン","もう ぐっすり、ねている。"],["tere","てれボン","星を ながめて、きょうを ふりかえってる。"],["hyoe","ひょえボン","ぷにと いっしょに、ねる じゅんび。"]]};
+function slot(h){return h>=5&&h<10?"朝":h>=10&&h<16?"昼":h>=16&&h<20?"夕":"夜"}
+function draw(){var k=slot(new Date().getHours()),L=document.getElementById("bdayL");if(!L)return;L.innerHTML="";document.getElementById("bdayT").textContent="いまは「"+k+"」";
+S[k].forEach(function(r){var d=document.createElement("div");d.style.cssText="display:flex;gap:10px;align-items:center";
+d.innerHTML='<img src="icon_round_'+r[0]+'.png" alt="" width="44" height="44" style="border-radius:50%;flex:none"><p style="margin:0"><b class="bn"></b>　<span class="tx"></span></p>';
+d.querySelector(".bn").textContent=r[1];d.querySelector(".tx").textContent=r[2];L.appendChild(d)})}
+draw();document.addEventListener("visibilitychange",function(){if(!document.hidden)draw()})})();</script>
 <div class="sheet plain" id="oshi"><h3 style="margin:0 0 4px">すきなボンを えらぶ</h3><p style="margin:0 0 6px">えらんだボンが、毎日の「今日の ボン」に なるよ。</p><div id="oshiB" style="display:flex;flex-wrap:wrap;gap:8px"></div></div>
 </section>
-<section aria-labelledby="sp"><h2 id="sp"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#leaf"/></svg><span class="t">ボンと あそぼう</span></h2><div class="sheet plain"><p style="margin:0 0 8px">ぷにを そだてたり、ボンを なでなでしたり。ここから すぐ あそべるよ。</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><a class="go" href="punicare.html" style="font-size:15px;padding:10px 6px;text-align:center">ぷにを そだてる</a><a class="go" href="nadenade.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンを なでなで</a><a class="go" href="nikki.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンの にっき</a><a class="go" href="badge.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンの バッジ</a><a class="go" href="quiz.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンクイズ</a><a class="go" href="letter.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンから おてがみ</a><a class="go" href="sleep.html" style="font-size:15px;padding:10px 6px;text-align:center">おやすみタイマー</a><a class="go" href="job.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンの おしごと</a><a class="go" href="shindan.html" style="font-size:15px;padding:10px 6px;text-align:center">ボン診断</a><a class="go" href="stamp.html" style="font-size:15px;padding:10px 6px;text-align:center">スタンプ帳</a><a class="go" href="talk.html?play=omikuji" style="font-size:15px;padding:10px 6px;text-align:center">おみくじ</a><a class="go" href="mini.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンたたき</a><a class="go" href="wallpaper.html" style="font-size:15px;padding:10px 6px;text-align:center">壁紙・アイコン</a></div><p style="margin:10px 0 0"><a href="games.html#sp">あそびの部屋を ぜんぶ見る</a></p></div></section>
+<section aria-labelledby="sp"><h2 id="sp"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#leaf"/></svg><span class="t">ボンと あそぼう</span></h2><div class="sheet plain"><p style="margin:0 0 8px">ぷにを そだてたり、ボンを なでなでしたり。ここから すぐ あそべるよ。</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><a class="go" href="punicare.html" style="font-size:15px;padding:10px 6px;text-align:center">ぷにを そだてる</a><a class="go" href="nadenade.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンを なでなで</a><a class="go" href="nikki.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンの にっき</a><a class="go" href="hitokoto.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンに ひとこと</a><a class="go" href="shiritori.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンと しりとり</a><a class="go" href="puni_mini.html" style="font-size:15px;padding:10px 6px;text-align:center">ぷにの いちにち</a><a class="go" href="badge.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンの バッジ</a><a class="go" href="quiz.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンクイズ</a><a class="go" href="letter.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンから おてがみ</a><a class="go" href="sleep.html" style="font-size:15px;padding:10px 6px;text-align:center">おやすみタイマー</a><a class="go" href="job.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンの おしごと</a><a class="go" href="shindan.html" style="font-size:15px;padding:10px 6px;text-align:center">ボン診断</a><a class="go" href="stamp.html" style="font-size:15px;padding:10px 6px;text-align:center">スタンプ帳</a><a class="go" href="talk.html?play=omikuji" style="font-size:15px;padding:10px 6px;text-align:center">おみくじ</a><a class="go" href="mini.html" style="font-size:15px;padding:10px 6px;text-align:center">ボンたたき</a><a class="go" href="wallpaper.html" style="font-size:15px;padding:10px 6px;text-align:center">壁紙・アイコン</a></div><p style="margin:10px 0 0"><a href="games.html#sp">あそびの部屋を ぜんぶ見る</a></p></div></section>
 
 <script>(function(){
 var d=new Date(),h=d.getHours();
