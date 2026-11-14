@@ -5,7 +5,7 @@ var f=(location.pathname.split("/").pop()||"index.html").replace(/\.html$/,"")||
 var ROOMS=[
 {id:"hall",s:"r-hall",n:"入口ホール",ico:"hall",d:"博物館の入口。展示ではなく、案内のみの場所だよ。はじめての人は、ここから。",p:["index"]},
 {id:"r1",s:"r-1",n:"第1展示室　ボンたちの部屋",ico:"rainbow",d:"ボンたちに会える部屋。",p:["zukan","bon","talk","shindan"]},
-{id:"r2",s:"r-2",n:"第2展示室　ものがたりの部屋",ico:"book",d:"ボンたちのおはなしと、ボン界のきまり。",p:["novels","novel","novel6","novel5","novel1b","novel2","novel4","novel7","world"]},
+{id:"r2",s:"r-2",n:"第2展示室　ものがたりの部屋",ico:"book",d:"ボンたちのおはなしと、ボン界のきまり。",p:["world","novels","novel","novel6","novel5","novel1b","novel2","novel4","novel7"]},
 {id:"r3",s:"r-3",n:"第3展示室　あそびの部屋",ico:"game",d:"ゲームやミニゲームで あそべる部屋。",p:["games","mini"]},
 {id:"r4",s:"r-4",n:"第4展示室　絵と音の部屋",ico:"palette",d:"イラスト・音楽・壁紙・カレンダー。",p:["gallery","music","wallpaper","calendar"]},
 {id:"r5",s:"r-5",n:"資料室　さくしゃボンのすきなもの",ico:"shelf",d:"戦国・エスニック・雑学など、さくしゃボンの「すき」の資料。",p:["creators","sukimono","sukimono_ethnic","sukimono_kenko","sukimono_sengoku","sukimono_zatsu"]}
@@ -16,8 +16,8 @@ var ROUTE=[
 ["zukan","ボンたちの ずかん","図鑑","7人のボンを、ひとりずつ紹介している展示。"],
 ["talk","ボンたちと おしゃべり","体験展示","ボンたちと、ことばでお話しできる体験コーナー。"],
 ["shindan","ボン診断","体験展示","あなたに近いボンを占う、ちいさな体験コーナー。"],
-["novels","ボンの しょうせつ","文学","ひょえボンの「はじめて」と、番外編の物語を所蔵。"],
 ["world","ボン界の せかいかん","資料","ボンたちの暮らす世界の、きまりと設定の資料。"],
+["novels","ボンの しょうせつ","文学","ひょえボンの「はじめて」と、番外編の物語を所蔵。"],
 ["games","ボンちゃんの ゲーム","遊戯","ゲームと、診断・スタンプ帳・おみくじなどの あそびの展示。"],
 ["mini","ボンたたき","遊戯","手軽に あそべる、ちいさなゲーム。"],
 ["gallery","ボンちゃんギャラリー","絵画・写真","イラストや写真を、ならべたギャラリー。"],
