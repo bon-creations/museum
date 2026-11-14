@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261115-385">
+<meta name="site-version" content="20261115-388">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -369,6 +369,7 @@ header>*{position:relative}
 <div class="tags"><span class="tag">日替わり</span><span class="tag">1週間で一周</span><span class="tag" id="tdDate"></span></div>
 <button type="button" class="go" id="tdMore">他のひとことを聞く</button>
 <button type="button" class="go" id="tdBgm" style="display:none">♪ BON MEMORIAを流す</button>
+<button type="button" class="go" id="tdNiji" style="display:none">♪ 虹彩漫談を流す</button>
 </div>
 <div class="sheet plain" id="bday"><h3 style="margin:0 0 4px">ボンの 1日　<span id="bdayT" style="font-size:15px;color:var(--mute)"></span></h3><p style="margin:0 0 8px">朝・昼・夕・夜で、ボンたちの ようすが かわるよ。</p><div id="bdayL" style="display:flex;flex-direction:column;gap:8px"></div></div>
 <script>(function(){
@@ -425,10 +426,12 @@ return t}
 function setNameUI(){var mb=document.getElementById("tdMore");if(!mb||document.getElementById("tdNm"))return;var d=document.createElement("div");d.id="tdNm";d.style.cssText="margin-top:8px;font-size:12px";d.innerHTML='<label>きみの名前(ひらがな・カタカナ5字まで) <input id="tdNmIn" maxlength="5" style="width:7em;font:inherit;padding:2px 6px"></label> <button type="button" id="tdNmSv" style="font:inherit;padding:2px 8px">決める</button>';mb.parentNode.appendChild(d);var i=document.getElementById("tdNmIn");i.value=myName();document.getElementById("tdNmSv").addEventListener("click",function(){var v=i.value.trim();if(v&&!/^[\u3041-\u3096\u30a1-\u30f6ー]{1,5}$/.test(v)){i.value="";i.placeholder="ひらがな/カタカナで";return}try{if(v)localStorage.setItem("bontalk_name",v);else localStorage.removeItem("bontalk_name")}catch(e){}$("tdSay").textContent="「"+say()+"」"})}
 var cur=-1;function pick(){var n;do{n=Math.floor(Math.random()*pool.length)}while(pool.length>1&&n===cur);cur=n;return pool[n]}
 var HINT={"にじボン": "知っているか？ この館では、BGM「BON MEMORIA」を流せるぞ！ 左下の ♪ を押してみてくれ！", "おこボン": "ねえ、左下の♪ボタン知ってる？ 押せば「BON MEMORIA」が鳴るのよ！ 聴かないなんてもったいないわよ！", "にこボン": "左下の♪を押すとね、BGMの「BON MEMORIA」が流れるんだよ♪ 一緒に聴こうよ！", "ひょえボン": "ひだりしたの ♪ を おすと、おんがくが なるんだって……「BON MEMORIA」……きいて みて……", "もぐボン": "左下の♪を押すと、BGMが流れるんだよ〜。「BON MEMORIA」、ごはんのお供にぴったりだよ〜", "ねむボン": "左下の♪を押すと、「BON MEMORIA」が流れるよ。子守唄にもなるんだ。ふわぁ……", "てれボン": "あ、あの……左下の♪を押すと、「BON MEMORIA」が流れるんです……よ、よければ……"};function bgmOn(){try{return !!JSON.parse(localStorage.getItem("bm-bgm")).on}catch(e){return false}}
-function say(){var h=!bgmOn()&&!(window.bmBgm&&bmBgm.on())&&Math.random()<.15;var q=document.getElementById("tdBgm");if(q)q.style.display=h?"":"none";return fx(h?HINT[r[0]]:pick())}
+var NHINT={"にじボン":"我輩のテーマ曲「虹彩漫談」、今日は特別に、ここでも流せるぞ！ 下のボタンを押してみるがよい！","おこボン":"にじボンの曲「虹彩漫談」、今日だけここで流せるわよ。ほら、下のボタン押しなさいよ。","にこボン":"今日はね、特別！「虹彩漫談」をここで流せるよ〜！ 下のボタンを押してね♪","ひょえボン":"きょうは とくべつ……「虹彩漫談」、ここで ながせるって……したの ボタン、おして みて……","もぐボン":"今日は特別に、「虹彩漫談」がここで流せるよ〜。ごはんのお供にどうぞ〜","ねむボン":"今日は特別。「虹彩漫談」、ここで流せるよ。ふわぁ……下のボタンをどうぞ。","てれボン":"あ、あの……今日は特別に、「虹彩漫談」がここで流せるんです……よ、よければ……"};
+function nijiOn(){return !!(window.bmNiji&&bmNiji.on())}
+function say(){var rr=Math.random(),h=!bgmOn()&&!(window.bmBgm&&bmBgm.on())&&rr<.15,n=!h&&!nijiOn()&&rr>=.15&&rr<.25;var q=document.getElementById("tdBgm");if(q)q.style.display=h?"":"none";var nq=document.getElementById("tdNiji");if(nq)nq.style.display=n?"":"none";return fx(h?HINT[r[0]]:n?NHINT[r[0]]:pick())}
 var b=[r[0],say()];
 function $(i){return document.getElementById(i)}
-setNameUI();var mb=$("tdMore");if(mb)mb.addEventListener("click",function(){$("tdSay").textContent="「"+say()+"」"});var bq=$("tdBgm");if(bq)bq.addEventListener("click",function(){if(window.bmBgm)bmBgm.play();bq.style.display="none"});
+setNameUI();var mb=$("tdMore");if(mb)mb.addEventListener("click",function(){$("tdSay").textContent="「"+say()+"」"});var bq=$("tdBgm");if(bq)bq.addEventListener("click",function(){if(window.bmBgm)bmBgm.play();bq.style.display="none"});var nj=$("tdNiji");if(nj)nj.addEventListener("click",function(){if(window.bmNiji)bmNiji.play();nj.style.display="none"});
 var lh=h,ld=d.getDate();setInterval(function(){var n=new Date();if(n.getDate()!==ld){location.reload();return}if(n.getHours()!==lh){lh=n.getHours();var e=$("tdGreet");if(e)e.textContent=HR[lh]}},30000);
 if($("tdGreet")){$("tdGreet").textContent=g;$("tdName").textContent=b[0];$("tdSay").textContent="「"+b[1]+"」";var im=$("tdImg");if(im&&IM[b[0]]){im.src=IM[b[0]];im.alt=b[0]+"の立ち絵"}
 $("tdDate").textContent=(d.getMonth()+1)+"月"+d.getDate()+"日";}
@@ -693,7 +696,7 @@ var ex=get();if(ex)btn.textContent="今日のおみくじを見る";
 btn.addEventListener("click",function(){var o=get();if(!o){o=draw();try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}show(o);try{window.bmStamp&&bmStamp.add("omikuji")}catch(e){}});
 })();</script>
 <script src="koneta.js"></script><script src="stamp.js"></script><script src="museum.js"></script>
-<script src="bgm.js"></script>
+<script src="bgm.js"></script><script>window.bmNijiNoCard=1;window.bmNijiNoPanel=1</script><script src="nijibgm.js"></script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 <script>(function(){var L=[["niko","にこボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"]],B=document.getElementById("voteB"),M=document.getElementById("voteM");if(!B)return;var cur="";try{cur=localStorage.getItem("bm-vote")||""}catch(e){}
 function draw(){B.textContent="";L.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[1]+(cur===x[0]?" ✓":"");b.style.cssText="font:inherit;font-size:16px;padding:9px 14px;min-height:44px;border-radius:999px;border:2px solid #5E7A1E;background:"+(cur===x[0]?"#5E7A1E":"#fff8e8")+";color:"+(cur===x[0]?"#fff":"#5E7A1E")+";font-weight:700;cursor:pointer";b.onclick=function(){cur=x[0];try{localStorage.setItem("bm-vote",cur)}catch(e){}draw();var t="次のボンスタンプは「"+x[1]+"」がほしい！ #ボンちゃんの小さな博物館";var a=document.createElement("a");a.href="https://twitter.com/intent/tweet?text="+encodeURIComponent(t)+"&url="+encodeURIComponent("https://bon-creations.github.io/museum/");a.target="_blank";a.rel="noopener";a.textContent="Xで おしらせする";a.style.cssText="color:#5E7A1E;font-weight:700";M.textContent=x[1]+"に とうひょうしたよ！ ";M.appendChild(a)};B.appendChild(b)})}draw()})();</script>
