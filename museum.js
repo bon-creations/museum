@@ -234,3 +234,6 @@ if(p==="novels.html"){var r=null;try{r=JSON.parse(localStorage.getItem(K)||"null
   a.innerHTML='<span style="flex:none;font-size:13px;background:var(--khaki);color:#fff;border-radius:6px;padding:1px 8px">つづきから</span><span><b>'+r.t.replace(/</g,"&lt;")+'</b><br><small>'+r.ct.replace(/</g,"&lt;")+' から よむ</small></span><span style="margin-left:auto;font-weight:700;font-size:20px">→</span>';
   lst.parentNode.insertBefore(a,lst)}}
 }catch(e){}})();
+
+/* ユーザー目線の調整3: 小さい文字・状態ラベルの読みやすさ */
+(function(){try{var st=document.createElement("style");st.id="bmfix2";st.textContent=".bm-fp .rm .st{font-size:13px;color:#434D1F}.bm-fp .rm li b,.bm-ex .cd .n{font-size:13px}.tag{font-size:15px!important}.tag.app{background:#B8334F!important}.tag.st-upd{background:#9C5A08!important}.tag.st-done{background:#35607E!important}";document.head.appendChild(st)}catch(e){}})();
