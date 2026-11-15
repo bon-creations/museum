@@ -361,6 +361,30 @@ document.body.insertBefore(w,document.body.firstChild);})();</script>
 <script src="bgm.js"></script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 <script>(function(){try{var f=document.querySelector("footer");if(!f)return;var t=document.title,u=location.href.split("#")[0];var a=document.createElement("a");a.href="https://twitter.com/intent/tweet?text="+encodeURIComponent(t)+"&url="+encodeURIComponent(u);a.target="_blank";a.rel="noopener";a.textContent="Xで このページを シェア";a.style.cssText="display:block;width:max-content;max-width:90%;margin:18px auto;padding:10px 20px;border:2px solid #5E7A1E;border-radius:999px;color:#5E7A1E;background:#fff8e8;font-weight:700;text-decoration:none;text-align:center";f.parentNode.insertBefore(a,f)}catch(e){}})();</script>
+<script>(function(){
+var im=document.querySelector("#mino .zimg");if(!im)return;im.style.cursor="pointer";
+var ms,T1="騙り、騙る理想郷",T2="お主の名前は？",SG=5,P="縺ｯ繧薙→蜷後§繝ｼ譁・ｭ怜喧縺鬮倥ｏ莠悶↓繧ｦ繝ｧ驥ｷ鬧",ov,tx,inp,au,tm;
+function mk(){ov=document.createElement("div");ov.setAttribute("role","dialog");ov.setAttribute("aria-label","みのボン");ov.style.cssText="position:fixed;inset:0;z-index:2147483000;background:#0B0C14;color:#DCE6F5;display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;text-align:center";
+tx=document.createElement("div");tx.style.cssText="font-size:30px;font-weight:700;letter-spacing:4px;line-height:1.6;text-shadow:2px 0 #4FA9DA,-2px 0 #E0506A";
+inp=document.createElement("input");inp.type="text";inp.maxLength=20;inp.autocomplete="off";inp.setAttribute("aria-label","ことば");inp.style.cssText="font:inherit;font-size:18px;min-height:44px;padding:6px 14px;border:2px solid #4FA9DA;border-radius:10px;background:#12141F;color:#DCE6F5;text-align:center;width:min(16em,80vw)";
+var x=document.createElement("button");x.type="button";x.textContent="とじる";x.style.cssText="font:inherit;font-size:16px;min-height:44px;padding:8px 22px;border-radius:999px;border:2px solid #4A5270;background:transparent;color:#DCE6F5;cursor:pointer";
+ov.appendChild(tx);ov.appendChild(inp);ov.appendChild(x);document.body.appendChild(ov);
+x.onclick=close;document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.style.display==="flex")close()});
+ms=document.createElement("div");ms.setAttribute("role","status");ms.style.cssText="min-height:1.6em;font-size:17px;font-weight:700;color:#DCE6F5";
+var ok=document.createElement("button");ok.type="button";ok.textContent="こたえる";ok.style.cssText="font:inherit;font-size:16px;min-height:44px;padding:8px 22px;border-radius:999px;border:2px solid #4FA9DA;background:transparent;color:#DCE6F5;cursor:pointer";
+ov.insertBefore(ms,x);ov.insertBefore(ok,x);
+function ans(){var v=inp.value.trim().toLowerCase();if(!v)return;if(v==="gatari"){inp.value="";ms.textContent="";play()}else{inp.value="";ms.textContent="お主のことではないみたいだ"}}
+ok.onclick=ans;inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();ans()}});
+inp.addEventListener("input",function(){ms.textContent="";if(inp.value.trim().toLowerCase()==="gatari"){inp.value="";play()}});}
+function r(){return P.charAt(Math.floor(Math.random()*P.length))}
+function glitch(){var n=0;clearInterval(tm);function seg(){var q="";for(var j=0;j<SG;j++)q+=r();return q}
+tm=setInterval(function(){n++;var a="",b="";for(var i=0;i<T1.length;i++){var c=T1.charAt(i);a+=(c==="、")?c:(n<14&&Math.random()<1-n/14)||(n>=14&&Math.random()<.06)?r():c}
+for(var k=0;k<T2.length;k++){var d=T2.charAt(k);b+=(d==="？")?d:(n<14&&Math.random()<1-n/14)||(n>=14&&Math.random()<.04)?r():d}
+tx.textContent=a+seg()+b;if(n>=14&&n%5===0)tx.textContent=T1+seg()+T2},110)}
+function play(){if(!au){au=new Audio("gatari2.mp3");au.preload="auto"}try{if(window.bmBgm&&window.bmBgm.on&&window.bmBgm.on())window.bmBgm.stop()}catch(e){}au.currentTime=0;au.play()}
+function close(){ov.style.display="none";clearInterval(tm);if(au)au.pause();document.body.style.overflow=""}
+im.addEventListener("click",function(){if(!ov)mk();ov.style.display="flex";document.body.style.overflow="hidden";inp.value="";ms.textContent="";glitch()});
+})();</script>
 <script src="a11y.js"></script>
 </body>
 </html>
