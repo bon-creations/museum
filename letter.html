@@ -8,18 +8,18 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#55602A">
 <meta name="apple-mobile-web-app-title" content="ボンちゃんの博物館">
-<meta name="description" content="ずかんや ひょえボンの お話から、ボンから おてがみ！ 10もん ちょうせん。">
+<meta name="description" content="ボンから おてがみが とどくよ。きょうは だれから かな?">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ボンちゃんの小さな博物館">
 <meta property="og:title" content="ボンから おてがみ｜ボンちゃんの小さな博物館">
-<meta property="og:description" content="ずかんや ひょえボンの お話から、ボンから おてがみ！ 10もん ちょうせん。">
+<meta property="og:description" content="ボンから おてがみが とどくよ。きょうは だれから かな?">
 <meta property="og:url" content="https://bon-creations.github.io/museum/letter.html">
 <meta property="og:image" content="https://bon-creations.github.io/museum/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ボンから おてがみ｜ボンちゃんの小さな博物館">
-<meta name="twitter:description" content="ずかんや ひょえボンの お話から、ボンから おてがみ！ 10もん ちょうせん。">
+<meta name="twitter:description" content="ボンから おてがみが とどくよ。きょうは だれから かな?">
 <meta name="twitter:image" content="https://bon-creations.github.io/museum/ogp.png">
 <meta property="og:site_name" content="ボンちゃんの小さな博物館">
 <title>ボンから おてがみ</title>
@@ -284,7 +284,7 @@ var B=[["oko", "おこボン", "", {"today": "{n}、元気？ アタシは今日
 var $=function(x){return document.getElementById(x)},b=0,k=0;
 try{$("ltName").value=localStorage.getItem(NK)||""}catch(e){}
 function mkb(box,list,get,set){list.forEach(function(x,i){var e=document.createElement("button");e.type="button";e.textContent=x;e.setAttribute("aria-pressed",get()===i?"true":"false");e.onclick=function(){set(i);[].forEach.call(box.children,function(c,j){c.setAttribute("aria-pressed",j===i?"true":"false")})};box.appendChild(e)})}
-b=Math.floor(Math.random()*B.length);
+b=Math.floor(Math.random()*B.length);try{var oo=JSON.parse(localStorage.getItem("bm-oshis")||"[]")[0];if(oo){var ix=B.findIndex(function(x){return x[0]===oo});if(ix>=0)b=ix}}catch(e){}
 mkb($("ltB"),B.map(function(x){return x[1]}),function(){return b},function(i){b=i});
 mkb($("ltK"),KN.map(function(x){return x[1]}),function(){return k},function(i){k=i});
 var txt="";

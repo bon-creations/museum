@@ -83,6 +83,6 @@ document.addEventListener("click",function(e){if(e.target.closest&&e.target.clos
 var OB=[["oko","おこボン"],["niko","にこボン"],["hyoe","ひょえボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"],["","おまかせ"]],ob=document.getElementById("oshiB"),oc="";
 try{oc=localStorage.getItem("bm-oshi")||""}catch(e){}
 if(ob){OB.forEach(function(x){var b=document.createElement("button"),on=oc===x[0];b.type="button";b.textContent=x[1]+(on&&x[0]?" ✓":"");b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;font-size:16px;padding:9px 14px;min-height:44px;border-radius:999px;border:2px solid #5E7A1E;font-weight:700;cursor:pointer;background:"+(on?"#5E7A1E":"transparent")+";color:"+(on?"#fff":"#5E7A1E");
-b.addEventListener("click",function(){try{if(x[0])localStorage.setItem("bm-oshi",x[0]);else localStorage.removeItem("bm-oshi")}catch(e){}location.reload()});ob.appendChild(b)})}
+b.addEventListener("click",function(){try{if(x[0]){localStorage.setItem("bm-oshi",x[0]);localStorage.setItem("bm-oshis",JSON.stringify([x[0]]))}else{localStorage.removeItem("bm-oshi");localStorage.removeItem("bm-oshis")}}catch(e){}location.reload()});ob.appendChild(b)})}
 if(ob){var hp=document.createElement("p");hp.style.cssText="margin:10px 0 0;font-size:14px;line-height:1.7";hp.textContent="※ えらんだボンは、ときどき 画面を 走り抜けるよ。いまは ひょえボンと おこボンと にこボンだけ。ほかの子も……どこかで こっそり 走る れんしゅうを しているらしい。";ob.parentNode.appendChild(hp)}
 })();

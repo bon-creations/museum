@@ -10,7 +10,7 @@ function ap(){var z=o.z||1;st.textContent=((z!==1?"html{font-size:"+(z*100)+"% !
 ap();
 function ui(){bmSet.add(function(d){
 function mk(t,fn,on){var b=document.createElement("button");b.type="button";b.className="sb";b.textContent=t;b.setAttribute("aria-pressed",on?"true":"false");b.onclick=fn;return b}
-function draw(){d.textContent="";var l=document.createElement("div");l.textContent="見やすさ";l.className="lb";d.appendChild(l);var z=o.z||1;[["文字 ふつう",1],["文字 大",1.15],["文字 とても大",1.3]].forEach(function(x){d.appendChild(mk(x[0],function(){o.z=x[1];sv();ap();draw()},z===x[1]))});d.appendChild(document.createElement("br"));d.appendChild(mk(o.m?"動きをへらす: オン":"動きをへらす: オフ",function(){o.m=!o.m;sv();ap();draw()},!!o.m));d.appendChild(document.createElement("br"));var fa=document.createElement("a");fa.href="fav.html";fa.textContent="♡ お気に入りを見る";fa.className="sb";fa.style.display="inline-block";fa.style.textDecoration="none";d.appendChild(fa)}
+function draw(){d.textContent="";var l=document.createElement("div");l.textContent="見やすさ";l.className="lb";d.appendChild(l);var z=o.z||1;[["文字 ふつう",1],["文字 大",1.15],["文字 とても大",1.3]].forEach(function(x){d.appendChild(mk(x[0],function(){o.z=x[1];sv();ap();draw()},z===x[1]))});d.appendChild(document.createElement("br"));d.appendChild(mk(o.m?"動きをへらす: オン":"動きをへらす: オフ",function(){o.m=!o.m;sv();ap();draw()},!!o.m));d.appendChild(document.createElement("br"));var fa=document.createElement("a");fa.href="mine.html#fav";fa.textContent="♡ お気に入りを見る";fa.className="sb";fa.style.display="inline-block";fa.style.textDecoration="none";d.appendChild(fa)}
 draw()},2)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",ui);else ui();
 })();

@@ -99,7 +99,7 @@ ROOMS.forEach(function(r){var top=r.p[0],href=(r.id==="hall")?"index.html":(top+
 var st=here?'<span class="st here">いま ここ</span>':(visited(r)?'<span class="st">✓ 見学済</span>':'<span class="st no">未見学</span>');
 var ex=[];ROUTE.forEach(function(x,i){if(r.p.indexOf(x[0])>=0)ex.push('<li'+(x[0]===f?' class="cur"':'')+'><b>No.'+("00"+(i+1)).slice(-3)+'</b><a href="'+x[0]+'.html">'+esc(x[1])+'</a><br><span>'+esc(x[3])+'</span></li>')});
 h+='<section class="rm'+(here?' now':'')+((r.id==="hall"||r.id==="r5")?' wide':'')+'"><h4>'+r.ico+' <a href="'+href+'" style="color:inherit">'+esc(r.n)+'</a>'+st+'</h4><p>'+esc(r.d)+'</p><ul>'+ex.join('')+'</ul></section>'});
-h+='<section class="rm wide"><h4>'+I('ticket')+' 受付・案内所</h4><ul><li><a href="stamp.html">スタンプ帳</a><br><span>見学した展示室のしるしが集まるよ。</span></li><li><a href="search.html">館内さくいん</a><br><span>ことばで、見たい展示を探せるよ。</span></li></ul></section>';
+h+='<section class="rm wide"><h4>'+I('ticket')+' 受付・案内所</h4><ul><li><a href="mine.html#stamp">スタンプ帳</a><br><span>見学した展示室のしるしが集まるよ。</span></li><li><a href="search.html">館内さくいん</a><br><span>ことばで、見たい展示を探せるよ。</span></li></ul></section>';
 h+='</div><p class="fp-z">点線は順路。上から順に歩くと、ぜんぶ見られるよ。</p></div>';return h}
 /* 展示ラベル */
 var DO={creators:["BON CREATIONSが どんな名前かを知る","さくしゃボンと、「ボンちゃん」の名前の由来を読む"],index:["お知らせを見る","展示一覧から行きたい部屋を選ぶ"],
@@ -157,7 +157,7 @@ if(ri>=0){
 var ft=document.querySelector("main > footer")||document.querySelector("footer");
 if(ft){var nv=document.createElement("nav");nv.className="bm-route";nv.setAttribute("aria-label","順路");
 var pv=ri>0?ROUTE[ri-1]:null,nx=ri<ROUTE.length-1?ROUTE[ri+1]:null;
-nv.innerHTML='<div>'+(pv?'<b>← 前の展示</b><a href="'+pv[0]+'.html">'+esc(pv[1])+'</a>':'')+'</div><div style="text-align:right">'+(nx?'<b>次の展示 →</b><a href="'+nx[0]+'.html">'+esc(nx[1])+'</a>':'<b>順路のおわり</b><a href="stamp.html">スタンプ帳を見る</a>')+'</div>';
+nv.innerHTML='<div>'+(pv?'<b>← 前の展示</b><a href="'+pv[0]+'.html">'+esc(pv[1])+'</a>':'')+'</div><div style="text-align:right">'+(nx?'<b>次の展示 →</b><a href="'+nx[0]+'.html">'+esc(nx[1])+'</a>':'<b>順路のおわり</b><a href="mine.html#stamp">スタンプ帳を見る</a>')+'</div>';
 ft.parentNode.insertBefore(nv,ft)}}
 /* トップ: 入館券・館内アナウンス */
 function pad(n){return (n<10?"0":"")+n}
@@ -237,3 +237,18 @@ if(p==="novels.html"){var r=null;try{r=JSON.parse(localStorage.getItem(K)||"null
 
 /* ユーザー目線の調整3: 小さい文字・状態ラベルの読みやすさ */
 (function(){try{var st=document.createElement("style");st.id="bmfix2";st.textContent=".bm-fp .rm .st{font-size:13px;color:#434D1F}.bm-fp .rm li b,.bm-ex .cd .n{font-size:13px}.tag{font-size:15px!important}.tag.app{background:#B8334F!important}.tag.st-upd{background:#9C5A08!important}.tag.st-done{background:#35607E!important}";document.head.appendChild(st)}catch(e){}})();
+
+/* --- すきに かえる: visitor prefs (bm-fs = font size, bm-hidenew = hide 新着) --- */
+(function(){try{var fs=localStorage.getItem("bm-fs");var z={s:"14px",m:"",l:"18px"}[fs];if(z)document.documentElement.style.fontSize=z;
+if(localStorage.getItem("bm-hidenew")==="1"){var n=document.getElementById("newband");if(n)n.style.display="none"}}catch(e){}})();
+
+/* --- すきに かえる (visitor prefs) --- */
+window.bmOshiKey=function(){var ok=["oko","niko","hyoe","mogu","nemu","tere","niji"];try{var a=JSON.parse(localStorage.getItem("bm-oshis")||"[]")||[];for(var i=0;i<a.length;i++)if(ok.indexOf(a[i])>=0)return a[i];var o=localStorage.getItem("bm-oshi");if(ok.indexOf(o)>=0)return o}catch(e){}return "oko"};
+(function(){try{var r=document.documentElement,g=function(k){return localStorage.getItem(k)};
+var ACC={sakusha:"#66752F",wine:"#7A2434",oko:"#C8402F",niko:"#9A6A0C",hyoe:"#2F3B7C",mogu:"#3F7B4C",nemu:"#7A4DB0",tere:"#D4527F",niji:"#A8336A"};var acc=ACC[g("bm-accent")]?[ACC[g("bm-accent")],ACC[g("bm-accent")]]:null;
+if(acc){r.style.setProperty("--vermilion",acc[0]);r.style.setProperty("--khaki",acc[1])}
+var css="";if(g("bm-still")==="1"){r.setAttribute("data-bm-still","1");css+="html[data-bm-still] *{animation:none!important;transition:none!important}"}
+if(g("bm-hidenews")==="1")css+=".news,.bm-ann{display:none!important}";
+if(g("bm-hidenew")==="1")css+="#newband,.news,.bm-ann{display:none!important}";
+if(css){var s=document.createElement("style");s.textContent=css;document.head.appendChild(s)}
+}catch(e){}})();

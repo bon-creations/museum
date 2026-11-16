@@ -1,6 +1,7 @@
 /* BON MEMORIA: サイト共通BGM。初期はオフ。再生状態と位置はlocalStorageで引き継ぐ */
 (function(){
 if(!window.bmStamp){var ss=document.createElement("script");ss.src="stamp.js";document.head.appendChild(ss)}
+try{if(localStorage.getItem("bm-nobgm")==="1")return}catch(e){}
 if(window.bmBgm)return;
 window.bmSet=window.bmSet||{items:[],add:function(f,o){this.items.push({f:f,o:o||9});this.items.sort(function(a,b){return a.o-b.o});if(this.draw)this.draw()}};
 
