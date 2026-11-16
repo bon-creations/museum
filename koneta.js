@@ -15,7 +15,7 @@ var cnt={},last=0;document.addEventListener("click",function(e){var im=e.target.
 if(f==="calendar"){try{var cn=new Date();localStorage.setItem("bm-cal",cn.getFullYear()+"-"+(cn.getMonth()+1))}catch(e){}}
 /* ひょえボンが横切る(立ち絵・20秒に1回) */
 if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){var st=document.createElement("style");st.textContent="@keyframes bmRun{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}@keyframes bmHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}@keyframes bmRoll{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes bmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}";document.head.appendChild(st);
-var RUNS={hyoe:[["run_koro.webp","bmRoll .7s linear infinite"],["run_hyoe.webp","bmHop .5s ease-in-out infinite"],["run_matte.webp","bmBob .3s ease-in-out infinite"]],niko:[["run_niko_fight.webp","bmBob .3s ease-in-out infinite"],["run_niko_e.webp","bmHop .5s ease-in-out infinite"],["run_niko_asobo.webp","bmHop .45s ease-in-out infinite"]],oko:[["run_oko_katta.webp","bmHop .5s ease-in-out infinite"],["run_oko_chotto.webp","bmBob .3s ease-in-out infinite"],["run_oko_mou.webp","bmBob .25s ease-in-out infinite"]]};
+var RUNS={hyoe:[["run_koro.webp","bmRoll .7s linear infinite"],["run_hyoe.webp","bmHop .5s ease-in-out infinite"],["run_matte.webp","bmBob .3s ease-in-out infinite"],["run_yoisho.webp","bmHop .5s ease-in-out infinite"]],niko:[["run_niko_fight.webp","bmBob .3s ease-in-out infinite"],["run_niko_e.webp","bmHop .5s ease-in-out infinite"],["run_niko_asobo.webp","bmHop .45s ease-in-out infinite"]],oko:[["run_oko_katta.webp","bmHop .5s ease-in-out infinite"],["run_oko_chotto.webp","bmBob .3s ease-in-out infinite"],["run_oko_mou.webp","bmBob .25s ease-in-out infinite"]]};
 var op="";try{op=localStorage.getItem("bm-oshi")||""}catch(e){}
 var who=op?(RUNS[op]?[op]:[]):["hyoe","oko","niko"];
 var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -30,6 +30,7 @@ else if(kind===2){var by=Math.min(bY-50,Math.max(50,rY())),am=20+R()*40,n=14,ph=
 else if(kind===3){var y3=rY(),xm=W*(.25+R()*.5),d1=1800+R()*1500;P=[[xs,y3,dir,0],[xm,y3,dir,d1],[xm,y3,-dir,500+R()*600],[xs,y3,-dir,d1*1.1]]}
 else if(kind===4){var x4=R()*Math.max(1,W-s),dn=R()<.5,fl=R()<.5?1:-1;dur=3600+R()*2400;P=[[x4,dn?-m:H+m,fl,0],[x4+(R()*80-40),dn?H+m:-m,fl,dur]]}
 else{var k=3+Math.floor(R()*3),d5=dir;P=[[xs,rY(),dir,0]];for(var j=1;j<=k;j++){var px=xs+(xe-xs)*j/(k+1);P.push([px,rY(),dir,700+R()*600])}P.push([xe,rY(),dir,800+R()*500])}
+if(/run_(koro|hyoe|matte|yoisho|oko_)/.test(r[0]))for(var u=0;u<P.length;u++)P[u][2]=1;
 var tot=0;for(var q=0;q<P.length;q++)tot+=P[q][3];
 var w=document.createElement("div");w.setAttribute("aria-hidden","true");w.style.cssText="position:fixed;left:0;top:0;z-index:9995;pointer-events:none;will-change:transform";
 var fp=document.createElement("div"),im=document.createElement("img");im.src=r[0];im.alt="";im.style.cssText="display:block;height:"+s+"px;width:auto;animation:"+r[1];
