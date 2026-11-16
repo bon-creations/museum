@@ -239,13 +239,13 @@ if(p==="novels.html"){var r=null;try{r=JSON.parse(localStorage.getItem(K)||"null
 (function(){try{var st=document.createElement("style");st.id="bmfix2";st.textContent=".bm-fp .rm .st{font-size:13px;color:#434D1F}.bm-fp .rm li b,.bm-ex .cd .n{font-size:13px}.tag{font-size:15px!important}.tag.app{background:#B8334F!important}.tag.st-upd{background:#9C5A08!important}.tag.st-done{background:#35607E!important}";document.head.appendChild(st)}catch(e){}})();
 
 /* --- すきに かえる: visitor prefs (bm-fs = font size, bm-hidenew = hide 新着) --- */
-(function(){try{var fs=localStorage.getItem("bm-fs");var z={s:"14px",m:"",l:"18px"}[fs];if(z)document.documentElement.style.fontSize=z;
+(function(){try{localStorage.removeItem("bm-fs");
 if(localStorage.getItem("bm-hidenew")==="1"){var n=document.getElementById("newband");if(n)n.style.display="none"}}catch(e){}})();
 
 /* --- すきに かえる (visitor prefs) --- */
 window.bmOshiKey=function(){var ok=["oko","niko","hyoe","mogu","nemu","tere","niji"];try{var a=JSON.parse(localStorage.getItem("bm-oshis")||"[]")||[];for(var i=0;i<a.length;i++)if(ok.indexOf(a[i])>=0)return a[i];var o=localStorage.getItem("bm-oshi");if(ok.indexOf(o)>=0)return o}catch(e){}return "oko"};
 (function(){try{var r=document.documentElement,g=function(k){return localStorage.getItem(k)};
-var ACC={sakusha:"#66752F",wine:"#7A2434",oko:"#C8402F",niko:"#9A6A0C",hyoe:"#2F3B7C",mogu:"#3F7B4C",nemu:"#7A4DB0",tere:"#D4527F",niji:"#A8336A"};var acc=ACC[g("bm-accent")]?[ACC[g("bm-accent")],ACC[g("bm-accent")]]:null;
+var ACC={sakusha:"#66752F",wine:"#7A2434",oko:"#C8402F",niko:"#9A6A0C",hyoe:"#2F3B7C",mogu:"#3F7B4C",nemu:"#7A4DB0",tere:"#D4527F",niji:"#7D7D7D"};var acc=null;if(window.bmAccent)bmAccent.apply();
 if(acc){r.style.setProperty("--vermilion",acc[0]);r.style.setProperty("--khaki",acc[1])}
 var css="";if(g("bm-still")==="1"){r.setAttribute("data-bm-still","1");css+="html[data-bm-still] *{animation:none!important;transition:none!important}"}
 if(g("bm-hidenews")==="1")css+=".news,.bm-ann{display:none!important}";

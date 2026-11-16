@@ -6,7 +6,7 @@ var K="bm-theme",root=document.documentElement,mode="auto";
 try{mode=localStorage.getItem(K)||"auto";var ol=localStorage.getItem("bm-oyasumi");if(ol==="on"||ol==="night"){mode=ol==="on"?"oya":"night";localStorage.setItem(K,mode)}if(ol)localStorage.removeItem("bm-oyasumi")}catch(e){}
 var mq=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;
 var st=document.createElement("style");st.id="bmtheme";
-st.textContent='button[data-bmsb]{display:none!important}'+'#bmcopylink button,#bmcopylink a{white-space:nowrap}@media(max-width:430px){#bmcopylink{gap:6px!important}#bmcopylink button:not(#bmgear){padding:0 10px!important;font-size:13px!important}}'+'html[data-bm-theme="dark"]{--bg:#1E1A13;--card:#2A251B;--ink:#F3E8D2;--mute:#CBBBA0;--ochre-soft:#3A3322;--khaki:#B3C070;--leaf:#9BAD52;--teal:#B3C070;--ochre:#D9A862;--vermilion:#CF5F77;--magenta:#E07C95;color-scheme:dark}'+
+st.textContent='button[data-bmsb]{display:none!important}'+'#bmcopylink button,#bmcopylink a{white-space:nowrap}@media(max-width:430px){#bmcopylink{gap:4px!important;padding-left:8px!important;padding-right:8px!important}#bmcopylink button:not(#bmgear){padding:0 8px!important;font-size:12px!important;white-space:nowrap}#bmcopylink>*{flex-shrink:1;min-width:0}#bmcopylink #bmgear,#bmcopylink>a{min-width:40px!important;min-height:40px!important;width:40px;flex:0 0 40px}}'+'html[data-bm-theme="dark"]{--bg:#1E1A13;--card:#2A251B;--ink:#F3E8D2;--mute:#CBBBA0;--ochre-soft:#3A3322;--khaki:#B3C070;--leaf:#9BAD52;--teal:#B3C070;--ochre:#D9A862;--vermilion:#CF5F77;--magenta:#E07C95;color-scheme:dark}'+
 'html[data-bm-theme="dark"] body{background-image:none}'+'html[data-bm-oyasumi]{--bg:#14110C;--card:#1F1B14;--mute:#B5A68C}'+'html[data-bm-oyasumi] img{filter:brightness(.82)}'+
 'html[data-bm-theme="dark"] #bma11yui,html[data-bm-theme="dark"] #bmthemeui{background:#2A251B!important;color:#F3E8D2!important;border-color:#B3C070!important}'+
 'html[data-bm-theme="dark"] #bma11yui button,html[data-bm-theme="dark"] #bmthemeui button{background:#1E1A13!important;color:#B3C070!important;border-color:#B3C070!important}'+
@@ -109,4 +109,45 @@ b.onclick=function(){var q=load();if(q.day!==day){q.day=day;q.found={}}q.found[p
 tgt.appendChild(b)}
 function init(){ui();place()}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(init,0)});else setTimeout(init,0);
+})();
+
+
+/* テーマ色(ボンの色)と文字の大きさ。⚙ の中で えらぶ。にじは ライト=グレー / ダーク=白。おしボンと同期もできる */
+(function(){
+var root=document.documentElement;
+var ACC={sakusha:"#66752F",wine:"#7A2434",oko:"#C8402F",niko:"#9A6A0C",hyoe:"#2F3B7C",mogu:"#3F7B4C",nemu:"#7A4DB0",tere:"#D4527F",niji:"#7D7D7D"};
+var NM=[["wine","ワインレッド"],["sakusha","さくしゃ"],["oko","おこ"],["niko","にこ"],["hyoe","ひょえ"],["mogu","もぐ"],["nemu","ねむ"],["tere","てれ"],["niji","にじ"],["random","ランダム"]];
+var OK=["oko","niko","hyoe","mogu","nemu","tere","niji"];
+function g(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function sv(k,v){try{if(v===null||v===undefined||v==="")localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}}
+function oshis(){var a=[];try{a=JSON.parse(g("bm-oshis")||"[]")||[]}catch(e){}return a.filter(function(x){return OK.indexOf(x)>=0})}
+var rnd=null,rnd2=null;
+function key(){var k=g("bm-accent")||"wine";if(k==="random"){if(!rnd2)rnd2=OK[Math.floor(Math.random()*OK.length)];return rnd2}if(g("bm-accent-sync")==="1"){var a=oshis();if(a.length){if(!rnd||a.indexOf(rnd)<0)rnd=a[Math.floor(Math.random()*a.length)];return rnd}}return k}
+function dark(){return root.getAttribute("data-bm-theme")==="dark"}
+function color(k){if(k==="niji"&&dark())return"#FFFFFF";return k==="wine"?null:ACC[k]||null}
+function apply(){var k=key(),c=color(k);
+if(c&&k!=="wine"){root.style.setProperty("--vermilion",c);root.style.setProperty("--khaki",c)}else{root.style.removeProperty("--vermilion");root.style.removeProperty("--khaki")}
+if(c==="#FFFFFF")root.setAttribute("data-bm-accwhite","1");else root.removeAttribute("data-bm-accwhite")}
+window.bmAccent={apply:apply,key:key};
+apply();
+try{new MutationObserver(apply).observe(root,{attributes:true,attributeFilter:["data-bm-theme"]})}catch(e){}
+var st=document.createElement("style");
+st.textContent='html[data-bm-theme="dark"] [style*="--c:#7D7D7D"]{--c:#FFFFFF!important}html[data-bm-theme="dark"] [style*="color:#7D7D7D"]{color:#FFFFFF!important}html[data-bm-theme="dark"] [style*="border-color:#7D7D7D"]{border-color:#FFFFFF!important}html[data-bm-theme="dark"] [style*="background:#7D7D7D"],html[data-bm-theme="dark"] [style*="background-color:#7D7D7D"]{background:#FFFFFF!important;color:#1E1A13!important}html[data-bm-theme="dark"] [fill="#7D7D7D"]{fill:#FFFFFF}html[data-bm-theme="dark"] [stroke="#7D7D7D"]{stroke:#FFFFFF}html[data-bm-accwhite] .go,html[data-bm-accwhite] .btn,html[data-bm-accwhite] button.sb[aria-pressed=true]{color:#1E1A13!important}';
+(document.head||root).appendChild(st);
+function ui(){
+bmSet.add(function(d){
+function draw(){d.textContent="";var l=document.createElement("div");l.className="lb";l.textContent="テーマ色(ボンの色)";d.appendChild(l);
+var sync=g("bm-accent-sync")==="1",cur=g("bm-accent")||"wine";
+NM.forEach(function(p){var on=!sync&&cur===p[0];var b=document.createElement("button");b.type="button";b.className="sb";b.textContent=p[1];b.setAttribute("aria-pressed",on?"true":"false");
+b.onclick=function(){sv("bm-accent",p[0]==="wine"?null:p[0]);sv("bm-accent-sync",null);rnd=null;rnd2=null;apply();draw()};d.appendChild(b)});
+d.appendChild(document.createElement("br"));
+var sb=document.createElement("button");sb.type="button";sb.className="sb";sb.textContent="好きなボンと 同期: "+(sync?"オン":"オフ");sb.setAttribute("aria-pressed",sync?"true":"false");
+sb.onclick=function(){sync=!sync;sv("bm-accent-sync",sync?"1":null);rnd=null;apply();draw()};d.appendChild(sb);
+var h=document.createElement("div");h.style.cssText="font-size:12px;opacity:.8";
+if(sync&&!oshis().length){h.innerHTML='好きなボンが まだ いないよ。<a href="mine.html" style="color:inherit">じぶんのきろく</a>で えらんでね。'}
+else if(sync){h.textContent="ページを ひらくたびに、好きなボンの 中から 1人の 色になるよ。"}
+else h.textContent="オンにすると、好きなボンの 色に なるよ。";
+d.appendChild(h)}
+draw()},3.6)}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(ui,0)});else setTimeout(ui,0);
 })();

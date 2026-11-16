@@ -320,18 +320,11 @@ draw()})</script>
 <p class="small" id="nmHelp">ひらがな・カタカナで、1〜5もじ。この端末の なかだけに ほぞんされるよ。</p><p id="nmMsg" role="status" style="margin:6px 0;font-weight:700"></p></div></section>
 </div>
 <div class="hubpanel" id="hubp-kaeru" role="tabpanel" aria-labelledby="hubt-kaeru">
-<section aria-labelledby="kr1"><h2 id="kr1"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">みための せってい</span></h2>
-<div class="sheet plain"><p>ここで えらんだ ことは、この端末だけに 保存されるよ。</p>
-<p style="margin:8px 0"><b>文字の大きさ</b></p>
-<div id="krFs" style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" class="go" data-fs="s" style="font:inherit;border:0;cursor:pointer">小さめ</button><button type="button" class="go" data-fs="m" style="font:inherit;border:0;cursor:pointer">ふつう</button><button type="button" class="go" data-fs="l" style="font:inherit;border:0;cursor:pointer">大きめ</button></div>
-<p style="margin:12px 0 4px"><b>テーマ色(ボンの色)</b></p>
-<div id="krAcc" style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" class="go" data-acc="wine" style="font:inherit;border:0;cursor:pointer">ワインレッド(ひょうじゅん)</button><button type="button" class="go" data-acc="sakusha" style="font:inherit;border:0;cursor:pointer">さくしゃボン(オリーブ)</button><button type="button" class="go" data-acc="oko" style="font:inherit;border:0;cursor:pointer">おこボン</button><button type="button" class="go" data-acc="niko" style="font:inherit;border:0;cursor:pointer">にこボン</button><button type="button" class="go" data-acc="hyoe" style="font:inherit;border:0;cursor:pointer">ひょえボン</button><button type="button" class="go" data-acc="mogu" style="font:inherit;border:0;cursor:pointer">もぐボン</button><button type="button" class="go" data-acc="nemu" style="font:inherit;border:0;cursor:pointer">ねむボン</button><button type="button" class="go" data-acc="tere" style="font:inherit;border:0;cursor:pointer">てれボン</button><button type="button" class="go" data-acc="niji" style="font:inherit;border:0;cursor:pointer">にじボン</button></div>
-<p class="small">ボンの色を えらぶと、ボタンや見出しの色が そのボンの色になるよ。ダークモードは ⚙ から えらべるよ。</p>
-<p class="small" id="krMsg" role="status"></p></div></section>
-<section aria-labelledby="kr2"><h2 id="kr2"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#star"/></svg><span class="t">おしの ボン</span></h2>
+
+<section aria-labelledby="kr2"><h2 id="kr2"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#star"/></svg><span class="t">好きな ボン</span></h2>
 <div class="sheet plain"><p>好きなボンを いくつでも えらんでね。トップに出たり、おしゃべりや おてがみで 一番にえらばれたりするよ。</p>
 <div id="krOshi" style="display:flex;flex-wrap:wrap;gap:8px"></div>
-<p class="small" id="krOshiMsg" role="status" style="margin-top:8px"></p></div></section>
+<p class="small" id="krOshiMsg" role="status" style="margin-top:8px"></p><p class="small">テーマ色を 好きなボンに あわせたいときは、右上の ⚙ の「テーマ色」で「好きなボンと 同期」を オンにしてね。</p></div></section>
 <section aria-labelledby="kr3"><h2 id="kr3"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#leaf"/></svg><span class="t">表示の オンオフ</span></h2>
 <div class="sheet plain"><p>いらないものは かくせるよ。変えたら、ページを開きなおすと きいてくるよ。</p>
 <div style="display:grid;gap:4px">
@@ -346,7 +339,7 @@ draw()})</script>
 <script src="koneta.js"></script><script src="stamp.js"></script><script src="museum.js"></script>
 <script>
 (function(){
-var S=window.bmStamp;if(!S)return;var COL=["#C8402F","#9A6A0C","#2F3B7C","#3F7B4C","#7A4DB0","#D4527F","#A8336A"];
+var S=window.bmStamp;if(!S)return;var COL=["#C8402F","#9A6A0C","#2F3B7C","#3F7B4C","#7A4DB0","#D4527F","#7D7D7D"];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function R(n,t){if(n>=t)return "我輩が館長の座を譲りたいほどだ！ 全部そろえた者は、お主が初めてかもしれないぞ！ ……おめでとう！";if(n>=14)return "もはや立派な常連だな！ ほぼ全部そろっているぞ。あと少し、探してみてくれ！";if(n>=8)return "なかなかの見学者ぶりである！ 館内を、よく歩いているな。";if(n>=3)return "うむ、順調だぞ！ 気になる所から見てまわってくれ。";return "まずは、あちこち覗いてみるといいぞ。スタンプは自然に押されていく！"}
 function draw(){var L=S.list,o=S.all(),n=S.count();document.getElementById("stCount").innerHTML="<b>"+n+"</b> / "+L.length+" こ";function TT(n,t){return n>=t?"ボン博物館の名誉館員":n>=14?"常連さん":n>=8?"なかよし見学者":n>=4?"見習い見学者":n>=1?"はじめての来館者":"これから来る人"}document.getElementById("stRank").innerHTML="<div style=\"margin-bottom:6px\">称号:<b>"+TT(n,L.length)+"</b></div><b>にじボン</b>「"+R(n,L.length)+"」";
@@ -439,22 +432,14 @@ function show(){var v=get();I.value=v;P.textContent=(v||"○○")+"ボン"}
 document.getElementById("nmForm").addEventListener("submit",function(e){e.preventDefault();var v=I.value.replace(/^\s+|\s+$/g,"");if(!RE.test(v)){M.textContent="ひらがな・カタカナで、1〜5もじにしてね。";return}try{K.forEach(function(k){localStorage.setItem(k,v)});M.textContent="「"+v+"ボン」に きめたよ！"}catch(x){M.textContent="この ブラウザでは ほぞんできなかったよ。"}P.textContent=v+"ボン"});
 document.getElementById("nmClr").addEventListener("click",function(){try{K.forEach(function(k){localStorage.removeItem(k)})}catch(x){}I.value="";P.textContent="○○ボン";M.textContent="なまえを けしたよ。"});
 I.addEventListener("input",function(){P.textContent=(I.value||"○○")+"ボン"});show()})();</script>
-<script>(function(){var M=document.getElementById("krMsg");if(!M)return;
+<script>(function(){var M=document.getElementById("krMsg")||document.createElement("p");
 function g(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function set(k,v){try{if(v===null||v===""||v===undefined)localStorage.removeItem(k);else localStorage.setItem(k,v);return true}catch(e){return false}}
 function msg(t){M.textContent=t}
-/* 文字の大きさ */
-var fs=g("bm-fs")||"m";
-function paintFs(){document.querySelectorAll("#krFs [data-fs]").forEach(function(b){var on=b.getAttribute("data-fs")===fs;b.style.background=on?"#7A2434":"#FFF8EA";b.style.color=on?"#fff":"#2E241C";b.style.border=on?"0":"2px solid #55602A";b.setAttribute("aria-pressed",on?"true":"false")})}
-document.querySelectorAll("#krFs [data-fs]").forEach(function(b){b.addEventListener("click",function(){fs=b.getAttribute("data-fs");set("bm-fs",fs==="m"?null:fs);document.documentElement.style.fontSize={s:"14px",l:"18px"}[fs]||"";paintFs();msg("文字の大きさを かえたよ。")})});paintFs();
-/* いろ */
-var acc=g("bm-accent")||"wine";
-function paintAcc(){document.querySelectorAll("#krAcc [data-acc]").forEach(function(b){var on=b.getAttribute("data-acc")===acc;b.style.background=on?"#7A2434":"#FFF8EA";b.style.color=on?"#fff":"#2E241C";b.style.border=on?"0":"2px solid #55602A";b.setAttribute("aria-pressed",on?"true":"false")})}
-document.querySelectorAll("#krAcc [data-acc]").forEach(function(b){b.addEventListener("click",function(){acc=b.getAttribute("data-acc");set("bm-accent",acc);msg("いろを かえたよ。ほかのページも この いろになるよ。");paintAcc();var CC={sakusha:"#66752F",wine:"#7A2434",oko:"#C8402F",niko:"#9A6A0C",hyoe:"#2F3B7C",mogu:"#3F7B4C",nemu:"#7A4DB0",tere:"#D4527F",niji:"#A8336A"};var c=CC[acc]?[CC[acc],CC[acc]]:null;var r=document.documentElement;if(c){r.style.setProperty("--vermilion",c[0]);r.style.setProperty("--khaki",c[1])}else{r.style.removeProperty("--vermilion");r.style.removeProperty("--khaki")}})});paintAcc();
 /* おしの ボン(複数) */
 var OS=[["oko","おこボン"],["niko","にこボン"],["hyoe","ひょえボン"],["mogu","もぐボン"],["nemu","ねむボン"],["tere","てれボン"],["niji","にじボン"]];
 var O=document.getElementById("krOshi"),OM=document.getElementById("krOshiMsg");var oshis=[];try{oshis=JSON.parse(g("bm-oshis")||"[]")||[]}catch(e){oshis=[]}
-function saveOshi(){if(oshis.length){set("bm-oshis",JSON.stringify(oshis));set("bm-oshi",oshis[0])}else{set("bm-oshis",null);set("bm-oshi",null)}}
+function saveOshi(){try{if(window.bmAccent)setTimeout(bmAccent.apply,0)}catch(e){}if(oshis.length){set("bm-oshis",JSON.stringify(oshis));set("bm-oshi",oshis[0])}else{set("bm-oshis",null);set("bm-oshi",null)}}
 function paintO(){O.textContent="";OS.forEach(function(x){var on=oshis.indexOf(x[0])>=0;var b=document.createElement("button");b.type="button";b.className="go";b.textContent=(on?"✓ ":"")+x[1];b.setAttribute("aria-pressed",on?"true":"false");b.style.cssText="font:inherit;cursor:pointer;border:"+(on?"0":"2px solid #55602A")+";background:"+(on?"#7A2434":"#FFF8EA")+";color:"+(on?"#fff":"#2E241C");b.addEventListener("click",function(){var i=oshis.indexOf(x[0]);if(i>=0)oshis.splice(i,1);else oshis.push(x[0]);saveOshi();OM.textContent=oshis.length?"えらんだ ボン: "+oshis.map(function(k){return OS.filter(function(y){return y[0]===k})[0][1]}).join("、"):"おしの ボンを やめたよ。";paintO()});O.appendChild(b)})}
 paintO();
 /* 表示のオンオフ */

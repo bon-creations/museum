@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261116-416">
+<meta name="site-version" content="20261117-426">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -599,7 +599,7 @@ var u=new Date(+p[0],+p[1]-1,+p[2]).getTime();var df=Math.round((t-u)/864e5);
 var ok=df>=0&&(last?(u>=last&&df<=14):df<=7);if(ok){var b=document.createElement("span");b.className="newb";b.textContent="NEW";b.setAttribute("aria-label","新着");e.appendChild(b)}})})();</script>
 <script>(function(){var g=document.querySelector(".bc-logo"),m=document.querySelector('meta[name="site-version"]');if(!g||!m)return;
 g.style.cursor="pointer";g.setAttribute("role","button");g.setAttribute("tabindex","0");g.setAttribute("aria-label","BON CREATIONS(タップでバージョン表示)");
-function fm(v){var a=(v||"").split("-");return a.length>1?"ver."+(+a[1])+"(" +a[0].slice(0,4)+"/"+a[0].slice(4,6)+"/"+a[0].slice(6)+")":"ver.?"}
+function fm(v){var a=(v||"").split("-");return a.length>1?"v"+(+a[1]):"v?"}
 var el=null,tm=0,n=0,nt=0;
 function toast(t){if(!el){el=document.createElement("div");el.setAttribute("role","status");el.style.cssText="position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9999;max-width:88vw;padding:12px 18px;border:2px solid #2E241C;border-radius:16px;background:#FFF8EA;color:#2E241C;font:700 15px/1.6 sans-serif;box-shadow:0 3px 0 rgba(46,36,28,.35);text-align:center";document.body.appendChild(el)}
 el.textContent=t;el.style.display="block";clearTimeout(tm);tm=setTimeout(function(){el.style.display="none"},3200)}
@@ -641,7 +641,7 @@ if(!L.length){if(ds(now)===pds)return;el.style.display="flex";el.innerHTML='<p s
 var h='<p style="margin:0"><b>にじボン</b>「おお、また来たな！ 前回('+md+')から、'+L.length+'か所が更新されているぞ！」</p><p style="margin:0;font-size:15px">';
 L.forEach(function(x,i){h+=(i?"　":"")+'<a href="#'+x[0]+'">'+x[1].replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</a>'});el.style.display="flex";el.innerHTML=h+"</p>"})();</script>
 <script>(function(){
-var B={"oko": {"n": "おこボン", "c": "#C8402F", "food": "辛いもの(カレー)", "col": "赤", "line": "べ、別に応援してるわけじゃないけど……今日はちゃんとやりなさいよね！"}, "niko": {"n": "にこボン", "c": "#E0A21F", "food": "ポテト", "col": "黄", "line": "今日もいい日になるよ！ わたしが保証しちゃう"}, "hyoe": {"n": "ひょえボン", "c": "#2F3B7C", "food": "おにぎり", "col": "青", "line": "あわわ……でも、きっとだいじょうぶ。ボン、そばにいるよ。"}, "mogu": {"n": "もぐボン", "c": "#3F7B4C", "food": "なんでも！", "col": "緑", "line": "とりあえず、おいしいもの食べよ〜！ うちが何か作るよ！"}, "nemu": {"n": "ねむボン", "c": "#7A4DB0", "food": "ホットミルク", "col": "紫", "line": "ふわぁ……ほどほどに、がんばってね。ねるのも大事だよ。"}, "tere": {"n": "てれボン", "c": "#D4527F", "food": "オムライス", "col": "ピンク", "line": "あ、あの……い、いってらっしゃい。ひっそり応援してます。"}, "niji": {"n": "にじボン", "c": "#A8336A", "food": "柿", "col": "虹", "line": "うむ！ 今日の運は、我輩が見届けた！ 胸を張って進むといいぞ！"}},F=[["大吉", 3, "今日は何をやっても うまくいく日。思い切って 一歩ふみ出そう！"], ["中吉", 5, "いい流れが来ているよ。まわりの人にやさしくすると、さらに運が上がる。"], ["小吉", 5, "ちいさな幸せが見つかる日。ゆっくり、ていねいに過ごそう。"], ["吉", 4, "ふつうがいちばん。いつもどおりが、いい結果につながるよ。"], ["末吉", 3, "じわじわ運がのびる日。あせらず、できることからやってみよう。"]];var OR=["oko","niko","hyoe","mogu","nemu","tere","niji"];
+var B={"oko": {"n": "おこボン", "c": "#C8402F", "food": "辛いもの(カレー)", "col": "赤", "line": "べ、別に応援してるわけじゃないけど……今日はちゃんとやりなさいよね！"}, "niko": {"n": "にこボン", "c": "#E0A21F", "food": "ポテト", "col": "黄", "line": "今日もいい日になるよ！ わたしが保証しちゃう"}, "hyoe": {"n": "ひょえボン", "c": "#2F3B7C", "food": "おにぎり", "col": "青", "line": "あわわ……でも、きっとだいじょうぶ。ボン、そばにいるよ。"}, "mogu": {"n": "もぐボン", "c": "#3F7B4C", "food": "なんでも！", "col": "緑", "line": "とりあえず、おいしいもの食べよ〜！ うちが何か作るよ！"}, "nemu": {"n": "ねむボン", "c": "#7A4DB0", "food": "ホットミルク", "col": "紫", "line": "ふわぁ……ほどほどに、がんばってね。ねるのも大事だよ。"}, "tere": {"n": "てれボン", "c": "#D4527F", "food": "オムライス", "col": "ピンク", "line": "あ、あの……い、いってらっしゃい。ひっそり応援してます。"}, "niji": {"n": "にじボン", "c": "#7D7D7D", "food": "柿", "col": "虹", "line": "うむ！ 今日の運は、我輩が見届けた！ 胸を張って進むといいぞ！"}},F=[["大吉", 3, "今日は何をやっても うまくいく日。思い切って 一歩ふみ出そう！"], ["中吉", 5, "いい流れが来ているよ。まわりの人にやさしくすると、さらに運が上がる。"], ["小吉", 5, "ちいさな幸せが見つかる日。ゆっくり、ていねいに過ごそう。"], ["吉", 4, "ふつうがいちばん。いつもどおりが、いい結果につながるよ。"], ["末吉", 3, "じわじわ運がのびる日。あせらず、できることからやってみよう。"]];var OR=["oko","niko","hyoe","mogu","nemu","tere","niji"];
 var more=document.getElementById("tdMore");if(!more)return;
 var btn=document.createElement("button");btn.type="button";btn.className="go";btn.id="tdOmi";btn.textContent="今日のおみくじを引く";more.parentNode.insertBefore(btn,more.nextSibling);
 var box=document.createElement("div");box.id="tdOmiBox";box.style.cssText="display:none;margin-top:12px;padding:12px 14px;border:2.5px solid #55602A;border-radius:10px;background:#FFF8EA;line-height:1.7";box.setAttribute("aria-live","polite");btn.parentNode.insertBefore(box,btn.nextSibling);
