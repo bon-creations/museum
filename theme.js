@@ -63,7 +63,8 @@ document.addEventListener("pointerdown",function(e){if(!pn.hidden&&!pn.contains(
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pn.hidden){tg(false);gb.focus()}});
 document.body.appendChild(pn);
 var sl=document.createElement("a");sl.href="search.html";sl.setAttribute("aria-label","さがす");sl.innerHTML=bmIco("search");sl.style.cssText="min-width:44px;min-height:44px;padding:0;border-radius:50%;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 22px/1 sans-serif;cursor:pointer;box-shadow:0 2px 0 rgba(46,36,28,.25);display:inline-flex;align-items:center;justify-content:center;text-decoration:none";
-row.appendChild(msg);row.appendChild(b);if(!/search\.html$/.test(location.pathname))row.appendChild(sl);row.appendChild(gb);
+var rc=document.createElement("a");rc.href="mine.html";rc.setAttribute("aria-label","じぶんの きろく");rc.innerHTML=bmIco("book");rc.style.cssText="min-width:44px;min-height:44px;padding:0;border-radius:50%;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 22px/1 sans-serif;cursor:pointer;box-shadow:0 2px 0 rgba(46,36,28,.25);display:inline-flex;align-items:center;justify-content:center;text-decoration:none";
+row.appendChild(msg);row.appendChild(b);if(!/search\.html$/.test(location.pathname))row.appendChild(sl);if(!/mine\.html$/.test(location.pathname))row.appendChild(rc);row.appendChild(gb);
 document.body.insertBefore(row,document.body.firstChild);var spc=document.createElement("div");spc.setAttribute("aria-hidden","true");row.parentNode.insertBefore(spc,row.nextSibling);
 function place(){var lb=document.querySelector("[data-bmsb]"),bar=lb&&lb.parentNode,h=bar&&bar!==row?bar.offsetHeight:0;row.style.top=h+"px";spc.style.height=row.offsetHeight+"px"}
 place();[200,600,1500].forEach(function(t){setTimeout(place,t)});window.addEventListener("resize",place);
