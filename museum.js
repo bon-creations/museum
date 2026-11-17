@@ -198,7 +198,7 @@ setTimeout(allDone,1500);
 /* 目次(長いページだけ) */
 if(/^(world|sukimono_ethnic|wallpaper)$/.test(f)){
 var hs=[].slice.call(document.querySelectorAll("main h2[id]")).filter(function(h){var s=h.querySelector(".t");return s&&s.textContent.indexOf("あんない")<0});
-if(hs.length>=3){var tc=document.createElement("nav");tc.className="bm-toc";tc.setAttribute("aria-label","このページの目次");
+if(hs.length>=3&&!document.querySelector("nav.mtoc")){var tc=document.createElement("nav");tc.className="bm-toc";tc.setAttribute("aria-label","このページの目次");
 tc.innerHTML='<b>もくじ</b><ol>'+hs.map(function(h,i){return '<li><a href="#'+h.id+'">'+(i+1)+'. '+esc(h.querySelector(".t").textContent.trim())+'</a></li>'}).join('')+'</ol>';
 var pqe=document.querySelector(".bm-plaque")||hd;if(pqe)pqe.parentNode.insertBefore(tc,pqe.nextSibling)}}
 /* 額縁: 大きめの絵に額縁をつける */
@@ -252,3 +252,28 @@ if(g("bm-hidenews")==="1")css+=".news,.bm-ann{display:none!important}";
 if(g("bm-hidenew")==="1")css+="#newband,.news,.bm-ann{display:none!important}";
 if(css){var s=document.createElement("style");s.textContent=css;document.head.appendChild(s)}
 }catch(e){}})();
+
+/* このページのもくじ: 右端に固定の小さなタブ。押すと見出し一覧が開く */
+(function(){
+function go(){
+try{
+var m=document.querySelector("main");if(!m||document.getElementById("bmTocTab"))return;
+var hs=[].filter.call(m.querySelectorAll("h2[id]"),function(h){return (h.textContent||"").trim()});
+if(hs.length<3)return;
+var st=document.createElement("style");
+st.textContent="#bmTocTab{position:fixed;right:0;top:38%;z-index:9980;writing-mode:vertical-rl;background:var(--khaki,#66752F);color:#fff;border:0;border-radius:10px 0 0 10px;padding:12px 7px;min-width:44px;min-height:44px;font:700 13px/1.2 inherit;letter-spacing:.08em;cursor:pointer;box-shadow:-1px 1px 4px rgba(0,0,0,.25)}#bmTocBox{position:fixed;right:0;top:12%;bottom:12%;z-index:9981;width:min(78vw,300px);overflow:auto;background:#fffdf7;color:#333;border:2px solid var(--khaki,#66752F);border-right:0;border-radius:12px 0 0 12px;padding:10px 14px;box-shadow:-2px 2px 8px rgba(0,0,0,.3);display:none}#bmTocBox.on{display:block}#bmTocBox b{display:block;margin-bottom:4px}#bmTocBox ul{margin:0;padding-left:1.2em;line-height:2.1}#bmTocBox a{color:inherit}";
+document.head.appendChild(st);
+var b=document.createElement("button");b.id="bmTocTab";b.type="button";b.textContent="このページの もくじ";b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls","bmTocBox");
+var bx=document.createElement("nav");bx.id="bmTocBox";bx.setAttribute("aria-label","このページの もくじ");
+var t=document.createElement("b");t.textContent="このページの もくじ";bx.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){var s=h.querySelector(".t"),x=(s||h).textContent.trim();var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;a.textContent=x;li.appendChild(a);ul.appendChild(li)});
+bx.appendChild(ul);
+function set(o){bx.classList.toggle("on",o);b.setAttribute("aria-expanded",o?"true":"false")}
+b.addEventListener("click",function(){set(!bx.classList.contains("on"))});
+bx.addEventListener("click",function(e){if(e.target.tagName==="A")set(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
+document.body.appendChild(b);document.body.appendChild(bx);
+}catch(e){}}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+})();
