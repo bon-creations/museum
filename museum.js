@@ -277,3 +277,6 @@ document.body.appendChild(b);document.body.appendChild(bx);
 }catch(e){}}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
+
+/* v491: つづきから・ガイドツアー・来館カード・バックアップ */
+(function(){var s=document.createElement("script");s.src="bmplus.js?v=491";document.head.appendChild(s)})();
