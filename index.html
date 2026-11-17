@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261118-525">
+<meta name="site-version" content="20261118-548">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -655,25 +655,25 @@ var u=new Date(+p[0],+p[1]-1,+p[2]).getTime();var df=Math.round((t-u)/864e5);
 var ok=df>=0&&(last?(u>=last&&df<=14):df<=7);if(ok){var b=document.createElement("span");b.className="newb";b.textContent="NEW";b.setAttribute("aria-label","新着");e.appendChild(b)}})})();</script>
 <script>(function(){var g=document.querySelector(".bc-logo"),m=document.querySelector('meta[name="site-version"]');if(!g||!m)return;
 g.style.cursor="pointer";g.setAttribute("role","button");g.setAttribute("tabindex","0");g.setAttribute("aria-label","BON CREATIONS(タップでバージョン表示)");
-function fm(v){var a=(v||"").split("-");return a.length>1?"v"+(+a[1]):"v?"}
+function fm(v){v=String(v||"").trim();var a=v.split("-");var n=+a[a.length-1];return n>0?"v"+n:"v?"}
 var el=null,tm=0,n=0,nt=0;
 function toast(t){if(!el){el=document.createElement("div");el.setAttribute("role","status");el.style.cssText="position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9999;max-width:88vw;padding:12px 18px;border:2px solid #2E241C;border-radius:16px;background:#FFF8EA;color:#2E241C;font:700 15px/1.6 sans-serif;box-shadow:0 3px 0 rgba(46,36,28,.35);text-align:center";document.body.appendChild(el)}
 el.textContent=t;el.style.display="block";clearTimeout(tm);tm=setTimeout(function(){el.style.display="none"},3200)}
 function go(){var now=Date.now();n=(now-nt<1500)?n+1:1;nt=now;var v=m.content;
 if(n>=7){n=0;toast("ひみつ：ボンは7人。ぜんぶ数えられたかな？ボーン！");return}
 if(!window.fetch){toast("この博物館は "+fm(v));return}
-fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():v}).then(function(x){x=x.trim();toast(x&&x!==v?"いまの表示は "+fm(v)+"。新しい "+fm(x)+" があるよ！自動で更新するね":"いまの博物館は "+fm(v)+"。いちばん新しいよ！")}).catch(function(){toast("いまの博物館は "+fm(v))})}
+fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():v}).then(function(x){x=x.trim();toast(x&&fm(x)!==fm(v)?"いまの表示は "+fm(v)+"。新しい "+fm(x)+" があるよ！自動で更新するね":"いまの博物館は "+fm(v)+"。いちばん新しいよ！")}).catch(function(){toast("いまの博物館は "+fm(v))})}
 g.addEventListener("click",go);g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})})();</script>
 <script>(function(){var m=document.querySelector('meta[name="site-version"]');if(!m||!window.fetch)return;var v=m.content;
 fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():v}).then(function(n){n=n.trim();
-if(n&&n!==v){try{if(sessionStorage.getItem("bm-rl")===n)return;sessionStorage.setItem("bm-rl",n)}catch(e){}
+if(n&&n.split("-").pop()!==v.split("-").pop()){try{if(sessionStorage.getItem("bm-rl")===n)return;sessionStorage.setItem("bm-rl",n)}catch(e){}
 fetch(location.href.split("#")[0],{cache:"reload"}).then(function(){location.reload()}).catch(function(){})}}).catch(function(){})})();</script>
 <script>(function(){var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true||location.search.indexOf("btn=1")>=0;
 if(!sa)return;
 var b=document.createElement("button");b.type="button";b.textContent="↻ 更新";b.setAttribute("aria-label","ページを最新に更新");
 b.style.cssText="position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:9999;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);opacity:.92;cursor:pointer";
 var t=b.cloneNode(true);t.style.cssText="position:static;min-width:64px;min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #2E241C;background:#FFF8EA;color:#2E241C;font:700 15px/1 sans-serif;box-shadow:0 2px 0 rgba(46,36,28,.35);cursor:pointer";
-var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px;position:sticky;top:0;background:var(--bg,#F1E4CC);z-index:9999";if(!/(^|\/)(index\.html)?$/.test(location.pathname)){var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk)}
+var w=document.createElement("div");w.style.cssText="display:flex;justify-content:flex-end;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px;position:static;background:var(--bg,#F1E4CC);z-index:9999";if(!/(^|\/)(index\.html)?$/.test(location.pathname)){var bk=document.createElement("button");bk.type="button";bk.textContent="← もどる";bk.style.cssText=t.style.cssText;bk.addEventListener("click",function(){var ref=document.referrer||"";if(history.length>1&&ref.indexOf(location.host)>=0)history.back();else location.href="index.html"});w.style.justifyContent="space-between";w.appendChild(bk)}
 var sb=document.createElement("button");sb.type="button";sb.textContent="⚙ せってい";sb.style.cssText=t.style.cssText;sb.setAttribute("aria-expanded","false");var pn=null;
 sb.setAttribute("data-bmsb","1");sb.addEventListener("click",function(){var g=document.getElementById("bmgear");if(g){g.click();return}if(!pn){pn=document.createElement("div");pn.id="bmsetpanel";pn.style.cssText="position:fixed;top:calc(max(8px,env(safe-area-inset-top)) + 58px);left:12px;right:12px;max-width:420px;margin:0 auto;max-height:70vh;overflow:auto;z-index:9998;background:var(--bg,#F1E4CC);border:2px solid #2E241C;border-radius:14px;padding:6px 0;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none";document.body.appendChild(pn)}
 ["bmthemeui","bma11yui"].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==pn)pn.appendChild(e)});
@@ -683,7 +683,7 @@ w.appendChild(t);
 function run(){b.textContent=t.textContent="更新中…";b.disabled=t.disabled=true;var go=function(){location.reload()};
 try{fetch(location.href.split("#")[0],{cache:"reload"}).then(go,go)}catch(e){go()}}
 b.addEventListener("click",run);t.addEventListener("click",run);
-document.body.insertBefore(w,document.body.firstChild);})();</script>
+document.body.insertBefore(w,document.body.firstChild);var fx=function(){var bar=document.getElementById("bmcopylink");if(!bar)return;var need=bar.getBoundingClientRect().bottom+4-(w.getBoundingClientRect().top+(window.pageYOffset||0)-(parseFloat(w.style.marginTop)||0));w.style.marginTop=Math.max(0,need)+"px"};[100,500,1200,2500].forEach(function(t){setTimeout(fx,t)});window.addEventListener("resize",fx);})();</script>
 <script>(function(){
 var K="bm-last",SK="bm-last-prev";var now=new Date();
 function ds(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
