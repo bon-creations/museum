@@ -254,8 +254,8 @@ h2{font-size:20px;margin-bottom:12px}
 <h1>壁紙・アイコン・配布・カレンダー</h1>
 <div class="band thin" aria-hidden="true"></div>
 </header>
-<nav class="hubtabs" aria-label="ページのきりかえ" role="tablist"><button type="button" role="tab" data-hub="wallpaper" id="hubt-wallpaper">壁紙・アイコン・配布</button><button type="button" role="tab" data-hub="calendar" id="hubt-calendar">ボンカレンダー</button></nav>
-<div class="hubpanel" id="hubp-wallpaper" role="tabpanel" aria-labelledby="hubt-wallpaper">
+<nav class="hubtabs" id="top-nav" aria-label="このページの もくじ"><a class="go" href="#wallpaper" style="font-size:15px;padding:9px 14px">壁紙・アイコン・配布</a><a class="go" href="#calendar" style="font-size:15px;padding:9px 14px">ボンカレンダー</a></nav>
+<span id="wallpaper"></span><div class="hubpanel" id="hubp-wallpaper">
 
 
 
@@ -294,7 +294,7 @@ h2{font-size:20px;margin-bottom:12px}
 <div class="band" aria-hidden="true"></div>
 <footer><div><div><b>かんがえた ひと</b>　BON CREATIONS</div><div class="fine">© BON CREATIONS</div></div></footer>
 </div>
-<div class="hubpanel" id="hubp-calendar" role="tabpanel" aria-labelledby="hubt-calendar">
+<p style="margin:18px 0 4px"><a href="#top-nav">↑ もくじへ</a></p><span id="calendar"></span><div class="hubpanel" id="hubp-calendar">
 
 
 <div class="cal-wrap" id="cw"><p class="cal-note">よみこみ中…</p></div>
@@ -377,12 +377,6 @@ c.toBlob(function(b){var f=new File([b],"bon_calendar_"+Y+"_"+n+".png",{type:"im
 if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(function(){})}else{var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=f.name;a.click()}})}
 })();
 }catch(e){}})();</script>
-<script>(function(){var T=[].slice.call(document.querySelectorAll(".hubtabs [data-hub]")),P=[].slice.call(document.querySelectorAll(".hubpanel"));
-function show(k,keep){var ok=false;T.forEach(function(b){var on=b.getAttribute("data-hub")===k;if(on)ok=true;b.setAttribute("aria-selected",on?"true":"false");b.classList.toggle("on",on)});if(!ok)return false;P.forEach(function(p){p.hidden=p.id!=="hubp-"+k});return true}
-function route(scroll){var h=decodeURIComponent((location.hash||"").slice(1));var first=T[0].getAttribute("data-hub");if(!h){show(first);return}
-if(show(h)){if(scroll)window.scrollTo(0,0);return}
-var el=document.getElementById(h);if(el){var p=el.closest(".hubpanel");if(p){show(p.id.slice(5));setTimeout(function(){el.scrollIntoView()},30);return}}show(first)}
-T.forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-hub");try{history.replaceState(null,"",k===T[0].getAttribute("data-hub")?location.pathname+location.search:"#"+k)}catch(e){}show(k)})});
-window.addEventListener("hashchange",function(){route(true)});route(false)})();</script>
+
 </body>
 </html>

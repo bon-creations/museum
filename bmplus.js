@@ -2,6 +2,8 @@
    つづきから / 博物館ガイドツアー / マイ来館カード / 記録のバックアップ・復元
    記録はこの端末のブラウザ(localStorage)だけに保存。外部サーバーは使わない。 */
 (function(){
+var ICO={"book": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M24 12C19 8 11 8 5 10v27c6-2 14-2 19 2 5-4 13-4 19-2V10c-6-2-14-2-19 2zM24 12v27\"/></g>", "game": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 17c-4 0-7 14-5 20 2 4 7 2 9-3l3-5h16l3 5c2 5 7 7 9 3 2-6-1-20-5-20z\"/><path d=\"M14 22v7M10.5 25.5h7\"/><circle cx=\"32\" cy=\"24\" r=\"1.6\"/><circle cx=\"37\" cy=\"28\" r=\"1.6\"/></g>", "note": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 36V11l20-4v25\"/><circle cx=\"14\" cy=\"37\" r=\"5\"/><circle cx=\"34\" cy=\"33\" r=\"5\"/></g>", "dice": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 9h30v30H9z\"/><circle cx=\"17\" cy=\"17\" r=\"2\"/><circle cx=\"31\" cy=\"17\" r=\"2\"/><circle cx=\"24\" cy=\"24\" r=\"2\"/><circle cx=\"17\" cy=\"31\" r=\"2\"/><circle cx=\"31\" cy=\"31\" r=\"2\"/></g>", "phone": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 5h20c1 0 2 1 2 2v34c0 1-1 2-2 2H14c-1 0-2-1-2-2V7c0-1 1-2 2-2z\"/><path d=\"M21 38h6\"/><path d=\"M24 14v12m-5-5l5 5 5-5\"/></g>", "sprout": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M24 42V24\"/><path d=\"M24 26C14 26 8 20 8 11c10 0 16 5 16 15z\"/><path d=\"M24 22c0-8 5-13 15-13 0 9-6 14-15 13z\"/></g>", "eye": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 24c6-10 14-14 20-14s14 4 20 14c-6 10-14 14-20 14S10 34 4 24z\"/><circle cx=\"24\" cy=\"24\" r=\"6\"/></g>", "map": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12l13-5 14 5 11-4v28l-11 4-14-5-13 5z\"/><path d=\"M18 7v29M32 12v29\"/></g>", "party": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 41l7-23 16 16z\"/><path d=\"M27 9V4M37 17l4-3M41 28h5M20 7l-2-4\"/></g>", "key": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"15\" cy=\"24\" r=\"8\"/><path d=\"M23 24h21M38 24v7M32 24v5\"/></g>", "card": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 6h26v36H11z\"/><path d=\"M24 14l2.5 7h7l-5.5 4 2 7-6-4-6 4 2-7-5.5-4h7z\"/></g>"};function ic(n,px){return '<svg width="'+(px||20)+'" height="'+(px||20)+'" viewBox="0 0 48 48" aria-hidden="true" style="vertical-align:-.2em;margin-right:.2em;flex:none">'+(ICO[n]||"")+'</svg>'}
+
 "use strict";
 if(window.bmPlus)return;
 var P=(location.pathname.split("/").pop()||"index.html"),F=P.replace(/\.html$/,"");
@@ -31,7 +33,7 @@ document.addEventListener("click",function(e){
   var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
   var h=a.getAttribute("href")||"";
   var ext=/^https?:\/\/bon-creations\.github\.io\/(?!museum)/.test(h);
-  if(!ext&&!/^(mini|nadenade|punicare|shiritori)\.html/.test(h))return;
+  if(!ext&&!/^(nadenade|punicare|shiritori)\.html/.test(h))return;
   var art=a.closest("article"),hh=art&&art.querySelector("h3");
   S("bm-rc-game",{t:((hh?hh.textContent:a.textContent)||"").replace(/\s+/g," ").trim().slice(0,40),u:h,ts:Date.now()});
 },true);
@@ -47,17 +49,17 @@ function clearRecent(){["bm-rc-pages","bm-rc-novel","bm-rc-game","bm-rc-music"].
 function renderResume(){
   var box=document.getElementById("bmresume");if(!box)return;
   var rows=[],n=J("bm-rc-novel",null),g=J("bm-rc-game",null),m=J("bm-rc-music",null),pg=J("bm-rc-pages",[]);
-  if(n&&n.p)rows.push(["📖 読みかけの小説",n.n+(n.t?"　"+n.t:""),n.p+(n.id?"#"+n.id:""),"つづきから よむ"]);
-  if(g&&g.u)rows.push(["🎮 さいきん あそんだゲーム",g.t||"ゲーム",g.u,"また あそぶ"]);
-  if(m&&m.u)rows.push(["🎵 さいごに きいた曲",m.t||"ミュージック",m.u,"きく"]);
-  (Array.isArray(pg)?pg:[]).slice(0,3).forEach(function(x){if(x&&x.u)rows.push(["👀 さいきん 見たページ",x.t||x.u,x.u,"ひらく"])});
+  if(n&&n.p)rows.push(["読みかけの小説",n.n+(n.t?"　"+n.t:""),n.p+(n.id?"#"+n.id:""),"つづきから よむ","book"]);
+  if(g&&g.u)rows.push(["さいきん あそんだゲーム",g.t||"ゲーム",g.u,"また あそぶ","game"]);
+  if(m&&m.u)rows.push(["さいごに きいた曲",m.t||"ミュージック",m.u,"きく","note"]);
+  (Array.isArray(pg)?pg:[]).slice(0,3).forEach(function(x){if(x&&x.u)rows.push(["さいきん 見たページ",x.t||x.u,x.u,"ひらく","eye"])});
   var h='';
   if(rows.length){
-    rows.forEach(function(r){var ex=/^https?:/.test(r[2]);h+='<a class="rc-row" href="'+esc(r[2])+'"'+(ex?' target="_blank" rel="noopener"':'')+'><span class="rc-k">'+esc(r[0])+'</span><span class="rc-t">'+esc(r[1])+'</span><span class="rc-g">'+esc(r[3])+' →</span></a>'});
+    rows.forEach(function(r){var ex=/^https?:/.test(r[2]);h+='<a class="rc-row" href="'+esc(r[2])+'"'+(ex?' target="_blank" rel="noopener"':'')+'><span class="rc-k">'+ic(r[4])+esc(r[0])+'</span><span class="rc-t">'+esc(r[1])+'</span><span class="rc-g">'+esc(r[3])+' →</span></a>'});
     h+='<p class="rc-note">ゲームは、この博物館から ひらいた「さいきん あそんだ」だけ 出るよ(ゲームの セーブは、それぞれの ゲームの中に あるよ)。</p><button type="button" class="rc-del" id="rcDel">れきしを けす</button>';
   }else{
     h+='<p class="rc-note">まだ れきしが ないよ。まずは ここから どうぞ。</p>';
-    [["novel.html","📖 小説 第1話","ひょえボンの はじめての おうち"],["zukan.html","📕 ずかん","ボンたちのずかん"],["games.html","🎮 ゲーム","ボンちゃんの ゲーム"]].forEach(function(r){h+='<a class="rc-row" href="'+r[0]+'"><span class="rc-k">'+r[1]+'</span><span class="rc-t">'+r[2]+'</span><span class="rc-g">ひらく →</span></a>'});
+    [["novel.html","book","小説 第1話","ひょえボンの はじめての おうち"],["zukan.html","book","ずかん","ボンたちのずかん"],["games.html","game","ゲーム","ボンちゃんの ゲーム"]].forEach(function(r){h+='<a class="rc-row" href="'+r[0]+'"><span class="rc-k">'+ic(r[1])+r[2]+'</span><span class="rc-t">'+r[3]+'</span><span class="rc-g">ひらく →</span></a>'});
   }
   box.innerHTML=h;
   var d=document.getElementById("rcDel");
@@ -66,12 +68,12 @@ function renderResume(){
 
 /* ---------- 2. 博物館ガイドツアー ---------- */
 var TOURS=[
- {id:"first",name:"はじめてのボンツアー",ico:"🌱",desc:"ボンたちに はじめて あう人の コース。ずかん・おしゃべり・診断・ゲームを じゅんばんに めぐるよ。",stops:[
+ {id:"first",name:"はじめてのボンツアー",ico:"sprout",desc:"ボンたちに はじめて あう人の コース。ずかん・おしゃべり・診断・ゲームを じゅんばんに めぐるよ。",stops:[
   ["zukan.html","ボンたちのずかん","7人の ボンの プロフィールが 見られるよ。"],
   ["talk.html","ボンたちと おしゃべり","ボンに ひとこと かけると、へんじを くれるよ。"],
   ["shindan.html","ボン診断","8つの 質問で、あなたに にた ボンが わかるよ。"],
   ["games.html","ボンちゃんの ゲーム","ボンたちの ゲームが ぜんぶ ならんでいるよ。"]]},
- {id:"hyoe",name:"ひょえボンの成長ツアー",ico:"📖",desc:"赤ちゃんの ひょえボンが 大きくなるまで。小説を、おはなしの じかんの ながれの じゅんばんに めぐるよ。",stops:[
+ {id:"hyoe",name:"ひょえボンの成長ツアー",ico:"book",desc:"赤ちゃんの ひょえボンが 大きくなるまで。小説を、おはなしの じかんの ながれの じゅんばんに めぐるよ。",stops:[
   ["novel.html","第1話 はじめての おうち","星の夜に 生まれた ボンが、名前を もらうまで。"],
   ["novel5.html","第2話 はじめての おふろ","赤ちゃんのころの、にぎやかな おはなし。"],
   ["novel6.html","第3話 はじめての ほんのう","名前を もらって、1〜2週間ごろ。"],
@@ -85,14 +87,13 @@ var TOURS=[
   ["novel12.html","第11話 わらいごえの ばんぐみ","ボメリコの ばんぐみに ハマる おはなし。"],
   ["novel13.html","第12話 たこやき パーティ","みのちゃんを 呼んでの たこパ。"],
   ["novel14.html","第13話 まるまる夜","冬の はじめの さむい夜、7人で おだんごに なるよ。"]]},
- {id:"game",name:"ゲームツアー",ico:"🎮",desc:"みじかい時間で あそべる ゲームと あそびの めぐり。ブラウザで すぐ あそべるよ。",stops:[
-  ["mini.html","ミニゲーム","ボンたたきなど、すぐ あそべる ミニゲーム。"],
+ {id:"game",name:"ゲームツアー",ico:"game",desc:"みじかい時間で あそべる ゲームと あそびの めぐり。ブラウザで すぐ あそべるよ。",stops:[
   ["nadenade.html","ボンを なでなで","ボンを タップして なでると、なかよし度が あがるよ。"],
   ["shiritori.html","ボンと しりとり","ボンと しりとりで あそぼう。"],
   ["punicare.html","ぷにの いちにち","ぷにを ごはん・あそぶ・ねんねで そだてるよ。"],
   ["shindan.html#quiz","ボンクイズ","ずかんや ひょえボンの お話から、10もんの 4択クイズ。"],
   ["games.html","ボンちゃんの ゲーム","ぜんぶの ゲームは ここから。"]]},
- {id:"music",name:"音楽ツアー",ico:"🎵",desc:"ボンたちの 曲を、じゅんばんに きいていくよ。ミュージックの 曲を 7つ めぐるよ。",stops:[
+ {id:"music",name:"音楽ツアー",ico:"note",desc:"ボンたちの 曲を、じゅんばんに きいていくよ。ミュージックの 曲を 7つ めぐるよ。",stops:[
   ["music.html#t3","コギけつ食パン","BON ORIGINAL(ボンの オリジナル曲)。"],
   ["music.html#t4","魔法の言葉","BON ORIGINAL(ボンの オリジナル曲)。"],
   ["music.html#t9","ボンちゃんマーチ","BON ORIGINAL(ボンの オリジナル曲)。"],
@@ -100,7 +101,7 @@ var TOURS=[
   ["music.html#t1","虹彩漫談","BON CHARACTER(キャラクターの曲)。"],
   ["music.html#t2","UTOPIA SPIN!!!","BON GAME MUSIC(ゲームの曲)。"],
   ["music.html#t10","紅彩烈火(こうさいれっか)","BON CHARACTER(キャラクターの曲)。"]]},
- {id:"world",name:"ボン界探検ツアー",ico:"🗺️",desc:"ボン界の せかいかん・えちず・年表・きまりを めぐるよ。",stops:[
+ {id:"world",name:"ボン界探検ツアー",ico:"map",desc:"ボン界の せかいかん・えちず・年表・きまりを めぐるよ。",stops:[
   ["world.html","ボン界の せかいかん","ボン界の 社会や きまりの 資料。"],
   ["world.html#map","ボン界の えちず","梵京と いろどり町を、タップで たんけん。"],
   ["world.html#wnen","ボン界の 年表","ボン界の できごとの ながれ。"],
@@ -131,11 +132,11 @@ function renderTourBar(){
   var i=curIdx(t),newly=false;
   if(i>=0)newly=addStamp(t,t.stops[i][0]);
   var n=stampCount(t),tot=t.stops.length,done=n>=tot;
-  var h='<div class="tb-h"><b>'+t.ico+' '+esc(t.name)+'</b><span>スタンプ '+n+' / '+tot+'</span></div>';
+  var h='<div class="tb-h"><b>'+ic(t.ico,22)+esc(t.name)+'</b><span>スタンプ '+n+' / '+tot+'</span></div>';
   h+='<div class="tb-p" role="progressbar" aria-valuemin="0" aria-valuemax="'+tot+'" aria-valuenow="'+n+'"><i style="width:'+Math.round(n/tot*100)+'%"></i></div>';
   if(i>=0)h+='<p class="tb-c">いま：'+(i+1)+'こめ「'+esc(t.stops[i][1])+'」'+(newly?'　<b class="tb-new">✓ スタンプ ゲット！</b>':'')+'</p>';
   else h+='<p class="tb-c">ツアーの とちゅうだよ。つぎの 展示へ もどれるよ。</p>';
-  if(done)h+='<p class="tb-done">🎉 ツアー たっせい！ ぜんぶの 展示を めぐったよ。</p>';
+  if(done)h+='<p class="tb-done">'+ic("party",22)+'ツアー たっせい！ ぜんぶの 展示を めぐったよ。</p>';
   var pv=i>0?t.stops[i-1]:null,nx=i>=0&&i<tot-1?t.stops[i+1]:(i<0?t.stops[Math.min(tot-1,firstUnstamped(t))]:null);
   h+='<div class="tb-b">';
   h+=pv?'<a class="tb-a" href="'+esc(pv[0])+'">← 前の展示へ</a>':'<span class="tb-a off">← 前の展示へ</span>';
@@ -160,7 +161,7 @@ function renderTourPage(){
   var cur=tourState(),h='';
   TOURS.forEach(function(t){
     var n=stampCount(t),tot=t.stops.length,done=n>=tot,active=cur&&cur.id===t.id;
-    h+='<article class="sheet plain tr-card" style="margin-top:14px"><h3>'+t.ico+' '+esc(t.name)+(done?' <span class="tr-ok">✓ たっせい</span>':'')+'</h3><p>'+esc(t.desc)+'</p>';
+    h+='<article class="sheet plain tr-card" style="margin-top:14px"><h3>'+ic(t.ico,24)+esc(t.name)+(done?' <span class="tr-ok">✓ たっせい</span>':'')+'</h3><p>'+esc(t.desc)+'</p>';
     h+='<div class="tb-p"><i style="width:'+Math.round(n/tot*100)+'%"></i></div><p class="small" style="margin:4px 0 8px">スタンプ '+n+' / '+tot+'　(全'+tot+'か所)</p>';
     h+='<details class="tr-d"><summary>めぐる 展示を 見る</summary><ol>';
     var s=stampsOf(t.id);
@@ -190,7 +191,7 @@ function badgeCount(){
   var nn=0,mx=0,ok2=0;["oko","niko","hyoe","mogu","nemu","tere","niji"].forEach(function(k){var n=nd[k]||0;nn+=n;if(n>mx)mx=n;if(n>=10)ok2++});
   var mk=0;try{for(var i=0;i<localStorage.length;i++){if(String(localStorage.key(i)).indexOf("bm-mark:")===0)mk++}}catch(e){}
   var pg=pn?pn.g||0:0,k400=false;try{k400=!!localStorage.getItem("bm-k400")}catch(e){}
-  var L=[vc>=1,vc>=3,vc>=7,vc>=30,sc>=10,sc>=25,nn>=1,nn>=50,mx>=25,mx>=100,ok2>=7,!!pn,pg>=50,pg>=120,(qz.plays||0)>=1,(qz.best||0)>=7,(qz.best||0)>=10,k400,(fv&&fv.length>=1),mk>=1],n=0;
+  var L=[vc>=1,vc>=3,vc>=7,vc>=30,sc>=10,sc>=25,nn>=1,nn>=50,mx>=25,mx>=100,ok2>=7,!!pn,pg>=50,pg>=120,(qz.plays||0)>=1,(qz.best||0)>=7,(qz.best||0)>=10,k400,(fv&&fv.length>=1),mk>=1],n=0;try{if(window.BM_K500&&BM_K500.on)L.push(!!localStorage.getItem("bm-k500"))}catch(e){}
   L.forEach(function(x){if(x)n++});return [n,L.length];
 }
 function stampTotal(){return (window.bmStamp&&bmStamp.list)?[bmStamp.count(),bmStamp.list.length]:[0,0]}
