@@ -271,7 +271,7 @@ h2{font-size:20px;margin-bottom:12px}
 <div class="gl-lead zintro"><p>ましゅこっとの「ぷに」を、そだててみよう。ごはん・あそぶ・ねんねで、ぷにが すこしずつ おおきくなるよ。</p><p class="small">ぷには、おなかが すいても さみしくても、いなくなったりしないよ。気がむいたときに あいにきてね。記録は、この端末のブラウザの中だけに保存されます。</p></div>
 <div class="sheet plain"><h3 style="margin:0 0 4px">ぷにって？</h3><p style="margin:0">ぷには、ボンたちの そばに いる「ましゅこっと」だよ。まるくて、つるんと、あおくて、顔は「○△○」。ひょえボンが、あおい ねんどで、びっくりした自分の顔を元にして、つくったんだ。ボンじゃなくて、ましゅこっと(ねんどの おもちゃ)なんだよ。<br><a href="novel10.html#n2">小説「ひょえボンと みのボン」で、ぷにの うまれた お話を よむ</a>ほんとうは、ねんどだから、うごいたり しゃべったり しないよ。このページは、ひょえボンの「ぷに ごっこ」。ひょえボンが「ぷに！」「ぷにゅ〜」って、ぷにの こえを つけて あそんでるんだ。</p></div>
 <div class="sheet pnw" style="gap:12px">
-<svg id="pnSvg" viewBox="0 0 220 220" role="img" aria-label="ぷに"><g id="pnBody"><g id="pnG" transform="translate(110 130)"><ellipse cx="0" cy="62" rx="52" ry="8" fill="#000" opacity=".12"/><path d="M-58 20C-62-30-30-62 0-62S62-30 58 20C56 50 30 60 0 60S-56 50-58 20Z" fill="#A9CDF2" stroke="#2E241C" stroke-width="4"/><g id="pnAcc"></g><g id="pnFace"></g></g></g></svg>
+<svg id="pnSvg" viewBox="0 0 220 220" role="img" aria-label="ぷに"><g id="pnBody"><g id="pnG" transform="translate(110 130)"><ellipse cx="0" cy="62" rx="52" ry="8" fill="#000" opacity=".12"/><image href="puni_body.webp" x="-62" y="-64" width="124" height="122" preserveAspectRatio="xMidYMid meet"/><g id="pnAcc"></g><g id="pnFace"></g></g></g></svg>
 <p id="pnStage" style="font-size:20px;margin:0"></p><p id="pnSay" class="say2" style="margin:0;min-height:1.8em" aria-live="polite"></p>
 <div class="pnst"><div class="pnbar"><span class="l">ごはん</span><i><b id="bH"></b></i></div><div class="pnbar"><span class="l">あそぶ</span><i><b id="bF"></b></i></div><div class="pnbar"><span class="l">ねんね</span><i><b id="bS"></b></i></div></div>
 <div class="pnbtn"><button type="button" id="aH">ごはん</button><button type="button" id="aF">あそぶ</button><button type="button" id="aS">ねんね</button></div>
@@ -307,10 +307,10 @@ function face(m){var e,mo='<path d="M-9 28L9 28L0 14Z" fill="#E07A8A" stroke="#2
 if(m==="sleep")e='<path d="M-30 0q8 7 16 0M14 0q8 7 16 0" fill="none" stroke="#2E241C" stroke-width="4" stroke-linecap="round"/>';
 else if(m==="sad")e='<circle cx="-22" cy="2" r="8" fill="none" stroke="#2E241C" stroke-width="4"/><circle cx="22" cy="2" r="8" fill="none" stroke="#2E241C" stroke-width="4"/><path d="M36 -14q4 8 0 12q-4-4 0-12z" fill="#8EC5E8"/>';
 else e='<circle cx="-22" cy="0" r="9" fill="none" stroke="#2E241C" stroke-width="4"/><circle cx="22" cy="0" r="9" fill="none" stroke="#2E241C" stroke-width="4"/>';
-$("pnFace").innerHTML=e+mo+'<circle cx="-40" cy="14" r="7" fill="#F5A3B0" opacity=".5"/><circle cx="40" cy="14" r="7" fill="#F5A3B0" opacity=".5"/>'}
+$("pnFace").innerHTML="";var _u=e+mo+'<circle cx="-40" cy="14" r="7" fill="#F5A3B0" opacity=".5"/><circle cx="40" cy="14" r="7" fill="#F5A3B0" opacity=".5"/>'}
 function draw(){var s=stage(),a="";if(s>=2)a+='<path d="M-6-60l-18-14 6 20zM6-60l18-14-6 20z" fill="#E07A8A" stroke="#2E241C" stroke-width="3" stroke-linejoin="round"/><circle cx="0" cy="-60" r="5" fill="#E07A8A" stroke="#2E241C" stroke-width="3"/>';
 if(s>=3)a+='<g transform="translate(40 -44)"><circle r="4" fill="#E0A21F"/><g fill="#fff" stroke="#2E241C" stroke-width="2"><circle cx="0" cy="-8" r="5"/><circle cx="8" cy="-2" r="5"/><circle cx="5" cy="7" r="5"/><circle cx="-5" cy="7" r="5"/><circle cx="-8" cy="-2" r="5"/></g><circle r="4" fill="#E0A21F"/></g>';
-$("pnAcc").innerHTML=a;$("pnG").setAttribute("transform","translate(110 "+(150-20*ST[s][2])+") scale("+ST[s][2]+")");
+$("pnAcc").innerHTML="";$("pnG").setAttribute("transform","translate(110 "+(150-20*ST[s][2])+") scale("+ST[s][2]+")");
 var low=Math.min(d.h,d.f,d.s)<25;face(sleepT?"sleep":low?"sad":"n");
 $("bH").style.width=d.h+"%";$("bF").style.width=d.f+"%";$("bS").style.width=d.s+"%";
 var nx=ST[s+1];$("pnStage").textContent=ST[s][0]+(nx?"（あと"+(nx[1]-d.g)+"かいで おおきくなるよ）":"（いちばん おおきいよ）");
