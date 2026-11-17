@@ -46,7 +46,8 @@ document.addEventListener("play",function(e){if(e.target!==a&&!a.paused){yl=true
 document.addEventListener("ended",function(e){if(e.target!==a&&yl){yl=false;go()}},true);
 /* ページを開いたときは鳴らさない(流すのは「BON MEMORIAを流す」を押したときだけ) */
 if(st.on){st.on=false;sv()}
-window.bmBgm={play:go,stop:stop,on:function(){return !a.paused}};
+function playTrack(k){if(!TR[k]||k==="memoria"){go();return}if(k!==cur){var w=!a.paused;a.pause();cur=k;a.src=TR[k].f;try{a.load()}catch(e){}}go()}
+window.bmBgm={play:go,stop:stop,on:function(){return !a.paused},playTrack:playTrack};
 function pickSrc(x){st.src=x;sv();var nk=curKey();if(nk===cur){ui();return}var was=!a.paused;a.pause();cur=nk;a.src=TR[cur].f;try{a.load()}catch(e){}ui();if(was)go()}
 bmSet.add(function(d){var l=document.createElement("div");l.className="lb";l.textContent="BGM";d.appendChild(l);
 var w=document.createElement("div");w.style.cssText="display:flex;flex-wrap:wrap;gap:6px;margin:4px 0";
