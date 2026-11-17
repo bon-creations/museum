@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261117-434">
+<meta name="site-version" content="20261117-437">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -325,7 +325,7 @@ header>*{position:relative}
 </div>
 <div class="band thin" aria-hidden="true"></div>
 <p class="lead">ゲーム、音楽、イラスト、デザイン。BON CREATIONSから生まれた、さまざまな創作を集めた小さな博物館です。ボンたちと遊んで、聴いて、眺めて、ゆっくり巡ってね。</p>
-<div class="hero-cta"><a href="hajimete.html">はじめての方へ</a><a class="alt" href="#today">今日の ボンに あう</a><a class="alt" href="#sp">あそぶ</a><a class="alt" href="#s1">ゲームを見る</a><a class="alt" href="novels.html">小説を読む</a></div>
+<div class="hero-cta"><a href="hajimete.html">はじめての方へ</a><a class="alt" href="#today">今日の ボンに あう</a><a class="alt" href="#sp">あそぶ</a><a class="alt" href="#s1">ゲームを見る</a><a class="alt" href="novels.html">小説を読む</a><a class="alt" href="world.html">世界観を見る</a></div>
 </header>
 
 <div id="bmSince" class="sheet" style="display:none;margin:0 0 18px;gap:6px" aria-live="polite"></div>
@@ -404,9 +404,9 @@ var SUF={oko:"",nemu:"",niji:"ボン",hyoe:"さん",tere:"さん",niko:"ちゃ�
 var AUTH={oko:"さくしゃボン",nemu:"さくしゃボン",niji:"さくしゃボン",hyoe:"さくしゃボン",niko:"さくしゃちゃん",tere:"さくしゃさん",mogu:"さくしゃボンしゃん"};
 function myName(){try{return localStorage.getItem("bontalk_name")||""}catch(e){return ""}}
 function fx(t){var k=KEYN[r[0]];if(!k)return t;
-t=t.replace(/作者さん|作者|さくしゃボン|さくしゃ/g,AUTH[k]);
-t=t.replace(/(おこ|にこ|ひょえ|もぐ|ねむ|てれ|にじ)ボン/g,function(m,nm){if(KEYN[r[0]]===KEYN[nm+"ボン"])return m;if(k==="hyoe"&&nm==="にこ")return"にこちゃん";return k==="niji"?m:nm+SUF[k]});
-var n=myName();if(n){var call=n+SUF[k];t=t.replace(/あなた|お主|あんた|きみ|君/g,call)}
+t=t.replace(/作者さん|作者|さくしゃボン|さくしゃ/g,AUTH[k]);if(k==="tere")t=t.replace(/みのボン/g,"みのちゃん");
+t=t.replace(/(おこ|にこ|ひょえ|もぐ|ねむ|てれ|にじ)ボン/g,function(m,nm){if(KEYN[r[0]]===KEYN[nm+"ボン"])return m;if(k==="hyoe"&&nm==="にこ")return"にこちゃん";if(k==="tere"&&nm==="ひょえ")return"ひょえちゃん";return k==="niji"?m:nm+SUF[k]});
+t=t.replace(/(さん|ちゃん|しゃん)さん/g,"$1");var n=myName();if(n){var call=n+SUF[k];t=t.replace(/あなた|お主|あんた|きみ|君/g,call)}
 return t}
 function setNameUI(){var mb=document.getElementById("tdMore");if(!mb||document.getElementById("tdNm"))return;var d=document.createElement("div");d.id="tdNm";d.style.cssText="margin-top:8px;font-size:12px";d.innerHTML='<label>きみの名前(ひらがな・カタカナ5字まで) <input id="tdNmIn" maxlength="5" style="width:7em;font:inherit;padding:2px 6px"></label> <button type="button" id="tdNmSv" style="font:inherit;padding:2px 8px">決める</button>';mb.parentNode.appendChild(d);var i=document.getElementById("tdNmIn");i.value=myName();document.getElementById("tdNmSv").addEventListener("click",function(){var v=i.value.trim();if(v&&!/^[\u3041-\u3096\u30a1-\u30f6ー]{1,5}$/.test(v)){i.value="";i.placeholder="ひらがな/カタカナで";return}try{if(v)localStorage.setItem("bontalk_name",v);else localStorage.removeItem("bontalk_name")}catch(e){}$("tdSay").textContent="「"+say()+"」"})}
 var cur=-1;function pick(){var n;do{n=Math.floor(Math.random()*pool.length)}while(pool.length>1&&n===cur);cur=n;return pool[n]}
@@ -460,7 +460,7 @@ w.appendChild(t);w.appendChild(d);a.appendChild(k);a.appendChild(w);L.appendChil
 var e=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+6),r=document.getElementById("wkRange");if(r)r.textContent="（"+(mon.getMonth()+1)+"/"+mon.getDate()+"〜"+(e.getMonth()+1)+"/"+e.getDate()+"）"}catch(x){}})();</script>
 
 <section aria-labelledby="sz">
-<h2 id="sz" data-new="2026-11-02"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">ボンたちの ずかん</span></h2>
+<h2 id="sz" data-new="2026-11-02"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">第一展示室　ボンたちの ずかん</span></h2>
 <div class="sheet plain">
 <div class="say"><span class="rbface rb-point" aria-hidden="true"></span><div class="say-body">
 <p>七色のボンたちを、にじボンが あんない するよ! ぜんぶで 7にん。</p>
@@ -469,8 +469,8 @@ var e=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+6),r=document.getE
 <p style="margin:12px 0 0;font-weight:700">7人の はやみひょう（タップで くわしく）</p><div class="bq" id="bqL"></div>
 <script>(function(){try{var B=window.BM_DATA&&window.BM_DATA.bons,L=document.getElementById("bqL");if(!B||!L)return;B.forEach(function(b){var a=document.createElement("a");a.href="zukan.html#"+(b.a||b.k);var im=document.createElement("img");im.src="icon_round_"+b.k+".png";im.alt="";im.width=44;im.height=44;var w=document.createElement("span"),n=document.createElement("b");n.textContent=b.n;var c=document.createElement("span");c.className="c";c.textContent=b.c;c.style.background=b.h;c.style.color=b.t;var p=document.createElement("span");p.className="p";p.textContent=b.d;w.appendChild(n);w.appendChild(c);w.appendChild(p);a.appendChild(im);a.appendChild(w);L.appendChild(a)})}catch(x){}})();</script>
 <a class="go" href="zukan.html">ずかんを見る</a>
-<p style="margin:12px 0 0">ボンたちが暮らす「ボン界」のしくみは、こちら。</p>
-<a class="go" href="world.html">ボン界の せかいかんを見る</a>
+<p style="margin:12px 0 0">ボンたちが暮らす「ボン界」の世界観(うまれかた・まち・ことば)は、こちら。</p>
+<a class="go" href="world.html">ボン界の 世界観を見る</a>
 <p style="margin:12px 0 0">ひょえボンの 赤ちゃん時代の おはなし(小説)は、こちら。</p>
 <a class="go" href="novels.html">ボンの しょうせつを 見る</a>
 <p style="margin:12px 0 0">ことばで探したいときは、こちら。</p>
