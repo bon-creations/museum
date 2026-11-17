@@ -27,7 +27,7 @@ var ROUTE=[
 ["sukimono","さくしゃボンの すきなもの","資料","戦国・エスニック・雑学など、すきなものの資料室。"]
 ];
 var EXTRA={bon:["ボンの ページ","図鑑(個別)","ボンひとりを、くわしく紹介する展示。"],stamp:["スタンプ帳","受付","来館のしるしを集めた、スタンプ帳。"],search:["館内さくいん","案内所","博物館の中を探せる、さくいん。"],
-novel:["はじめての おうち","文学(第1話)","星の夜に生まれたボンが、名前をもらうまで。"],novel6:["はじめての ころころ","文学(第2話)","名前をもらう前の、赤ちゃんのころ。"],novel5:["はじめての おふろ","文学(第3話)","赤ちゃんのボンが、はじめて おふろに入る。"],novel1b:["はじめての おはよう","文学(第4話)","ことばを覚えて、「にこちゃん」と呼ぶまで。"],novel2:["はじめての お赤飯","文学(第5話)","ちびボン期の、お祝いのおはなし。"],novel4:["はじめての ひとりでできた","文学(第6話)","ちびボンが、ひとりでごはんを作る。"],novel7:["ちいさな日々","文学(番外編)","赤ちゃんのころの、ボンたちとの日常。"],
+novel:["はじめての おうち","文学(第1話)","星の夜に生まれたボンが、名前をもらうまで。"],novel6:["はじめての ころころ","文学(第3話)","名前をもらう前の、赤ちゃんのころ。"],novel5:["はじめての おふろ","文学(第2話)","赤ちゃんのボンが、はじめて おふろに入る。"],novel1b:["はじめての おはよう","文学(第6話)","ことばを覚えて、「にこちゃん」と呼ぶまで。"],novel2:["はじめての お赤飯","文学(第7話)","ちびボン期の、お祝いのおはなし。"],novel4:["はじめての ひとりでできた","文学(第8話)","ちびボンが、ひとりでごはんを作る。"],novel7:["ちいさな日々","文学(ボンちゃんの日常)","赤ちゃんのころの、ボンたちとの日常。"],
 sukimono_ethnic:["エスニック","資料","世界のくらしと食の資料。"],sukimono_kenko:["マッサージ・鍼灸・民間療法","資料","からだとつきあう知恵の資料。"],sukimono_sengoku:["戦国時代","資料","戦国時代の食とくらしの資料。"],sukimono_zatsu:["ふだんの雑学","資料","身のまわりの雑学の資料。"]};
 function I(n){return window.bmIco?bmIco(n):""}
 function roomOf(p){for(var i=0;i<ROOMS.length;i++)if(ROOMS[i].p.indexOf(p)>=0)return ROOMS[i];return null}
@@ -261,18 +261,18 @@ var m=document.querySelector("main");if(!m||document.getElementById("bmTocTab"))
 var hs=[].filter.call(m.querySelectorAll("h2[id]"),function(h){return (h.textContent||"").trim()});
 if(hs.length<3)return;
 var st=document.createElement("style");
-st.textContent="#bmTocTab{position:fixed;right:0;top:38%;z-index:9980;writing-mode:vertical-rl;background:var(--khaki,#66752F);color:#fff;border:0;border-radius:10px 0 0 10px;padding:12px 7px;min-width:44px;min-height:44px;font:700 13px/1.2 inherit;letter-spacing:.08em;cursor:pointer;box-shadow:-1px 1px 4px rgba(0,0,0,.25)}#bmTocBox{position:fixed;right:0;top:12%;bottom:12%;z-index:9981;width:min(78vw,300px);overflow:auto;background:#fffdf7;color:#333;border:2px solid var(--khaki,#66752F);border-right:0;border-radius:12px 0 0 12px;padding:10px 14px;box-shadow:-2px 2px 8px rgba(0,0,0,.3);display:none}#bmTocBox.on{display:block}#bmTocBox b{display:block;margin-bottom:4px}#bmTocBox ul{margin:0;padding-left:1.2em;line-height:2.1}#bmTocBox a{color:inherit}";
+st.textContent="#bmTocTab{position:fixed;right:0;top:38%;z-index:9982;writing-mode:vertical-rl;background:var(--khaki,#66752F);color:#fff;border:0;border-radius:10px 0 0 10px;padding:12px 7px;min-width:44px;min-height:44px;font:700 13px/1.2 inherit;letter-spacing:.08em;cursor:pointer;box-shadow:-1px 1px 4px rgba(0,0,0,.25)}#bmTocBox{position:fixed;right:0;top:12%;bottom:12%;z-index:9981;width:min(78vw,300px);overflow:auto;background:#fffdf7;color:#333;border:2px solid var(--khaki,#66752F);border-right:0;border-radius:12px 0 0 12px;padding:10px 14px;box-shadow:-2px 2px 8px rgba(0,0,0,.3);display:none}#bmTocBox.on{display:block}#bmTocBox b{display:block;margin-bottom:4px}#bmTocBox ul{margin:0;padding-left:1.2em;line-height:2.1}#bmTocBox a{color:inherit}";
 document.head.appendChild(st);
 var b=document.createElement("button");b.id="bmTocTab";b.type="button";b.textContent="このページの もくじ";b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls","bmTocBox");
 var bx=document.createElement("nav");bx.id="bmTocBox";bx.setAttribute("aria-label","このページの もくじ");
-var t=document.createElement("b");t.textContent="このページの もくじ";bx.appendChild(t);
+var t=document.createElement("b");t.textContent="このページの もくじ";bx.appendChild(t);var cl=document.createElement("button");cl.type="button";cl.textContent="✕ とじる";cl.style.cssText="display:block;margin:0 0 6px auto;min-height:44px;padding:6px 14px;border:2px solid var(--khaki,#66752F);border-radius:999px;background:#fff;color:#333;font:700 14px/1 inherit;cursor:pointer";cl.addEventListener("click",function(){set(false)});bx.appendChild(cl);
 var ul=document.createElement("ul");
 hs.forEach(function(h){var s=h.querySelector(".t"),x=(s||h).textContent.trim();var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;a.textContent=x;li.appendChild(a);ul.appendChild(li)});
 bx.appendChild(ul);
 function set(o){bx.classList.toggle("on",o);b.setAttribute("aria-expanded",o?"true":"false")}
 b.addEventListener("click",function(){set(!bx.classList.contains("on"))});
 bx.addEventListener("click",function(e){if(e.target.tagName==="A")set(false)});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
+document.addEventListener("click",function(e){if(bx.classList.contains("on")&&!bx.contains(e.target)&&e.target!==b)set(false)});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
 document.body.appendChild(b);document.body.appendChild(bx);
 }catch(e){}}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
