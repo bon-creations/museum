@@ -9,18 +9,18 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#55602A">
 <meta name="apple-mobile-web-app-title" content="ボンちゃんの博物館">
-<meta name="description" content="ボンちゃんシリーズと、そのほかのゲーム14作品。あそべるものから準備中まで ぜんぶ ならべた 展示室です。">
+<meta name="description" content="ボンちゃんシリーズと、そのほかのゲーム13作品。あそべるものから準備中まで ぜんぶ ならべた 展示室です。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ボンちゃんのゲーム｜ボンちゃんの小さな博物館">
 <meta property="og:title" content="ボンちゃんのゲーム｜ボンちゃんの小さな博物館">
-<meta property="og:description" content="ボンちゃんシリーズと、そのほかのゲーム14作品。あそべるものから準備中まで ぜんぶ ならべた 展示室です。">
+<meta property="og:description" content="ボンちゃんシリーズと、そのほかのゲーム13作品。あそべるものから準備中まで ぜんぶ ならべた 展示室です。">
 <meta property="og:url" content="https://bon-creations.github.io/museum/games.html">
 <meta property="og:image" content="https://bon-creations.github.io/museum/ogp_games.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ボンちゃんのゲーム｜ボンちゃんの小さな博物館">
-<meta name="twitter:description" content="ボンちゃんシリーズと、そのほかのゲーム14作品。あそべるものから準備中まで ぜんぶ ならべた 展示室です。">
+<meta name="twitter:description" content="ボンちゃんシリーズと、そのほかのゲーム13作品。あそべるものから準備中まで ぜんぶ ならべた 展示室です。">
 <meta name="twitter:image" content="https://bon-creations.github.io/museum/ogp_games.png">
 <script src="theme.js"></script>
 <style>
@@ -285,6 +285,7 @@ h2{font-size:20px;margin-bottom:12px}
 </div></div>
 <div class="band thin" aria-hidden="true"></div>
 <p class="lead">ボンちゃんシリーズと、そのほかのゲームを ぜんぶ ならべた 展示室です。</p>
+<p id="gcount" style="margin:4px 0 0;font-size:14px">いま <b data-bm="gtotal">13</b>作品(あそべる <b data-bm="gplay">9</b>・準備中 <b data-bm="gprep">3</b>・試作版 <b data-bm="gproto">1</b>)。「ボンたちと おしゃべり」は ゲームじゃなく ツールなので、数に入れていないよ。</p>
 </header>
 
 <div class="gfilter" role="group" aria-label="ゲームの絞り込み" style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px"><button type="button" class="go" data-f="all" aria-pressed="true">すべて</button><button type="button" class="go" data-f="play" aria-pressed="false">あそべる</button><button type="button" class="go" data-f="upd" aria-pressed="false">更新中</button><button type="button" class="go" data-f="done" aria-pressed="false">開発完了</button><button type="button" class="go" data-f="prep" aria-pressed="false">準備中</button><button type="button" class="go" data-f="app" aria-pressed="false">📱アプリ化</button><span id="gfc" aria-live="polite" style="align-self:center;font-size:13px"></span></div>
@@ -524,5 +525,6 @@ document.body.insertBefore(w,document.body.firstChild);})();</script>
 <script>(function(){document.addEventListener("contextmenu",function(e){var t=e.target;if(t&&t.closest&&t.closest("img,picture,video,canvas"))e.preventDefault()});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault()})})();</script>
 <script src="a11y.js"></script>
 <script>(function(){try{var d=document.getElementById("playfold");if(!d)return;if(localStorage.getItem("bm-playfold")==="0")d.removeAttribute("open");d.addEventListener("toggle",function(){try{localStorage.setItem("bm-playfold",d.open?"1":"0")}catch(e){}})}catch(e){}})();</script>
+<script src="bmdata.js"></script>
 </body>
 </html>
