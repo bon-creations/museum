@@ -266,7 +266,7 @@ h2{font-size:20px;margin-bottom:12px}
 function kata(t){return t.replace(/[\u30a1-\u30f6]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-96)})}
 function nm(t){return kata(String(t).normalize("NFKC").toLowerCase())}
 var CATS=[["すべて",null],["小説",/^novel/],["ゲーム",/^(games|mini|shindan|nadenade|punicare|puni_mini|shiritori)/],["音楽",/^music/],["イラスト",/^(gallery|wallpaper|haifu|calendar)/],["図鑑・設定",/^(zukan|world|chara|sukimono|jisho|creators|hajimete|events|job|map)/],["その他","other"]],cat=0,SORT="rel";
-var NEW=["novel15","novel14","music","novel_aisatsu","hajimete","world","novel13","koushin","games","novel12","nadenade","punicare","letter","sleep","job","events","shindan","novel11","novel10","zukan","creators","novels","novel9","novel8","novel5","novel4","sukimono"];
+var NEW=["novel_sakusha1","novel15","novel14","music","novel_aisatsu","hajimete","world","novel13","koushin","games","novel12","nadenade","punicare","letter","sleep","job","events","shindan","novel11","novel10","zukan","creators","novels","novel9","novel8","novel5","novel4","sukimono"];
 var UPD=["novel8","novel9","novel4","novel7","novel1b","novel5","novel6","novel","novels"].concat(NEW);
 function pg(e){return e.p.replace(/[#?].*$/,"").replace(/\.html$/,"")}
 function rank(L,e){var i=L.indexOf(pg(e));return i<0?999:i}
