@@ -166,7 +166,7 @@ var now=new Date(),today=now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now
 var first=ls("bm-first");if(!first){first=today;ls("bm-first",first)}
 var vc=+ls("bm-vc")||1;
 var tk=document.createElement("section");tk.className="bm-ticket";tk.setAttribute("aria-label","入館券");
-tk.innerHTML='<div class="tk-h"><span>ADMISSION TICKET</span><span>入館券</span></div><p class="tk-n">BON MUSEUM　ボンちゃんの小さな博物館</p><p>入館日：'+today+'　／　はじめての入館日：'+first+'</p><p>入館：'+vc+'日目　／　見学した展示室：<span id="bmTkN">'+nVisited()+'</span> / '+ROOMS.length+'</p><p class="tk-s">この入館券は、この端末のブラウザの中だけにある、記念のチケットだよ。展示室を見てまわると、スタンプが押されます。</p><details open style="margin-top:6px"><summary style="cursor:pointer;min-height:32px;display:inline-flex;align-items:center;color:#7A2434;font-weight:700">'+I("map")+' 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
+tk.innerHTML='<div class="tk-h"><span>ADMISSION TICKET</span><span>入館券</span></div><p class="tk-n">BON MUSEUM　ボンちゃんの小さな博物館</p><p>入館日：'+today+'　／　はじめての入館日：'+first+'</p><p>入館：'+vc+'日目　／　見学した展示室：<span id="bmTkN">'+nVisited()+'</span> / '+ROOMS.length+'</p><p class="tk-s">この入館券は、この端末のブラウザの中だけにある、記念のチケットだよ。展示室を見てまわると、スタンプが押されます。</p><details style="margin-top:6px"><summary style="cursor:pointer;min-height:44px;display:inline-flex;align-items:center;color:#7A2434;font-weight:700">'+I("map")+' 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
 var tdn=document.getElementById("today");if(tdn)tdn.parentNode.insertBefore(tk,tdn.nextSibling);else hd.parentNode.insertBefore(tk,hd.nextSibling);
 var M=[];var h=now.getHours();
 M.push("館内アナウンスは、アルバイトの我輩、にじボンが務めよう。順路に従うも、心の向くままに歩くも、見学者の自由だぞ。");
@@ -185,8 +185,8 @@ function show(){g.textContent=M[ai%M.length];ai++}
 function auto(){clearInterval(tm);if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;tm=setInterval(function(){if(!document.hidden)show()},12000)}
 ai=1;auto();bt.addEventListener("click",function(){show();auto()})}
 var el=document.createElement("section");el.className="bm-ex";el.setAttribute("aria-label","展示一覧");
-var eh='<p class="eh">展 示 一 覧</p><div class="gr">';ROUTE.forEach(function(x,i){eh+='<a class="cd" href="'+x[0]+'.html"><span class="n">No.'+("00"+(i+1)).slice(-3)+'　'+esc(x[2])+'</span><span class="t">'+esc(x[1])+'</span><span class="d">'+esc(x[3])+'</span></a>'});
-el.innerHTML=eh+'</div>';tk.parentNode.insertBefore(el,tk.nextSibling);
+var eh='<div class="gr">';ROUTE.forEach(function(x,i){eh+='<a class="cd" href="'+x[0]+'.html"><span class="n">No.'+("00"+(i+1)).slice(-3)+'　'+esc(x[2])+'</span><span class="t">'+esc(x[1])+'</span><span class="d">'+esc(x[3])+'</span></a>'});
+el.innerHTML='<details class="bm-exd"><summary>展 示 一 覧 ・ 全'+ROUTE.length+'室(ひらく)</summary>'+eh+'</div></details>';tk.parentNode.insertBefore(el,tk.nextSibling);
 }
 /* 全展示室を見た: 一度だけ館長のひとこと */
 function allDone(){if(!S||nVisited()<ROOMS.length||ls("bm-allrooms"))return;ls("bm-allrooms","1");
