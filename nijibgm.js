@@ -7,7 +7,9 @@ var S={
 oko:{n:"おこボン",t:"紅彩烈火",g:"オーケストラ・ミリタリーマーチ",f:"theme_oko.mp3"},
 niko:{n:"にこボン",t:"陽彩爛漫",g:"ヨーロッパ風ポルカ",f:"theme_niko.mp3"},
 hyoe:{n:"ひょえボン",t:"儚彩小夜",g:"幻想的なオーケストラ・ファンタジー",f:"theme_hyoe.mp3"},
-mogu:{n:"もぐボン"},nemu:{n:"ねむボン"},tere:{n:"てれボン"},
+mogu:{n:"もぐボン",t:"豊彩饗宴",g:"ケルト・フォーク／フォークダンス",f:"theme_mogu.mp3"},
+nemu:{n:"ねむボン",t:"夢彩揺籠",g:"ドリームアンビエント／オルゴール・ファンタジー",f:"theme_nemu.mp3"},
+tere:{n:"てれボン",t:"桃彩詩篇",g:"フレンチ・ミュゼット／パリ風アコースティック",f:"theme_tere.mp3"},
 niji:{n:"にじボン",t:"虹彩漫談",g:"文豪風の、語るような一曲",f:"world_prism_v2.mp3"}};
 var ORD=["oko","niko","hyoe","mogu","nemu","tere","niji"];
 var K="bm-niji";

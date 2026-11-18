@@ -5,7 +5,7 @@ try{if(localStorage.getItem("bm-nobgm")==="1")return}catch(e){}
 if(window.bmBgm)return;
 window.bmSet=window.bmSet||{items:[],add:function(f,o){this.items.push({f:f,o:o||9});this.items.sort(function(a,b){return a.o-b.o});if(this.draw)this.draw()}};
 
-var TR={memoria:{t:"BON MEMORIA",f:"bgm.mp3",n:"BON MEMORIA"},oko:{t:"紅彩烈火",f:"theme_oko.mp3",n:"おこ"},niko:{t:"陽彩爛漫",f:"theme_niko.mp3",n:"にこ"},hyoe:{t:"儚彩小夜",f:"theme_hyoe.mp3",n:"ひょえ"},niji:{t:"虹彩漫談",f:"world_prism_v2.mp3",n:"にじ"}};
+var TR={memoria:{t:"BON MEMORIA",f:"bgm.mp3",n:"BON MEMORIA"},oko:{t:"紅彩烈火",f:"theme_oko.mp3",n:"おこ"},niko:{t:"陽彩爛漫",f:"theme_niko.mp3",n:"にこ"},hyoe:{t:"儚彩小夜",f:"theme_hyoe.mp3",n:"ひょえ"},mogu:{t:"豊彩饗宴",f:"theme_mogu.mp3",n:"もぐ"},nemu:{t:"夢彩揺籠",f:"theme_nemu.mp3",n:"ねむ"},tere:{t:"桃彩詩篇",f:"theme_tere.mp3",n:"てれ"},niji:{t:"虹彩漫談",f:"world_prism_v2.mp3",n:"にじ"}};
 var K="bm-bgm",a=new Audio();a.loop=true;a.preload="none";a.volume=(typeof ld().v==="number")?ld().v:.6;
 function ld(){try{return JSON.parse(localStorage.getItem(K))||{}}catch(e){return{}}}
 var st=ld();
@@ -51,7 +51,7 @@ window.bmBgm={play:go,stop:stop,on:function(){return !a.paused},playTrack:playTr
 function pickSrc(x){st.src=x;sv();var nk=curKey();if(nk===cur){ui();return}var was=!a.paused;a.pause();cur=nk;a.src=TR[cur].f;try{a.load()}catch(e){}ui();if(was)go()}
 bmSet.add(function(d){var l=document.createElement("div");l.className="lb";l.textContent="BGM";d.appendChild(l);
 var w=document.createElement("div");w.style.cssText="display:flex;flex-wrap:wrap;gap:6px;margin:4px 0";
-[["memoria","BON MEMORIA"],["oko","おこ"],["niko","にこ"],["hyoe","ひょえ"],["niji","にじ"],["sync","好きなボンと 同期"]].forEach(function(p){var c=document.createElement("button");c.type="button";c.className="sb";c.textContent=p[1];var on=(st.src||"memoria")===p[0];c.setAttribute("aria-pressed",on?"true":"false");c.addEventListener("click",function(){pickSrc(p[0]);[].forEach.call(w.children,function(x,i){x.setAttribute("aria-pressed",x===c?"true":"false")})});w.appendChild(c)});
+[["memoria","BON MEMORIA"],["oko","おこ"],["niko","にこ"],["hyoe","ひょえ"],["mogu","もぐ"],["nemu","ねむ"],["tere","てれ"],["niji","にじ"],["sync","好きなボンと 同期"]].forEach(function(p){var c=document.createElement("button");c.type="button";c.className="sb";c.textContent=p[1];var on=(st.src||"memoria")===p[0];c.setAttribute("aria-pressed",on?"true":"false");c.addEventListener("click",function(){pickSrc(p[0]);[].forEach.call(w.children,function(x,i){x.setAttribute("aria-pressed",x===c?"true":"false")})});w.appendChild(c)});
 d.appendChild(w);var h=document.createElement("div");h.style.cssText="font-size:12px;opacity:.8";h.textContent="「好きなボンと 同期」は、好きなボンの テーマ曲を 流すよ(いくつか えらんでいたら ひらくたびに ランダム。曲が まだ ない ボンだけの ときは BON MEMORIA)。";d.appendChild(h);
 d.appendChild(b);d.appendChild(v);d.appendChild(g)},1);
 })();
