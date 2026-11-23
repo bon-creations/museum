@@ -1173,6 +1173,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
     pending = { fin: fin, timer: setTimeout(fin, 450 + Math.min(r.t.length * 12, 700)) };
   }
 
+  function startKey() { try { var m = /[?&]with=([a-z]+)/.exec(location.search); if (m && CH[m[1]]) return m[1]; } catch (e) {} return window.bmOshiKey ? window.bmOshiKey() : "oko"; }
   function greeting(k) {
     var hr = new Date().getHours(), i = hr >= 5 && hr < 11 ? 0 : hr >= 11 && hr < 18 ? 1 : 2;
     return CH[k].open[i];
@@ -1218,7 +1219,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
     if (!NAMERE.test(v)) { $("nmerr").textContent = "ひらがな・カタカナで、1〜5文字にしてね。"; nameIn.focus(); return; }
     userName = v; lsSet("bontalk_name", v);
     $("nmerr").textContent = "";
-    startApp(); select(window.bmOshiKey?window.bmOshiKey():"oko"); input.focus(); runPlay();
+    startApp(); select(startKey()); input.focus(); runPlay();
   });
   $("snm").addEventListener("input", function () { $("spv").textContent = (cleanName($("snm").value) || "〇〇") + "ボン"; });
   $("sf").addEventListener("submit", function (e) {
@@ -1795,7 +1796,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
     setTimeout(function () { send(t); }, 500);
   }
   var saved = lsGet("bontalk_name");
-  if (saved && NAMERE.test(saved)) { userName = saved; startApp(); select(window.bmOshiKey?window.bmOshiKey():"oko"); runPlay(); } else { nameIn.focus(); }
+  if (saved && NAMERE.test(saved)) { userName = saved; startApp(); select(startKey()); runPlay(); } else { nameIn.focus(); }
 })();
 </script>
 <script>(function(){var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true||location.search.indexOf("btn=1")>=0;
