@@ -263,7 +263,7 @@ h2{font-size:20px;margin-bottom:12px}
 
 <section aria-labelledby="nd0">
 <h2 id="nd0"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">なでなで</span></h2>
-<div class="gl-lead zintro"><p>ボンの かおを タップすると、なでなでできるよ。なでるほど、そのボンとの なかよし度が あがっていくんだ。</p><p class="small">記録は、この端末のブラウザの中だけに保存されます。ほかの端末とは共有されません。</p></div>
+<div class="gl-lead zintro"><p>なでなでは、<a href="oheya.html"><b>「ボンの おへや」</b></a>に ひっこしたよ。ボンの かおを タップすると、そのボンの おへやに いけるよ。なでると なかよし度が あがる ところは そのままで、いままでの きろくも つながってるよ。</p><p class="small">記録は、この端末のブラウザの中だけに保存されます。ほかの端末とは共有されません。</p></div>
 <div class="sheet" style="gap:12px"><p id="ndTotal" style="font-size:20px;margin:0"></p><div id="ndGrid" class="ndgrid"></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button type="button" class="go" id="ndReset" style="font-size:15px;padding:9px 16px;cursor:pointer">きろくを消す</button><span class="small" id="ndMsg" role="status"></span></div></div>
 </section>
@@ -294,7 +294,7 @@ function sum(){var s=0;for(var k in d)s+=d[k]||0;tot.textContent="なでなで�
 B.forEach(function(b){var id=b[0],c=document.createElement("div");c.className="ndc";
 c.innerHTML='<button type="button" class="ico"><img src="icon_round_'+id+'.png" alt="" width="96" height="96"></button><b>'+b[1]+'</b><div class="ndh"></div><div class="ndl"></div><p class="ndsay" aria-live="polite">タップして なでてね</p>';
 g.appendChild(c);var o={btn:c.querySelector("button"),h:c.querySelector(".ndh"),l:c.querySelector(".ndl"),s:c.querySelector(".ndsay"),nm:b[1],c:c};cards[id]=o;draw(id);
-o.btn.addEventListener("click",function(){var n=(d[id]||0)+1,old=lv(n-1),nw=lv(n);d[id]=n;sv();
+o.btn.addEventListener("click",function(){location.href="oheya.html#"+id;return;var n=(d[id]||0)+1,old=lv(n-1),nw=lv(n);d[id]=n;sv();
 var t;if(nw>old)t=nw===5?b[4]:b[3];else t=b[2][Math.floor(Math.random()*b[2].length)];
 o.s.textContent=t;draw(id);sum();c.classList.remove("pop");void c.offsetWidth;c.classList.add("pop");
 var f=document.createElement("span");f.className="ndfx";f.textContent=nw>old?"♥":"♡";f.style.setProperty("--x",(Math.random()*50-25)+"px");c.appendChild(f);setTimeout(function(){f.remove()},1000);

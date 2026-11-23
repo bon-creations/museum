@@ -172,3 +172,19 @@ return true}
 function go(){var n=0;(function t(){if(add()&&document.querySelector("button[data-bmsb]")&&document.querySelector("[data-bmfw]"))return;if(++n<12)setTimeout(t,250)})()}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
+
+/* v642: 他ページにも メインメニュー(トップと同じ10項目) */
+(function(){try{
+var f=(location.pathname.split("/").pop()||"index.html").toLowerCase();
+if(/^(index|talk)\.html$/.test(f)||f==="")return;
+function go(){
+if(document.getElementById("topTabs"))return;var m=document.querySelector("main");if(!m)return;
+var L=[["トップ","index.html"],["ゲーム","games.html"],["世界観","world.html"],["図鑑","zukan.html"],["小説","novels.html"],["音楽","music.html"],["ギャラリー","gallery.html"],["おしゃべり","talk.html"],["お知らせ","news.html"],["検索","search.html"]];
+var cur="";if(/^games?/.test(f))cur="games.html";else if(/^world/.test(f))cur="world.html";else if(/^zukan/.test(f))cur="zukan.html";else if(/^novel/.test(f))cur="novels.html";else if(/^music/.test(f))cur="music.html";else if(/^gallery/.test(f))cur="gallery.html";else if(/^(news|koushin)/.test(f))cur="news.html";else if(/^search/.test(f))cur="search.html";
+var st=document.createElement("style");st.textContent="#topTabs{position:sticky;top:56px;z-index:60;margin:0 -2px 14px;background:var(--card,#FFF8EA);border-bottom:3px solid #55602A;box-shadow:0 3px 0 rgba(85,96,42,.18)}#topTabs ul{list-style:none;margin:0;padding:0 6px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start}#topTabs ul::-webkit-scrollbar{display:none}#topTabs li{flex:1 1 auto}#topTabs li:first-child{margin-left:auto}#topTabs li:last-child{margin-right:auto}#topTabs a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 12px;font-size:16px;font-weight:700;color:#2E241C;text-decoration:none;border-bottom:4px solid transparent;margin-bottom:-3px;white-space:nowrap}#topTabs a:hover,#topTabs a:focus-visible,#topTabs a[aria-current]{border-bottom-color:#7A2434;color:#7A2434}@media(min-width:760px){#topTabs ul{justify-content:center;gap:10px}#topTabs li{flex:0 0 auto}#topTabs a{font-size:18px;padding:0 18px}}";
+document.head.appendChild(st);
+var n=document.createElement("nav");n.id="topTabs";n.setAttribute("aria-label","メインメニュー");var u=document.createElement("ul");
+L.forEach(function(x){var li=document.createElement("li"),a=document.createElement("a");a.href=x[1];a.textContent=x[0];if(x[1]===cur)a.setAttribute("aria-current","page");li.appendChild(a);u.appendChild(li)});
+n.appendChild(u);m.insertBefore(n,m.firstChild)}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()
+}catch(e){}})();
