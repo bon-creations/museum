@@ -440,10 +440,11 @@ var tot=L("bm-first");var fav=J("bm-fav",[]),pn=J("bm-puni",null),nd=J("bm-nade"
 var mk=0;try{for(var i=0;i<localStorage.length;i++){if(String(localStorage.key(i)).indexOf("bm-mark:")===0)mk++}}catch(e){}
 var nn=0;for(var k in nd){if(typeof nd[k]==="number")nn+=nd[k]}
 var vc=parseInt(L("bm-vc"),10)||0;
+var rd=J("bm-read",[]),pl=J("bm-played",[]),os="";try{var oa=J("bm-oshis",[]);os=(oa&&oa[0])||L("bm-oshi")||""}catch(e){}var ON={oko:"おこボン",niko:"にこボン",hyoe:"ひょえボン",mogu:"もぐボン",nemu:"ねむボン",tere:"てれボン",niji:"にじボン"};
 var tc=0;if(tr&&typeof tr==="object"){for(var t in tr){if(tr[t]&&Object.keys(tr[t]).length)tc++}}
 var s=document.getElementById("mnSum");
 if(s)s.innerHTML='スタンプ <b>'+sc+'</b>こ ・ バッジ <b>'+bt+'</b>'+(bT?' / '+bT:'')+'こ　<a href="mine.html#memory">思い出を 見る</a>';
-var R=[["はじめて 来た日",tot?tot.replace(/\./g,"/"):"まだ ないよ",null],["来館した 日",vc+" 日",null],["スタンプ",sc+" こ","mine.html#stamp"],["バッジ",bt+(bT?" / "+bT:"")+" こ","mine.html#badge"],["お気に入り",(fav&&fav.length||0)+" こ","mine.html#fav"],["しおり",mk+" か所","novels.html"],["なでなで",nn+" かい","nadenade.html"],["ぷに",pn?"そだてている":"まだ あっていないよ","punicare.html"],["ボンクイズ(さいこう)",(qz&&qz.best||0)+" もん せいかい","shindan.html#quiz"],["ガイドツアー",tc+" つ はじめた","tour.html"]];
+var R=[["はじめて 来た日",tot?tot.replace(/\./g,"/"):"まだ ないよ",null],["来館した 日",vc+" 日",null],["スタンプ",sc+" こ","mine.html#stamp"],["バッジ",bt+(bT?" / "+bT:"")+" こ","mine.html#badge"],["お気に入り",(fav&&fav.length||0)+" こ","mine.html#fav"],["読んだ 小説",(Array.isArray(rd)?rd.length:0)+" 話","novels.html"],["あそんだ ゲーム",(Array.isArray(pl)?pl.length:0)+" 作品","games.html"],["すきな ボン",ON[os]||"まだ えらんでいないよ",os?"zukan.html#"+(os==="niji"?"rain":os):"index.html"],["しおり",mk+" か所","novels.html"],["なでなで",nn+" かい","nadenade.html"],["ぷに",pn?"そだてている":"まだ あっていないよ","punicare.html"],["ボンクイズ(さいこう)",(qz&&qz.best||0)+" もん せいかい","shindan.html#quiz"],["ガイドツアー",tc+" つ はじめた","tour.html"]];
 var b=document.getElementById("mnBody");if(!b)return;
 var h='<dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px">';
 R.forEach(function(r){h+='<dt style="font-weight:700">'+r[0]+'</dt><dd style="margin:0">'+(r[2]?'<a href="'+r[2]+'">'+r[1]+'</a>':r[1])+'</dd>'});

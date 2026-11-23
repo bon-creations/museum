@@ -280,3 +280,12 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 
 /* v491: つづきから・ガイドツアー・来館カード・バックアップ */
 (function(){var s=document.createElement("script");s.src="bmplus.js?v=492";document.head.appendChild(s)})();
+
+/* v639: 読んだ小説・あそんだゲームの記録(この端末のブラウザだけ) */
+(function(){try{
+function J(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function add(k,v){try{var a=J(k,[]);if(!Array.isArray(a))a=[];if(a.indexOf(v)<0){a.push(v);localStorage.setItem(k,JSON.stringify(a))}}catch(e){}}
+var p=(location.pathname.split("/").pop()||"");
+if(/^novel(\d+|_sakusha\d+|_aisatsu)?\.html$/.test(p)&&p!=="novels.html"&&p!=="novel_order.html")add("bm-read",p);
+document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";var m=h.match(/^https:\/\/bon-creations\.github\.io\/([^\/]+)\//);if(m&&m[1]!=="museum")add("bm-played",m[1])},true)
+}catch(e){}})();

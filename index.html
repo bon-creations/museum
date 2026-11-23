@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261123-637">
+<meta name="site-version" content="20261123-639">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -488,6 +488,24 @@ draw();document.addEventListener("visibilitychange",function(){if(!document.hidd
 </div></div><details class="bmfold" style="margin-top:8px"><summary>じぶん用</summary><div class="row"><a href="mine.html">じぶんの きろく</a><a href="card.html">マイ来館カード</a><a href="mine.html#kaeru">バックアップ</a></div></details>
 </section>
 
+<script src="bmdata.js"></script>
+<section aria-labelledby="tdm" id="tdmus"><h2 id="tdm"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">本日の 博物館</span></h2>
+<div class="sheet plain"><p id="tdSeason" class="tdseason" style="margin:0 0 6px"></p><p style="margin:0">今日の おすすめを、ゲーム・音楽・小説・キャラから ひとつずつ。<span id="tdDate"></span></p><div class="wk" id="tdL"><a href="games.html"><span class="k">ゲーム</span><span><span class="t">ゲームの 展示へ</span><span class="d">あそべる ゲームが ならんでいるよ</span></span></a><a href="music.html"><span class="k">音楽</span><span><span class="t">ミュージックへ</span><span class="d">ボンたちの 曲を 聴けるよ</span></span></a><a href="novels.html"><span class="k">小説</span><span><span class="t">小説の 展示へ</span><span class="d">ボンたちの おはなしが よめるよ</span></span></a><a href="zukan.html"><span class="k">キャラ</span><span><span class="t">ずかんへ</span><span class="d">ボンたちの プロフィールが 見られるよ</span></span></a></div><p class="small" style="margin:8px 0 0">1日ごとに かわるよ。<a href="mine.html#memory">自分の 来館きろく</a>も 見られるよ。</p></div>
+</section>
+<script>(function(){try{var D=window.BM_DATA,R=D&&D.recommend,L=document.getElementById("tdL");if(!R||!L)return;
+var n=new Date(),day=Math.floor(new Date(n.getFullYear(),n.getMonth(),n.getDate()).getTime()/86400000);
+function rnd(s){return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+var K=[["game","ゲーム"],["music","音楽"],["novel","小説"],["chara","キャラ"]],h="";
+K.forEach(function(c,ci){var arr=R[c[0]];if(!arr||!arr.length)return;var r=rnd(day*31+ci*7+3);r();var it=arr[Math.floor(r()*arr.length)];
+h+='<a href="'+it.u+'"><span class="k">'+c[1]+'</span><span><span class="t"></span><span class="d"></span></span></a>'});
+if(!h)return;var t=document.createElement("div");t.innerHTML=h;var as=t.querySelectorAll("a"),j=0;K.forEach(function(c,ci){var arr=R[c[0]];if(!arr||!arr.length)return;var r=rnd(day*31+ci*7+3);r();var it=arr[Math.floor(r()*arr.length)],a=as[j++];a.querySelector(".t").textContent=it.n;a.querySelector(".d").textContent=it.d});
+L.innerHTML="";while(t.firstChild)L.appendChild(t.firstChild);
+var d=document.getElementById("tdDate");if(d)d.textContent="（"+(n.getMonth()+1)+"/"+n.getDate()+"）";
+}catch(x){}})();
+(function(){try{var m=new Date().getMonth()+1,S=m>=3&&m<=5?["春","花が さく 季節。ギャラリーの 花の 写真も 見ごろだよ。"]:m>=6&&m<=8?["夏","夏まつりの 季節。ごよみで 行事を のぞいてみよう。"]:m>=9&&m<=11?["秋","秋の くもりと 夜長の 季節。小説や 音楽が たのしい ころだよ。"]:["冬","寒い 季節。あたたかい 部屋で ゆっくり 展示を めぐろう。"];
+var C={"春":"#D4527F","夏":"#3F7B4C","秋":"#B07A3C","冬":"#2F3B7C"}[S[0]],e=document.getElementById("tdSeason");if(!e)return;
+e.innerHTML='<b style="display:inline-block;padding:1px 12px;border-radius:999px;background:'+C+';color:#fff;margin-right:8px">いまは '+S[0]+'</b>'+S[1]+' <a href="events.html">ごよみを 見る</a>';
+var s=document.getElementById("tdmus");if(s)s.style.cssText="border-left:8px solid "+C+";padding-left:6px"}catch(x){}})();</script>
 <section aria-labelledby="swk">
 <h2 id="swk" data-new="2026-11-17"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">今週の おすすめ</span></h2>
 <div class="sheet plain"><p style="margin:0">ゲーム・音楽・小説・キャラクターから、ひとつずつ。<span id="wkRange"></span></p><div class="wk" id="wkL"></div></div>
