@@ -209,7 +209,7 @@ function renderCardPage(){
   var bg=0;BGS.forEach(function(b,i){if(b.id===st.bg)bg=i});
   var oshi="";try{oshi=localStorage.getItem("bm-oshi")||""}catch(e){}
   var have=false;BONS.forEach(function(b){if(b[0]===oshi)have=true});if(!have)oshi="";
-  box.innerHTML='<div class="cd-ctl"><label for="cdName">おなまえ（ひらがな・カタカナ 5もじまで）</label><input id="cdName" maxlength="5" autocomplete="off" value="'+esc(name)+'" placeholder="なまえ"><p class="small" id="cdMsg" role="status"></p>'+
+  box.innerHTML='<div class="cd-ctl"><label for="cdName">おなまえ（ひらがな・カタカナ 5もじまで。「○○ボン」に なるよ）</label><input id="cdName" maxlength="5" autocomplete="off" value="'+esc(name)+'" placeholder="なまえ"><p class="small" id="cdMsg" role="status"></p>'+
    '<div class="cd-lbl">カードの デザイン</div><div class="cd-bgs" id="cdBgs"></div>'+
    '<div class="cd-lbl">すきな ボン</div><div class="cd-bgs" id="cdBon"></div>'+
    '<p class="small">スタンプ・バッジ・来館記念日は、この端末の きろくから じどうで 入るよ。</p></div>'+
@@ -236,7 +236,7 @@ function renderCardPage(){
     /* 名前 */
     ctx.fillStyle="rgba(255,255,255,.78)";rr(110,470,W-220,200,28);ctx.fill();
     ctx.fillStyle=d.c;ctx.font="700 34px sans-serif";ctx.textAlign="left";ctx.fillText("おなまえ",150,524);
-    var nm=name||"（おなまえ みとうろく）";ctx.fillStyle=d.ink;ctx.textAlign="center";fit(nm+(name?" さん":""),W-340,92,"700");ctx.fillText(nm+(name?" さん":""),W/2,628);
+    var nm=name||"（おなまえ みとうろく）";ctx.fillStyle=d.ink;ctx.textAlign="center";var dn=name?(/ボン$/.test(name)?name:name+"ボン"):nm;fit(dn,W-340,92,"700");ctx.fillText(dn,W/2,628);
     /* 好きなボン */
     ctx.fillStyle="rgba(255,255,255,.78)";rr(110,700,W-220,250,28);ctx.fill();
     ctx.fillStyle=d.c;ctx.font="700 34px sans-serif";ctx.textAlign="left";ctx.fillText("すきな ボン",150,754);
