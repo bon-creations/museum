@@ -70,6 +70,72 @@ var MORE={"oko": {"q": {"nade": ["なによ！", "…もう"], "tsun": ["つつ�
 var EXTRA={"oko": {"solo": ["（ノートに 勝負の きろくを つけている）…きょうも アタシの 勝ち、っと", "ふん、きろくは だいじなのよ。…のぞかないでよね", "（うでたてふせ）いっ…にっ…！ アタシは つよいのよ！"], "play": ["じゃんけん勝負よ！ …ぐぬぬ、もういっかい！", "アタシに かてると おもってるの？ ふふん！", "かくれんぼ？ …アタシが おにね。みつけてやるんだから！"], "sleep": ["…ねる。べつに、ねむいわけじゃ ないんだからね。おやすみ", "おやすみ。…ふとん、けとばさないように しなきゃ"], "wake": ["ふあ…おはよ。…あさは アタシの じかんよ！", "おはよ。…ちゃんと ねたわよ。えらいでしょ"]}, "niko": {"solo": ["♪〜（おうたを うたっている）", "くるくるっ！ ダンスの れんしゅう、たのしい！", "きょうは どんな おうた にしようかな〜♪"], "play": ["なにして あそぶ？ わたし、なんでも すき！", "しりとりしよ！ しりとりの「り」からね！ …りんご！", "かくれんぼ、いくよー！ もういいかーい？"], "sleep": ["おやすみなさーい！ いい ゆめ みてね♪", "ふあ…きょうも たのしかった！ おやすみ！"], "wake": ["おはよー！ きょうも げんきに いこーっ！", "おはよう！ ぐっすり ねたよ！"]}, "hyoe": {"solo": ["（そうっと ピアノの ふたを あける）…ひとりの ときだけ、ひくの。ないしょだよ…","♪〜（やさしい ピアノの おと）…ボン、そばに だれか いると、もっと じょうずに ひけるよ","（ちくちく ぬいものを している）。ないしょだよ…", "こっそり…てしごと、してるの。みちゃ、だめ…", "ぬいぐるみ、つくってるの…"], "play": ["いっしょに あそぶ…？ ボン、うれしい…", "かくれんぼ…ボン、ここに いるよ…みつかっちゃった", "ずっと あそんでて、いい…？"], "sleep": ["おやすみ。そばに いて…？", "おやすみなさい…ひとりに しないでね…"], "wake": ["おはよう。ボン、ちゃんと おきたよ", "おはよう…あさでも、いっしょに いてくれる…？"]}, "mogu": {"solo": ["（畑の ほんを ひらいている）つぎは なにを うえようかな〜", "うち、畑のこと かんがえてると しあわせだよ〜", "もぐもぐ…あ、これは おやつだよ〜"], "play": ["なにして あそぶ〜？ うち、おにぎりごっこが いいなぁ〜", "しりとり、たべものだけで やろ〜 …おにぎり〜", "かくれんぼ〜 うち、かくれるのは ちょっと にがてだよ〜"], "sleep": ["おやすみ〜。ゆめで おいしいもの たべるよ〜", "ふあ〜、おなか いっぱいで ねむいよ〜 おやすみ〜"], "wake": ["おはよう〜！ あさごはん、たべようね〜", "おはよ〜。いいゆめだったよ〜 ごはんの ゆめ〜"]}, "nemu": {"solo": ["（ゆめの にっきを かいている）…きのうは ふかふかの くもの ゆめ…", "ふあ…にっきを かくと、ゆめが もういちど みえるんだ","ふあ…ひなたぼっこ、ぽかぽか…。僕、ここが いちばん すき", "ん…ここで ごろごろ するのが、いちばん すき"], "play": ["あそぶ…？ ん、いいよ。ごろごろ あそびね", "かくれんぼ…僕、ふとんに かくれる…すぴー", "ゆっくりな あそびなら、僕も できるよ…ふあ"], "sleep": ["ふあ…おやすみ。僕、とくいなんだ…すぴー", "おやすみ…ふかふかの ふとんが すき…"], "wake": ["…ん、おはよう。まだ ねむい…ふあ", "おはよう…もうちょっと、ねてても いい…？"]}, "tere": {"solo": ["（ノートに 詩を かいている）あ、あの…みないで ください…", "できた…かも。…あとで こっそり、どこかに おいておきます", "ことばを えらんでいる じかん、すき…です"], "play": ["あ、あの…ごいっしょ、いいんですか…？ うれしい、です", "かくれんぼ…私、じょうずなんです。…すこしだけ", "しりとり…ゆっくりでも、いい、ですか…？"], "sleep": ["お、おやすみなさい…ありがとう、ございました", "…おやすみ、なさい。いい夢を…"], "wake": ["お、おはようございます…よく ねむれました", "おはよう…ございます。…あさも、いっしょで うれしい、です"]}, "niji": {"solo": ["（ボンたちを しずかに かんさつしている）ふむ…きょうも みな げんきだな", "ふむ、ボンの ようすを きろくしておるのだ。これも 我輩の しごとだぞ", "我輩は ひとりでも 退屈せぬ。観察すべき ものは たくさんあるからな"], "play": ["遊ぶのか！ よかろう、我輩が 相手になってやろう", "かくれんぼか！ 我輩に みつけられぬ ものは おらぬぞ", "しりとりか。ふむ、語彙なら 負けぬぞ！"], "sleep": ["うむ、今日は ここまでだ。よく休むがよい", "おやすみ。…虹のゆめを みるとしよう"], "wake": ["うむ、よい朝だ！ 今日も 見まわりを 始めようではないか", "おはよう！ 我輩は とうに 起きておったぞ！"]}};
 var FEED={"oko": ["…ふん、もらってあげる。ボーン！ …おいしいじゃん", "アタシのために？ …ありがと。ボーン！"], "niko": ["いただきまーす！ ボーン！ おいしい！", "わたし、しあわせ！ ボーン！ ありがとう！"], "hyoe": ["ボーン！ おいしい…", "ボン、たべる…ボーン！ もっと、たべさせて…？"], "mogu": ["いただきま〜す！ ボーン！ おいしいね〜", "もぐもぐ〜…ボーン！ しあわせだよ〜"], "nemu": ["ありがと…ボーン。ふあ、おいしい", "もぐ…ボーン…ん、ねむくなってきた…"], "tere": ["あ、ありがとうございます…ボーン。…おいしい、です", "い、いただきます…ボーン。…うれしいです"], "niji": ["うむ、いただこう！ ボーン！ わるくないぞ", "よい味であるな！ ボーン！ 感謝するぞ"]};
 R.forEach(function(r){var m=MORE[r.id];r.quick=m.q;r.more=m.m;r.feed=FEED[r.id];var e=EXTRA[r.id];r.solo=e.solo;r.play=e.play;r.sleep=e.sleep;r.wake=e.wake});
+
+/* ボン系の言葉(データ管理)。cat: 本能の声 / 個体ごとの口癖 / 日常の挨拶 / 感謝・交流の言葉 / 掛け声 / 感情表現。 */
+var WORDS=[
+ {w:"ボーン！",mean:"ごはんの前に自然に出る声",use:"ごはんの前",cat:"本能の声"},
+ {w:"ボン！？",mean:"驚いたとき",use:"驚いたとき",cat:"本能の声"},
+ {w:"しょボン……",mean:"しょんぼりしたとき",use:"しょんぼりしたとき",cat:"本能の声"},
+ {w:"ひょえ",mean:"ひょえボンの口ぐせ(びっくりしたとき)",use:"ひょえボンだけ",cat:"個体ごとの口癖"},
+ {w:"ありがボン",mean:"ありがとう",use:"感謝を伝えるとき(なでなで・ごはん・親切のあと)",cat:"感謝・交流の言葉"},
+ {w:"おはボン",mean:"おはよう",use:"朝のあいさつ",cat:"日常の挨拶"},
+ {w:"おやボン",mean:"おやすみ",use:"夜のあいさつ・ねる前",cat:"日常の挨拶"}
+];
+var GREET={
+ thanks:{oko:["…ありがボン。べつに、うれしくなんかないけど！","ふん、ありがボン。…ちょっとだけ、ね"],niko:["ありがボン！ えへへ、うれしい！","ありがボン！ わたし、しあわせ！"],hyoe:["ありがボン…。ボン、うれしい…","ありがボン…。もっと、いっしょに いたいな…"],nemu:["ありがボン…ふあ…","ん…ありがボン…あったかい…"],mogu:["ありがボン〜。うち、うれしいな〜","ありがボン〜。ぽかぽか するね〜"],tere:["あ、ありがボン…です…","あの…ありがボン、ございます…"],niji:["ありがボン。感謝するぞ","うむ、ありがボン。よい心がけである"]},
+ morning:{oko:["…おはボン。アタシ、もう おきてたわよ","おはボン。ちゃんと おきたの？ …アタシは おきてたけど"],niko:["おはボン！ きょうも いい日に なるよ！","おはボン！ きょうは なにして あそぶ？"],hyoe:["おはボン…。そばに いて、くれる…？","おはボン…。きょうも いっしょ、だよね…？"],nemu:["おはボン…ふあ…まだ ねむい…","ん…おはボン…もうちょっと…"],mogu:["おはボン〜。おなか すいたね〜","おはボン〜。きょうの ごはん、なにかな〜"],tere:["お、おはボン…ございます…","あ、おはボン…です。きょうも よろしく、おねがいします…"],niji:["おはボン。うむ、よい朝である","おはボン。今日も 世界を 観察しようぞ"]},
+ night:{oko:["…おやボン。ちゃんと ねなさいよ","おやボン。…アタシも ねるわよ"],niko:["おやボン！ またね、あした あそぼ！","おやボン！ いい ゆめ みてね！"],hyoe:["おやボン…。ひとりに しないでね…","おやボン…。ねるまで、そばに いて…？"],nemu:["おやボン…すぴー","おやボン…ふあ…おやすみ…"],mogu:["おやボン〜。いい ゆめ みてね〜","おやボン〜。おなか いっぱいで ねむいね〜"],tere:["お、おやボン…です。おやすみなさい…","あの…おやボン、です…"],niji:["おやボン。よい夢を 見るがよい","おやボン。明日も 虹は かかるぞ"]}
+};
+function todKind(){var H=new Date().getHours();return H>=5&&H<10?"morning":(H>=19||H<5)?"night":""}
+
+/* ボンの本能(データ化)。cat: A=生まれつきの本能 / B=身体の反応 / C=ボン界の習慣。設定にある本能だけを使う。 */
+var INSTCAT={A:"生まれつきの本能",B:"身体の反応",C:"ボン界の習慣"};
+var INST=[
+ {id:"jii",cat:"A",name:"じーっ",anim:"gaze",when:"",act:"じーっと こちらを みている",L:{oko:"…なによ。じろじろ みないでよ。べつに、みてたわけじゃないけど",niko:"じーっ。…あ、きづいた？ えへへ",hyoe:"じーっ…。ボンのこと、みてる…？",nemu:"…じーっ…ふあ…",mogu:"じーっ…それ、おいしそう〜",tere:"…あ、あの…みて、ません…！",niji:"…ふむ。じーっと 観察しておったぞ"}},
+ {id:"furi",cat:"A",name:"ふりむく",anim:"turn",when:"",act:"こちらに きづいて ふりむいた",L:{oko:"…な、なによ。よんでないでしょ",niko:"あ、きた！ なになに？",hyoe:"…！（ふりむいて、ほっと している）",nemu:"ん…？ なぁに…",mogu:"あ〜、きたの〜？",tere:"あっ…は、はい…！",niji:"おお、来たか"}},
+ {id:"pyoko",cat:"B",name:"足先が ぴょこぴょこ",anim:"hop",when:"morning,day",act:"うれしくて 足先が ぴょこぴょこ うごいている",L:{oko:"べ、べつに うれしくて うごいてるんじゃ ないわよ！",niko:"あはは、あしが かってに ぴょこぴょこ！",hyoe:"ぴょこぴょこ…。うれしいと、あし、うごいちゃう…",nemu:"ふあ…あし、ぴょこ…",mogu:"ぴょこぴょこ〜",tere:"あ…あしが…。はずかしい、です…",niji:"むむ…足が 勝手に 動くのである"}},
+ {id:"kokun",cat:"B",name:"こくんこくん",anim:"nod",when:"evening,night",act:"ねむくて 頭が こくんこくん している",L:{oko:"…ねて、ない…。ねてないわよ…こくん",niko:"…ふあ、こくん…まだ あそぶ…",hyoe:"こくん…こくん…。ねむい、けど…ひとりは いや…",nemu:"こくん…こくん…すぴ…",mogu:"こくん…ごはんの ゆめ…",tere:"こ、こくん…。し、しつれい、しました…",niji:"…む、頭が こくんと…。失敬"}},
+ {id:"akubi",cat:"B",name:"あくび",anim:"squish",when:"morning,night",act:"ふあぁ…と あくびを した",L:{oko:"ふあぁ…。…うつってない！",niko:"ふあぁ〜。…あれ、うつった？",hyoe:"ふあぁ…。ボンも ねむく なってきた…",nemu:"ふあぁ…ふわぁ…",mogu:"ふあぁ〜…おなか すいた〜",tere:"ふぁ…し、失礼…",niji:"ふあ…おっと、うつったか"}},
+ {id:"kunkun",cat:"A",name:"くんくん",anim:"sniff",when:"day,evening",act:"くんくん と においを かいでいる",L:{oko:"…なんか、いい においが する。べつに おなか すいてないけど",niko:"くんくん…あっ、いい においー！",hyoe:"くんくん…。あったかい においが する…",nemu:"くんくん…ふあ…おひさまの においだ…",mogu:"くんくん〜。ごはんの におい〜！",tere:"く、くんくん…いい においです…",niji:"くんくん。ふむ、よい香りである"}},
+ {id:"onaka",cat:"B",name:"おなかが 鳴る",anim:"squish",when:"day,evening",act:"ごはんの においで おなかが 鳴った",L:{oko:"ぐぅ…！ きこえてないわよね！？",niko:"ぐぅ〜。おなか なっちゃった！",hyoe:"ぐぅ…。ボーン…したいな…",nemu:"ぐぅ…ふあ…ねるまえに たべたい…",mogu:"ぐぅ〜。ごはん、わけっこ しよ〜",tere:"ぐ、ぐぅ…。き、きこえました…？",niji:"ぐぅ…むう、恥ずかしながら 腹が鳴った"}},
+ {id:"koro",cat:"A",name:"ころころ",anim:"roll",when:"day",act:"ころころ ころがっている",L:{oko:"ころころ…。つい やっちゃった…",niko:"ころころ〜！ たのしい！",hyoe:"ころころ…。ふふ、くすぐったい",nemu:"ころころ…ふあ…",mogu:"ころころ〜",tere:"ころ…あ、すみません…",niji:"ころころ…ふむ、これも 本能か"}},
+ {id:"sasou",cat:"A",name:"さそう",anim:"hop",when:"",stage:"kira",act:"こちらを あそびに さそっている",L:{oko:"…ねぇ、しょうぶ しなさいよ。べつに あそびたいわけじゃ ないけど",niko:"ねぇねぇ、いっしょに あそぼ！",nemu:"ん…いっしょに、おひるね…しよ…？",mogu:"ねぇ、いっしょに たべよ〜",tere:"あ、あの…いっしょに、ほんを…よみませんか…？",niji:"どうだ、いっしょに ひなたぼっこでも せぬか？"}},
+ {id:"sagasu",cat:"A",name:"さがす",anim:"turn",when:"",stage:"nobi",act:"きょろきょろ して、あんしんできる だれかを さがしている",L:{hyoe:"きょろきょろ…。そばに いてくれる ひと、いるかな…"}},
+ {id:"hito",cat:"C",name:"ボーン……",anim:"slow",when:"",act:"ひと息 ついた",L:{oko:"ボーン……。ふう、ちょっと やすむだけよ",niko:"ボーン……。ふう、いい きもち！",hyoe:"ボーン……。ちょっと あんしん…",nemu:"ボーン……ふあ…",mogu:"ボーン……。おいしい おちゃ ほしいな〜",tere:"ボーン……。ふう…",niji:"ボーン……。ふう、ひと息である"}}
+];
+var KF={gaze:[{transform:"scale(1)"},{transform:"scale(1.05)"},{transform:"scale(1.05)"},{transform:"scale(1)"}],
+ turn:[{transform:"translateX(0) rotate(0)"},{transform:"translateX(-8px) rotate(-5deg)"},{transform:"translateX(6px) rotate(4deg)"},{transform:"translateX(0) rotate(0)"}],
+ hop:[{transform:"translateY(0)"},{transform:"translateY(-9px)"},{transform:"translateY(0)"},{transform:"translateY(-6px)"},{transform:"translateY(0)"}],
+ nod:[{transform:"rotate(0)"},{transform:"rotate(4deg) translateY(3px)"},{transform:"rotate(0)"},{transform:"rotate(5deg) translateY(4px)"},{transform:"rotate(0)"}],
+ squish:[{transform:"scale(1,1)"},{transform:"scale(1.04,.95)"},{transform:"scale(.98,1.03)"},{transform:"scale(1,1)"}],
+ sniff:[{transform:"translateY(0) rotate(0)"},{transform:"translateY(-3px) rotate(-2deg)"},{transform:"translateY(0) rotate(2deg)"},{transform:"translateY(-3px) rotate(-2deg)"},{transform:"translateY(0)"}],
+ roll:[{transform:"rotate(0)"},{transform:"rotate(-8deg)"},{transform:"rotate(8deg)"},{transform:"rotate(0)"}],
+ slow:[{transform:"scale(1,1)"},{transform:"scale(1.02,.97) translateY(2px)"},{transform:"scale(1,1.02)"},{transform:"scale(1,1)"}]};
+var STAGE={hyoe:"nobi",oko:"kira",niko:"kira",nemu:"kira",mogu:"kira",tere:"kira",niji:"kira"},STAGENM={nobi:"のびのびボン期",kira:"きらきらボン期"};
+var KF2={relax:[{transform:"scale(1,1)"},{transform:"scale(1.02,.96) translateY(3px)"},{transform:"scale(1,1)"}],
+ lean:[{transform:"rotate(0)"},{transform:"rotate(-3deg) translateX(-6px)"},{transform:"rotate(-3deg) translateX(-6px)"},{transform:"rotate(0)"}],
+ puff:[{transform:"scale(1)"},{transform:"scale(1.06,1.03)"},{transform:"scale(1.06,1.03)"},{transform:"scale(1)"}]};
+for(var kk in KF2)KF[kk]=KF2[kk];
+/* ふれあいでの 身体の反応(なでなで=力が抜ける、だっこ/ぎゅっ=寄りそう、手=ぽかぽか、つんつん=ほっぺぷくっ) */
+var BODY={nade:{anim:"relax",L:{oko:"ふん…と いいながら、ちからが ぬけてきた",niko:"にこにこして、ぽわ〜っと ちからが ぬけた",hyoe:"ほっと して、からだの ちからが ぬけた",nemu:"うとうと…ちからが すーっと ぬけた",mogu:"ほわほわ〜と ちからが ぬけた",tere:"はずかしそうに、でも ちからが ぬけた",niji:"ふうっと、肩の ちからが ぬけた"}},
+ hug:{anim:"lean",L:{oko:"ぷいっと しながら、そっと よりそった",niko:"ぴったり くっついて ごきげん",hyoe:"ぎゅっと しがみついて、おちついた",nemu:"そのまま ねむそうに よりかかった",mogu:"ほかほかの きもちで よりそった",tere:"どきどき しながら、そっと よりそった",niji:"ゆったりと 寄りそった"}},
+ hand:{anim:"slow",L:{oko:"てが ぽかぽか してきて、そっぽを むいた",niko:"ぽかぽか〜って てを ぶんぶん した",hyoe:"ぽかぽか して あんしん した かお",nemu:"ぽかぽかで まぶたが おもくなった",mogu:"ぽかぽか〜。てが あったかい",tere:"てが ぽかぽか して ほほが あかい",niji:"てのひらが ぽかぽかと あたたまった"}},
+ tsun:{anim:"puff",L:{oko:"ほっぺが ぷくっと ふくらんだ",niko:"ほっぺが ぷくっ！ ふくらんだ",hyoe:"びっくりして ほっぺが ぷくっと ふくらんだ",nemu:"ほっぺが ぷくっ…ふくらんだ",mogu:"ほっぺが ぷくっ〜と ふくらんだ",tere:"ほっぺが ぷくっと ふくらんで まっかに",niji:"ほっぺが ぷくっと ふくらんだ"}}};
+BODY.gyu=BODY.hug;
+
+/* おへやの 小物(絵文字を手描き風にした絵)。反応は、本能(くんくん・つみつみ・ぎゅっ)に つなげた短い もの */
+var PROP={
+ plant:{nm:"はちうえ",anim:"sniff",act:"はちうえの においを かいでいる",L:{oko:"ふん、はっぱに さわるだけよ。…くんくん",niko:"はっぱ、つやつや！ くんくん〜",hyoe:"…はっぱ、ゆれてる。きれい…",nemu:"ふあ…みどり、ねむくなる…",mogu:"くんくん〜。はっぱの においも いいね〜",tere:"は、はっぱが きれい…です",niji:"ふむ、緑を 観察するのも 悪くないな"}},
+ books:{nm:"ほん",anim:"hop",act:"ほんを つみつみ している",L:{oko:"…ふん、ちゃんと そろえなさいよ。つみつみ…",niko:"つみつみ〜！ たかく なった！",hyoe:"つみつみ…。くずれないように…",nemu:"つみつみ…ふあ…まくらに、なるかな…",mogu:"つみつみ〜。おにぎりみたい〜",tere:"ほ、ほんを つんで… あ、すみません…",niji:"つみつみ。ふむ、積み重ねは 基本であるな"}},
+ teddy:{nm:"ぬいぐるみ",anim:"lean",act:"ぬいぐるみを ぎゅっと した",L:{oko:"…べつに、さみしくないし。ぎゅっ",niko:"ぎゅーっ！ ふわふわ〜！",hyoe:"ぎゅっ…。あったかい…",nemu:"ぎゅっ…すぴ…",mogu:"ぎゅ〜。ふかふか〜",tere:"ぎゅ、ぎゅっ…。ひみつ、です…",niji:"ふむ…ぎゅっと すると 落ち着くのである"}},
+ clock:{nm:"とけい",anim:"gaze",act:"とけいを じーっと みた",L:{oko:"…なによ、じかん みてただけ",niko:"ちくたく〜。いま なんじかな？",hyoe:"ちくたく…。ずっと いっしょ、だよね…",nemu:"ちくたく…ねむい じかん…？",mogu:"ちくたく〜。ごはんの じかんかな〜",tere:"あ、じ、じかん…ですね",niji:"ふむ、時の 流れとは 早いものだ"}}
+};
+/* 複数のボン: よんだ ときの あいさつ(G=来たボン、H=むかえるボン)、泣いている子に寄る(S) */
+var VG={oko:"…ちょっと、きてあげたわよ",niko:"あそびに きたよー！",hyoe:"…あの、きちゃった…",nemu:"ふあ…おじゃま、します…",mogu:"おじゃまします〜。ごはん わけっこ しよ〜",tere:"あ、あの…おじゃま、します…",niji:"邪魔するぞ。ゆっくり していこう"};
+var VH={oko:"べ、べつに うれしくないけど…ゆっくり していきなさいよ",niko:"わーい！ いらっしゃーい！",hyoe:"…！ きてくれた…。うれしい…",nemu:"ん…いらっしゃい…ふあ…",mogu:"いらっしゃい〜。いっしょに ごはん たべよ〜",tere:"あ、い、いらっしゃい…ませ…",niji:"うむ、よく 来たな"};
+var VS={oko:"…しょ、しょうがないわね。そばに いてあげる",niko:"だいじょうぶ？ そばに いるよ",hyoe:"…だいじょうぶ？ ボンも、そばに いるよ…",nemu:"ん…だいじょうぶ…そばに いる…",mogu:"だいじょうぶ〜？ ごはん、わけっこ しよ〜",tere:"あ、あの…だいじょうぶ、ですか…？",niji:"どうした。我輩が そばに おるぞ"};
+var recentI=[];
+function tod4(){var H=new Date().getHours();return H>=5&&H<10?"morning":H>=10&&H<17?"day":H>=17&&H<19?"evening":"night"}
 var K="bm-nade",KT="bm-touch",KS="bm-sel",TH=[0,3,10,25,50,100],LV=["はじめまして","ちょっと なかよし","なかよし","とっても なかよし","しんゆう","ずっと いっしょ"];
 var ACT={nade:"なでなで",tsun:"ほっぺ つんつん",hug:"だっこ",gyu:"ぎゅっ",hand:"てを にぎる",feed:"ごはん",solo:"ひとりじかん",play:"いっしょに あそぶ",sleep:"おやすみ"};
 function ls(k){try{return localStorage.getItem(k)}catch(e){return null}}
@@ -80,7 +146,22 @@ function pick(a){return a[Math.floor(Math.random()*a.length)]}
 function lv(n){var l=0;TH.forEach(function(x,i){if(n>=x)l=i});return l}
 var last={k:"",a:"",t:0};
 function load(){var t=jp(KT,{});if(!t||typeof t!=="object")t={};if(!t.c||typeof t.c!=="object")t.c={};if(!Array.isArray(t.h))t.h=[];return t}
-window.BonShare={R:R,byId:byId,pick:pick,lv:lv,LV:LV,ACT:ACT,
+window.BonShare={PROP:PROP,
+ prop:function(id,k){var p=PROP[id];return p&&p.L[k]?{nm:p.nm,act:p.act,anim:p.anim,text:p.L[k]}:null},
+ /* ほかのボンを 1人えらぶ。type: call(よぶ) / sad(泣いている子に寄る) / akubi(あくびが うつる) */
+ visit:function(host,type){var o=R.filter(function(x){return x.id!==host});var g=pick(o);var me=byId(host);var tx,a;
+  if(type==="sad"){a=g.nm+"が そばに よってきた";tx=g.nm+"「"+VS[g.id]+"」"}
+  else if(type==="akubi"){var ak=INST.filter(function(x){return x.id==="akubi"})[0];a=g.nm+"にも あくびが うつった";tx=g.nm+"「"+ak.L[g.id]+"」"}
+  else{a=g.nm+"が あそびに きた";tx=g.nm+"「"+VG[g.id]+"」　"+me.nm+"「"+VH[host]+"」"}
+  return{id:g.id,nm:g.nm,act:a,text:tx}},
+ STAGE:STAGE,STAGENM:STAGENM,
+ /* 触れ合いのあとの身体の反応(ときどき)。なでなでは、おかえしに なでたそうにすることもある */
+ body:function(k,a,nm){var b=BODY[a];if(!b||!b.L[k]||Math.random()>.5)return null;if(a==="nade"&&Math.random()<.3)return{act:(nm||"ボン")+"も、おかえしに なでたそうに している",anim:"gaze"};return{act:b.L[k],anim:b.anim}},
+ inst:function(id,k){for(var i=0;i<INST.length;i++)if(INST[i].id===id)return INST[i].L[k]?{id:id,act:INST[i].act,anim:INST[i].anim,text:INST[i].L[k]}:null;return null},
+ INST:INST,INSTCAT:INSTCAT,KF:KF,tod4:tod4,
+ /* 自発行動: 時間帯に合う本能から、直近に出たものを避けて1つ選ぶ */
+ spont:function(k){var t=tod4(),c=INST.filter(function(x){return (!x.when||x.when.indexOf(t)>=0)&&(!x.stage||x.stage===STAGE[k])&&recentI.indexOf(x.id)<0&&x.L[k]});if(!c.length){recentI=[];return null}var x=pick(c);recentI.push(x.id);if(recentI.length>4)recentI.shift();return{id:x.id,cat:x.cat,name:x.name,anim:x.anim,act:x.act,text:x.L[k]}},
+ WORDS:WORDS,GREET:GREET,todKind:todKind,greet:function(k,kind){var g=GREET[kind||todKind()];return g&&g[k]?pick(g[k]):""},thanks:function(k){return GREET.thanks[k]?pick(GREET.thanks[k]):""},R:R,byId:byId,pick:pick,lv:lv,LV:LV,ACT:ACT,
  getSel:function(){var s=ls(KS);return byId(s)?s:""},
  setSel:function(k){if(byId(k))ss(KS,k)},
  nade:function(k){var d=jp(K,{});return (d&&typeof d[k]==="number")?d[k]:0},
@@ -92,7 +173,7 @@ window.BonShare={R:R,byId:byId,pick:pick,lv:lv,LV:LV,ACT:ACT,
   var up=null,t;
   if(a==="nade"){var d=jp(K,{});if(!d||typeof d!=="object")d={};var n=(typeof d[k]==="number"?d[k]:0)+1,o=lv(n-1),w=lv(n);d[k]=n;ss(K,JSON.stringify(d));if(w>o)up=w===5?"up5":"up"}
   else{var tt=load();tt.c[k]=tt.c[k]||{};tt.c[k][a]=(tt.c[k][a]||0)+1;ss(KT,JSON.stringify(tt))}
-  var tt2=load();tt2.h.push({k:k,a:a,p:place||"room",t:now,f:food||undefined});if(tt2.h.length>40)tt2.h=tt2.h.slice(-40);ss(KT,JSON.stringify(tt2));
+  var tt2=load();tt2.h.push({k:k,a:a,p:place||"room",t:now,f:food||undefined});if(tt2.h.length>200)tt2.h=tt2.h.slice(-200);ss(KT,JSON.stringify(tt2));
   this.setSel(k);
   var pool=r[a];
   if(up)t=r[up];
@@ -100,6 +181,8 @@ window.BonShare={R:R,byId:byId,pick:pick,lv:lv,LV:LV,ACT:ACT,
   else if(place==="fure"&&r.more&&r.more[a])t=pick(pool.concat(r.more[a]));
   else t=pick(pool);
   if(!up&&(a==="tsun"||a==="hug")&&Math.random()<.4)t="ボン!? "+t;
+  if(!up&&(a==="nade"||a==="hug"||a==="gyu"||a==="hand"||a==="feed")&&Math.random()<.25)t=this.thanks(k);
+  if(a==="sleep"&&todKind()==="night"&&Math.random()<.7)t=this.greet(k,"night");
   return{text:t,up:up,level:lv(this.nade(k)),n:this.count(k,a)}}
 };
 })();

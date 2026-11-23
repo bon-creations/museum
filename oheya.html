@@ -249,13 +249,14 @@ h2{font-size:20px;margin-bottom:12px}
 .ohbtn[aria-disabled="true"]{opacity:.55}
 .ohname{margin:6px 0 2px}
 .ohlv{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.ohstage{--c:#E0463C;--w1:#FFE9E6;--w2:#FFD0CA;--fl:#E9B3AB;position:relative;width:100%;max-width:440px;margin:0 auto;aspect-ratio:4/5;border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:radial-gradient(circle at 20% 22%,rgba(255,255,255,.7) 0 5%,transparent 5.5%),radial-gradient(circle at 78% 14%,rgba(255,255,255,.6) 0 3.5%,transparent 4%),radial-gradient(circle at 88% 40%,rgba(255,255,255,.5) 0 4%,transparent 4.5%),linear-gradient(180deg,var(--w1),var(--w2) 70%);touch-action:manipulation}
+.ohstage{--c:#E0463C;--w1:#FFE9E6;--w2:#FFD0CA;--fl:#E9B3AB;position:relative;width:100%;max-width:400px;margin:0 auto;aspect-ratio:1/1;border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:radial-gradient(circle at 20% 22%,rgba(255,255,255,.7) 0 5%,transparent 5.5%),radial-gradient(circle at 78% 14%,rgba(255,255,255,.6) 0 3.5%,transparent 4%),radial-gradient(circle at 88% 40%,rgba(255,255,255,.5) 0 4%,transparent 4.5%),linear-gradient(180deg,var(--w1),var(--w2) 70%);touch-action:manipulation}
 .ohstage.rb{background:radial-gradient(circle at 20% 22%,rgba(255,255,255,.7) 0 5%,transparent 5.5%),radial-gradient(circle at 78% 14%,rgba(255,255,255,.6) 0 3.5%,transparent 4%),linear-gradient(180deg,#FFE9F2,#E8F6FF 45%,#F3EAFF 70%)}
 .ohfloor{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(180deg,var(--fl),color-mix(in srgb,var(--fl) 80%,#fff));border-top:3px solid var(--c)}
-.ohbonbtn{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);height:66%;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;display:block}
+.ohbonbtn{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);height:74%;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;display:block}
 .ohbonbtn:focus-visible{outline:3px solid var(--vermilion);outline-offset:2px;border-radius:12px}
 .ohbon{height:100%;width:auto;display:block;transform-origin:50% 100%;filter:drop-shadow(0 4px 0 rgba(46,36,28,.18));pointer-events:none}
 .ohstamp{position:absolute;right:3%;top:4%;height:34%;width:auto;pointer-events:none;z-index:3;transform-origin:50% 100%}
+.ohprop{position:absolute;z-index:2;border:0;background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}.ohprop img{display:block;width:100%;height:auto;pointer-events:none;filter:drop-shadow(0 2px 0 rgba(46,36,28,.15))}.ohprop:focus-visible{outline:3px solid var(--vermilion);border-radius:8px}.ohprop.p-clock{top:4%;left:4%;width:15%}.ohprop.p-plant{left:2%;bottom:5%;width:17%}.ohprop.p-teddy{left:20%;bottom:3%;width:13%}.ohprop.p-books{right:3%;bottom:5%;width:17%}.ohstage.fure .ohprop{display:none}.ohguest{position:absolute;z-index:3;top:4%;right:4%;width:17%;border:3px solid var(--c);border-radius:50%;background:#fff;pointer-events:none}.ohguest[hidden]{display:none}
 .ohfx{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}
 .ohp{position:absolute;font-size:24px;line-height:1;animation:ohup 1.2s ease-out forwards;color:var(--c);text-shadow:0 0 3px #fff}
 @keyframes ohup{0%{opacity:0;transform:translate(0,0) scale(.5)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx,0),var(--dy,-80px)) scale(1.3) rotate(var(--r,0deg))}}
@@ -322,7 +323,7 @@ h2{font-size:20px;margin-bottom:12px}
 <div id="ohPick" class="ohpick" role="group" aria-label="ほかの ボン"></div>
 <div class="ohlv"><span id="ohHearts" class="ndh" aria-hidden="true"></span><span id="ohLv" class="ndl"></span></div>
 <div id="ohStage" class="ohstage">
-<div class="ohfloor" aria-hidden="true"></div>
+<div class="ohfloor" aria-hidden="true"></div><button type="button" class="ohprop p-clock" data-p="clock" aria-label="とけい"><img src="oh_prop_clock.webp" alt="" width="140" height="123"></button><button type="button" class="ohprop p-plant" data-p="plant" aria-label="はちうえ"><img src="oh_prop_plant.webp" alt="" width="138" height="140"></button><button type="button" class="ohprop p-teddy" data-p="teddy" aria-label="ぬいぐるみ"><img src="oh_prop_teddy.webp" alt="" width="123" height="140"></button><button type="button" class="ohprop p-books" data-p="books" aria-label="ほん"><img src="oh_prop_books.webp" alt="" width="140" height="137"></button><img id="ohGuest" class="ohguest" alt="" hidden>
 <img id="ohStamp" class="ohstamp" alt="" hidden>
 <button type="button" id="ohBon" class="ohbonbtn" aria-label="なでなでする"><img id="ohImg" class="ohbon" alt="" draggable="false"></button>
 <div id="ohTime" class="ohtime" aria-hidden="true"></div>
@@ -344,7 +345,7 @@ h2{font-size:20px;margin-bottom:12px}
 <button type="button" class="ohbtn ohroom" id="ohSleep" data-a="sleep">おやすみ</button>
 </div>
 <div id="ohFood" class="ohfoodp" hidden role="group" aria-label="あげる ごはん"><button type="button" class="ohfd" data-f="onigiri"><img src="oh_food_onigiri.webp" alt="" width="48" height="45"><span>おにぎり</span></button><button type="button" class="ohfd" data-f="sekihan"><img src="oh_food_sekihan.webp" alt="" width="48" height="45"><span>お赤飯</span></button><button type="button" class="ohfd" data-f="potato"><img src="oh_food_potato.webp" alt="" width="48" height="45"><span>ポテト</span></button><button type="button" class="ohfd" data-f="omurice"><img src="oh_food_omurice.webp" alt="" width="48" height="45"><span>オムライス</span></button><button type="button" class="ohfd" data-f="milk"><img src="oh_food_milk.webp" alt="" width="48" height="45"><span>ホットミルク</span></button></div>
-<div style="max-width:440px;margin:14px auto 0"><button type="button" id="ohMode" class="ohbtn" style="width:100%"></button></div>
+<div style="max-width:440px;margin:10px auto 0"><button type="button" id="ohCall" class="ohbtn" style="width:100%">ほかの ボンを よぶ</button></div><div style="max-width:440px;margin:14px auto 0"><button type="button" id="ohMode" class="ohbtn" style="width:100%"></button></div>
 <div id="ohHist" class="ohhist" hidden></div>
 <p class="small" style="margin-top:14px">ボンの かおを タップしても なでなでできるよ。ブラウザの「もどる」でも、おへや選びに もどれるよ。</p>
 <p class="small"><a href="talk.html">ボンたちと おしゃべり</a>も あるよ。</p>
@@ -400,19 +401,20 @@ squish:[{transform:"scale(1,1)"},{transform:"scale(1.04,.95)"},{transform:"scale
 slow:[{transform:"scale(1,1)"},{transform:"scale(1.02,.97) translateY(2px)"},{transform:"scale(1,1.02)"},{transform:"scale(1,1)"}],
 wiggle:[{transform:"rotate(0)"},{transform:"rotate(-4deg)"},{transform:"rotate(4deg)"},{transform:"rotate(-3deg)"},{transform:"rotate(0)"}],
 spark:[{transform:"scale(1)"},{transform:"scale(1.03)"},{transform:"scale(1)"}]};
-var sadT=null;function sad(){clearTimeout(sadT);if(!cur)return;sadT=setTimeout(function(){if(cur&&!busy&&!document.hidden){say("しょボン……（さわって ほしいな）");fx(["…"],2,20)}},30000)}
-function idle(){sad();clearTimeout(idleT);if(!cur||NOFX)return;idleT=setTimeout(function(){if(cur&&!busy&&!asleep&&!document.hidden){var k=pick(cur.idle);anim($("ohImg"),IDLE[k],{duration:k==="slow"?2400:k==="hop"?900:1300,easing:"ease-in-out"});if(k==="spark")fx(["✦","★"],4,22)}idle()},3500+Math.random()*3500)}
+var sadT=null;function sad(){clearTimeout(sadT);if(!cur)return;sadT=setTimeout(function(){if(cur&&!busy&&!document.hidden){say("しょボン……（さわって ほしいな）");fx(["…"],2,20);if(mode==="r"&&!asleep&&Math.random()<.6)chain(cur,"sad",2500,"しょボン……")}},30000)}
+var lastSp=0;function idle(){sad();clearTimeout(idleT);if(!cur||NOFX)return;idleT=setTimeout(function(){if(cur&&!busy&&!asleep&&!document.hidden){if(mode==="r"&&Date.now()-lastSp>16000&&Math.random()<.4){var sp=BonShare.spont(cur.id);if(sp){lastSp=Date.now();var pre0="（"+sp.act+"）　"+sp.text;say(pre0);anim($("ohImg"),BonShare.KF[sp.anim],{duration:1300,easing:"ease-in-out"});if(sp.id==="akubi"&&Math.random()<.5)chain(cur,"akubi",2400,pre0);idle();return}}var k=pick(cur.idle);anim($("ohImg"),IDLE[k],{duration:k==="slow"?2400:k==="hop"?900:1300,easing:"ease-in-out"});if(k==="spark")fx(["✦","★"],4,22)}idle()},3500+Math.random()*3500)}
 /* room */
 var FOODS={"onigiri": ["おにぎり", "<img src=\"oh_food_onigiri.webp\" alt=\"\" width=\"48\" height=\"45\">"], "sekihan": ["お赤飯", "<img src=\"oh_food_sekihan.webp\" alt=\"\" width=\"48\" height=\"45\">"], "potato": ["ポテト", "<img src=\"oh_food_potato.webp\" alt=\"\" width=\"48\" height=\"45\">"], "omurice": ["オムライス", "<img src=\"oh_food_omurice.webp\" alt=\"\" width=\"48\" height=\"45\">"], "milk": ["ホットミルク", "<img src=\"oh_food_milk.webp\" alt=\"\" width=\"48\" height=\"45\">"]};
 var mode="r",BS=BonShare;var asleep=false;
 function tod(){var H=new Date().getHours();return H>=5&&H<10?["morning","あさ"]:H>=10&&H<17?["day","ひる"]:H>=17&&H<19?["evening","ゆうがた"]:["night","よる"]}
 function applyTime(){var t=tod(),s=$("ohStage");["morning","day","evening","night"].forEach(function(x){s.classList.remove("t-"+x)});s.classList.add("t-"+t[0]);s.classList.toggle("asleep",asleep);$("ohTimeL").textContent="いまは「"+t[1]+"」の おへや"+(asleep?"（ねんね中）":"");var b=$("ohSleep");if(b)b.textContent=asleep?"おはよう":"おやすみ"}
 setInterval(function(){if(cur)applyTime()},60000);var FS={oko:[3,4],niko:[2,3],hyoe:[5],mogu:[1,2],nemu:[1],tere:[2]};R.forEach(function(r){r.st=r.st||{};if(FS[r.id])r.st.feed=FS[r.id]});
-function stat(){var n=BS.nade(cur.id),l=lv(n),h="";for(var i=1;i<=5;i++)h+='<span class="'+(i<=l?"":"off")+'">'+(i<=l?"♥":"♡")+"</span>";$("ohHearts").innerHTML=h;$("ohLv").textContent="なかよし度："+LV[l]+"（なでなで "+n+"かい）";hist()}
+function stat(){var n=BS.nade(cur.id),l=lv(n),h="";for(var i=1;i<=5;i++)h+='<span class="'+(i<=l?"":"off")+'">'+(i<=l?"♥":"♡")+"</span>";$("ohHearts").innerHTML=h;var lh=BS.hist(cur.id,1)[0];$("ohLv").textContent="なかよし度："+LV[l]+"（なでなで "+n+"かい）"+(lh?"　さいごに あった: "+ago(lh.t):"");hist()}
 function ago(t){var x=new Date(t);return (x.getMonth()+1)+"/"+x.getDate()+" "+x.getHours()+":"+("0"+x.getMinutes()).slice(-2)}
 function hist(){var box=$("ohHist");if(mode!=="f"){box.hidden=true;return}box.hidden=false;var c="";Object.keys(BS.ACT).forEach(function(a){c+="<li>"+BS.ACT[a]+"　<b>"+BS.count(cur.id,a)+"</b>かい</li>"});
 var h=BS.hist(cur.id,6).map(function(x){return "<li>"+ago(x.t)+"　"+BS.ACT[x.a]+(x.f&&FOODS[x.f]?" "+FOODS[x.f][0]:"")+"（"+({today:"今日のボン",room:"おへや",fure:"ふれあい"}[x.p]||"")+"）</li>"}).join("");
-box.innerHTML='<h3>'+cur.nm+'との ふれあい</h3><ul class="ohcnt">'+c+'</ul><h3>さいきんの ようす</h3><ul class="ohhl">'+(h||"<li>まだ ないよ</li>")+'</ul><p class="small">きろくは この端末のブラウザの中だけに保存されるよ。</p>'}
+var td=new Date().toDateString(),all=BS.hist(cur.id,200),tdc=all.filter(function(x){return new Date(x.t).toDateString()===td}).length,top="",tm=0;Object.keys(BS.ACT).forEach(function(a){var q=BS.count(cur.id,a);if(q>tm){tm=q;top=BS.ACT[a]}});var ex='<p class="small" style="margin:0 0 6px">きょうの ふれあい：<b>'+tdc+"</b>かい"+(top?"　いちばん おおい：<b>"+top+"</b>":"")+"</p>";
+box.innerHTML='<p class="small" style="margin:0 0 6px">せいちょう：'+(BonShare.STAGENM[BonShare.STAGE[cur.id]]||"")+'</p>'+ex+'<h3>'+cur.nm+'との ふれあい</h3><ul class="ohcnt">'+c+'</ul><h3>さいきんの ようす</h3><ul class="ohhl">'+(h||"<li>まだ ないよ</li>")+'</ul><p class="small">きろくは この端末のブラウザの中だけに保存されるよ。</p>'}
 function hs(id,m){return "#"+id+(m==="f"?":f":"")}
 function go(id,m){var h=hs(id,m||mode);if(location.hash!==h)location.hash=h;else show(id,m||mode)}
 function pickerDraw(){var p=$("ohPick");p.innerHTML="";R.forEach(function(r){var b=document.createElement("button");b.type="button";b.className="ohpk"+(cur&&cur.id===r.id?" on":"");b.style.setProperty("--c",r.c);b.setAttribute("aria-label",r.nm+(mode==="f"?"と ふれあう":"の おへやへ"));b.innerHTML='<img src="icon_round_'+r.id+'.png" alt="" width="44" height="44">';b.addEventListener("click",function(){if(!cur||cur.id!==r.id)go(r.id)});p.appendChild(b)})}
@@ -420,15 +422,20 @@ function show(id,m){var r=byId(id);if(!r){home();return}cur=r;mode=m==="f"?"f":"
 $("ohRoom").style.setProperty("--c",r.c);$("ohSay").style.setProperty("--c",r.c);
 var im=$("ohImg");try{im.getAnimations().forEach(function(x){x.cancel()})}catch(e){}im.onerror=function(){im.onerror=null;im.src="oh_card_"+r.id+".webp"};im.src="oh_sit_"+r.id+".webp";im.alt=r.nm;
 $("ohBon").setAttribute("aria-label",r.nm+"を なでなでする");$("ohName").textContent=mode==="f"?r.nm+"と ふれあう":r.nm+"の おへや";document.title=(mode==="f"?"ボンと ふれあい":"ボンの おへや");$("ohStamp").hidden=true;$("ohFx").innerHTML="";
-$("ohSay").textContent=mode==="f"?r.nm+"と ふれあおう。ボタンを おしてみてね":r.nm+"の おへやに ついたよ。ボタンを おしてみてね";
+$("ohSay").textContent=mode==="f"?r.nm+"と ふれあおう。ボタンを おしてみてね":r.nm+"の おへやに ついたよ。ボタンを おしてみてね";var gk=BonShare.todKind();if(gk&&Math.random()<.6)$("ohSay").textContent=BonShare.greet(r.id,gk);
 var mb=$("ohMode");mb.textContent=mode==="f"?r.nm+"の おへやへ →":r.nm+"と ふれあう →";mb.onclick=function(){go(id,mode==="f"?"r":"f")};
 $("ohBack").textContent=mode==="f"?"← ボンを えらびなおす":"← ほかの おへや";
 asleep=false;applyTime();pickerDraw();stat();$("ohSel").hidden=true;$("ohRoom").hidden=false;window.scrollTo(0,0);busy=false;idle()}
 function home(){cur=null;clearTimeout(idleT);$("ohRoom").hidden=true;$("ohSel").hidden=false;window.scrollTo(0,0)}
 function parse(){var m=location.hash.replace("#","").match(/^(\w+?)(:f)?$/);return m?[m[1],m[2]?"f":"r"]:null}
 window.addEventListener("hashchange",function(){var p=parse();p?show(p[0],p[1]):home()});
+var guestT=null;function showGuest(id,ms){var g=$("ohGuest");g.src="icon_round_"+id+".png";g.hidden=false;clearTimeout(guestT);guestT=setTimeout(function(){g.hidden=true},ms||5000)}
+function chain(r,type,delay,pre){setTimeout(function(){if(cur!==r||asleep||mode!=="r")return;var v=BonShare.visit(r.id,type);showGuest(v.id,5000);say(pre+"　（"+v.act+"）　"+v.text);fx(["♥"],2,20)},delay)}
+document.querySelectorAll(".ohprop").forEach(function(b){b.addEventListener("click",function(){if(!cur||busy||asleep||mode!=="r")return;var p=BonShare.prop(b.getAttribute("data-p"),cur.id);if(!p)return;say("（"+p.act+"）　"+p.text);anim($("ohImg"),BonShare.KF[p.anim],{duration:1100,easing:"ease-in-out"});idle()})});
+$("ohCall").addEventListener("click",function(){if(!cur||busy)return;if(asleep){say("（すやすや…そっと しておいてあげよう）");return}var v=BonShare.visit(cur.id,"call");showGuest(v.id,6000);say("（"+v.act+"）　"+v.text);anim($("ohImg"),BonShare.KF.hop,{duration:900,easing:"ease-in-out"});fx(["♥","♪"],4,22);idle()});
+$("ohName").addEventListener("click",function(){if(!cur||busy||asleep)return;var f=BonShare.inst("furi",cur.id);if(!f)return;say("（なまえを よばれて "+f.act+"）　"+f.text);anim($("ohImg"),BonShare.KF[f.anim],{duration:1000,easing:"ease-in-out"})});
 $("ohBack").addEventListener("click",function(){if(location.hash)history.back();else home()});
-function wake(){try{$("ohImg").getAnimations().forEach(function(x){x.cancel()})}catch(e){}asleep=false;applyTime();var r=cur;if(!r)return;BS.setSel(r.id);var t=BonShare.pick(r.wake);say(t);fx(["☀","♪"],4,22);anim($("ohImg"),[{transform:"scale(1,.95)"},{transform:"scale(1.04,1.04)"},{transform:"scale(1,1)"}],{duration:700});se("up")}
+function wake(){try{$("ohImg").getAnimations().forEach(function(x){x.cancel()})}catch(e){}asleep=false;applyTime();var r=cur;if(!r)return;BS.setSel(r.id);var t=BonShare.todKind()==="morning"?BonShare.greet(r.id,"morning"):BonShare.pick(r.wake);say(t);fx(["☀","♪"],4,22);anim($("ohImg"),[{transform:"scale(1,.95)"},{transform:"scale(1.04,1.04)"},{transform:"scale(1,1)"}],{duration:700});se("up")}
 /* actions */
 function lock(ms){busy=true;var bs=document.querySelectorAll(".ohbtns .ohbtn");for(var i=0;i<bs.length;i++)bs[i].setAttribute("aria-disabled","true");setTimeout(function(){busy=false;for(var i=0;i<bs.length;i++)bs[i].removeAttribute("aria-disabled");idle()},ms)}
 function say(t){$("ohSay").textContent=t}
@@ -456,6 +463,7 @@ fx(["♥","★","♪"],8,26);se("up");showStamp(r,"feed");ms=1300}
 else if(a==="hand"){$("ohHandImg").src="oh_hold.webp";sprite($("ohHand"),[-60,h*.58],[w*.5-70,h*.58],1200,-10);
 anim(im,[{transform:"rotate(0)"},{transform:"rotate(-5deg) translateX(-6px)"},{transform:"rotate(-5deg) translateX(-6px)"},{transform:"rotate(0)"}],{duration:1200,easing:"ease-in-out"});
 fx(["✦","♪"],5,24);se("hand");showStamp(r,"hand");ms=1200}
+var bd=(!up&&["nade","tsun","hug","gyu","hand"].indexOf(a)>=0)?BonShare.body(r.id,a,r.nm):null;if(bd){t=t+"　（"+bd.act+"）";setTimeout(function(){if(cur===r&&!asleep)anim($("ohImg"),BonShare.KF[bd.anim],{duration:1000,easing:"ease-in-out"})},700)}
 say(t);if(a==="nade"||mode==="f")stat();lock(ms)}
 document.querySelectorAll(".ohbtns .ohbtn").forEach(function(b){b.addEventListener("click",function(){var a=b.getAttribute("data-a");if(a==="feedmenu"){var p=$("ohFood");p.hidden=!p.hidden;b.setAttribute("aria-expanded",p.hidden?"false":"true");return}$("ohFood").hidden=true;act(a)})});
 document.querySelectorAll(".ohfd").forEach(function(b){b.addEventListener("click",function(){act("feed",b.getAttribute("data-f"))})});
