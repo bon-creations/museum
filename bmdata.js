@@ -1,8 +1,9 @@
 /* サイトの共通データ(ゲーム数・今週のおすすめ・ボン早見表)。ここを直すと、各ページの表示が変わる */
 window.BM_DATA={
  "games": {
-  "total": 13,
-  "playable": 9,
+  "total": 14,
+  "live": 10,
+  "playable": 11,
   "prep": 3,
   "proto": 1
  },
@@ -198,4 +199,4 @@ window.BM_DATA={
   }
  ]
 };
-(function(){function f(){var G=window.BM_DATA.games,m={gtotal:G.total,gplay:G.playable,grest:G.prep+G.proto,gprep:G.prep,gproto:G.proto};[].forEach.call(document.querySelectorAll("[data-bm]"),function(e){var k=e.getAttribute("data-bm");if(m[k]!=null)e.textContent=m[k]})}f();document.addEventListener("DOMContentLoaded",f)})();
+(function(){function f(){var G=window.BM_DATA.games,m={gtotal:G.total,gplay:G.playable,glive:G.live,grest:G.prep+G.proto,gprep:G.prep,gproto:G.proto};[].forEach.call(document.querySelectorAll("[data-bm]"),function(e){var k=e.getAttribute("data-bm");if(m[k]!=null)e.textContent=m[k]})}f();document.addEventListener("DOMContentLoaded",f)})();
