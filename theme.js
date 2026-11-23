@@ -166,6 +166,7 @@ if(!bk){bk=mk("← もどる","もどる",function(){if(history.length>1)history
 var fw=mk("進む →","すすむ",function(){history.forward()});fw.setAttribute("data-bmfw","1");
 bar.insertBefore(fw,bk.nextSibling);
 bar.style.gap="4px";
+bar.style.position="sticky";bar.style.zIndex="9995";(function(){function fx(){var c=document.getElementById("bmcopylink");bar.style.top=(c?Math.ceil(c.getBoundingClientRect().height):0)+"px"}fx();setTimeout(fx,300);setTimeout(fx,1200);window.addEventListener("resize",fx)})();
 [].slice.call(bar.querySelectorAll("button")).forEach(function(x){x.style.paddingLeft=x.style.paddingRight="10px";x.style.minWidth="0"});
 return true}
 function go(){var n=0;(function t(){if(add()&&document.querySelector("button[data-bmsb]")&&document.querySelector("[data-bmfw]"))return;if(++n<12)setTimeout(t,250)})()}
