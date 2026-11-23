@@ -386,11 +386,10 @@ var L=[
 ["はじめての クイズ","ボンクイズに ちょうせんした",(qz.plays||0)>=1,"shindan.html#quiz","ボンクイズ"],
 ["クイズ はかせ","ボンクイズで 7もん いじょう せいかい",(qz.best||0)>=7,"shindan.html#quiz","ボンクイズ"],
 ["クイズ まんてん","ボンクイズで 10もん ぜんぶ せいかい",(qz.best||0)>=10,"shindan.html#quiz","ボンクイズ"],
-["400かいめの こうしん","「400回 記念」の ページを ひらいた",!!localStorage.getItem("bm-k400"),"koushin.html#kinen400","400回 記念"],
 ["おきにいり","♡を 1つ つけた",fv.length>=1,"mine.html#fav","お気に入り"],
 ["しおり","小説に しおりを はさんだ",mk>=1,"novels.html","小説"]
 ];
-if(window.BM_K500&&BM_K500.on)L.push(["500かいめの こうしん","「500回 記念」の ページを ひらいた",!!localStorage.getItem("bm-k500"),"koushin.html#kinen500","500回 記念"]);
+
 var g=document.getElementById("bgGrid"),n=0;
 L.forEach(function(x){var c=document.createElement("div");c.className="bgc"+(x[2]?"":" lock");if(x[2])n++;
 c.innerHTML='<div class="m"><svg width="34" height="34" aria-hidden="true"><use href="#star"/></svg></div><b></b><small></small><div class="st"></div>';

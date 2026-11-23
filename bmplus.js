@@ -192,8 +192,8 @@ function badgeCount(){
   var vc=parseInt(localStorage.getItem("bm-vc"),10)||0,sp=J("bm-stamps",{}),sc=Array.isArray(sp)?sp.length:Object.keys(sp||{}).length,nd=J("bm-nade",{})||{},pn=J("bm-puni",null),fv=J("bm-fav",[]),qz=J("bm-quiz",{})||{};
   var nn=0,mx=0,ok2=0;["oko","niko","hyoe","mogu","nemu","tere","niji"].forEach(function(k){var n=nd[k]||0;nn+=n;if(n>mx)mx=n;if(n>=10)ok2++});
   var mk=0;try{for(var i=0;i<localStorage.length;i++){if(String(localStorage.key(i)).indexOf("bm-mark:")===0)mk++}}catch(e){}
-  var pg=pn?pn.g||0:0,k400=false;try{k400=!!localStorage.getItem("bm-k400")}catch(e){}
-  var L=[vc>=1,vc>=3,vc>=7,vc>=30,sc>=10,sc>=25,nn>=1,nn>=50,mx>=25,mx>=100,ok2>=7,!!pn,pg>=50,pg>=120,(qz.plays||0)>=1,(qz.best||0)>=7,(qz.best||0)>=10,k400,(fv&&fv.length>=1),mk>=1],n=0;try{if(window.BM_K500&&BM_K500.on)L.push(!!localStorage.getItem("bm-k500"))}catch(e){}
+  var pg=pn?pn.g||0:0;
+  var L=[vc>=1,vc>=3,vc>=7,vc>=30,sc>=10,sc>=25,nn>=1,nn>=50,mx>=25,mx>=100,ok2>=7,!!pn,pg>=50,pg>=120,(qz.plays||0)>=1,(qz.best||0)>=7,(qz.best||0)>=10,(fv&&fv.length>=1),mk>=1],n=0;
   L.forEach(function(x){if(x)n++});return [n,L.length];
 }
 function stampTotal(){return (window.bmStamp&&bmStamp.list)?[bmStamp.count(),bmStamp.list.length]:[0,0]}
