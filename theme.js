@@ -151,3 +151,23 @@ d.appendChild(h)}
 draw()},3.6)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(ui,0)});else setTimeout(ui,0);
 })();
+
+
+/* ホーム画面から ひらいた とき(アプリ風)の 上の バーに「進む」を足す。もどる・進む を ブラウザの ように つかえる */
+(function(){
+function add(){
+var sb=document.querySelector("button[data-bmsb]");if(!sb)return true;
+var bar=sb.parentNode;if(!bar||bar.querySelector("[data-bmfw]"))return true;
+var btns=[].slice.call(bar.querySelectorAll("button"));
+var bk=null;btns.forEach(function(x){if(/もどる/.test(x.textContent))bk=x});
+var css=sb.style.cssText;
+function mk(t,lab,fn){var x=document.createElement("button");x.type="button";x.textContent=t;x.setAttribute("aria-label",lab);x.style.cssText=css;x.addEventListener("click",fn);return x}
+if(!bk){bk=mk("← もどる","もどる",function(){if(history.length>1)history.back()});if(history.length<=1)bk.style.opacity=".45";bar.insertBefore(bk,bar.firstChild)}
+var fw=mk("進む →","すすむ",function(){history.forward()});fw.setAttribute("data-bmfw","1");
+bar.insertBefore(fw,bk.nextSibling);
+bar.style.gap="4px";
+[].slice.call(bar.querySelectorAll("button")).forEach(function(x){x.style.paddingLeft=x.style.paddingRight="10px";x.style.minWidth="0"});
+return true}
+function go(){var n=0;(function t(){if(add()&&document.querySelector("button[data-bmsb]")&&document.querySelector("[data-bmfw]"))return;if(++n<12)setTimeout(t,250)})()}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+})();
