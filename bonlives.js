@@ -99,9 +99,35 @@ mogu:["いらっしゃ〜い。おやつ、はんぶんこ しよ〜","きてく
 nemu:["ふあ…いらっしゃい。ゆっくり していって","ふあ…うん、いっしょに…すぴ…"],
 tere:["あ…ありがとう ございます。どうぞ、おかけください","きて くださって…うれしい、です"],
 niji:["うむ、よく きたな。まあ 座るがよい","ふむ、おぬしか。歓迎するのである"]};
+
+/* ほうもんへの へんじ: join(よろこんで) hesitate(まよって) decline(ことわる) sleepy(ねむくて) alt(べつの あそび) */
+var RT={oko:{join:.45,hesitate:.2,decline:.25,alt:.1},niko:{join:.85,hesitate:.05,alt:.1},hyoe:{join:.4,hesitate:.45,decline:.15},mogu:{join:.8,hesitate:.1,alt:.1},nemu:{join:.3,sleepy:.35,decline:.2,alt:.15},tere:{join:.4,hesitate:.45,decline:.15},niji:{join:.5,hesitate:.15,alt:.25,decline:.1}};
+var RL={
+oko:{hesitate:["…え、アタシ？ ……ま、まあ、ちょっと だけ なら いいわよ","…べつに いいけど。…いや、やっぱり いい。…いや、いいわ。どうぞ"],decline:["…ごめん、いま ひとりで いたいの。また こんど ね","…アタシ、いま いそがしいの。…また あとで きなさい"],alt:["…あそぶより、おちゃでも のまない？ そのほうが アタシは いいわ"]},
+niko:{hesitate:["えっと〜…うん！ いいよ！ ちょっと まってね！"],alt:["それも いいけど、ダンスは どう？ わたし、おどりたいな！"]},
+hyoe:{hesitate:["…え、えっと…あの…ボン、どうしよう…。…うん、ちょっとだけ…","…こわくない…？ …じゃ、じゃあ、ちょっとだけ…"],decline:["…ごめんね。いま、ボン、ひとりで ぬいぐるみと いたいの…"]},
+mogu:{hesitate:["う〜ん、いま おやつの じゅんび してるんだ〜。…あ、いいよ〜"],alt:["あそぶより、いっしょに おやつ たべない〜？ うち、おいしいの あるよ〜"]},
+nemu:{sleepy:["ふあ…ごめん…ねむくて…すぴー…","…ふあ。いま、ゆめの とちゅう…また あとで…"],decline:["ふあ…今日は ここで ゆっくり したいな…ごめんね"],alt:["ふあ…あそぶより、ごろごろ しようよ…となり、あいてるよ"]},
+tere:{hesitate:["あ…ええと…その…。…はい、すこしだけ、ごいっしょ します","わ、私が…ですか？ …すこし まよいますが…はい、よろこんで"],decline:["すみません…いまは、ひとりで ほんを よんで いたくて…。また、ぜひ"]},
+niji:{hesitate:["ふむ…いま 観察の 途中なのだが…まあ、よいか"],decline:["すまぬな、いまは 考えごとの 最中なのである。また 今度、な"],alt:["遊びも よいが、ここは ひとつ、お茶でも どうだ？ 我輩が 話を 聞こう"]}};
+/* じかんたいの 生活リズム(10くぶんのうち 該当するときだけ) */
+var SH={
+nemu:{sl:["昼前","昼","午後"],e:[{a:"ふかふかの ところで うとうと している",t:"ふあ…ひるまの おひるね、さいこう…すぴ…",k:"slow",d:"ひるまに うとうと していた",mv:"sofa"},{a:"ごろんと ころがって めを とじた",t:"ふあ…ちょっと だけ…すぴー",k:"roll",d:"ひるまに ごろんと ひとやすみ していた"}]},
+niko:{sl:["朝","昼前"],e:[{a:"あさから げんきに あるきまわっている",t:"おはよ〜！ きょうも いっぱい あそぶぞ〜！",k:"hop",d:"あさから げんきに うごいていた"},{a:"ごきげんで はなうたを うたっている",t:"ふふふ〜ん♪ いい あさ〜",k:"hop",d:"あさから はなうたを うたっていた"}]},
+tere:{sl:["深夜","夜ふけ","早朝"],e:[{a:"しずかな じかんに ほんを ひらいている",t:"…しずかな ときに よむ ほんは、とくべつ です",k:"nod",d:"しずかな じかんに ほんを よんでいた",mv:"books"},{a:"ランプの そばで ページを めくっている",t:"…もうすこし だけ、つづきを…",k:"nod",d:"よふけに そっと ほんを めくっていた",mv:"books"}]},
+mogu:{sl:["昼前","午後","夕"],e:[{a:"おやつの じかんを まちきれずに そわそわ している",t:"まだかな〜。おやつ、まだかな〜",k:"hop",d:"おやつの じかんを たのしみに していた"},{a:"ごはんの におい を すんすん している",t:"ん〜、いい におい〜。おなか すいたね〜",k:"sniff",d:"ごはんの においに うっとり していた"}]},
+hyoe:{sl:["夜","夜ふけ","深夜"],e:[{a:"ぬいぐるみを ぎゅっと だいている",t:"…よるは、ぬいぐるみと いっしょ…",k:"squish",d:"よるに ぬいぐるみを だいていた",mv:"teddy"},{a:"ぬいぐるみに ほっぺを うずめている",t:"…あったかい…ボン、ほっと する",k:"slow",d:"ぬいぐるみに ほっぺを うずめていた"}]}};
 var last="",lastV=0;
 function pk(a){return a[Math.floor(Math.random()*a.length)]}
 window.BonLives={
  has:function(id){return !!L[id]},
+ absent:function(id,away){if(away==null||away<60*60000||!window.BonShare||!window.BonDiary)return null;var BS=window.BonShare,me=BS.byId(id);if(!me)return null;var span=Math.min(away,12*3600000),n=away<3*3600000?1:2,ts=[],i;for(i=0;i<n;i++)ts.push(Date.now()-Math.random()*span);ts.sort();var ids=["oko","niko","hyoe","mogu","nemu","tere","niji"].filter(function(x){return x!==id}),out=[];
+  ts.forEach(function(t,k){var r=Math.random();if(r<.4){var g=BS.byId(pk(ids));if(!g)return;window.BonDiary.add(id,g.nm+"が あそびに きてくれた（るすちゅう）",g.nm,t);window.BonDiary.add(g.id,me.nm+"の おへやに あそびに いった（るすちゅう）",me.nm,t);if(window.BonExtra)window.BonExtra.rel(g.id,id,"るすちゅうに あそびに きた");out.push(g.nm+"が あそびに きた")}else if(r<.65){window.BonDiary.add(id,"ひとりで うとうと していた（るすちゅう）","",t);out.push("ひとりで うとうと")}else if(r<.85){window.BonDiary.add(id,"こものを ながめて すごした（るすちゅう）","",t);out.push("こものを ながめて すごした")}else{window.BonDiary.add(id,"ぼんやり まどの そとを みていた（るすちゅう）","",t);out.push("ぼんやり すごした")}});
+  return out.length?out.join("、"):null},
+ react:function(id,asleep){var w=RT[id]||{join:1};if(asleep&&RL[id]&&RL[id].sleepy)return "sleepy";var r=Math.random(),a=0,k;for(k in w){a+=w[k];if(r<a)return k}return "join"},
+ reply:function(id,t){var l=(RL[id]||{})[t];return l?pk(l):null},
+ slotPick:function(id,slot){var x=SH[id];if(!x||x.sl.indexOf(slot)<0||Math.random()>.4)return null;var e=pk(x.e);return{a:e.a,t:e.t,k:e.k,d:e.d,mv:e.mv||""}},
+ mem:{rec:function(id,t,w){try{var d=JSON.parse(localStorage.getItem("bm-mem"))||{},l=d[id]=d[id]||[];l.push({t:Date.now(),k:t,w:w||""});if(l.length>6)l.splice(0,l.length-6);localStorage.setItem("bm-mem",JSON.stringify(d))}catch(e){}},
+  recall:function(id,idleMs){try{var d=JSON.parse(localStorage.getItem("bm-mem"))||{},l=(d[id]||[]).filter(function(x){return Date.now()-x.t<3*3600000});if(l.length&&Math.random()<.8){var x=l[l.length-1],T={visit:"さっき "+x.w+"が あそびに きてくれた ことを おもいだしている",fed:"さっき もらった "+x.w+"の あじを おもいだしている",praised:"ほめてもらった ことを おもいだして、すこし ほこらしげ",group:"さっきの みんなで あそんだ ことを おもいだして にこにこ",play:"さっき いっしょに あそんだ ことを おもいだしている"};return T[x.k]||null}if(idleMs>3600000)return "ひとりで すごす じかんが ながかった みたい";}catch(e){}return null}},
  pick:function(id,gapMs,tod){var m=window.BonHyoe.mood(gapMs,tod),l=L[id][m],i=Math.floor(Math.random()*l.length),key=id+m+i;if(key===last)i=(i+1)%l.length;last=id+m+i;var x=l[i];return{m:m,a:x.a,t:x.t,k:x.k,d:x.d,mv:x.mv||""}},
  visit:function(host,ids){var now=Date.now();if(now-lastV<240000||Math.random()>.35)return null;var c=ids.filter(function(i){return i!==host&&G[i]});if(!c.length)return null;lastV=now;var g=pk(c);return{g:g,gv:pk(G[g]),hv:pk(H[host]||H.tere)}}}})();

@@ -78,7 +78,8 @@ window.BonExtra={
  rainbow:function(host){if(host!=="niji"||Date.now()-lastRB<30*60000||Math.random()>.25)return null;lastRB=Date.now();var i=(lastRBi+1+Math.floor(Math.random()*RB.length))%RB.length;lastRBi=i;var x=RB[i],ids=Object.keys(x.g),g=ids[Math.floor(Math.random()*ids.length)];return{r:x.r,n:x.n,g:g,gv:x.g[g]}},
 
  pair:function(g,h){var x=P[g+">"+h];return x?{g:x[0],h:x[1]}:null},
- rel:function(g,h){var d=ld(),k=pr(g,h);d[k]=(d[k]||0)+1;sv(d)},
+ rel:function(g,h,x){var d=ld(),k=pr(g,h);d[k]=(d[k]||0)+1;sv(d);if(x){try{var H=JSON.parse(localStorage.getItem("bm-relh"))||{},l=H[k]=H[k]||[];l.push({t:Date.now(),x:x});if(l.length>6)l.splice(0,l.length-6);localStorage.setItem("bm-relh",JSON.stringify(H))}catch(e){}}},
+ relHist:function(g,h){try{var H=JSON.parse(localStorage.getItem("bm-relh"))||{};return(H[pr(g,h)]||[]).slice().reverse()}catch(e){return[]}},
  relAll:function(){return ld()},
  group:function(ids){var now=Date.now();if(now-lastT<420000||Math.random()>.3)return null;var i=Math.floor(Math.random()*EV.length);if(i===lastEv)i=(i+1)%EV.length;lastEv=i;lastT=now;var e=EV[i],st=e.steps.filter(function(s){return ids.indexOf(s[0])>=0&&s[0]!==e.lead[0]&&!(s[0]==="nemu"&&Math.random()<.35)&&!(s[0]==="oko"&&Math.random()<.2)});if(st.length<2)return null;st=st.sort(function(){return Math.random()-.5}).slice(0,Math.min(st.length,2+Math.floor(Math.random()*3)));return{a:e.a,lead:e.lead,steps:st}},
  nfood:function(){return{pre:pk(NJ.pre),eat:pk(NJ.eat),post:pk(NJ.post)}},
