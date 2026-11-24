@@ -5,7 +5,9 @@ NEWA.forEach(function(n){BS.NEWACT.push(n);BS.ACT[n.a]=n.lb});for(var k in FXN)B
 BS.R.forEach(function(r){NEWA.forEach(function(n){r[n.a]=[FALL[n.a]]})});
 var ko=BS.kindOf;BS.kindOf=function(a){var x=ko(a);if(x)return x;for(var i=0;i<NEWA.length;i++)if(NEWA[i].a===a)return NEWA[i].kind;return null};
 function pk(a){return a[Math.floor(Math.random()*a.length)]}
-var B=window.BonBaby={NEED:8,AUTO:9*60000,t:0,lastE:"",lastB:-1,tE:0,tV:0,
+var B=window.BonBaby={AUTO:1e15,t:0,lastE:"",lastB:-1,tE:0,tV:0,
+ save:function(on){try{if(on)localStorage.setItem("bm-hbaby","1");else localStorage.removeItem("bm-hbaby")}catch(e){}},
+ saved:function(){try{return localStorage.getItem("bm-hbaby")==="1"}catch(e){return false}},
  start:function(){B.t=Date.now();B.lastE="";B.tE=0;B.tV=Date.now()},
  touched:function(){B.t=Date.now()},
  line:function(a,kind){var l=BABYA[a];return pk(l||BS.BABY[kind]||BS.BABY.soft)},

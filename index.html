@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261123-717">
+<meta name="site-version" content="20261123-720">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -441,10 +441,10 @@ header>*{position:relative}
 <button type="button" class="go" id="tdNiji" style="display:none">♪ 虹彩漫談を流す</button>
 <a class="go" id="tdOpen" href="#" style="display:none;text-decoration:none"></a>
 <a class="go" id="tdTalk" href="talk.html" style="text-decoration:none">この ボンと おしゃべりする</a>
-<div class="tdfure" id="tdFure" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><a class="go" id="tdRoom" href="oheya.html" style="margin:0;font-size:17px;padding:10px 16px;min-height:46px;text-decoration:none">ボンの おへやへ</a><a class="go" id="tdFureA" href="oheya.html" style="margin:0;font-size:17px;padding:10px 16px;min-height:46px;text-decoration:none">ふれあう</a></div>
+<div class="tdfure" id="tdFure" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><a class="go" id="tdRoom" href="oheya.html" style="margin:0;font-size:17px;padding:10px 16px;min-height:46px;text-decoration:none">ボンの おへやへ</a></div>
 <script src="bonshare.js"></script><script>(function(){var M={"おこボン":"oko","にこボン":"niko","ひょえボン":"hyoe","もぐボン":"mogu","ねむボン":"nemu","てれボン":"tere","にじボン":"niji"};
 function key(){var e=document.getElementById("tdName");return e?M[(e.textContent||"").trim()]:""}
-function links(){var k=key();if(!k)return;document.getElementById("tdRoom").href="oheya.html#"+k;document.getElementById("tdFureA").href="oheya.html#"+k+":f"}
+function links(){var k=key();if(!k)return;document.getElementById("tdRoom").href="oheya.html#"+k;void 0}
 links();window.addEventListener("load",links);setTimeout(links,600);setTimeout(links,2000)})();</script>
 </div>
 <p class="small" style="margin:10px 0">ボンの 1日・バッジは「おへや」で 見られるよ。</p>
