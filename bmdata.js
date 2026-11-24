@@ -1,10 +1,10 @@
 /* サイトの共通データ(ゲーム数・今週のおすすめ・ボン早見表)。ここを直すと、各ページの表示が変わる */
 window.BM_DATA={
  "games": {
-  "total": 14,
+  "total": 13,
   "live": 10,
   "playable": 11,
-  "prep": 3,
+  "prep": 2,
   "proto": 1
  },
  "recommend": {
