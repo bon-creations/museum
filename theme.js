@@ -217,3 +217,4 @@ L.forEach(function(x){var li=document.createElement("li"),a=document.createEleme
 n.appendChild(u);m.insertBefore(n,m.firstChild)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()
 }catch(e){}})();
+;(function(){try{var s=document.createElement("script");s.src="nijiha.js";s.defer=true;document.head.appendChild(s)}catch(e){}})();
