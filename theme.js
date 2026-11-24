@@ -54,7 +54,7 @@ ap();if(mq&&mq.addEventListener)mq.addEventListener("change",ap);
 function ui(){bmSet.add(function(d){
 function draw(){d.textContent="";var l=document.createElement("div");l.textContent="いろ(あかるさ)";l.className="lb";d.appendChild(l);
 [["auto","じどう"],["light","ライト"],["dark","ダーク"],["oya","おやすみ"],["night","よるだけ おやすみ"]].forEach(function(p){var on=mode===p[0];var b=document.createElement("button");b.type="button";b.className="sb";b.textContent=p[1];b.setAttribute("aria-pressed",on?"true":"false");
-b.onclick=function(){mode=p[0];try{localStorage.setItem(K,mode)}catch(e){}ap();draw();if(oyaOn())toast("おやすみなさい。ゆっくり やすんでね。")};d.appendChild(b)});
+b.onclick=function(){mode=p[0];try{localStorage.setItem(K,mode)}catch(e){}ap();draw();if(oyaOn())toast("おやすみなさい。ゆっくり やすんでくれ。")};d.appendChild(b)});
 var h=document.createElement("div");h.style.cssText="font-size:12px;opacity:.8";h.textContent="「おやすみ」は いちばん くらい 画面。「よるだけ おやすみ」は、夜9時〜朝5時に じどうで おやすみに なるよ。";d.appendChild(h)}
 draw()},3)}
 function toast(t){var o=document.getElementById("bmoya");if(o)o.remove();o=document.createElement("div");o.id="bmoya";o.setAttribute("role","status");o.textContent=t;
@@ -76,7 +76,7 @@ b.setAttribute("aria-label","このページのリンクをコピー");
 b.style.cssText="min-height:44px;padding:0 14px;border-radius:999px;border:2px solid var(--ink,#2E241C);background:var(--card,#FFF8EA);color:var(--ink,#2E241C);font:700 14px/1 sans-serif;cursor:pointer;box-shadow:0 2px 0 rgba(46,36,28,.25)";
 var msg=document.createElement("span");msg.setAttribute("role","status");msg.style.cssText="font-size:13px;color:var(--ink,#2E241C)";
 function url(){var u=location.href.replace(/([?&])btn=1(&|$)/,function(m,a,c){return c?a:""}).replace(/[?&]$/,"");return u}
-function done(ok){msg.textContent=ok?"コピーしたよ！":"コピーできなかったよ";b.innerHTML=ok?bmIco("check")+" コピーしたよ":bmIco("link")+" リンクをコピー";setTimeout(function(){msg.textContent="";b.innerHTML=bmIco("link")+" リンクをコピー"},2200)}
+function done(ok){msg.textContent=ok?"コピーしたよ！":"コピーできなかったぞ";b.innerHTML=ok?bmIco("check")+" コピーしたよ":bmIco("link")+" リンクをコピー";setTimeout(function(){msg.textContent="";b.innerHTML=bmIco("link")+" リンクをコピー"},2200)}
 function fallback(t){try{var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);var ok=document.execCommand("copy");document.body.removeChild(ta);done(ok)}catch(e){done(false)}}
 b.addEventListener("click",function(){var t=url();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done(true)},function(){fallback(t)})}else fallback(t)});
 var gb=document.createElement("button");gb.type="button";gb.id="bmgear";gb.innerHTML=bmIco("gear");gb.setAttribute("aria-label","せってい(BGM・見やすさ・いろ)");gb.setAttribute("aria-expanded","false");
@@ -131,7 +131,7 @@ var host=document.querySelector("main")||document.body;
 var els=[].slice.call(host.querySelectorAll("p,li,dd")).filter(function(e){return e.textContent.trim().length>20&&!e.closest("details:not([open]),summary,button,a,#bmcopylink,.news")});
 if(els.length<3)return;
 var who=ID[(seed>>>3)%ID.length],tgt=els[(seed>>>7)%els.length];
-var b=document.createElement("button");b.id="bmkk";b.type="button";b.setAttribute("aria-label","ちいさな ボンが かくれているよ。みつけた！");
+var b=document.createElement("button");b.id="bmkk";b.type="button";b.setAttribute("aria-label","ちいさな ボンが かくれているぞ。みつけた！");
 b.style.cssText="display:inline-block;vertical-align:middle;margin:0 4px;padding:0;border:0;background:none;cursor:pointer;opacity:.9;min-width:32px;min-height:32px";
 var im=document.createElement("img");im.src="icon_round_"+who+".png";im.alt="";im.width=24;im.height=24;im.style.cssText="width:24px;height:24px;border-radius:50%;pointer-events:none";b.appendChild(im);
 b.onclick=function(){var q=load();if(q.day!==day){q.day=day;q.found={}}q.found[path]=1;q.total=(q.total||0)+1;save(q);b.remove();toast("みーつけた！ "+N[who]+"が かくれていたよ。(ぜんぶで "+q.total+" かい)")};
@@ -173,9 +173,9 @@ d.appendChild(document.createElement("br"));
 var sb=document.createElement("button");sb.type="button";sb.className="sb";sb.textContent="好きなボンと 同期: "+(sync?"オン":"オフ");sb.setAttribute("aria-pressed",sync?"true":"false");
 sb.onclick=function(){sync=!sync;sv("bm-accent-sync",sync?"1":null);rnd=null;apply();draw()};d.appendChild(sb);
 var h=document.createElement("div");h.style.cssText="font-size:12px;opacity:.8";
-if(sync&&!oshis().length){h.innerHTML='好きなボンが まだ いないよ。<a href="mine.html" style="color:inherit">じぶんのきろく</a>で えらんでね。'}
-else if(sync){h.textContent="ページを ひらくたびに、好きなボンの 中から 1人の 色になるよ。"}
-else h.textContent="オンにすると、好きなボンの 色に なるよ。";
+if(sync&&!oshis().length){h.innerHTML='好きなボンが まだ いないのだ。<a href="mine.html" style="color:inherit">じぶんのきろく</a>で えらんでくれ。'}
+else if(sync){h.textContent="ページを ひらくたびに、好きなボンの 中から 1人の 色になるぞ。"}
+else h.textContent="オンにすると、好きなボンの 色に なるぞ。";
 d.appendChild(h)}
 draw()},3.6)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(ui,0)});else setTimeout(ui,0);

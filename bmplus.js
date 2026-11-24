@@ -59,7 +59,7 @@ function renderResume(){
     if(rows.length>3)h+='</details>';
     h+='<details class="rc-more"><summary>せつめいと けしかた</summary><p class="rc-note">ゲームは、この博物館から ひらいた「さいきん あそんだ」だけ 出るよ(ゲームの セーブは、それぞれの ゲームの中に あるよ)。</p><button type="button" class="rc-del" id="rcDel">れきしを けす</button></details>';
   }else{
-    h+='<p class="rc-note">まだ れきしが ないよ。まずは ここから どうぞ。</p>';
+    h+='<p class="rc-note">まだ れきしが ないぞ。まずは ここから どうぞ。</p>';
     [["novel.html","book","小説 第1話","ひょえボンの はじめての おうち"],["zukan.html","book","ずかん","ボンたちのずかん"],["games.html","game","ゲーム","ボンちゃんの ゲーム"]].forEach(function(r){h+='<a class="rc-row" href="'+r[0]+'"><span class="rc-k">'+ic(r[1])+r[2]+'</span><span class="rc-t">'+r[3]+'</span><span class="rc-g">ひらく →</span></a>'});
   }
   box.innerHTML=h;
@@ -69,33 +69,33 @@ function renderResume(){
 
 /* ---------- 2. 博物館ガイドツアー ---------- */
 var TOURS=[
- {id:"first",name:"はじめてのボンツアー",ico:"sprout",desc:"ボンたちに はじめて あう人の コース。ずかん・おしゃべり・診断・ゲームを じゅんばんに めぐるよ。",stops:[
-  ["zukan.html","ボンたちのずかん","7人の ボンの プロフィールが 見られるよ。"],
-  ["talk.html","ボンたちと おしゃべり","ボンに ひとこと かけると、へんじを くれるよ。"],
-  ["shindan.html","ボン診断","8つの 質問で、あなたに にた ボンが わかるよ。"],
-  ["games.html","ボンちゃんの ゲーム","ボンたちの ゲームが ぜんぶ ならんでいるよ。"]]},
- {id:"hyoe",name:"ひょえボンの成長ツアー",ico:"book",desc:"赤ちゃんの ひょえボンが 大きくなるまで。小説を、おはなしの じかんの ながれの じゅんばんに めぐるよ。",stops:[
+ {id:"first",name:"はじめてのボンツアー",ico:"sprout",desc:"ボンたちに はじめて あう人の コース。ずかん・おしゃべり・診断・ゲームを じゅんばんに めぐるぞ。",stops:[
+  ["zukan.html","ボンたちのずかん","7人の ボンの プロフィールが 見られるのだ。"],
+  ["talk.html","ボンたちと おしゃべり","ボンに ひとこと かけると、へんじを くれるぞ。"],
+  ["shindan.html","ボン診断","8つの 質問で、あなたに にた ボンが わかるぞ。"],
+  ["games.html","ボンちゃんの ゲーム","ボンたちの ゲームが ぜんぶ ならんでいるのだ。"]]},
+ {id:"hyoe",name:"ひょえボンの成長ツアー",ico:"book",desc:"赤ちゃんの ひょえボンが 大きくなるまで。小説を、おはなしの じかんの ながれの じゅんばんに めぐるぞ。",stops:[
   ["novel.html","第1話 はじめての おうち","星の夜に 生まれた ボンが、名前を もらうまで。"],
   ["novel5.html","第2話 はじめての おふろ","赤ちゃんのころの、にぎやかな おはなし。"],
   ["novel6.html","第3話 はじめての ほんのう","名前を もらって、1〜2週間ごろ。"],
-  ["novel8.html","第4話 はじめての ならわし","秋の はじめ、ボン界の ならわしを おぼえるよ。"],
+  ["novel8.html","第4話 はじめての ならわし","秋の はじめ、ボン界の ならわしを おぼえるぞ。"],
   ["novel9.html","第5話 せいちょう の しるし","できることが ふえていく おはなし。"],
   ["novel1b.html","第6話 はじめての おはよう","ことばを おぼえて、「にこちゃん」と 呼ぶまで。"],
-  ["novel2.html","第7話 はじめての お赤飯","お赤飯の日。ちびボン期に 入るよ。"],
-  ["novel4.html","第8話 はじめての ひとりでできた","ちびボンが、ひとりで おにぎりを にぎるよ。"],
+  ["novel2.html","第7話 はじめての お赤飯","お赤飯の日。ちびボン期に 入るのだ。"],
+  ["novel4.html","第8話 はじめての ひとりでできた","ちびボンが、ひとりで おにぎりを にぎるぞ。"],
   ["novel10.html","第9話 ひょえボンと みのボン","みのボンと ともだちに なる おはなし。"],
   ["novel11.html","第10話 はじめての ようちえん","ようちえんへ はじめて いく日。"],
   ["novel12.html","第11話 わらいごえの ばんぐみ","ボメリコの ばんぐみに ハマる おはなし。"],
   ["novel13.html","第12話 たこやき パーティ","みのちゃんを 呼んでの たこパ。"],
-  ["novel14.html","第13話 まるまる夜","冬の はじめの さむい夜、7人で おだんごに なるよ。"],
-  ["novel15.html","第14話 はじめての しんりょうじょ","ほっぺが ぽかぽかの 日、しろボンに あいにいくよ。"]]},
- {id:"game",name:"ゲームツアー",ico:"game",desc:"みじかい時間で あそべる ゲームと あそびの めぐり。ブラウザで すぐ あそべるよ。",stops:[
-  ["oheya.html?m=f","ボンと ふれあい","なでなで・だっこ・ぎゅっで、なかよし度が あがるよ。"],
+  ["novel14.html","第13話 まるまる夜","冬の はじめの さむい夜、7人で おだんごに なるぞ。"],
+  ["novel15.html","第14話 はじめての しんりょうじょ","ほっぺが ぽかぽかの 日、しろボンに あいにいくのだ。"]]},
+ {id:"game",name:"ゲームツアー",ico:"game",desc:"みじかい時間で あそべる ゲームと あそびの めぐり。ブラウザで すぐ あそべるぞ。",stops:[
+  ["oheya.html?m=f","ボンと ふれあい","なでなで・だっこ・ぎゅっで、なかよし度が あがるぞ。"],
   ["shiritori.html","ボンと しりとり","ボンと しりとりで あそぼう。"],
-  ["oheya.html?tab=puni#hyoe","ぷにごっこ","ひょえボンの おへやで、ぷにの おせわと ふれあいが できるよ。"],
+  ["oheya.html?tab=puni#hyoe","ぷにごっこ","ひょえボンの おへやで、ぷにの おせわと ふれあいが できるのだ。"],
   ["shindan.html#quiz","ボンクイズ","ずかんや ひょえボンの お話から、10もんの 4択クイズ。"],
   ["games.html","ボンちゃんの ゲーム","ぜんぶの ゲームは ここから。"]]},
- {id:"music",name:"音楽ツアー",ico:"note",desc:"ボンたちの 曲を、じゅんばんに きいていくよ。ミュージックの 曲を 7つ めぐるよ。",stops:[
+ {id:"music",name:"音楽ツアー",ico:"note",desc:"ボンたちの 曲を、じゅんばんに きいていくぞ。ミュージックの 曲を 7つ めぐるぞ。",stops:[
   ["music.html#t3","コギけつ食パン","BON ORIGINAL(ボンの オリジナル曲)。"],
   ["music.html#t4","魔法の言葉","BON ORIGINAL(ボンの オリジナル曲)。"],
   ["music.html#t9","ボンちゃんマーチ","BON ORIGINAL(ボンの オリジナル曲)。"],
@@ -103,7 +103,7 @@ var TOURS=[
   ["music.html#t1","虹彩漫談","BON CHARACTER(キャラクターの曲)。"],
   ["music.html#t2","UTOPIA SPIN!!!","BON GAME MUSIC(ゲームの曲)。"],
   ["music.html#t10","紅彩烈火(こうさいれっか)","BON CHARACTER(キャラクターの曲)。"]]},
- {id:"world",name:"ボン界探検ツアー",ico:"map",desc:"ボン界の せかいかん・えちず・年表・きまりを めぐるよ。",stops:[
+ {id:"world",name:"ボン界探検ツアー",ico:"map",desc:"ボン界の せかいかん・えちず・年表・きまりを めぐるのだ。",stops:[
   ["world.html","ボン界の せかいかん","ボン界の 社会や きまりの 資料。"],
   ["world.html#map","ボン界の えちず","梵京と いろどり町を、タップで たんけん。"],
   ["world.html#wnen","ボン界の 年表","ボン界の できごとの ながれ。"],
@@ -137,8 +137,8 @@ function renderTourBar(){
   var h='<div class="tb-h"><b>'+ic(t.ico,22)+esc(t.name)+'</b><span>スタンプ '+n+' / '+tot+'</span></div>';
   h+='<div class="tb-p" role="progressbar" aria-valuemin="0" aria-valuemax="'+tot+'" aria-valuenow="'+n+'"><i style="width:'+Math.round(n/tot*100)+'%"></i></div>';
   if(i>=0)h+='<p class="tb-c">いま：'+(i+1)+'こめ「'+esc(t.stops[i][1])+'」'+(newly?'　<b class="tb-new">✓ スタンプ ゲット！</b>':'')+'</p>';
-  else h+='<p class="tb-c">ツアーの とちゅうだよ。つぎの 展示へ もどれるよ。</p>';
-  if(done)h+='<p class="tb-done">'+ic("party",22)+'ツアー たっせい！ ぜんぶの 展示を めぐったよ。</p>';
+  else h+='<p class="tb-c">ツアーの とちゅうだぞ。つぎの 展示へ もどれるぞ。</p>';
+  if(done)h+='<p class="tb-done">'+ic("party",22)+'ツアー たっせい！ ぜんぶの 展示を めぐったぞ。</p>';
   var pv=i>0?t.stops[i-1]:null,nx=i>=0&&i<tot-1?t.stops[i+1]:(i<0?t.stops[Math.min(tot-1,firstUnstamped(t))]:null);
   h+='<div class="tb-b">';
   h+=pv?'<a class="tb-a" href="'+esc(pv[0])+'">← 前の展示へ</a>':'<span class="tb-a off">← 前の展示へ</span>';
@@ -153,7 +153,7 @@ function renderTourBar(){
 function firstUnstamped(t){var s=stampsOf(t.id);for(var i=0;i<t.stops.length;i++)if(!s[t.stops[i][0]])return i;return 0}
 document.addEventListener("click",function(e){
   var b=e.target.closest&&e.target.closest("[data-tbend]");if(!b)return;
-  if(confirm("ツアーを おわるよ。もらった スタンプは のこるよ。いい?")){try{localStorage.removeItem("bm-tour")}catch(x){}
+  if(confirm("ツアーを おわるのだ。もらった スタンプは のこるぞ。いい?")){try{localStorage.removeItem("bm-tour")}catch(x){}
     [].forEach.call(document.querySelectorAll(".bm-tourbar"),function(d){d.remove()});tourBarTop=tourBarBot=null;if(F==="tour")renderTourPage()}
 });
 window.addEventListener("hashchange",function(){if(tourState())renderTourBar()});
@@ -212,7 +212,7 @@ function renderCardPage(){
   box.innerHTML='<div class="cd-ctl"><label for="cdName">おなまえ（ひらがな・カタカナ 5もじまで。「○○ボン」に なるよ）</label><input id="cdName" maxlength="5" autocomplete="off" value="'+esc(name)+'" placeholder="なまえ"><p class="small" id="cdMsg" role="status"></p>'+
    '<div class="cd-lbl">カードの デザイン</div><div class="cd-bgs" id="cdBgs"></div>'+
    '<div class="cd-lbl">すきな ボン</div><div class="cd-bgs" id="cdBon"></div>'+
-   '<p class="small">スタンプ・バッジ・来館記念日は、この端末の きろくから じどうで 入るよ。</p></div>'+
+   '<p class="small">スタンプ・バッジ・来館記念日は、この端末の きろくから じどうで 入るぞ。</p></div>'+
    '<canvas id="cdCv" width="1080" height="1350" role="img" aria-label="マイ来館カード"></canvas>'+
    '<div class="cd-act"><button type="button" class="go" id="cdSave">がぞうで ほぞんする</button></div><p class="small" id="cdSaveMsg" role="status"></p>';
   var cv=document.getElementById("cdCv"),ctx=cv.getContext("2d"),imgs={},need=[];
@@ -240,7 +240,7 @@ function renderCardPage(){
     /* 好きなボン */
     ctx.fillStyle="rgba(255,255,255,.78)";rr(110,700,W-220,250,28);ctx.fill();
     ctx.fillStyle=d.c;ctx.font="700 34px sans-serif";ctx.textAlign="left";ctx.fillText("すきな ボン",150,754);
-    var bn="まだ きまってないよ";BONS.forEach(function(b){if(b[0]===oshi)bn=b[1]});
+    var bn="まだ きまってないのだ";BONS.forEach(function(b){if(b[0]===oshi)bn=b[1]});
     if(oshi){img(oshi,150,780,150);ctx.fillStyle=d.ink;ctx.textAlign="left";fit(bn,W-420,70,"700");ctx.fillText(bn,330,878)}
     else{ctx.fillStyle=d.ink;ctx.textAlign="center";fit(bn,W-340,60,"700");ctx.fillText(bn,W/2,868)}
     /* スタンプ・バッジ・記念日 */
@@ -255,7 +255,7 @@ function renderCardPage(){
   function save(){st={name:name,bg:BGS[bg].id};S("bm-card",st)}
   var inEl=document.getElementById("cdName"),msg=document.getElementById("cdMsg");
   inEl.addEventListener("input",function(){var v=inEl.value.trim();if(v===""){name="";msg.textContent="";save();draw();return}
-    if(!NAMERE.test(v)){msg.textContent="ひらがな・カタカナ(5もじまで)で 入れてね";return}msg.textContent="";name=v;save();draw()});
+    if(!NAMERE.test(v)){msg.textContent="ひらがな・カタカナ(5もじまで)で 入れてくれ";return}msg.textContent="";name=v;save();draw()});
   var bb=document.getElementById("cdBgs");
   BGS.forEach(function(d,i){var b=document.createElement("button");b.type="button";b.className="cd-b";b.textContent=d.n;b.setAttribute("aria-pressed",i===bg?"true":"false");b.style.borderColor=d.c;
     b.addEventListener("click",function(){bg=i;save();draw();[].forEach.call(bb.children,function(c,j){c.setAttribute("aria-pressed",j===i?"true":"false")})});bb.appendChild(b)});
@@ -264,10 +264,10 @@ function renderCardPage(){
     b.addEventListener("click",function(){oshi=x[0];[].forEach.call(bo.children,function(c,j){c.setAttribute("aria-pressed",BONS[j][0]===oshi?"true":"false")});draw()});bo.appendChild(b)});
   document.getElementById("cdSave").addEventListener("click",function(){
     var m=document.getElementById("cdSaveMsg");
-    try{cv.toBlob(function(bl){if(!bl){m.textContent="ほぞんに しっぱいしたよ。がぞうを 長おしして ほぞんしてね。";return}
+    try{cv.toBlob(function(bl){if(!bl){m.textContent="ほぞんに しっぱいしたぞ。がぞうを 長おしして ほぞんしてくれ。";return}
       var u=URL.createObjectURL(bl),a=document.createElement("a");a.href=u;a.download="BON-MUSEUM-card.png";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);
-      m.textContent="ほぞんしたよ！ 保存できない時は、カードを 長おしして がぞうを ほぞんしてね。"},"image/png")}
-    catch(e){m.textContent="ほぞんに しっぱいしたよ。カードを 長おしして ほぞんしてね。"}
+      m.textContent="ほぞんしたぞ！ 保存できない時は、カードを 長おしして がぞうを ほぞんしてくれ。"},"image/png")}
+    catch(e){m.textContent="ほぞんに しっぱいしたのだ。カードを 長おしして ほぞんしてくれ。"}
   });
 }
 
@@ -283,14 +283,14 @@ function bkDownload(msgEl){
   try{
     var bl=new Blob([JSON.stringify(pack,null,1)],{type:"application/json"}),u=URL.createObjectURL(bl),a=document.createElement("a");
     a.href=u;a.download=bkFile();document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);
-    if(msgEl)msgEl.textContent="バックアップしたよ！ ("+n+"こ の きろく)　ファイル名: "+bkFile();
-  }catch(e){if(msgEl)msgEl.textContent="バックアップに しっぱいしたよ。もういちど ためしてね。"}
+    if(msgEl)msgEl.textContent="バックアップしたぞ！ ("+n+"こ の きろく)　ファイル名: "+bkFile();
+  }catch(e){if(msgEl)msgEl.textContent="バックアップに しっぱいしたぞ。もういちど ためしてくれ。"}
 }
 function bkValidate(txt){
-  if(txt.length>1500000)return{err:"ファイルが 大きすぎるよ。BON MUSEUMの バックアップじゃ ないみたい。"};
-  var p;try{p=JSON.parse(txt)}catch(e){return{err:"ファイルを よみこめなかったよ。こわれて いるか、ちがう ファイルだよ。"}}
+  if(txt.length>1500000)return{err:"ファイルが 大きすぎるのだ。BON MUSEUMの バックアップじゃ ないみたい。"};
+  var p;try{p=JSON.parse(txt)}catch(e){return{err:"ファイルを よみこめなかったぞ。こわれて いるか、ちがう ファイルだぞ。"}}
   if(!p||typeof p!=="object"||p.app!=="BON MUSEUM"||p.format!==1||!p.data||typeof p.data!=="object"||Array.isArray(p.data))return{err:"BON MUSEUMの バックアップファイルじゃ ないみたい。"};
-  var ks=Object.keys(p.data);if(!ks.length)return{err:"きろくが 入っていない ファイルだよ。"};if(ks.length>600)return{err:"きろくの かずが おおすぎるよ。ふくげんしないよ。"};
+  var ks=Object.keys(p.data);if(!ks.length)return{err:"きろくが 入っていない ファイルである。"};if(ks.length>600)return{err:"きろくの かずが おおすぎるぞ。ふくげんしないのだ。"};
   for(var i=0;i<ks.length;i++){var k=ks[i];if(!bkOk(k)||typeof p.data[k]!=="string"||p.data[k].length>400000)return{err:"へんな きろくが まざっているよ。あんぜんの ため ふくげんしないよ。"}}
   return{ok:true,data:p.data,at:p.savedAt,n:ks.length};
 }
@@ -298,7 +298,7 @@ function renderBackup(){
   var main=document.querySelector("main");if(!main||document.getElementById("bmbk"))return;
   var sec=document.createElement("section");sec.id="bmbk";sec.setAttribute("aria-labelledby","bkh");
   sec.innerHTML='<h2 id="bkh"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#leaf"/></svg><span class="t">きろくの バックアップ・ふくげん</span></h2>'+
-   '<div class="gl-lead"><p>スタンプ・バッジ・お気に入り・しおり・ツアーの きろくを、ファイルに 書きだして、べつの 端末に うつせるよ。きろくは この ブラウザの中だけに あるので、機種変更の 前に バックアップしておくと あんしんだよ。</p></div>'+
+   '<div class="gl-lead"><p>スタンプ・バッジ・お気に入り・しおり・ツアーの きろくを、ファイルに 書きだして、べつの 端末に うつせるぞ。きろくは この ブラウザの中だけに あるので、機種変更の 前に バックアップしておくと あんしんだぞ。</p></div>'+
    '<article class="sheet plain" style="margin-top:14px"><h3>きろくを バックアップする</h3><p>ファイル名に「BON-MUSEUM」と 日付が 入るよ。</p><button type="button" class="go" id="bkOut">きろくを バックアップする</button><p class="small" id="bkMsg" role="status"></p></article>'+
    '<article class="sheet plain" style="margin-top:14px"><h3>バックアップから ふくげんする</h3><p><b>ふくげんすると、いまの きろくが ファイルの 内容で 上書きされるよ。</b>ふくげんの 前に、いまの きろくを バックアップしておくのを おすすめするよ。</p><input type="file" id="bkFile" accept="application/json,.json" aria-label="バックアップファイルを えらぶ"><div id="bkPrev" role="status" style="margin-top:10px"></div></article>';
   var host=document.getElementById("hubp-kaeru");
@@ -307,20 +307,20 @@ function renderBackup(){
   var pv=document.getElementById("bkPrev");
   document.getElementById("bkFile").addEventListener("change",function(e){
     var f=e.target.files&&e.target.files[0];pv.innerHTML="";if(!f)return;
-    if(f.size>1500000){pv.innerHTML='<p class="bk-bad">ファイルが 大きすぎるよ。ふくげんしないよ。</p>';return}
+    if(f.size>1500000){pv.innerHTML='<p class="bk-bad">ファイルが 大きすぎるぞ。ふくげんしないのだ。</p>';return}
     var r=new FileReader();
-    r.onerror=function(){pv.innerHTML='<p class="bk-bad">ファイルを よみこめなかったよ。</p>'};
+    r.onerror=function(){pv.innerHTML='<p class="bk-bad">ファイルを よみこめなかったぞ。</p>'};
     r.onload=function(){
       var v=bkValidate(String(r.result||""));
       if(!v.ok){pv.innerHTML='<p class="bk-bad">⚠ '+esc(v.err)+'</p>';return}
       var when="";try{when=new Date(v.at).toLocaleString("ja-JP")}catch(x){}
-      pv.innerHTML='<p class="bk-good">このファイルは ふくげん できるよ。(きろく '+v.n+'こ'+(when?'・バックアップ日時 '+esc(when):'')+')</p><button type="button" class="go" id="bkGo">この きろくで 上書きして ふくげんする</button><p class="small">その前に <button type="button" class="bk-link" id="bkPre">いまの きろくを バックアップ</button> しておくと あんしん。</p>';
+      pv.innerHTML='<p class="bk-good">このファイルは ふくげん できるぞ。(きろく '+v.n+'こ'+(when?'・バックアップ日時 '+esc(when):'')+')</p><button type="button" class="go" id="bkGo">この きろくで 上書きして ふくげんする</button><p class="small">その前に <button type="button" class="bk-link" id="bkPre">いまの きろくを バックアップ</button> しておくと あんしん。</p>';
       document.getElementById("bkPre").addEventListener("click",function(){bkDownload(document.getElementById("bkMsg"))});
       document.getElementById("bkGo").addEventListener("click",function(){
-        if(!confirm("いまの きろくが 上書きされるよ。もとには もどせないよ。ふくげんする?"))return;
+        if(!confirm("いまの きろくが 上書きされるのだ。もとには もどせないぞ。ふくげんする?"))return;
         var ok=0,ng=0;Object.keys(v.data).forEach(function(k){try{localStorage.setItem(k,v.data[k]);ok++}catch(x){ng++}});
-        if(ng)pv.innerHTML='<p class="bk-bad">⚠ 一部が ふくげんできなかったよ(ok '+ok+' / ng '+ng+')。端末の 空きを 確認してね。</p>';
-        else pv.innerHTML='<p class="bk-good">✓ ふくげん できたよ！('+ok+'こ)　ページを 読みこみなおすと 反映されるよ。</p><button type="button" class="go" onclick="location.reload()">読みこみなおす</button>';
+        if(ng)pv.innerHTML='<p class="bk-bad">⚠ 一部が ふくげんできなかったよ(ok '+ok+' / ng '+ng+')。端末の 空きを 確認してくれ。</p>';
+        else pv.innerHTML='<p class="bk-good">✓ ふくげん できたぞ！('+ok+'こ)　ページを 読みこみなおすと 反映されるのだ。</p><button type="button" class="go" onclick="location.reload()">読みこみなおす</button>';
       });
     };
     r.readAsText(f);

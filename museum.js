@@ -3,7 +3,7 @@
 if(window.__bmMuseum)return;window.__bmMuseum=1;
 var f=(location.pathname.split("/").pop()||"index.html").replace(/\.html$/,"")||"index";
 var ROOMS=[
-{id:"hall",s:"r-hall",n:"入口ホール",ico:"hall",d:"博物館の入口。展示ではなく、案内のみの場所だよ。はじめての人は、ここから。",p:["index"]},
+{id:"hall",s:"r-hall",n:"入口ホール",ico:"hall",d:"博物館の入口。展示ではなく、案内のみの場所である。はじめての人は、ここから。",p:["index"]},
 {id:"r1",s:"r-1",n:"第1展示室　ボンたちの部屋",ico:"rainbow",d:"ボンたちに会える部屋。",p:["zukan","bon","talk","shindan"]},
 {id:"r2",s:"r-2",n:"第2展示室　ものがたりの部屋",ico:"book",d:"ボンたちのおはなしと、ボン界のきまり。",p:["world","novels","novel","novel6","novel5","novel1b","novel2","novel4","novel7"]},
 {id:"r3",s:"r-3",n:"第3展示室　あそびの部屋",ico:"game",d:"ゲームで あそべる部屋。",p:["games"]},
@@ -100,7 +100,7 @@ var st=here?'<span class="st here">いま ここ</span>':(visited(r)?'<span clas
 var ex=[];ROUTE.forEach(function(x,i){if(r.p.indexOf(x[0])>=0)ex.push('<li'+(x[0]===f?' class="cur"':'')+'><b>No.'+("00"+(i+1)).slice(-3)+'</b><a href="'+x[0]+'.html">'+esc(x[1])+'</a><br><span>'+esc(x[3])+'</span></li>')});
 h+='<section class="rm'+(here?' now':'')+((r.id==="hall"||r.id==="r5")?' wide':'')+'"><h4>'+r.ico+' <a href="'+href+'" style="color:inherit">'+esc(r.n)+'</a>'+st+'</h4><p>'+esc(r.d)+'</p><ul>'+ex.join('')+'</ul></section>'});
 h+='<section class="rm wide"><h4>'+I('ticket')+' 受付・案内所</h4><ul><li><a href="mine.html#stamp">スタンプ帳</a><br><span>見学した展示室のしるしが集まるよ。</span></li><li><a href="search.html">館内さくいん</a><br><span>ことばで、見たい展示を探せるよ。</span></li></ul></section>';
-h+='</div><p class="fp-z">点線は順路。上から順に歩くと、ぜんぶ見られるよ。</p></div>';return h}
+h+='</div><p class="fp-z">点線は順路。上から順に歩くと、ぜんぶ見られるぞ。</p></div>';return h}
 /* 展示ラベル */
 var DO={creators:["BON CREATIONSが どんな名前かを知る","さくしゃボンと、「ボンちゃん」の名前の由来を読む"],index:["お知らせを見る","展示一覧から行きたい部屋を選ぶ"],
 zukan:["7人のボンの性格や好きなものを知る","気になるボンを選んで、くわしいページへ行く"],
@@ -166,7 +166,7 @@ var now=new Date(),today=now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now
 var first=ls("bm-first");if(!first){first=today;ls("bm-first",first)}
 var vc=+ls("bm-vc")||1;
 var tk=document.createElement("section");tk.className="bm-ticket";tk.setAttribute("aria-label","入館券");
-tk.innerHTML='<div class="tk-h"><span>ADMISSION TICKET</span><span>入館券</span></div><p class="tk-n">BON MUSEUM　ボンちゃんの小さな博物館</p><p>入館日：'+today+'　／　はじめての入館日：'+first+'</p><p>入館：'+vc+'日目　／　見学した展示室：<span id="bmTkN">'+nVisited()+'</span> / '+ROOMS.length+'</p><p class="tk-s">この入館券は、この端末のブラウザの中だけにある、記念のチケットだよ。展示室を見てまわると、スタンプが押されます。</p><details style="margin-top:6px"><summary style="cursor:pointer;min-height:44px;display:inline-flex;align-items:center;color:#7A2434;font-weight:700">'+I("map")+' 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
+tk.innerHTML='<div class="tk-h"><span>ADMISSION TICKET</span><span>入館券</span></div><p class="tk-n">BON MUSEUM　ボンちゃんの小さな博物館</p><p>入館日：'+today+'　／　はじめての入館日：'+first+'</p><p>入館：'+vc+'日目　／　見学した展示室：<span id="bmTkN">'+nVisited()+'</span> / '+ROOMS.length+'</p><p class="tk-s">この入館券は、この端末のブラウザの中だけにある、記念のチケットだぞ。展示室を見てまわると、スタンプが押されるぞ。</p><details style="margin-top:6px"><summary style="cursor:pointer;min-height:44px;display:inline-flex;align-items:center;color:#7A2434;font-weight:700">'+I("map")+' 館内マップ・順路を見る</summary>'+mapHtml()+'</details>';
 var tdn=document.getElementById("today");if(tdn)tdn.parentNode.insertBefore(tk,tdn.nextSibling);else hd.parentNode.insertBefore(tk,hd.nextSibling);
 var M=[];var h=now.getHours();
 M.push("館内アナウンスは、アルバイトの我輩、にじボンが務めよう。順路に従うも、心の向くままに歩くも、見学者の自由だぞ。");
@@ -178,12 +178,20 @@ if(h>=14&&h<18)M.push("午後の光が、展示室をやさしく照らしてい
 if(h>=18&&h<23)M.push("夜の博物館は、ひっそりとして、いいものだな。ボンたちも、そろそろ丸くなる時刻であるな。");
 if(h>=23||h<5)M.push("夜ふかしだな。ボンも夜はまるまって眠る。そなたも、そろそろ休んではどうだ？");
 var g=document.getElementById("tdGreet");
-if(g){var gb=g.parentNode;var lab=document.createElement("p");lab.className="bm-al";lab.innerHTML=I("mega")+" 館内アナウンス　<small>担当：にじボン</small>";gb.insertBefore(lab,g);
-var bt=document.createElement("button");bt.type="button";bt.id="bmAn";bt.className="bm-next";bt.textContent="つぎのアナウンス";bt.setAttribute("aria-label","次のアナウンス");gb.appendChild(bt);
+if(g){var td=document.getElementById("today");
+var box=document.createElement("div");box.className="bm-ann";box.setAttribute("role","region");box.setAttribute("aria-label","館内アナウンス");box.style.cssText="align-items:center;margin:14px 0";
+var im=document.createElement("img");im.src="icon_round_niji.png";im.alt="にじボン";im.width=56;im.height=56;im.style.cssText="flex:none;width:56px;height:56px;border-radius:50%;border:2px solid #55602A;background:#fff";
+var bd=document.createElement("div");bd.style.cssText="flex:1;min-width:0";
+var lab=document.createElement("p");lab.className="bm-al";lab.innerHTML=I("mega")+" 館内アナウンス　<small>担当：にじボン</small>";
+var tx=document.createElement("p");tx.id="bmAnTx";tx.style.cssText="margin:0 0 6px;line-height:1.7";
+var bt=document.createElement("button");bt.type="button";bt.id="bmAn";bt.className="bm-next";bt.textContent="つぎのアナウンス";bt.setAttribute("aria-label","次のアナウンス");
+bd.appendChild(lab);bd.appendChild(tx);bd.appendChild(bt);box.appendChild(im);box.appendChild(bd);
+if(td&&td.parentNode)td.parentNode.insertBefore(box,td);else g.parentNode.insertBefore(box,g);
+g.style.display="none";
 var ai=0,tm=0,first=(g.textContent||"").trim();if(first)M.unshift(first);
-function show(){g.textContent=M[ai%M.length];ai++}
+function show(){tx.textContent=M[ai%M.length];ai++}
 function auto(){clearInterval(tm);if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;tm=setInterval(function(){if(!document.hidden)show()},12000)}
-ai=1;auto();bt.addEventListener("click",function(){show();auto()})}
+show();auto();bt.addEventListener("click",function(){show();auto()})}
 var el=document.createElement("section");el.className="bm-ex";el.setAttribute("aria-label","展示一覧");
 var eh='<div class="gr">';ROUTE.forEach(function(x,i){eh+='<a class="cd" href="'+x[0]+'.html"><span class="n">No.'+("00"+(i+1)).slice(-3)+'　'+esc(x[2])+'</span><span class="t">'+esc(x[1])+'</span><span class="d">'+esc(x[3])+'</span></a>'});
 el.innerHTML='<details class="bm-exd"><summary>展 示 一 覧 ・ 全'+ROUTE.length+'室(ひらく)</summary>'+eh+'</div></details>';tk.parentNode.insertBefore(el,tk.nextSibling);
