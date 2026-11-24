@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="20261123-733">
+<meta name="site-version" content="20261123-735">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -360,7 +360,7 @@ header>*{position:relative}
 <script>(function(){try{var a=JSON.parse(localStorage.getItem("bm-oshis")||"[]");if(!a||!a.length)return;var N={oko:"おこボン",niko:"にこボン",hyoe:"ひょえボン",mogu:"もぐボン",nemu:"ねむボン",tere:"てれボン",niji:"にじボン"},L=document.getElementById("oshiTopL");a.forEach(function(k){if(N[k]){var s=document.createElement("span");s.textContent=N[k];s.style.cssText="background:var(--card);border:2px solid var(--khaki);border-radius:999px;padding:2px 10px";L.appendChild(s)}});document.getElementById("oshiTop").hidden=false}catch(e){}})();</script>
 <style>#topTabs ul{justify-content:flex-start}#topTabs li:first-child{margin-left:auto}#topTabs li:last-child{margin-right:auto}@media(max-width:600px){#topTabs ul{gap:2px}#topTabs a{font-size:16px;padding:0 12px}#topTabs .hint{display:block}}</style>
 <nav id="topTabs" aria-label="メインメニュー"><ul>
-<li><a href="index.html">トップ</a></li><li><a href="games.html">ゲーム</a></li><li><a href="world.html">世界観</a></li><li><a href="zukan.html">図鑑</a></li><li><a href="oheya.html?m=r">おへや</a></li><li><a href="novels.html">小説</a></li><li><a href="music.html">音楽</a></li><li><a href="gallery.html">ギャラリー</a></li><li><a href="talk.html">おしゃべり</a></li><li><a href="news.html">お知らせ</a></li><li><a href="search.html">検索</a></li>
+<li><a href="index.html">トップ</a></li><li><a href="games.html">ゲーム</a></li><li><a href="world.html">世界観</a></li><li><a href="zukan.html">図鑑</a></li><li><a href="oheya.html?m=r">おへや</a></li><li><a href="novels.html">小説</a></li><li><a href="music.html">音楽</a></li><li><a href="gallery.html">ギャラリー</a></li><li><a href="talk.html">おしゃべり</a></li><li><a href="news.html">お知らせ</a></li><li><a href="hajimete.html#faq">FAQ</a></li><li><a href="creators.html">つくった ひと</a></li><li><a href="search.html">検索</a></li>
 </ul><p class="hint" aria-hidden="true">← よこに スクロール →</p></nav>
 <header>
 <div class="top">
@@ -383,7 +383,7 @@ header>*{position:relative}
 #topTabs a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 5px;font-size:14px;font-weight:700;color:#2E241C;text-decoration:none;border-bottom:4px solid transparent;margin-bottom:-3px;white-space:nowrap}
 #topTabs a:hover,#topTabs a:focus-visible{border-bottom-color:#7A2434;color:#7A2434}
 #topTabs .hint{display:none;font-size:12px;color:#5B4C3E;margin:0;padding:0 12px 4px;text-align:right}
-@media (min-width:760px){#topTabs ul{justify-content:center;gap:10px}#topTabs li{flex:0 0 auto}#topTabs a{font-size:18px;padding:0 18px}#topTabs .hint{display:none}}
+@media (min-width:760px){#topTabs ul{flex-wrap:wrap;overflow-x:visible;justify-content:center;gap:0 6px}#topTabs li,#topTabs li:first-child,#topTabs li:last-child{flex:0 0 auto;margin:0}#topTabs a{font-size:18px;padding:0 18px}#topTabs .hint{display:none}}
 [id]{scroll-margin-top:112px}
 </style>
 <style>
