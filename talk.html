@@ -196,12 +196,12 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
 </header>
 <nav class="hubtabs" aria-label="ページのきりかえ" role="tablist"><button type="button" role="tab" data-hub="talk" id="hubt-talk">おしゃべり</button><button type="button" role="tab" data-hub="hitokoto" id="hubt-hitokoto">ひとこと</button></nav>
 <div class="hubpanel" id="hubp-talk" role="tabpanel" aria-labelledby="hubt-talk">
-<p class="lead">まず、君の名前を決めよう(ブラウザに保存されて、設定からいつでも変えられるよ)。話し相手を選んで、一言送ってみてね。ボンたちは、言葉に反応してセリフを返すよ。</p>
+<p class="lead">まず、君の名前を決めよう(ブラウザに保存されて、設定からいつでも変えられるよ)。話し相手を選んで、一言送ってみてくれ。ボンたちは、言葉に反応してセリフを返すのだ。</p>
 
 
   <section class="sheet setup" id="setup" aria-labelledby="sh">
-    <h2 id="sh">名前を決めてね</h2>
-    <p class="lead">ボンたちは、きみのことを「○○ボン」と呼ぶよ。ひらがな・カタカナで5文字まで入れてね。わからなければ、そのまま「モブボン」でもOK。</p>
+    <h2 id="sh">名前を決めてくれ</h2>
+    <p class="lead">ボンたちは、きみのことを「○○ボン」と呼ぶぞ。ひらがな・カタカナで5文字まで入れてくれ。わからなければ、そのまま「モブボン」でもOK。</p>
     <form id="nf" autocomplete="off">
       <label for="nmin" class="lab">名前</label>
       <div class="nrow">
@@ -212,7 +212,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
       <p class="err" id="nmerr" role="alert"></p>
       <button class="send" type="submit">始める</button>
     </form>
-    <p class="note">決めた名前はこのブラウザに保存されるよ。後で「設定」から変えられるよ。</p>
+    <p class="note">決めた名前はこのブラウザに保存されるぞ。後で「設定」から変えられるのだ。</p>
   </section>
 
   <div class="app" id="app" hidden>
@@ -231,18 +231,18 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
       <input type="text" id="t" maxlength="60" placeholder="ひとことどうぞ" aria-label="ボンに話しかける" enterkeyhint="send">
       <button class="send" id="sb" type="submit">送る</button>
     </form>
-    <p class="note">台本で動く会話ツールだよ(AIとのリアルタイムの会話ではないよ)。言葉によっては、うまく返せないこともあるよ。</p>
+    <p class="note">台本で動く会話ツールだよ(AIとのリアルタイムの会話ではないよ)。言葉によっては、うまく返せないこともあるぞ。</p>
   </section>
 
   <details class="kw sheet" id="hintd"> <summary>どんな言葉に反応するの？</summary>
     <div class="hintin">
-      <p class="note">ボンたちが反応する言葉の例だよ。タップすると、今話している相手に送られるよ。ここにない言葉にも、反応することがあるよ。</p>
+      <p class="note">ボンたちが反応する言葉の例だぞ。タップすると、今話している相手に送られるぞ。ここにない言葉にも、反応することがあるのだ。</p>
       <div id="hints" style="display:flex;flex-direction:column;gap:12px"></div><div class="kwsearch"><label for="kwq" class="lab">ことばを さがす</label><input type="search" id="kwq" placeholder="例:ラーメン、うれしい" autocomplete="off"><p class="note" id="kwn" aria-live="polite"></p></div><div id="kwcats"><details class="kwc"><summary>あいさつ</summary><dl class="kwl"><dt>挨拶</dt><dd>こんにちは、おはよう、おやすみ、またね、ありがとう、ごめんね、おめでとう、元気?</dd><dt>挨拶・マナー</dt><dd>お願いします、どうぞ、どういたしまして、失礼します、お邪魔します、お大事に、お久しぶり、いってらっしゃい</dd></dl></details><details class="kwc"><summary>名前・自己紹介</summary><dl class="kwl"><dt>名前</dt><dd>名前は?(ボンたちの名前)、わたしの名前は?(きめた名前を答えてくれる)</dd><dt>他のボン</dt><dd>おこボン、にこボン、ひょえボン、もぐボン、ねむボン、てれボン、にじボン、みんな</dd><dt>覚えてくれること</dt><dd>「好きな食べ物はカレー」と教えると覚えてくれる(「わたしの好きなもの覚えてる?」で聞ける)。「さっきの話は?」で直前の話題、「今日は何の日?」で今日のひとこと、「何日目?」で会った日数がわかる</dd></dl></details><details class="kwc"><summary>好きなもの</summary><dl class="kwl"><dt>好きなもの</dt><dd>好きな食べ物、趣味、苦手なもの、天気、虹、季節、動物、島、ゲーム、音楽</dd></dl></details><details class="kwc"><summary>気持ち</summary><dl class="kwl"><dt>気持ち</dt><dd>ほめて、かわいい、すき、疲れた、さびしい、眠い、暇、がんばる、笑</dd><dt>気持ち(もっと)</dt><dd>うれしい、たのしい、こわい、緊張、どきどき、わくわく、安心、最高</dd><dt>ボンの本能</dt><dd>しょんぼりすると「しょボン……」、びっくりすると「ボン！？」、ごはんのときは「ボーン！」。ボンという種族の生まれつきの本能で、みんな同じ(本能の声に、そのボンの口ぐせが加わって、ひょえボンの「ひょえ」などになる)(「びっくり」「しょんぼり」「いただきます」と送ってみてね)</dd><dt>スキンシップ</dt><dd>スキンシップは「ボンの おへや」へ。「なでなで」「ほっぺをつんつん」「握手」「ぎゅー」と打っても反応するよ</dd></dl></details><details class="kwc"><summary>遊び</summary><dl class="kwl"><dt>遊び</dt><dd>じゃんけん、おみくじ、しりとり、かずあて、ウミガメのスープ、連想ゲーム、あっち向いてホイ、名言、ひみつ</dd><dt>遊び(もっと)</dt><dd>ウミガメのスープ、連想ゲーム、あっち向いてホイ、しりとり、なぞなぞ、クイズ、かくれんぼ、「遊ぼう」(まだじゃんけんだけ遊べるよ)</dd></dl></details><details class="kwc"><summary>食べ物・飲み物</summary><dl class="kwl"><dt>行事・食べ物</dt><dd>ハロウィン、クリスマス、お正月、花火、お花見、ラーメン、カレー、おにぎり、ケーキ、コーヒー、お酒、おやつ</dd></dl></details><details class="kwc"><summary>日常生活</summary><dl class="kwl"><dt>日常</dt><dd>お風呂、掃除、買い物、洗濯、昼寝、映画、雨の日</dd><dt>今</dt><dd>いま何時?、今日は何曜日?</dd><dt>いろいろ(もっと)</dt><dd>好きな色、何歳?、歌って、ぎゅー、学校、勉強、宿題、体調、頭が痛い、お金、ほしいもの、おばけ、魔法、夢、宇宙、友だち、けんか、なんで?、ほんと?</dd></dl></details><details class="kwc"><summary>仕事・学校</summary><dl class="kwl"><dt>仕事・お出かけ</dt><dd>仕事、残業、月曜日、給料、休み、旅行、電車、海、山、散歩、ドライブ</dd><dt>学校(もっと)</dt><dd>受験、成績、部活、文化祭、運動会、遠足、卒業、給食、夏休み、授業、遅刻</dd></dl></details><details class="kwc"><summary>恋バナ</summary><dl class="kwl"><dt>恋バナ</dt><dd>恋バナしよう、好きな人、片思い、告白、デート、失恋、彼氏、彼女</dd></dl></details><details class="kwc"><summary>動物・自然</summary><dl class="kwl"><dt>動物・ペット</dt><dd>動物園、水族館、ペット、ハムスター、うさぎ、金魚、ペンギン、くじら、ひよこ</dd></dl></details><details class="kwc"><summary>音楽</summary><dl class="kwl"><dt>音楽・歌(もっと)</dt><dd>カラオケ、ライブ、推し、歌詞、作曲、ピアノ、ギター、バンド、アニソン</dd></dl></details><details class="kwc"><summary>お金・買い物</summary><dl class="kwl"><dt>お金・買い物(もっと)</dt><dd>セール、ポイント、通販、節約、無駄遣い、お小遣い、割り勘、コンビニ、100均</dd></dl></details><details class="kwc"><summary>体調</summary><dl class="kwl"><dt>体調(もっと)</dt><dd>肩こり、腰痛、花粉症、筋トレ、ストレッチ、体重、歯医者、二日酔い、寝不足</dd></dl></details><details class="kwc"><summary>夢・将来</summary><dl class="kwl"><dt>夢・将来</dt><dd>将来、将来の夢、なりたい、目標、努力、挑戦、未来、就職、転職</dd></dl></details><details class="kwc"><summary>SNS・スマホ</summary><dl class="kwl"><dt>SNS・スマホ</dt><dd>スマホ、SNS、ツイート、いいね、フォロー、通知、充電、圏外、アプリ</dd></dl></details><details class="kwc"><summary>ことわざ・なぞなぞ</summary><dl class="kwl"><dt>ことわざ</dt><dd>七転び八起き、石の上にも三年、急がば回れ、猿も木から落ちる、花より団子、ほか14種類(意味を教えてくれるよ)</dd><dt>なぞなぞ</dt><dd>「なぞなぞ」「クイズ」と送ると出題してくれる。答えを送ると正解かどうか教えてくれる(ヒント・こうさんもあるよ)</dd></dl></details><details class="kwc"><summary>サイトのこと</summary><dl class="kwl"><dt>サイトのこと</dt><dd>博物館、ボンのしま、パズル、リズム、スタンプ、LINE</dd><dt>困った時</dt><dd>ヘルプ、なにができる?</dd></dl></details><details class="kwc"><summary>その他</summary><dl class="kwl"><dt>ここだけの話</dt><dd>ここだけの話、裏話、こっそり、内緒話、誰にも言わない、ボンたちのひみつ</dd><dt>言葉集め</dt><dd>食べ物・おかし・のみもの・くだもの・やさい・動物・いきもの・自然・服・家のもの・ネット・場所・仕事・趣味・スポーツ・時間・擬音・形容詞・動詞・都道府県・国・日本の行事・学校・気持ちのことばなど、約2234語に、一言返す(例:「プリン」「うどん」「富士山」「ふわふわ」)</dd></dl><div id="kwAll" class="kwall"></div></details></div>
     </div>
   </details>
 
   <details class="kw sheet" id="stagefold"><summary id="sth"><span>ボンたちの おしゃべり<small class="sdesc">ボンたちが おたがいに はなす ところを のぞいてみよう</small></span></summary><div class="sheet stage">
-      <p class="note">ボンたちが、お互いに話しているところを覗いてみよう。話題を選ぶと、台本通りに会話が始まるよ。</p>
+      <p class="note">ボンたちが、お互いに話しているところを覗いてみよう。話題を選ぶと、台本通りに会話が始まるぞ。</p>
       <div class="scbar" id="scs" aria-label="おはなしをえらぶ"></div>
       <div class="scbar"><button class="chip" type="button" id="scrand">お任せで見る</button><button class="chip" type="button" id="scstop">止める</button></div>
       <div id="stage" role="log" aria-live="polite" aria-label="ボンたちの会話"></div>
@@ -261,7 +261,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
       <button class="send" type="button" id="clr">覚えたことと会話を消す</button>
       <button class="send" type="button" id="cimg">いまの会話を画像でほぞん</button>
       <button class="send" type="button" id="unkb">わからなかった言葉を見る</button>
-      <p class="note" id="unkn" hidden>わからなかった言葉が溜まったら、制作者に見せてね！</p>
+      <p class="note" id="unkn" hidden>わからなかった言葉が溜まったら、制作者に見せてくれ！</p>
       <textarea id="unkt" readonly hidden rows="5" style="width:100%;box-sizing:border-box"></textarea>
       <p class="note">名前・設定・会話・覚えたことは、このブラウザにだけ保存されるよ(他の人には見えないよ)。</p>
     </form>
@@ -275,7 +275,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
 
 <section aria-labelledby="ht0">
 <h2 id="ht0"><svg class="i fl" width="24" height="24" aria-hidden="true"><use href="#flower"/></svg><span class="t">きょうの きぶんは？</span></h2>
-<div class="gl-lead zintro"><p>いまの きぶんを えらんでね。ボンが ひとこと かえしてくれるよ。ひとことを 書いて、日記のように のこすこともできるよ。</p></div>
+<div class="gl-lead zintro"><p>いまの きぶんを えらんでくれ。ボンが ひとこと かえしてくれるぞ。ひとことを 書いて、日記のように のこすこともできるのだ。</p></div>
 <div class="sheet" style="gap:12px">
 <div class="htm" id="htMood" role="group" aria-label="きぶん"></div>
 <label class="htl" for="htText">ひとこと(書かなくてもいいよ・40字まで)</label>
@@ -287,7 +287,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
 </section>
 <section aria-labelledby="ht1"><details class="kw sheet" id="htfold"><summary id="ht1">これまでの ひとこと <span class="cnt" id="htCnt">(0件)</span></summary>
 <div class="sheet plain"><div class="nkl" id="htPast"></div>
-<p class="hts">この記録は、この端末のブラウザの中だけに のこるよ。ほかの人には 見えないし、サイトにも 送られないよ。</p>
+<p class="hts">この記録は、この端末のブラウザの中だけに のこるぞ。ほかの人には 見えないし、サイトにも 送られないぞ。</p>
 <button type="button" class="go" id="htClear" style="display:none">ぜんぶ けす</button></div>
 </details><p class="hts" style="margin:0">ここは、ひとこと あそびの ページだよ。つらい気持ちが つづくときは、身近な人や、相談できる窓口に 話してみてね。</p>
 </section>
@@ -300,7 +300,7 @@ body{font-size:16px;padding-block:26px 44px}@media (min-width:640px){.wall{colum
   <p>作った人:ボンちゃん</p>
   <p>© BON CREATIONS</p>
 </footer>
-<noscript><p style="padding:16px">このページは JavaScript をオンにすると遊べるよ。</p></noscript>
+<noscript><p style="padding:16px">このページは JavaScript をオンにすると遊べるのだ。</p></noscript>
 <script src="stamp_data.js"></script><script>
 (function () {
   "use strict";
