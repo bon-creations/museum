@@ -360,7 +360,7 @@ function sv(o){try{localStorage.setItem(K,JSON.stringify(o))}catch(e){}}
 function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function mk(){var all=Q.map(function(q){var pool=sh(P[q[2]].filter(function(x){return x!==q[1]&&!(x==="あたし"&&q[1]==="アタシ")&&!(x==="アタシ"&&q[1]==="あたし")})).slice(0,3);return{q:q[0],a:q[1],cat:q[2],o:sh(pool.concat([q[1]]))}}).concat(F.map(function(f,fi){return{q:f[0],a:f[1],f:fi,o:sh(f[2].concat([f[1]]))}}));return sh(all).slice(0,10)}
 var NM={"おこ":"oko","にこ":"niko","ひょえ":"hyoe","もぐ":"mogu","ねむ":"nemu","てれ":"tere","にじ":"rain","みの":"mino"};
-var FX=[["ひょえボンの はじめての ともだちは、みのボンだよ。","mino"],["ひょえボンが ねんどで つくった ましゅこっとは、ぷにだよ。","punicare.html"],["ぷにの 顔は、○△○ の 形だよ。","punicare.html"],["ひょえボンが ねんどで つくった コーギーは、こぎだよ。","hyoe"],["ひょえボンが いろはちゃんに あげた くじらは、くじにゃんだよ。","hyoe"]];
+var FX=[["ひょえボンの はじめての ともだちは、みのボンだよ。","mino"],["ひょえボンが ねんどで つくった ましゅこっとは、ぷにだよ。","oheya.html?tab=puni#hyoe"],["ぷにの 顔は、○△○ の 形だよ。","oheya.html?tab=puni#hyoe"],["ひょえボンが ねんどで つくった コーギーは、こぎだよ。","hyoe"],["ひょえボンが いろはちゃんに あげた くじらは、くじにゃんだよ。","hyoe"]];
 var CT={"一人称":"の 一人称は","すきなもの":"の すきなものは","バイト":"の バイトは","口ぐせ":"の 口ぐせは","たからもの":"の たからものは"};
 function ex(q,idx){var m=q.q.match(/^(.+?)ボンの/);var id=m&&NM[m[1]]?NM[m[1]]:"";var cat=q.cat;var e;
 if(q.f!=null){e=FX[q.f][0];id=FX[q.f][1]}else if(CT[cat]&&m){e=m[1]+"ボン"+CT[cat]+q.a+"だよ。"}else{e="こたえは "+q.a+" だよ。ボンたちの ことばだよ。"}

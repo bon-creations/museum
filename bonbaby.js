@@ -10,6 +10,8 @@ var B=window.BonBaby={AUTO:1e15,t:0,lastE:"",lastB:-1,tE:0,tV:0,
  saved:function(){try{return localStorage.getItem("bm-hbaby")==="1"}catch(e){return false}},
  start:function(){B.t=Date.now();B.lastE="";B.tE=0;B.tV=Date.now()},
  touched:function(){B.t=Date.now()},
+ R:{feed:["ボン！（おくちを あーん って あけた）","ボン〜♡（もぐもぐ… ほっぺが ふくらんだ）","ボン……ボン！（もっと、って てを のばした）"],solo:["ボン……（ひとりで ぬいぐるみを ぎゅっ。でも ちらっと こっちを みた）","ボン？（きょろきょろ。だれか いる？）","ボン……（おへやの すみで ちいさく ゆれて いる）"],play:["ボン！ボン！（きゃっきゃっ って わらった）","ボン〜♡（てを ぱちぱち。もっと！）","ボンボン！（あしを ぱたぱた させて よろこんだ）"],sleep:["ボン……（めを こすって、うとうと…）","ボン〜……（ゆびを くわえて、すやすや…）","ボン……（ちいさな あくびを ひとつ。ねんね…）"],wake:["ボン…？（ねぼけまなこで きょろきょろ）","ボン〜！（おきた！ って てを あげた）","ボン……♡（ふにゃっと わらった）"]},
+ lineR:function(a){var l=B.R[a];return l?pk(l):null},
  line:function(a,kind){var l=BABYA[a];return pk(l||BS.BABY[kind]||BS.BABY.soft)},
  /* 一つ ぶんの じぶんの うごき。env: say2 say walkTo showGuest later(ms,f) ok() lastSay() night() lv() mode() */
  step:function(env){var now=Date.now();if(now-B.t>B.AUTO)return"end";if(now-env.lastSay()<7000)return"";var r=Math.random();

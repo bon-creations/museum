@@ -396,9 +396,9 @@ var L=[
 ["なかよし","ひとりの ボンと「なかよし」になった(25かい)",mx>=25,"oheya.html","おへや"],
 ["ずっと いっしょ","ひとりの ボンと「ずっと いっしょ」になった(100かい)",mx>=100,"oheya.html","おへや"],
 ["7人と なかよし","7人ぜんいんを 10かいずつ なでた",ok2>=7,"oheya.html","おへや"],
-["ぷにに あった","ぷにを そだてはじめた",!!pn,"punicare.html","ぷにを そだてる"],
-["おおきぷに","ぷにを「おおきぷに」まで そだてた",pg>=50,"punicare.html","ぷにを そだてる"],
-["ふわぷに","ぷにを「ふわぷに」まで そだてた",pg>=120,"punicare.html","ぷにを そだてる"],
+["ぷにに あった","ぷにを そだてはじめた",!!pn,"oheya.html?tab=puni#hyoe","ぷにを そだてる"],
+["おおきぷに","ぷにを「おおきぷに」まで そだてた",pg>=50,"oheya.html?tab=puni#hyoe","ぷにを そだてる"],
+["ふわぷに","ぷにを「ふわぷに」まで そだてた",pg>=120,"oheya.html?tab=puni#hyoe","ぷにを そだてる"],
 ["はじめての クイズ","ボンクイズに ちょうせんした",(qz.plays||0)>=1,"shindan.html#quiz","ボンクイズ"],
 ["クイズ はかせ","ボンクイズで 7もん いじょう せいかい",(qz.best||0)>=7,"shindan.html#quiz","ボンクイズ"],
 ["クイズ まんてん","ボンクイズで 10もん ぜんぶ せいかい",(qz.best||0)>=10,"shindan.html#quiz","ボンクイズ"],
@@ -442,7 +442,7 @@ var rd=J("bm-read",[]),pl=J("bm-played",[]),os="";try{var oa=J("bm-oshis",[]);os
 var tc=0;if(tr&&typeof tr==="object"){for(var t in tr){if(tr[t]&&Object.keys(tr[t]).length)tc++}}
 var s=document.getElementById("mnSum");
 if(s)s.innerHTML='スタンプ <b>'+sc+'</b>こ ・ バッジ <b>'+bt+'</b>'+(bT?' / '+bT:'')+'こ　<a href="mine.html#memory">思い出を 見る</a>';
-var R=[["はじめて 来た日",tot?tot.replace(/\./g,"/"):"まだ ないよ",null],["来館した 日",vc+" 日",null],["スタンプ",sc+" こ","mine.html#stamp"],["バッジ",bt+(bT?" / "+bT:"")+" こ","mine.html#badge"],["お気に入り",(fav&&fav.length||0)+" こ","mine.html#fav"],["読んだ 小説",(Array.isArray(rd)?rd.length:0)+" 話","novels.html"],["あそんだ ゲーム",(Array.isArray(pl)?pl.length:0)+" 作品","games.html"],["すきな ボン",ON[os]||"まだ えらんでいないよ",os?"zukan.html#"+(os==="niji"?"rain":os):"index.html"],["しおり",mk+" か所","novels.html"],["なでなで",nn+" かい","nadenade.html"],["ぷに",pn?"そだてている":"まだ あっていないよ","punicare.html"],["ボンクイズ(さいこう)",(qz&&qz.best||0)+" もん せいかい","shindan.html#quiz"],["ガイドツアー",tc+" つ はじめた","tour.html"]];
+var R=[["はじめて 来た日",tot?tot.replace(/\./g,"/"):"まだ ないよ",null],["来館した 日",vc+" 日",null],["スタンプ",sc+" こ","mine.html#stamp"],["バッジ",bt+(bT?" / "+bT:"")+" こ","mine.html#badge"],["お気に入り",(fav&&fav.length||0)+" こ","mine.html#fav"],["読んだ 小説",(Array.isArray(rd)?rd.length:0)+" 話","novels.html"],["あそんだ ゲーム",(Array.isArray(pl)?pl.length:0)+" 作品","games.html"],["すきな ボン",ON[os]||"まだ えらんでいないよ",os?"zukan.html#"+(os==="niji"?"rain":os):"index.html"],["しおり",mk+" か所","novels.html"],["なでなで",nn+" かい","oheya.html?m=f"],["ぷに",pn?"そだてている":"まだ あっていないよ","oheya.html?tab=puni#hyoe"],["ボンクイズ(さいこう)",(qz&&qz.best||0)+" もん せいかい","shindan.html#quiz"],["ガイドツアー",tc+" つ はじめた","tour.html"]];
 var b=document.getElementById("mnBody");if(!b)return;
 var h='<dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px">';
 R.forEach(function(r){h+='<dt style="font-weight:700">'+r[0]+'</dt><dd style="margin:0">'+(r[2]?'<a href="'+r[2]+'">'+r[1]+'</a>':r[1])+'</dd>'});

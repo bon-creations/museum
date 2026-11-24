@@ -49,7 +49,7 @@ function stageWx(){var s=document.getElementById("ohStage");if(!s)return;if(wx.k
 /* ---- たんじょうび ---- */
 function bdToday(id){var f=q("bd");if(f&&(f==="all"||f.split(",").indexOf(id)>=0))return true;var b=BD[id],d=new Date();return !!b&&d.getMonth()+1===b[0]&&d.getDate()===b[1]}
 var BL={oko:"…きょう、アタシの たんじょうび なのよね。べ、別に おいわいなんて いらないんだから！ …でも、ありがと。",
-niko:"きょうは にこの たんじょうび！ ボンボン！ みんなで おいわい したいなぁ！",
+niko:"きょうは わたしの たんじょうび！ ボンボン！ みんなで おいわい したいなぁ！",
 hyoe:"きょう、ボンの たんじょうび…って いわれた。ボン、ちょっと はずかしい…でも、うれしい。",
 mogu:"きょうは うちの たんじょうび〜。ケーキ、はんぶんこ しようね〜",
 nemu:"ふあ…きょうは 僕の たんじょうび。…ねむいけど、うれしいな。",
