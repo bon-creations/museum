@@ -229,7 +229,7 @@ function pacc(s){var a="";if(s>=2)a+='<path d="M-6-60l-18-14 6 20zM6-60l18-14-6 
 function pdraw(){
  var w=$("hpFig");if(!w)return;var s=pst(),low=Math.min(pd.h,pd.f,pd.s)<25;
  w.setAttribute("transform","translate(110 "+(150-20*PST[s][2])+") scale("+PST[s][2]+")");
- $("hpAcc").innerHTML=pacc(s);$("hpFace").innerHTML=pface(psleep?"sleep":low?"sad":"n");
+ $("hpAcc").innerHTML="";$("hpFace").innerHTML="";
  if($("hpH")){$("hpH").style.width=pd.h+"%";$("hpF").style.width=pd.f+"%";$("hpS").style.width=pd.s+"%"}
  var nx=PST[s+1];$("hpStage").textContent=PST[s][0]+(pmode==="r"?(nx?"（あと"+(nx[1]-pd.g)+"かいで おおきくなるよ）":"（いちばん おおきいよ）"):"　さわった かず："+pd.tc);
  if(!psleep&&!$("hpSay").dataset.k)$("hpSay").textContent=low&&pmode==="r"?"ぷに…":"ぷに！"}
