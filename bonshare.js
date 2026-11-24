@@ -211,7 +211,7 @@ window.BonShare={WALK:WALK,APPR:APPR,
   else if(place==="today"&&r.quick&&r.quick[a])t=pick(r.quick[a]);
   else if(place==="fure"&&r.more&&r.more[a])t=pick(pool.concat(r.more[a]));
   else t=pick(pool);
-  if(!up&&(a==="tsun"||a==="hug")&&Math.random()<.4)t="ボン!? "+t;
+  if(!up&&(a==="tsun"||a==="hug")&&Math.random()<.4)t="ボン！？ "+t;
   if(!up&&(a==="nade"||a==="hug"||a==="gyu"||a==="hand"||a==="feed")&&Math.random()<.25)t=this.thanks(k);
   if(a==="sleep"&&todKind()==="night"&&Math.random()<.7)t=this.greet(k,"night");
   return{text:t,up:up,level:lv(this.nade(k)),n:this.count(k,a)}}
