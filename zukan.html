@@ -443,6 +443,28 @@ function play(){if(!au){au=new Audio("gatari2.mp3");au.preload="auto"}try{if(win
 function close(){ov.style.display="none";clearInterval(tm);if(au)au.pause();document.body.style.overflow=""}
 im.addEventListener("click",function(){if(!ov)mk();ov.style.display="flex";document.body.style.overflow="hidden";inp.value="";ms.textContent="";glitch()});
 })();</script>
+<script>(function(){
+var H="3583cf152a092e2bbb7f33f5c162baf79577807e273afa04f17f0df72388fc31",T1="ここは さくしゃボンの 小さな 部屋。",T2="ことばを どうぞ。",ov,ms,inp,au,cnt=0,ct;
+function norm(v){try{v=v.normalize("NFKC")}catch(e){}return v.trim().toLowerCase()}
+function hx(v){try{if(!(window.crypto&&crypto.subtle&&window.TextEncoder))return Promise.resolve("");return crypto.subtle.digest("SHA-256",new TextEncoder().encode(v)).then(function(b){var a=new Uint8Array(b),o="";for(var i=0;i<a.length;i++)o+=("0"+a[i].toString(16)).slice(-2);return o})}catch(e){return Promise.resolve("")}}
+function mk(){ov=document.createElement("div");ov.setAttribute("role","dialog");ov.setAttribute("aria-label","さくしゃボンの部屋");ov.style.cssText="position:fixed;inset:0;z-index:2147483000;background:#141709;color:#ECEFD6;display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;text-align:center";
+var a=document.createElement("div");a.style.cssText="font-size:22px;font-weight:700;letter-spacing:2px;line-height:1.7";a.textContent=T1;
+var b=document.createElement("div");b.style.cssText="font-size:18px;opacity:.9";b.textContent=T2;
+inp=document.createElement("input");inp.type="text";inp.maxLength=24;inp.autocomplete="off";inp.autocapitalize="off";inp.setAttribute("aria-label","ことば");inp.style.cssText="font:inherit;font-size:18px;min-height:44px;padding:6px 14px;border:2px solid #8A9A3E;border-radius:10px;background:#1E2210;color:#ECEFD6;text-align:center;width:min(16em,80vw)";
+ms=document.createElement("div");ms.setAttribute("role","status");ms.style.cssText="min-height:1.6em;font-size:17px;font-weight:700";
+var ok=document.createElement("button");ok.type="button";ok.textContent="こたえる";ok.style.cssText="font:inherit;font-size:16px;min-height:44px;padding:8px 22px;border-radius:999px;border:2px solid #8A9A3E;background:transparent;color:#ECEFD6;cursor:pointer";
+var x=document.createElement("button");x.type="button";x.textContent="とじる";x.style.cssText="font:inherit;font-size:16px;min-height:44px;padding:8px 22px;border-radius:999px;border:2px solid #5A6330;background:transparent;color:#ECEFD6;cursor:pointer";
+[a,b,inp,ms,ok,x].forEach(function(e){ov.appendChild(e)});document.body.appendChild(ov);
+function ans(){var v=norm(inp.value);if(!v)return;hx(v).then(function(h){inp.value="";if(h&&h===H){ms.textContent="♪";play()}else{ms.textContent="……ちがう みたい。"}})}
+ok.onclick=ans;x.onclick=close;inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();ans()}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.style.display==="flex")close()})}
+function play(){if(!au){au=new Audio("saku_song.mp3");au.preload="auto"}try{if(window.bmBgm&&window.bmBgm.on&&window.bmBgm.on())window.bmBgm.stop()}catch(e){}au.currentTime=0;var p=au.play();if(p&&p.catch)p.catch(function(){})}
+function close(){if(ov)ov.style.display="none";if(au)au.pause();document.body.style.overflow=""}
+function open(){if(!ov)mk();ov.style.display="flex";document.body.style.overflow="hidden";inp.value="";ms.textContent=""}
+var h3=document.querySelector("#sakusha h3");
+if(h3){h3.style.cursor="default";h3.addEventListener("click",function(){cnt++;clearTimeout(ct);ct=setTimeout(function(){cnt=0},1500);if(cnt>=3){cnt=0;open()}})}
+[].slice.call(document.querySelectorAll('img[src="icon_round_sakusha.png"]')).forEach(function(im){im.addEventListener("click",open)});
+})();</script>
 <script src="a11y.js"></script>
 <script>(function(){var T=[].slice.call(document.querySelectorAll(".hubtabs [data-hub]")),P=[].slice.call(document.querySelectorAll(".hubpanel"));
 function show(k,keep){var ok=false;T.forEach(function(b){var on=b.getAttribute("data-hub")===k;if(on)ok=true;b.setAttribute("aria-selected",on?"true":"false");b.classList.toggle("on",on)});if(!ok)return false;P.forEach(function(p){p.hidden=p.id!=="hubp-"+k});return true}
